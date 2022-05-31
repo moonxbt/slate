@@ -107,7 +107,15 @@ This is a full URL to query one order:
 }
 ```
 
-**HTTP Response Body**:
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+## 
+
+HTTP Response Body**:
 
 ```json
 {
@@ -185,6 +193,14 @@ This is a full URL to query one order:
 }
 ```
 
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+## 
+
 **HTTP Response Body**:
 
 ```json
@@ -215,6 +231,8 @@ This is a full URL to query one order:
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
 
+
+
 ## spotsKline:ticker
 
 **HTTP Request**: `POST /api/endpoint`
@@ -231,6 +249,15 @@ This is a full URL to query one order:
     }
 }
 ```
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| symbol  | The request symbol    | String    |
+
+## 
+
 **HTTP Response Body**:
 
 ```json
@@ -276,6 +303,14 @@ This is a full URL to query one order:
     }
 }
 ```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
 
 **HTTP Response Body**:
 
