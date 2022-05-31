@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - json
 
 toc_footers:
-  - <a href='https://v2.api.moonxbt.com'>SnapEx</a>
+  - <a href='https://v2.api.moonxbt.com'>MoonXBT</a>
 
 includes:
   - errors
@@ -28,7 +28,7 @@ Modify the interface adapted to moonxbt.
 ## General API Information
 
 - Some endpoints will require an API Key. 
-- The base endpoint is: `https://www.snapex.com`
+- The base endpoint is: `https://www.MoonXBT.com`
 - All endpoints return either a JSON object or array.
 - Data is returned in ascending order. Oldest first, newest last.
 - All time and timestamp related fields are in milliseconds.
@@ -38,7 +38,7 @@ Modify the interface adapted to moonxbt.
 
 - HTTP 200 OK
 - HTTP 4XX return codes are used for malformed requests; the issue is on the sender's side.
-- HTTP 5XX return codes are used for internal errors; the issue is on SnapEx's side.
+- HTTP 5XX return codes are used for internal errors; the issue is on MoonXBT's side.
 
 ## General Information on Endpoints
 - For GET endpoints, parameters must be sent as a query string.
@@ -805,7 +805,7 @@ API Key Permission：No need.
 
 This WebSocket returns a list of K-lines history data for all public users.
 
-**WebSocket Path**: wss://www.snapex.com/ws/v1/kline
+**WebSocket Path**: wss://www.MoonXBT.com/ws/v1/kline
 
 <aside class="notice">
 The WebSocket server will check the idle connections every 60 seconds. If the WebSocket server does not receive any request frame from the connection within a 1 minute period, the connection will be disconnected. Unsolicited request frames are not allowed.
