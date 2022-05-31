@@ -56,7 +56,7 @@ Each API Key has permission property, please check the API permission, and make 
 
 A valid request consists of below parts:
 
-- API Path: for example https://v2.api.test.moolecloud.com/api/endpoint
+- API Path: for example https://v2.api.moolecloud.com/api/endpoint
 - API Access Key: The 'Access Key' in your API Key
 - Signature Method: The Hash method that is used to sign, it uses HmacSHA256
 - Signature Version: The version for the signature protocol, it uses 1
@@ -72,7 +72,7 @@ The signature may be different if the request text is different, therefore the r
 This is a full URL to query one order:
 
 
-`https://v2.api.test.moolecloud.com/api/endpoint?`
+`https://v2.api.moolecloud.com/api/endpoint?`
 
 `AccessKey=73915b6e-e41d-43ff-ae18-0c29df541b43`
 
