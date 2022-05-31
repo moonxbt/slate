@@ -83,7 +83,7 @@ This is a full URL to query one order:
 `&SignatureVersion=10`
 
 `&Timestamp=2022-05-28T08:30:50`
-
+** Http Request Body**:
 ```json
 { "id": 3, "method": "spotsKline:meta", "jsonrpc": "2.0", "params": { } }
 ```
