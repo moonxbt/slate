@@ -873,7 +873,7 @@ This endpoint returns a list of historical orders owned by this API user.
 ```json
 {
     "id": 5,
-    "method": "historyList",
+    "method": "cfd:historyList",
     "jsonrpc": "2.0",
     "params": {
         "tradeVO": {
@@ -981,7 +981,7 @@ This endpoint returns a list of holding orders owned by this API user.
 ```json
 {
     "id": 5,
-    "method": "holdingList",
+    "method": "cfd:holdingList",
     "jsonrpc": "2.0",
     "params": {
         "tradeVO": {
@@ -1090,7 +1090,7 @@ This endpoint returns a list of pending orders owned by this API user.
 ```json
 {
     "id": 5,
-    "method": "pendingList",
+    "method": "cfd:apendingList",
     "jsonrpc": "2.0",
     "params": {
         "tradeVO": {
