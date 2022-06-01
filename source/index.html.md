@@ -28,7 +28,7 @@ Modify the interface adapted to moonxbt.
 ## General API Information
 
 - Some endpoints will require an API Key. 
-- The base endpoint is: https://v2.api.moonxbt.com
+- The base endpoint is: https://v2api.moonxbt.com
 - All endpoints return either a JSON object or array.
 - Data is returned in ascending order. Oldest first, newest last.
 - All time and timestamp related fields are in milliseconds.
@@ -55,7 +55,7 @@ Each API Key has permission property, please check the API permission, and make 
 
 A valid request consists of below parts:
 
-- API Path: for example https://v2.api.moonxbt.com
+- API Path: for example https://v2api.moonxbt.com
 - API Access Key: The 'Access Key' in your API Key
 - Signature Method: The Hash method that is used to sign, it uses HmacSHA256
 - Signature Version: The version for the signature protocol, it uses 1
@@ -69,7 +69,7 @@ The signature may be different if the request text is different, therefore the r
 
 This is a full URL to query one order:
 
-`https://v2.api.moonxbt.com/api/endpoint?`
+`https://v2api.moonxbt.com/api/endpoint?`
 
 `AccessKey=73915b6e-e41d-43ff-ae18-0c29df541b43`
 
