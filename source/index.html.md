@@ -1,5 +1,5 @@
 ---
-title: API Reference
+atitle: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - json
@@ -41,7 +41,7 @@ Modify the interface adapted to moonxbt.
 - HTTP 5XX return codes are used for internal errors; the issue is on MoonXBT's side.
 
 ## General Information on Endpoints
-- For POST endpoints, the parameters may be sent as a query string or in the request body with content type application/x-www-form-urlencoded. You may mix parameters between both the query string and request body if you wish to do so.
+- For POST endpoints, the parameters may be sent as a query string or in the request body. You may mix parameters between both the query string and request body if you wish to do so.
 - Parameters may be sent in any order.
 - If a parameter sent in both the query string and request body, the query string parameter will be used.
 
@@ -764,7 +764,7 @@ API Key Permission：Need, and please refer to the Authentication chapter.
 
 This WebSocket returns a list of K-lines history data for all public users.
 
-**WebSocket Path**: wss://v2.api.moolecloud.com/ws/endpoint
+**WebSocket Path**: wss://v2api.moonxbt.com/ws/endpoint
 
 <aside class="notice">
 The WebSocket server will check the idle connections every 60 seconds. If the WebSocket server does not receive any request frame from the connection within a 1 minute period, the connection will be disconnected. Unsolicited request frames are not allowed.
@@ -775,10 +775,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 ## spotsKline:meta
-
-
-
-**HTTP Request**: `POST /ws/endpoint`
 
 **HTTP Request Body**:
 
@@ -867,8 +863,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 ## spotsKline:spotsList
 
-**HTTP Request**: `POST /ws/endpoint`
-
 **HTTP Request Body**:
 
 ```json
@@ -926,8 +920,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 ## spotsKline:ticker
 
-**HTTP Request**: `POST /ws/endpoint`
-
 **HTTP Request Body**:
 
 ```
@@ -981,7 +973,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 ## spotsKline:allTicker
 
-**HTTP Request**: `POST /ws/endpoint`
+
 
 **HTTP Request Body**:
 
@@ -1034,8 +1026,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-**HTTP Request**: `POST /ws/endpoint`
-
 **HTTP Request Body**:
 
 ```
@@ -1079,8 +1069,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 ## spotsKline:bars
 
 
-
-**HTTP Request**: `POST /ws/endpoint`
 
 **HTTP Request Body**:
 
@@ -1200,8 +1188,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-**HTTP Request**: `POST /ws/endpoint`
-
 **HTTP Request Body**:
 
 ```
@@ -1250,8 +1236,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-**HTTP Request**: `POST /ws/endpoint`
-
 **HTTP Request Body**:
 
 ```
@@ -1289,8 +1273,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-**HTTP Request**: `POST /ws/endpoint`
-
 **HTTP Request Body**:
 
 ```
@@ -1327,10 +1309,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 ## spotsKline:ping
-
-
-
-**HTTP Request**: `POST /ws/endpoint`
 
 **HTTP Request Body**:
 
