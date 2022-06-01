@@ -28,7 +28,7 @@ Modify the interface adapted to moonxbt.
 ## General API Information
 
 - Some endpoints will require an API Key. 
-- The base endpoint is: https://v2.api.moonxbt.com``
+- The base endpoint is: https://v2.api.moonxbt.com
 - All endpoints return either a JSON object or array.
 - Data is returned in ascending order. Oldest first, newest last.
 - All time and timestamp related fields are in milliseconds.
