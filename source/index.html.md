@@ -780,11 +780,12 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 ```
 {
-"id": 3,
-"method": "spotsKline:meta",
-"jsonrpc": "2.0",
-"params": {
-}
+    "id":3,
+    "method":"spotsKline:meta",
+    "jsonrpc":"2.0",
+    "params":{
+
+    }
 }
 ```
 
@@ -1820,7 +1821,7 @@ This endpoint returns a list of pending orders owned by this API user.
 | extraData                     | Order extra data                         | integer    |
 | walletType                    | Wallet type: 0:BTC,1: USDT, 2:ETH, 3:Gold | integer    |
 | orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
-| memo                          | Less than 64kb `                         | String     |
+| memo                          | Less than 64kb                           | String     |
 | type                          | CFD Order Type                           | integer    |
 | point                         | Number point                             | String     |
 | settlement                    | Settle price                             | Float      |
