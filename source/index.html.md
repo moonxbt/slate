@@ -1844,7 +1844,7 @@ This endpoint returns a list of pending orders owned by this API user.
 | walletType                    | Wallet type: 0:BTC,1: USDT, 2:ETH, 3:Gold | integer    |
 | orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
 | memo                          | Less than 64kb `                         | String     |
-| type                          | ECFDOrderType                            | integer    |
+| type                          | CFD Order Type                            | integer    |
 | point                         | Number point                             | String     |
 | settlement                    | Settle price                             | Float      |
 | holding                       | Judge the order whether is in position state | Boolean    |
