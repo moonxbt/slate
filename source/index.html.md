@@ -87,13 +87,16 @@ This is a full URL to query one order:
 { "id": 3, "method": "spotsKline:meta", "jsonrpc": "2.0", "params": { } }
 ```
 
+# Rest Api
 
+ The endpoint is: https://v2api.moonxbt.com/api/endpoint
 
+## Spots
+### K-Line Spots Endpoints
 
-# K-Line Spots Endpoints 
+## 
 
-
-## spotsKline:meta
+#### Meta
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -181,7 +184,7 @@ This is a full URL to query one order:
 ```
 
 
-## spotsKline:spotsList
+#### SpotsList
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -237,7 +240,7 @@ This is a full URL to query one order:
 
 
 
-## spotsKline:ticker
+#### Ticker
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -294,7 +297,7 @@ This is a full URL to query one order:
 
 
 
-## spotsKline:allTicker
+#### AllTicker
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -344,7 +347,7 @@ This is a full URL to query one order:
 
 
 
-## spotsKline:orderBook
+#### OrderBook
 
 
 
@@ -386,7 +389,7 @@ This is a full URL to query one order:
 
 
 
-## spotsKline:bars
+#### Bars
 
 
 
@@ -506,7 +509,7 @@ This is a full URL to query one order:
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
 
-## spotsKline:ticks
+#### Ticks
 
 
 
@@ -556,7 +559,7 @@ This is a full URL to query one order:
 
 
 
-## spotsKline:orderChanges
+#### OrderChanges
 
 
 
@@ -593,7 +596,7 @@ This is a full URL to query one order:
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
-## spotsKline:orderMatches
+#### OrderMatches
 
 
 
@@ -632,7 +635,7 @@ This is a full URL to query one order:
 
 
 
-## spotsKline:ping
+#### Ping
 
 
 
@@ -674,11 +677,596 @@ This is a full URL to query one order:
 
 
 
+### Spots Trade Endpoint
+
+#### Batch
+
+Batch to open orders
+
+**HTTP Request**: `POST /api/endpoint`
+
+**HTTP Request Body**:
+
+```json
+{
+    "id": 5,
+    "method": "spots:batch",
+    "jsonrpc": "2.0",
+    "version": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "ydmJ64eozTxrDE7uIACcsmbI9xyPPqUscAQ/Qp3i8TE=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",
+    "Timestamp": "2022-05-25T10:20:50",
+    "params": {
+        "orders": [
+            {
+                "direction": "LONG",
+                "type": "LIMIT",
+                "source": "WEB",
+                "symbol": "BTC_USDT",
+                "quantity": 0.01,
+                "postOnly": false,
+                "hidden": false,
+                "price": 40000,
+                "fillOrKill": false,
+                "immediateOrCancel": false
+            }
+        ]
+    }
+}
+```
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "total": 1,
+        "success": 1,
+        "failure": 0
+    },
+    "id": 5,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | Number    |
+| jsonrpc | The json-rpc  version | String    |
+
+#### Open
+
+Get the open state orders
+
+**HTTP Request**: `POST /api/endpoint`
+
+**HTTP Request Body**:
+
+```json
+{
+    "id": 6,
+    "method": "spots:open",
+    "jsonrpc": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
+    "Timestamp": "2022-05-27T10:20:50",
+    "params": {
+        "marginTrade": false
+    }
+}
+```
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "account": {
+            "BTC": {
+                "usdtPrice": null,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "MATIC": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "BNB": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "XRP": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "ETH": {
+                "usdtPrice": null,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "DOGE": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "USDT": {
+                "usdtPrice": 0,
+                "available": 999199.2,
+                "frozen": 800.8,
+                "debt": 0
+            },
+            "USDC": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "TRX": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "LUNA": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            }
+        },
+        "order": [
+            {
+                "symbol": "BTC_USDT",
+                "quantity": 0.01,
+                "triggerOn": 0,
+                "makerFeeRate": 0.001,
+                "trailingDistance": 0,
+                "clientOrderId": "319884411512426496",
+                "fee": 0,
+                "marginTrade": false,
+                "chargeQuote": true,
+                "trailingBasePrice": 0,
+                "type": "LIMIT",
+                "fillPrice": 0.0,
+                "triggerDirection": "LONG",
+                "features": 0,
+                "createdAt": 1654074386869,
+                "trailing": false,
+                "unfilledQuantity": 0.01,
+                "price": 4E+4,
+                "takerFeeRate": 0.002,
+                "id": "9870812206",
+                "status": "PENDING",
+                "direction": "LONG",
+                "updatedAt": 1654074386869
+            },
+            {
+                "symbol": "BTC_USDT",
+                "quantity": 0.01,
+                "triggerOn": 0,
+                "makerFeeRate": 0.001,
+                "trailingDistance": 0,
+                "clientOrderId": "319866698551398400",
+                "fee": 0,
+                "marginTrade": false,
+                "chargeQuote": true,
+                "trailingBasePrice": 0,
+                "type": "LIMIT",
+                "fillPrice": 0.0,
+                "triggerDirection": "LONG",
+                "features": 0,
+                "createdAt": 1654070163770,
+                "trailing": false,
+                "unfilledQuantity": 0.01,
+                "price": 4E+4,
+                "takerFeeRate": 0.002,
+                "id": "9412312206",
+                "status": "PENDING",
+                "direction": "LONG",
+                "updatedAt": 1654070163770
+            }
+        ]
+    },
+    "id": 6,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | Number    |
+| jsonrpc | The json-rpc  version | String    |
+
+#### Open Symbol 
+
+**HTTP Request**: `POST /api/endpoint`
+
+Get the tradable symbols
+
+**HTTP Request Body**:
+
+```json
+{
+    "id": 6,
+    "method": "spots:open",
+    "jsonrpc": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
+    "Timestamp": "2022-05-27T10:20:50",
+    "params": {
+        "marginTrade": false,
+        "symbolName": "BTC_USDT"
+    }
+}
+```
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "account": {
+            "BTC": {
+                "usdtPrice": null,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "MATIC": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "BNB": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "XRP": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "ETH": {
+                "usdtPrice": null,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "DOGE": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "USDT": {
+                "usdtPrice": 0,
+                "available": 999199.2,
+                "frozen": 800.8,
+                "debt": 0
+            },
+            "USDC": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "TRX": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            },
+            "LUNA": {
+                "usdtPrice": 0,
+                "available": 1E+6,
+                "frozen": 0,
+                "debt": 0
+            }
+        },
+        "order": [
+            {
+                "symbol": "BTC_USDT",
+                "quantity": 0.01,
+                "triggerOn": 0,
+                "makerFeeRate": 0.001,
+                "trailingDistance": 0,
+                "clientOrderId": "319884411512426496",
+                "fee": 0,
+                "marginTrade": false,
+                "chargeQuote": true,
+                "trailingBasePrice": 0,
+                "type": "LIMIT",
+                "fillPrice": 0.0,
+                "triggerDirection": "LONG",
+                "features": 0,
+                "createdAt": 1654074386869,
+                "trailing": false,
+                "unfilledQuantity": 0.01,
+                "price": 4E+4,
+                "takerFeeRate": 0.002,
+                "id": "9870812206",
+                "status": "PENDING",
+                "direction": "LONG",
+                "updatedAt": 1654074386869
+            },
+            {
+                "symbol": "BTC_USDT",
+                "quantity": 0.01,
+                "triggerOn": 0,
+                "makerFeeRate": 0.001,
+                "trailingDistance": 0,
+                "clientOrderId": "319866698551398400",
+                "fee": 0,
+                "marginTrade": false,
+                "chargeQuote": true,
+                "trailingBasePrice": 0,
+                "type": "LIMIT",
+                "fillPrice": 0.0,
+                "triggerDirection": "LONG",
+                "features": 0,
+                "createdAt": 1654070163770,
+                "trailing": false,
+                "unfilledQuantity": 0.01,
+                "price": 4E+4,
+                "takerFeeRate": 0.002,
+                "id": "9412312206",
+                "status": "PENDING",
+                "direction": "LONG",
+                "updatedAt": 1654070163770
+            }
+        ]
+    },
+    "id": 6,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | Number    |
+| jsonrpc | The json-rpc  version | String    |
+
+#### Account
+
+Get account info
+
+**HTTP Request**: `POST /api/endpoint`
+
+**HTTP Request Body**:
+
+```json
+{
+    "id": 6,
+    "method": "spots:accounts",
+    "jsonrpc": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
+    "Timestamp": "2022-05-27T10:20:50",
+    "params": {
+       
+    }
+}
+```
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "BTC": {
+            "usdtPrice": null,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "MATIC": {
+            "usdtPrice": 0,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "BNB": {
+            "usdtPrice": 0,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "XRP": {
+            "usdtPrice": 0,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "ETH": {
+            "usdtPrice": null,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "DOGE": {
+            "usdtPrice": 0,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "USDT": {
+            "usdtPrice": 0,
+            "available": 999199.2,
+            "frozen": 800.8,
+            "debt": 0
+        },
+        "USDC": {
+            "usdtPrice": 0,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "TRX": {
+            "usdtPrice": 0,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        },
+        "LUNA": {
+            "usdtPrice": 0,
+            "available": 1E+6,
+            "frozen": 0,
+            "debt": 0
+        }
+    },
+    "id": 6,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | Number    |
+| jsonrpc | The json-rpc  version | String    |
+
+#### Closed
 
 
-# K-Line Liquid Contract  Endpoints 
 
-## cfdKline:history
+**HTTP Request**: `POST /api/endpoint`
+
+**HTTP Request Body**:
+
+```json
+{
+    "id": 6,
+    "method": "spots:closed",
+    "jsonrpc": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
+    "Timestamp": "2022-05-27T10:20:50",
+    "params": {
+        "account": "10119267",
+        "range": "",
+        "symbolName": "",
+        "offsetId": 0,
+        "limit": 100
+    }
+}
+```
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "hasMore": false,
+        "nextOffsetId": null,
+        "range": "202206",
+        "results": []
+    },
+    "id": 6,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | Number    |
+| jsonrpc | The json-rpc  version | String    |
+
+#### GetOrder
+
+ Get the order by order id
+
+**HTTP Request**: `POST /api/endpoint`
+
+**HTTP Request Body**:
+
+```json
+{
+    "id": 6,
+    "method": "spots:getOrder",
+    "jsonrpc": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
+    "Timestamp": "2022-05-27T10:20:50",
+    "params": {
+        "orderId": 9870812206
+    }
+}
+```
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "symbol": "BTC_USDT",
+        "quantity": 0.01,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": "9870812206",
+        "fee": 0,
+        "marginTrade": false,
+        "chargeQuote": true,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 0.0,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1654074386869,
+        "trailing": false,
+        "unfilledQuantity": 0.01,
+        "price": 4E+4,
+        "takerFeeRate": 0.002,
+        "id": "9870812206",
+        "status": "PENDING",
+        "direction": "LONG",
+        "updatedAt": 1654074386869
+    },
+    "id": 6,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | Number    |
+| jsonrpc | The json-rpc  version | String    |
+
+## Liquid Contract
+
+### K-Line Liquid Contract Endpoints
+
+#### History
 
 This endpoint returns a list of K-lines history data for all public users.
 
@@ -733,7 +1321,6 @@ This endpoint returns a list of K-lines history data for all public users.
 }
 ```
 
-
 | Field   | Description                              | Data Type |
 | ------- | ---------------------------------------- | --------- |
 | code    | Return code                              | integer   |
@@ -741,7 +1328,6 @@ This endpoint returns a list of K-lines history data for all public users.
 | message | Return message                           | string    |
 | time    | Return timestamp                         | string    |
 | tid     | tracer id usd for open tracing           | string    |
-
 
 **Kline Entity**
 
@@ -757,14 +1343,495 @@ This endpoint returns a list of K-lines history data for all public users.
 
 
 
+### Liquid Contract Endpoint
 
-# K-Line WebSocket streams
+#### Position History
+
+API Key Permission：Read
+
+This endpoint returns a list of historical orders owned by this API user.
+
+**HTTP Request**: POST /api/endpoint
+
+```json
+{
+    "id": 5,
+    "method": "cfd:historyList",
+    "jsonrpc": "2.0",
+    "params": {
+        "tradeVO": {
+            "code": "",
+            "direction": "",
+            "deviceType": "",
+            "currencyName": "",
+            "begin": "2020-04-20 18:28:41",
+            "end": "2022-05-20 18:28:41"
+
+        }
+    }
+}
+```
+
+
+
+**Reqeust Parameters**：
+
+| Parameter    | Description       | Mandatory | Data Type | Value Range                              |
+| ------------ | ----------------- | --------- | --------- | ---------------------------------------- |
+| code         | Order Code        | false     | string    | -                                        |
+| direction    | Order Type        | false     | integer   | 1: up, 2: down                           |
+| deviceType   | Device Type       | false     | string    | iOS, Android, Web                        |
+| currencyName | Currency Name     | false     | string    | btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd |
+| begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
+| end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "code": 0,
+        "data": [
+            {
+                "orderType": 0,
+                "code": "8241670ea9d64ec7916a2f2535943711",
+                "appendCharge": 0,
+                "extraData": null,
+                "walletType": "USDT",
+                "orderStatus": 0,
+                "memo": null,
+                "type": 1,
+                "point": null,
+                "settlement": 31788.49230451,
+                "holding": true,
+                "orderTime": 1653997696203,
+                "interest": 0,
+                "currency": "btcusdt",
+                "profit": 0,
+                "direction": 0,
+                "pendingTime": null,
+                "deviceType": null,
+                "normal": true,
+                "amount": 5E+2,
+                "charge": 75,
+                "simulated": 0,
+                "passNightFee": 112.5,
+                "currentPrice": null,
+                "positions": 2.359344,
+                "lever": 1.5E+2,
+                "commissionType": 0,
+                "superior": "moonxbt",
+                "money": null,
+                "nextDeductingOverNightFeeTime": 1654074600000,
+                "walletName": "contract_usdt",
+                "stopLoss": 31597.76135151,
+                "recycleExperienceGold": null,
+                "overtime": null,
+                "strikePrice": 31788.49230451,
+                "settleCharge": 0,
+                "targetProfit": 32848.10871451,
+                "account": "10023780"
+            },
+            {
+                "orderType": 0,
+                "code": "661b4b14d28641fcbb060ad4db266f23",
+                "appendCharge": 0,
+                "extraData": null,
+                "walletType": "USDT",
+                "orderStatus": 0,
+                "memo": null,
+                "type": 1,
+                "point": null,
+                "settlement": 31792.56705565,
+                "holding": true,
+                "orderTime": 1653997685192,
+                "interest": 0,
+                "currency": "btcusdt",
+                "profit": 0,
+                "direction": 0,
+                "pendingTime": null,
+                "deviceType": null,
+                "normal": true,
+                "amount": 5E+2,
+                "charge": 1E+1,
+                "simulated": 0,
+                "passNightFee": 15,
+                "currentPrice": null,
+                "positions": 0.314538,
+                "lever": 2E+1,
+                "commissionType": 0,
+                "superior": "moonxbt",
+                "money": null,
+                "nextDeductingOverNightFeeTime": 1654074600000,
+                "walletName": "contract_usdt",
+                "stopLoss": 30361.90153865,
+                "recycleExperienceGold": null,
+                "overtime": null,
+                "strikePrice": 31792.56705565,
+                "settleCharge": 0,
+                "targetProfit": 39740.70881865,
+                "account": "10023780"
+            }
+        ],
+        "time": "2022-05-31 19:55:28",
+        "message": "Success",
+        "tid": null
+    },
+    "id": 5,
+    "jsonrpc": "2.0"
+}
+```
+
+
+
+#### Position Holdings
+
+API Key Permission：Read
+
+This endpoint returns a list of holding orders owned by this API user.
+
+**HTTP Request**: POST /api/endpoint
+
+**HTTP Request**:
+
+```json
+{
+    "id": 5,
+    "method": "cfd:holdingList",
+    "jsonrpc": "2.0",
+    "version": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
+    "Timestamp": "2022-05-27T10:20:50",
+    "params": {
+        "tradeVO": {
+            "code": "",
+            "direction": "",
+            "deviceType": "",
+            "currencyName": "",
+            "begin": "2020-04-20 18:28:41",
+            "end": "2022-06-20 18:28:41"
+        }
+    }
+}
+```
+
+
+
+**Reqeust Parameters**：
+
+| Parameter    | Description       | Mandatory | Data Type | Value Range                              |
+| ------------ | ----------------- | --------- | --------- | ---------------------------------------- |
+| code         | Order Code        | false     | string    | -                                        |
+| direction    | Order Type        | false     | integer   | 1: up, 2: down                           |
+| deviceType   | Device Type       | false     | string    | iOS, Android, Web                        |
+| currencyName | Currency Name     | false     | string    | btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd |
+| begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
+| end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "code": 0,
+        "data": [
+            {
+                "orderType": 0,
+                "code": "8241670ea9d64ec7916a2f2535943711",
+                "appendCharge": 0,
+                "extraData": null,
+                "walletType": "USDT",
+                "orderStatus": 0,
+                "memo": null,
+                "type": 1,
+                "point": null,
+                "settlement": 31788.49230451,
+                "holding": true,
+                "orderTime": 1653997696203,
+                "interest": 0,
+                "currency": "btcusdt",
+                "profit": 0,
+                "direction": 0,
+                "pendingTime": null,
+                "deviceType": null,
+                "normal": true,
+                "amount": 5E+2,
+                "charge": 75,
+                "simulated": 0,
+                "passNightFee": 112.5,
+                "currentPrice": null,
+                "positions": 2.359344,
+                "lever": 1.5E+2,
+                "commissionType": 0,
+                "superior": "moonxbt",
+                "money": null,
+                "nextDeductingOverNightFeeTime": 1654074600000,
+                "walletName": "contract_usdt",
+                "stopLoss": 31597.76135151,
+                "recycleExperienceGold": null,
+                "overtime": null,
+                "strikePrice": 31788.49230451,
+                "settleCharge": 0,
+                "targetProfit": 32848.10871451,
+                "account": "10023780"
+            },
+            {
+                "orderType": 0,
+                "code": "661b4b14d28641fcbb060ad4db266f23",
+                "appendCharge": 0,
+                "extraData": null,
+                "walletType": "USDT",
+                "orderStatus": 0,
+                "memo": null,
+                "type": 1,
+                "point": null,
+                "settlement": 31792.56705565,
+                "holding": true,
+                "orderTime": 1653997685192,
+                "interest": 0,
+                "currency": "btcusdt",
+                "profit": 0,
+                "direction": 0,
+                "pendingTime": null,
+                "deviceType": null,
+                "normal": true,
+                "amount": 5E+2,
+                "charge": 1E+1,
+                "simulated": 0,
+                "passNightFee": 15,
+                "currentPrice": null,
+                "positions": 0.314538,
+                "lever": 2E+1,
+                "commissionType": 0,
+                "superior": "moonxbt",
+                "money": null,
+                "nextDeductingOverNightFeeTime": 1654074600000,
+                "walletName": "contract_usdt",
+                "stopLoss": 30361.90153865,
+                "recycleExperienceGold": null,
+                "overtime": null,
+                "strikePrice": 31792.56705565,
+                "settleCharge": 0,
+                "targetProfit": 39740.70881865,
+                "account": "10023780"
+            }
+        ],
+        "time": "2022-05-31 19:55:28",
+        "message": "Success",
+        "tid": null
+    },
+    "id": 5,
+    "jsonrpc": "2.0"
+}
+```
+
+
+
+#### Position Pendings
+
+API Key Permission：Read
+
+This endpoint returns a list of pending orders owned by this API user.
+
+**HTTP Request**: ` Post /api/endpoint`
+
+**HTTP Request Body**: 
+
+```json
+{
+    "id": 5,
+    "method": "cfd:pendingList",
+    "jsonrpc": "2.0",
+    "version": "2.0",
+    "SignatureVersion": "1",
+    "Signature": "JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ=",
+    "SignatureMethod": "HmacSHA256",
+    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
+    "Timestamp": "2022-05-27T10:20:50",
+    "params": {
+        "tradeVO": {
+            "code": "",
+            "direction": "",
+            "deviceType": "",
+            "currencyName": "",
+            "begin": "2020-04-20 18:28:41",
+            "end": "2022-05-20 18:28:41"
+        }
+    }
+}
+```
+
+
+
+**Reqeust Parameters**：
+
+| Parameter    | Description       | Mandatory | Data Type | Value Range                              |
+| ------------ | ----------------- | --------- | --------- | ---------------------------------------- |
+| code         | Order Code        | false     | string    | -                                        |
+| direction    | Order Type        | false     | integer   | 1: up, 2: down                           |
+| deviceType   | Device Type       | false     | string    | iOS, Android, Web                        |
+| currencyName | Currency Name     | false     | string    | btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd |
+| begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
+| end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "code": 0,
+        "data": [
+            {
+                "orderType": 0,
+                "code": "8241670ea9d64ec7916a2f2535943711",
+                "appendCharge": 0,
+                "extraData": null,
+                "walletType": "USDT",
+                "orderStatus": 0,
+                "memo": null,
+                "type": 1,
+                "point": null,
+                "settlement": 31788.49230451,
+                "holding": true,
+                "orderTime": 1653997696203,
+                "interest": 0,
+                "currency": "btcusdt",
+                "profit": 0,
+                "direction": 0,
+                "pendingTime": null,
+                "deviceType": null,
+                "normal": true,
+                "amount": 5E+2,
+                "charge": 75,
+                "simulated": 0,
+                "passNightFee": 112.5,
+                "currentPrice": null,
+                "positions": 2.359344,
+                "lever": 1.5E+2,
+                "commissionType": 0,
+                "superior": "moonxbt",
+                "money": null,
+                "nextDeductingOverNightFeeTime": 1654074600000,
+                "walletName": "contract_usdt",
+                "stopLoss": 31597.76135151,
+                "recycleExperienceGold": null,
+                "overtime": null,
+                "strikePrice": 31788.49230451,
+                "settleCharge": 0,
+                "targetProfit": 32848.10871451,
+                "account": "10023780"
+            },
+            {
+                "orderType": 0,
+                "code": "661b4b14d28641fcbb060ad4db266f23",
+                "appendCharge": 0,
+                "extraData": null,
+                "walletType": "USDT",
+                "orderStatus": 0,
+                "memo": null,
+                "type": 1,
+                "point": null,
+                "settlement": 31792.56705565,
+                "holding": true,
+                "orderTime": 1653997685192,
+                "interest": 0,
+                "currency": "btcusdt",
+                "profit": 0,
+                "direction": 0,
+                "pendingTime": null,
+                "deviceType": null,
+                "normal": true,
+                "amount": 5E+2,
+                "charge": 1E+1,
+                "simulated": 0,
+                "passNightFee": 15,
+                "currentPrice": null,
+                "positions": 0.314538,
+                "lever": 2E+1,
+                "commissionType": 0,
+                "superior": "moonxbt",
+                "money": null,
+                "nextDeductingOverNightFeeTime": 1654074600000,
+                "walletName": "contract_usdt",
+                "stopLoss": 30361.90153865,
+                "recycleExperienceGold": null,
+                "overtime": null,
+                "strikePrice": 31792.56705565,
+                "settleCharge": 0,
+                "targetProfit": 39740.70881865,
+                "account": "10023780"
+            }
+        ],
+        "time": "2022-05-31 19:55:28",
+        "message": "Success",
+        "tid": null
+    },
+    "id": 5,
+    "jsonrpc": "2.0"
+}
+```
+
+
+
+#### Order Entity
+
+| Field                         | Description                              | Data Type  |
+| ----------------------------- | ---------------------------------------- | ---------- |
+| orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
+| code                          | Order id                                 | String     |
+| appendCharge                  | Fee to append                            | integer    |
+| extraData                     | Order extra data                         | integer    |
+| walletType                    | Wallet type: 0:BTC,1: USDT, 2:ETH, 3:Gold | integer    |
+| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
+| memo                          | Less than 64kb                           | String     |
+| type                          | CFD Order Type                           | integer    |
+| point                         | Number point                             | String     |
+| settlement                    | Settle price                             | Float      |
+| holding                       | Judge the order whether is in position state | Boolean    |
+| orderTime                     | Create order time                        | datetime   |
+| interest                      | The total swap fee, to pass the midnight | BigDecimal |
+| currency                      | Token name: btc,eth                      | String     |
+| profit                        | the order profit                         | BigDecimal |
+| direction                     | 0: Buy 1:Sell                            | integer    |
+| pendingTime                   | Create pending order time                | datetime   |
+| deviceType                    | iOS\|Android\|Web                        | string     |
+| normal                        | true: ordinary order, false: pending order | string     |
+| amount                        | The amount to cost to buy other token    | BigDecimal |
+| charge                        | Trading fee                              | BigDecimal |
+| simulated                     | 0:not simulated, 1:simulated             | number     |
+| passNightFee                  | The swap fee, to pass this midnight (per day) | BigDecimal |
+| currentPrice                  | Current price                            | BigDecimal |
+| positions                     | The position for the repsent             | BigDecimal |
+| lever                         | level number: for example 100            | BigDecimal |
+| commissionType                | 0:not feedback the commission,1:feedback the commission by  Point | number     |
+| superior                      | Superior account, the present linked to the superior account. | String     |
+| money                         | the usdt amount to create order          | BigDecimal |
+| nextDeductingOverNightFeeTime | time to charge the night fee             | Datetime   |
+| walletName                    | BTC, USDT, ETH, Gold                     | String     |
+| stopLoss                      | Stop loss                                | BigDecimal |
+| recycleExperienceGold         | Recycle the experience money             | BigDecimal |
+| overtime                      | The order closing time                   | Datetime   |
+| strikePrice                   | Strike price                             | BigDecimal |
+| settleCharge                  | The charge fee to close the order        | BigDecimal |
+| targetProfit                  | The taken profit                         | BigDecimal |
+| account                       | Registered account                       | String     |
+
+# WebSocket Api
+
+**WebSocket Path**: wss://v2api.moonxbt.com/ws/endpoint
+
+## Spots
+
+### K-Line WebSocket streams
 
 API Key Permission：Need, and please refer to the Authentication chapter.
 
 This WebSocket returns a list of K-lines history data for all public users.
 
-**WebSocket Path**: wss://v2api.moonxbt.com/ws/endpoint
+
 
 <aside class="notice">
 The WebSocket server will check the idle connections every 60 seconds. If the WebSocket server does not receive any request frame from the connection within a 1 minute period, the connection will be disconnected. Unsolicited request frames are not allowed.
@@ -772,9 +1839,9 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
+#### Meta
 
 
-## spotsKline:meta
 
 **HTTP Request Body**:
 
@@ -862,7 +1929,11 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-## spotsKline:spotsList
+
+
+#### SpotsList
+
+
 
 **HTTP Request Body**:
 
@@ -917,9 +1988,9 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
+#### Ticker
 
 
-## spotsKline:ticker
 
 **HTTP Request Body**:
 
@@ -972,7 +2043,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-## spotsKline:allTicker
+#### AllTicker
 
 
 
@@ -1023,7 +2094,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-## spotsKline:orderBook
+#### OrderBook
 
 
 
@@ -1067,7 +2138,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-## spotsKline:bars
+#### Bars
 
 
 
@@ -1185,7 +2256,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
 
-## spotsKline:ticks
+#### Ticks
 
 
 
@@ -1233,7 +2304,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-## spotsKline:orderChanges
+#### OrderChanges
 
 
 
@@ -1270,7 +2341,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
-## spotsKline:orderMatches
+#### OrderMatches
 
 
 
@@ -1309,7 +2380,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-## spotsKline:ping
+#### Ping
 
 **HTTP Request Body**:
 
@@ -1345,513 +2416,11 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
+## Liquid Contract
 
 
 
-# Liquid Contract Endpoint
-
-## Position History
-
-API Key Permission：Read
-
-This endpoint returns a list of historical orders owned by this API user.
-
-**HTTP Request**: POST /api/endpoint
-
-```json
-{
-    "id": 5,
-    "method": "cfd:historyList",
-    "jsonrpc": "2.0",
-    "params": {
-        "tradeVO": {
-            "code": "",
-            "direction": "",
-            "deviceType": "",
-            "currencyName": "",
-            "begin": "2020-04-20 18:28:41",
-            "end": "2022-05-20 18:28:41"
-
-        }
-    }
-}
-```
 
 
-
-**Reqeust Parameters**：
-
-
-| Parameter    | Description       | Mandatory | Data Type | Value Range                              |
-| ------------ | ----------------- | --------- | --------- | ---------------------------------------- |
-| code         | Order Code        | false     | string    | -                                        |
-| direction    | Order Type        | false     | integer   | 1: up, 2: down                           |
-| deviceType   | Device Type       | false     | string    | iOS, Android, Web                        |
-| currencyName | Currency Name     | false     | string    | btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd |
-| begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
-| end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
-
-
-**Response Content**:
-
-
-```json
-{
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "orderType": 0,
-                "code": "8241670ea9d64ec7916a2f2535943711",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31788.49230451,
-                "holding": true,
-                "orderTime": 1653997696203,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 75,
-                "simulated": 0,
-                "passNightFee": 112.5,
-                "currentPrice": null,
-                "positions": 2.359344,
-                "lever": 1.5E+2,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 31597.76135151,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31788.49230451,
-                "settleCharge": 0,
-                "targetProfit": 32848.10871451,
-                "account": "10023780"
-            },
-            {
-                "orderType": 0,
-                "code": "661b4b14d28641fcbb060ad4db266f23",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31792.56705565,
-                "holding": true,
-                "orderTime": 1653997685192,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 1E+1,
-                "simulated": 0,
-                "passNightFee": 15,
-                "currentPrice": null,
-                "positions": 0.314538,
-                "lever": 2E+1,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 30361.90153865,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31792.56705565,
-                "settleCharge": 0,
-                "targetProfit": 39740.70881865,
-                "account": "10023780"
-            }
-        ],
-        "time": "2022-05-31 19:55:28",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 5,
-    "jsonrpc": "2.0"
-}
-```
-
-| Field   | Description                              | Data Type |
-| ------- | ---------------------------------------- | --------- |
-| code    | Return code                              | integer   |
-| data    | Return data (if avaliable, check below `Order Entity` ) | array     |
-| message | Return message                           | string    |
-| time    | Return timestamp                         | string    |
-
-
-
-## Position Holdings
-
-API Key Permission：Read
-
-This endpoint returns a list of holding orders owned by this API user.
-
-**HTTP Request**: POST /api/endpoint
-
-**HTTP Request**:
-
-```json
-{
-    "id": 5,
-    "method": "cfd:holdingList",
-    "jsonrpc": "2.0",
-    "version": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
-    "params": {
-        "tradeVO": {
-            "code": "",
-            "direction": "",
-            "deviceType": "",
-            "currencyName": "",
-            "begin": "2020-04-20 18:28:41",
-            "end": "2022-06-20 18:28:41"
-        }
-    }
-}
-```
-
-
-
-**Reqeust Parameters**：
-
-
-| Parameter    | Description       | Mandatory | Data Type | Value Range                              |
-| ------------ | ----------------- | --------- | --------- | ---------------------------------------- |
-| code         | Order Code        | false     | string    | -                                        |
-| direction    | Order Type        | false     | integer   | 1: up, 2: down                           |
-| deviceType   | Device Type       | false     | string    | iOS, Android, Web                        |
-| currencyName | Currency Name     | false     | string    | btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd |
-| begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
-| end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
-
-
-**Response Content**:
-
-
-```json
-{
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "orderType": 0,
-                "code": "8241670ea9d64ec7916a2f2535943711",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31788.49230451,
-                "holding": true,
-                "orderTime": 1653997696203,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 75,
-                "simulated": 0,
-                "passNightFee": 112.5,
-                "currentPrice": null,
-                "positions": 2.359344,
-                "lever": 1.5E+2,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 31597.76135151,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31788.49230451,
-                "settleCharge": 0,
-                "targetProfit": 32848.10871451,
-                "account": "10023780"
-            },
-            {
-                "orderType": 0,
-                "code": "661b4b14d28641fcbb060ad4db266f23",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31792.56705565,
-                "holding": true,
-                "orderTime": 1653997685192,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 1E+1,
-                "simulated": 0,
-                "passNightFee": 15,
-                "currentPrice": null,
-                "positions": 0.314538,
-                "lever": 2E+1,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 30361.90153865,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31792.56705565,
-                "settleCharge": 0,
-                "targetProfit": 39740.70881865,
-                "account": "10023780"
-            }
-        ],
-        "time": "2022-05-31 19:55:28",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 5,
-    "jsonrpc": "2.0"
-}
-```
-
-| Field   | Description                              | Data Type |
-| ------- | ---------------------------------------- | --------- |
-| code    | Return code                              | integer   |
-| data    | Return data (if avaliable, check below `Order Entity` ) | array     |
-| message | Return message                           | string    |
-| time    | Return timestamp                         | string    |
-
-
-
-## Position Pendings
-
-API Key Permission：Read
-
-This endpoint returns a list of pending orders owned by this API user.
-
-**HTTP Request**: ` Post /api/endpoint`
-
-**HTTP Request Body**: 
-
-```json
-{
-    "id": 5,
-    "method": "cfd:pendingList",
-    "jsonrpc": "2.0",
-    "version": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
-    "params": {
-        "tradeVO": {
-            "code": "",
-            "direction": "",
-            "deviceType": "",
-            "currencyName": "",
-            "begin": "2020-04-20 18:28:41",
-            "end": "2022-05-20 18:28:41"
-        }
-    }
-}
-```
-
-
-
-**Reqeust Parameters**：
-
-
-| Parameter    | Description       | Mandatory | Data Type | Value Range                              |
-| ------------ | ----------------- | --------- | --------- | ---------------------------------------- |
-| code         | Order Code        | false     | string    | -                                        |
-| direction    | Order Type        | false     | integer   | 1: up, 2: down                           |
-| deviceType   | Device Type       | false     | string    | iOS, Android, Web                        |
-| currencyName | Currency Name     | false     | string    | btcusd, eosusd, ltcusd, trxusd, adausd, xrpusd, ethusd, etcusd, bchusd |
-| begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
-| end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
-
-
-**Response Content**:
-
-
-```json
-{
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "orderType": 0,
-                "code": "8241670ea9d64ec7916a2f2535943711",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31788.49230451,
-                "holding": true,
-                "orderTime": 1653997696203,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 75,
-                "simulated": 0,
-                "passNightFee": 112.5,
-                "currentPrice": null,
-                "positions": 2.359344,
-                "lever": 1.5E+2,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 31597.76135151,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31788.49230451,
-                "settleCharge": 0,
-                "targetProfit": 32848.10871451,
-                "account": "10023780"
-            },
-            {
-                "orderType": 0,
-                "code": "661b4b14d28641fcbb060ad4db266f23",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31792.56705565,
-                "holding": true,
-                "orderTime": 1653997685192,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 1E+1,
-                "simulated": 0,
-                "passNightFee": 15,
-                "currentPrice": null,
-                "positions": 0.314538,
-                "lever": 2E+1,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 30361.90153865,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31792.56705565,
-                "settleCharge": 0,
-                "targetProfit": 39740.70881865,
-                "account": "10023780"
-            }
-        ],
-        "time": "2022-05-31 19:55:28",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 5,
-    "jsonrpc": "2.0"
-}
-```
-
-| Field   | Description                              | Data Type |
-| ------- | ---------------------------------------- | --------- |
-| code    | Return code                              | integer   |
-| data    | Return data (if avaliable, check below `Order Entity` ) | array     |
-| message | Return message                           | string    |
-| time    | Return timestamp                         | string    |
-
-
-
-## Order Entity
-
-| Field                         | Description                              | Data Type  |
-| ----------------------------- | ---------------------------------------- | ---------- |
-| orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
-| code                          | Order id                                 | String     |
-| appendCharge                  | Fee to append                            | integer    |
-| extraData                     | Order extra data                         | integer    |
-| walletType                    | Wallet type: 0:BTC,1: USDT, 2:ETH, 3:Gold | integer    |
-| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
-| memo                          | Less than 64kb                           | String     |
-| type                          | CFD Order Type                           | integer    |
-| point                         | Number point                             | String     |
-| settlement                    | Settle price                             | Float      |
-| holding                       | Judge the order whether is in position state | Boolean    |
-| orderTime                     | Create order time                        | datetime   |
-| interest                      | The total swap fee, to pass the midnight | BigDecimal |
-| currency                      | Token name: btc,eth                      | String     |
-| profit                        | the order profit                         | BigDecimal |
-| direction                     | 0: Buy 1:Sell                            | integer    |
-| pendingTime                   | Create pending order time                | datetime   |
-| deviceType                    | iOS\|Android\|Web                        | string     |
-| normal                        | true: ordinary order, false: pending order | string     |
-| amount                        | The amount to cost to buy other token    | BigDecimal |
-| charge                        | Trading fee                              | BigDecimal |
-| simulated                     | 0:not simulated, 1:simulated             | number     |
-| passNightFee                  | The swap fee, to pass this midnight (per day) | BigDecimal |
-| currentPrice                  | Current price                            | BigDecimal |
-| positions                     | The position for the repsent             | BigDecimal |
-| lever                         | level number: for example 100            | BigDecimal |
-| commissionType                | 0:not feedback the commission,1:feedback the commission by  Point | number     |
-| superior                      | Superior account, the present linked to the superior account. | String     |
-| money                         | the usdt amount to create order          | BigDecimal |
-| nextDeductingOverNightFeeTime | time to charge the night fee             | Datetime   |
-| walletName                    | BTC, USDT, ETH, Gold                     | String     |
-| stopLoss                      | Stop loss                                | BigDecimal |
-| recycleExperienceGold         | Recycle the experience money             | BigDecimal |
-| overtime                      | The order closing time                   | Datetime   |
-| strikePrice                   | Strike price                             | BigDecimal |
-| settleCharge                  | The charge fee to close the order        | BigDecimal |
-| targetProfit                  | The taken profit                         | BigDecimal |
-| account                       | Registered account                       | String     |
 
 
