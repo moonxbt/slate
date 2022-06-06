@@ -91,6 +91,10 @@ This is a full URL to query one order:
 
  The endpoint is: https://v2api.moonxbt.com/api/endpoint
 
+API Key Permission：Need, and please refer to the Authentication chapter.
+
+The signature info can be get by Query
+
 ## Spots
 
 ### K-line Spots Endpoint
@@ -101,15 +105,18 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
-"id": 3,
-"method": "spotsKline:meta",
-"jsonrpc": "2.0",
-"params": {
-}
+    "id":3,
+    "method":"spotsKline:meta",
+    "jsonrpc":"2.0",
+    "params":{
+
+    }
 }
 ```
+
+
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
@@ -244,7 +251,7 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:ticker",
@@ -254,6 +261,9 @@ This is a full URL to query one order:
     }
 }
 ```
+
+
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | Id      | Request id            | Number    |
@@ -301,7 +311,7 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id": 3,
     "method": "spotsKline:allTicker",
@@ -310,6 +320,8 @@ This is a full URL to query one order:
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -353,16 +365,22 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id": 3,
-    "method": "spotsKline:orderBook",
+    "method": "spotsKline:bars",
     "jsonrpc": "2.0",
     "params": {
-        "symbol": "BTC_USDT"
+        "symbol": "BTC_USDT",
+        "type": "MIN15",
+        "start": 0,
+        "end": 0,
+        "limit": 5
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -395,17 +413,17 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
-    "id": 3,
-    "method": "spotsKline:bars",
-    "jsonrpc": "2.0",
-    "params": {
-        "symbol": "BTC_USDT",
-        "type": "MIN15",
-        "start": 0,
-        "end": 0,
-        "limit": 10
+    "id":3,
+    "method":"spotsKline:bars",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "type":"MIN15",
+        "start":0,
+        "end":0,
+        "limit":5
     }
 }
 ```
@@ -415,46 +433,7 @@ This is a full URL to query one order:
 ```json
 {
     "result": [
-        [
-            1.6511913E+12,
-            39779.99,
-            39938.76,
-            39728.83,
-            39758.81,
-            0.20588
-        ],
-        [
-            1.6511922E+12,
-            39728.25,
-            39797.81,
-            39671.75,
-            39707.41,
-            0.17639
-        ],
-        [
-            1.6511931E+12,
-            39691.75,
-            39871.4,
-            38459.84,
-            39837.81,
-            0.18259
-        ],
-        [
-            1.651194E+12,
-            39829.73,
-            39900.58,
-            39779.45,
-            39871.43,
-            0.17355
-        ],
-        [
-            1.6511949E+12,
-            39841.26,
-            44091.62,
-            39773.36,
-            39885.68,
-            0.13083
-        ],
+
         [
             1.6520895E+12,
             36476.46,
@@ -515,7 +494,7 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id": 3,
     "method": "spotsKline:ticks",
@@ -527,6 +506,8 @@ This is a full URL to query one order:
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -565,7 +546,7 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id": 3,
     "method": "spotsKline:orderChanges",
@@ -577,6 +558,8 @@ This is a full URL to query one order:
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -602,7 +585,7 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id": 3,
     "method": "spotsKline:orderMatches",
@@ -614,6 +597,8 @@ This is a full URL to query one order:
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -641,7 +626,7 @@ This is a full URL to query one order:
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id": 3,
     "method": "spotsKline:ping",
@@ -652,6 +637,8 @@ This is a full URL to query one order:
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -693,11 +680,6 @@ Batch to open orders
     "method": "spots:batch",
     "jsonrpc": "2.0",
     "version": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "ydmJ64eozTxrDE7uIACcsmbI9xyPPqUscAQ/Qp3i8TE=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "73915b6e-e41d-43ff-ae18-0c29df541b43",
-    "Timestamp": "2022-05-25T10:20:50",
     "params": {
         "orders": [
             {
@@ -752,11 +734,7 @@ Get the open state orders
     "id": 6,
     "method": "spots:open",
     "jsonrpc": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
+    "version": "2.0",
     "params": {
         "marginTrade": false
     }
@@ -909,11 +887,7 @@ Get the tradable symbols
     "id": 6,
     "method": "spots:open",
     "jsonrpc": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
+    "version": "2.0",  
     "params": {
         "marginTrade": false,
         "symbolName": "BTC_USDT"
@@ -1065,11 +1039,7 @@ Get account info
     "id": 6,
     "method": "spots:accounts",
     "jsonrpc": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
+    "version": "2.0",  
     "params": {
        
     }
@@ -1168,11 +1138,7 @@ Get account info
     "id": 6,
     "method": "spots:closed",
     "jsonrpc": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
+    "version": "2.0",  
     "params": {
         "account": "10119267",
         "range": "",
@@ -1219,11 +1185,7 @@ Get account info
     "id": 6,
     "method": "spots:getOrder",
     "jsonrpc": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "8PUDxt/JJdwNnvjEsrnZKPhBkYK/a44rz9UOhX1Ecyw=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
+    "version": "2.0",  
     "params": {
         "orderId": 9870812206
     }
@@ -1291,6 +1253,7 @@ This endpoint returns a list of K-lines history data for all public users.
     "id": 3,
     "method": "cfdKline:history",
     "jsonrpc": "2.0",
+    "version": "2.0",  
     "params":{
         "symbol": "btcusdt",
         "kType": 1,
@@ -1374,6 +1337,7 @@ This endpoint returns a list of historical orders owned by this API user.
     "id": 5,
     "method": "cfd:historyList",
     "jsonrpc": "2.0",
+    "version": "2.0",  
     "params": {
         "tradeVO": {
             "code": "",
@@ -1515,12 +1479,7 @@ This endpoint returns a list of holding orders owned by this API user.
     "id": 5,
     "method": "cfd:holdingList",
     "jsonrpc": "2.0",
-    "version": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
+    "version": "2.0",  
     "params": {
         "tradeVO": {
             "code": "",
@@ -1663,12 +1622,7 @@ This endpoint returns a list of pending orders owned by this API user.
     "id": 5,
     "method": "cfd:pendingList",
     "jsonrpc": "2.0",
-    "version": "2.0",
-    "SignatureVersion": "1",
-    "Signature": "JE1yKgEE1lJ/k08bpGUIZfC3lB4xDLcxHQWypdMoASQ=",
-    "SignatureMethod": "HmacSHA256",
-    "AccessKey": "93e357f4-d826-4ba0-951b-694457d73cb7",
-    "Timestamp": "2022-05-27T10:20:50",
+    "version": "2.0",  
     "params": {
         "tradeVO": {
             "code": "",
@@ -1845,9 +1799,9 @@ This endpoint returns a list of pending orders owned by this API user.
 
 API Key Permission：Need, and please refer to the Authentication chapter.
 
+The signature info can be get by Query
+
 This WebSocket returns a list of K-lines history data for all public users.
-
-
 
 <aside class="notice">
 The WebSocket server will check the idle connections every 60 seconds. If the WebSocket server does not receive any request frame from the connection within a 1 minute period, the connection will be disconnected. Unsolicited request frames are not allowed.
@@ -1863,7 +1817,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:meta",
@@ -1873,6 +1827,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
@@ -2010,7 +1966,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:ticker",
@@ -2020,6 +1976,9 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | Id      | Request id            | Number    |
@@ -2065,7 +2024,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:allTicker",
@@ -2075,6 +2034,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -2116,7 +2077,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:orderBook",
@@ -2126,6 +2087,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -2158,9 +2121,9 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-**HTTP Request Body**:
+**HTTP Request Body**:**HTTP Response Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:bars",
@@ -2170,56 +2133,17 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
         "type":"MIN15",
         "start":0,
         "end":0,
-        "limit":10
+        "limit":5
     }
 }
 ```
 
-**HTTP Response Body**:
+
 
 ```json
 {
     "result":[
-        [
-            1651191300000,
-            39779.99,
-            39938.76,
-            39728.83,
-            39758.81,
-            0.20588
-        ],
-        [
-            1651192200000,
-            39728.25,
-            39797.81,
-            39671.75,
-            39707.41,
-            0.17639
-        ],
-        [
-            1651193100000,
-            39691.75,
-            39871.4,
-            38459.84,
-            39837.81,
-            0.18259
-        ],
-        [
-            1651194000000,
-            39829.73,
-            39900.58,
-            39779.45,
-            39871.43,
-            0.17355
-        ],
-        [
-            1651194900000,
-            39841.26,
-            44091.62,
-            39773.36,
-            39885.68,
-            0.13083
-        ],
+        
         [
             1652089500000,
             36476.46,
@@ -2280,7 +2204,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:ticks",
@@ -2292,6 +2216,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -2328,7 +2254,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:orderChanges",
@@ -2340,6 +2266,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -2367,7 +2295,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:orderMatches",
@@ -2379,6 +2307,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -2404,7 +2334,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 **HTTP Request Body**:
 
-```
+```json
 {
     "id":3,
     "method":"spotsKline:ping",
@@ -2415,6 +2345,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
     }
 }
 ```
+
+
 
 **HTTP Response Body**:
 
@@ -2435,10 +2367,6 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 | result  | Return result         | Struct    |
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
-
-
-
-## Liquid Contract
 
 
 
