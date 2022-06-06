@@ -175,14 +175,24 @@ html, body {
   }
 
 
-.toc-list-h3 {
-  background-color: $nav-subitem-bg;
-}
+  .toc-list-h3 {
+    background-color: $nav-subitem-bg;
+  }
 
-.toc-h3 {
-  padding-left: $nav-padding + $nav-padding + $nav-indent;
-  font-size: 12px;
-}
+  .toc-h3 {
+    padding-left: $nav-padding + $nav-padding + $nav-indent;
+    font-size: 12px;
+  }
+
+  .toc-list-h4 {
+    display: none;
+    background-color: $nav-subitem-bg;
+  }
+
+  .toc-h4 {
+    padding-left: $nav-padding + $nav-padding + $nav-padding + $nav-indent;
+    font-size: 12px;
+  }
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
@@ -357,9 +367,6 @@ html, body {
   & > h4,
   & > div {
     clear: both;
-  }
-  &>h1, &>h2, &>div {
-    clear:both;
   }
 
   h1 {

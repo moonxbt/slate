@@ -93,9 +93,9 @@ This is a full URL to query one order:
 
 ## Spot
 
-========
+### K-line Spots Endpoint
 
-###  Meta
+####   Meta
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -182,7 +182,7 @@ This is a full URL to query one order:
 }
 ```
 
-### SpotsList
+#### SpotsList
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -238,7 +238,7 @@ This is a full URL to query one order:
 
 
 
-### Ticker
+#### Ticker
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -295,7 +295,7 @@ This is a full URL to query one order:
 
 
 
-### AllTicker
+#### AllTicker
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -345,7 +345,7 @@ This is a full URL to query one order:
 
 
 
-### OrderBook
+#### OrderBook
 
 
 
@@ -387,7 +387,7 @@ This is a full URL to query one order:
 
 
 
-### Bars
+#### Bars
 
 
 
@@ -507,7 +507,7 @@ This is a full URL to query one order:
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
 
-### Ticks
+#### Ticks
 
 
 
@@ -557,7 +557,7 @@ This is a full URL to query one order:
 
 
 
-### OrderChanges
+#### OrderChanges
 
 
 
@@ -594,7 +594,7 @@ This is a full URL to query one order:
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
-### OrderMatches
+#### OrderMatches
 
 
 
@@ -633,7 +633,7 @@ This is a full URL to query one order:
 
 
 
-### Ping
+#### Ping
 
 
 
@@ -675,7 +675,9 @@ This is a full URL to query one order:
 
 
 
-###  Batch
+### Spots Trade Endpoint
+
+####  Batch
 
 
 
@@ -735,7 +737,7 @@ Batch to open orders
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
-### Open
+#### Open
 
 
 
@@ -892,7 +894,7 @@ Get the open state orders
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
-### Open Symbol 
+#### Open Symbol 
 
 
 
@@ -1050,7 +1052,7 @@ Get the tradable symbols
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
-### Account
+#### Account
 
 Get account info
 
@@ -1153,7 +1155,7 @@ Get account info
 
 
 
-### Closed
+#### Closed
 
 
 
@@ -1202,7 +1204,7 @@ Get account info
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
-### GetOrder
+#### GetOrder
 
 
 
@@ -1272,9 +1274,11 @@ Get account info
 
 ## Liquid Contract
 
+### K-line Liquid Contract Endpoint
 
+#### 
 
-###  History
+####  History
 
 This endpoint returns a list of K-lines history data for all public users.
 
@@ -1351,7 +1355,11 @@ This endpoint returns a list of K-lines history data for all public users.
 
 
 
-### Position History
+### Liquid Contract Endpoint
+
+#### 
+
+#### Position History
 
 
 
@@ -1492,7 +1500,7 @@ This endpoint returns a list of historical orders owned by this API user.
 
 
 
-### Position Holdings
+#### Position Holdings
 
 API Key Permission：Read
 
@@ -1638,7 +1646,7 @@ This endpoint returns a list of holding orders owned by this API user.
 
 
 
-### Position Pendings
+#### Position Pendings
 
 
 
@@ -1786,7 +1794,7 @@ This endpoint returns a list of pending orders owned by this API user.
 
 
 
-### Order Entity
+#### Order Entity
 
 | Field                         | Description                              | Data Type  |
 | ----------------------------- | ---------------------------------------- | ---------- |
@@ -1847,9 +1855,9 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 ## Spots
 
+### K-line Spots Endpoint
 
-
-### Meta
+#### Meta
 
 
 
@@ -1939,7 +1947,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-###  SpotsList
+####  SpotsList
 
 
 
@@ -1996,7 +2004,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### Ticker
+#### Ticker
 
 
 
@@ -2051,7 +2059,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### AllTicker
+#### AllTicker
 
 
 
@@ -2102,7 +2110,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### OrderBook
+#### OrderBook
 
 
 
@@ -2146,7 +2154,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### Bars
+#### Bars
 
 
 
@@ -2266,7 +2274,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### Ticks
+#### Ticks
 
 
 
@@ -2314,7 +2322,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### OrderChanges
+#### OrderChanges
 
 
 
@@ -2353,7 +2361,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### OrderMatches
+#### OrderMatches
 
 
 
@@ -2392,7 +2400,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
-### Ping
+#### Ping
 
 **HTTP Request Body**:
 
