@@ -191,6 +191,8 @@ The signature info can be get by Query
 
 #### SpotsList
 
+Get spots trading pair info
+
 **HTTP Request**: `POST /api/endpoint`
 
 **HTTP Request Body**:
@@ -246,6 +248,8 @@ The signature info can be get by Query
 
 
 #### Ticker
+
+Get kline info by 24h
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -1813,7 +1817,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 #### Meta
 
-
+Get market trade info 
 
 **HTTP Request Body**:
 
@@ -2371,4 +2375,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 
 
+
+
+
+# K-Line WebSocket streams
 
