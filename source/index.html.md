@@ -91,7 +91,7 @@ This is a full URL to query one order:
 
  The endpoint is: https://v2api.moonxbt.com/api/endpoint
 
-## Spot
+## Spots
 
 ### K-line Spots Endpoint
 
