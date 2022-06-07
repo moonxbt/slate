@@ -101,6 +101,8 @@ The signature info can be get by Query
 
 ####   Meta
 
+Get detailed market trading info about the trading symbol
+
 **HTTP Request**: `POST /api/endpoint`
 
 **HTTP Request Body**:
@@ -191,7 +193,7 @@ The signature info can be get by Query
 
 #### SpotsList
 
-Get spots trading pair info
+Get spots trading pair info about price, volume, symbol name.
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -249,7 +251,7 @@ Get spots trading pair info
 
 #### Ticker
 
-Get kline info by 24h
+Get kline info around recent 24h on the fixed symbol
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -307,9 +309,13 @@ Get kline info by 24h
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
 
+About data: 
 
+[timestamp, open, high, low, close, amount, change]
 
 #### AllTicker
+
+The summary of the K-line info, and the frequency is less than 10op/s
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -363,7 +369,7 @@ Get kline info by 24h
 
 #### OrderBook
 
-
+Get the order book
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -411,7 +417,7 @@ Get kline info by 24h
 
 #### Bars
 
-
+Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -431,6 +437,13 @@ Get kline info by 24h
     }
 }
 ```
+
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| symbol | name of the symbol                       | String    |
+| type   | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
+
+
 
 **HTTP Response Body**:
 
@@ -490,13 +503,28 @@ Get kline info by 24h
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
 
+| Field | Description        | Data Type |
+| ----- | ------------------ | --------- |
+| start | Timestamp of start | long      |
+| End   | Timestamp of end   | long      |
+| limit | The bar amount     | long      |
+
+
+
 #### Ticks
 
-
+Get the recent ticks info
 
 **HTTP Request**: `POST /api/endpoint`
 
 **HTTP Request Body**:
+
+| Field  | Description         | Data Type |
+| ------ | ------------------- | --------- |
+| Symbol | The symbol name     | String    |
+| limit  | The amount of ticks | Limit     |
+
+
 
 ```json
 {
@@ -624,7 +652,7 @@ Get kline info by 24h
 
 #### Ping
 
-
+Send ping to check  the service whether available
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -669,8 +697,6 @@ Get kline info by 24h
 ### Spots Trade Endpoint
 
 ####  Batch
-
-
 
 Batch to open orders
 
@@ -878,7 +904,7 @@ Get the open state orders
 
 #### Open Symbol 
 
-
+Get the trade order by symbol
 
 **HTTP Request**: `POST /api/endpoint`
 
@@ -1817,7 +1843,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 #### Meta
 
-Get market trade info 
+Get detailed market trading info about the trading symbol
 
 **HTTP Request Body**:
 
@@ -1909,7 +1935,7 @@ Get market trade info
 
 ####  SpotsList
 
-
+Get spots trading pair info about price, volume, symbol name.
 
 **HTTP Request Body**:
 
@@ -1966,7 +1992,7 @@ Get market trade info
 
 #### Ticker
 
-
+Get kline info around recent 24h on the fixed symbol
 
 **HTTP Request Body**:
 
@@ -2024,7 +2050,7 @@ Get market trade info
 
 #### AllTicker
 
-
+The summary of the K-line info, and the frequency is less than 10op/s
 
 **HTTP Request Body**:
 
@@ -2077,7 +2103,7 @@ Get market trade info
 
 #### OrderBook
 
-
+Get the order book
 
 **HTTP Request Body**:
 
@@ -2123,7 +2149,7 @@ Get market trade info
 
 #### Bars
 
-
+Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD
 
 **HTTP Request Body**:**HTTP Response Body**:
 
@@ -2204,7 +2230,7 @@ Get market trade info
 
 #### Ticks
 
-
+Get the recent ticks info
 
 **HTTP Request Body**:
 
@@ -2336,6 +2362,8 @@ Get market trade info
 
 #### Ping
 
+Send ping to check  the service whether available
+
 **HTTP Request Body**:
 
 ```json
@@ -2376,7 +2404,9 @@ Get market trade info
 
 
 
+## Liquid Contract
+
+###  K-Line WebSocket streams
 
 
-# K-Line WebSocket streams
 
