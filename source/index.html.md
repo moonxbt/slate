@@ -689,9 +689,9 @@ Send ping to check  the service whether available
 
 ### Spots Trade Endpoint
 
-####  Batch Open
+####  Open
 
-Batch to open orders
+Open one order
 
 **Request Path**: `POST /api/endpoint`
 
@@ -721,7 +721,35 @@ Batch to open orders
 }
 ```
 
-**Response Body**:
+| Field             | Data Type | Data Description |
+| ----------------- | --------- | :--------------- |
+| symbol            | string    | R                |
+| type              | Enum      | Number           |
+| direction         | Enum      | String           |
+| price             | decimal   |                  |
+| quantity          | decimal   |                  |
+| fillOrKill        | decimal   |                  |
+| immediateOrCancel | boolean   |                  |
+| postOnly          | boolean   |                  |
+| hidden            | boolean   |                  |
+| clientOrderId     | String    |                  |
+
+| Field                 | Type        | Description                              |
+| --------------------- | ----------- | ---------------------------------------- |
+| **symbol**            | **string**  | **Required** , exchage pair to trade, such as `BTC_USDT` |
+| **type**              | **enum**    | **Required** order type：limit order="LIMIT"，market order="MARKET" |
+| **direction**         | **enum**    | **Required**  order direction：buy="LONG"，sell="SHORT" |
+| **price**             | **decimal** | **Only for Limited Order**  order price ，such as`7123.5` |
+| **quantity**          | **decimal** | **Required** order amount ,such as`1.02` |
+| **fillOrKill**        | **boolean** | **Not required**  whether to FOK. Order，such as`true` |
+| **immediateOrCancel** | **boolean** | **Not required** whether to IOC order，such as`true` |
+| **postOnly**          | **boolean** | **Required**  whether negtively to trust orders，such as`true` |
+| **hidden**            | **boolean** | **Required** whether to trust iceberg orders，such as `true`，the order fee for iceberg orders is of taker's fee |
+| **clientOrderId**     | **string**  | **Optional** customerised OrderId，used to query,canel order, which is available within 24h |
+
+
+
+Response Body**:
 
 ```json
 {
@@ -1721,7 +1749,7 @@ This endpoint returns a list of pending orders owned by this API user.
 | begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 | end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 
-**Response Body**:
+**Response Content**:
 
 ```json
 {
