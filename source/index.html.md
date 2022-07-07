@@ -382,10 +382,6 @@ Get the order book
     "jsonrpc": "2.0",
     "params": {
         "symbol": "BTC_USDT",
-        "type": "MIN15",
-        "start": 0,
-        "end": 0,
-        "limit": 5
     }
 }
 ```
@@ -693,7 +689,7 @@ Send ping to check  the service whether available
 
 ### Spots Trade Endpoint
 
-####  Batch
+####  Batch Open
 
 Batch to open orders
 
@@ -706,7 +702,6 @@ Batch to open orders
     "id": 5,
     "method": "spots:batch",
     "jsonrpc": "2.0",
-    "version": "2.0",
     "params": {
         "orders": [
             {
@@ -746,6 +741,36 @@ Batch to open orders
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
 
+####  Batch Cancel
+
+Batch to open orders
+
+**HTTP Request**: `POST /api/endpoint`
+
+**HTTP Request Body**:
+
+```json
+{
+    "id":5,
+    "method":"spots:batchCancel",
+    "jsonrpc":"2.0",
+    "params":{
+        "orderIds":[
+            283132203,
+            283142203
+        ]
+    }
+}
+```
+
+**Response Content**:
+
+```json
+{
+    "code": 0
+}
+```
+
 #### Open
 
 
@@ -761,7 +786,6 @@ Get the open state orders
     "id": 6,
     "method": "spots:open",
     "jsonrpc": "2.0",
-    "version": "2.0",
     "params": {
         "marginTrade": false
     }
@@ -914,7 +938,6 @@ Get the tradable symbols
     "id": 6,
     "method": "spots:open",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params": {
         "marginTrade": false,
         "symbolName": "BTC_USDT"
@@ -1066,7 +1089,6 @@ Get account info
     "id": 6,
     "method": "spots:accounts",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params": {
        
     }
@@ -1165,7 +1187,6 @@ Get account info
     "id": 6,
     "method": "spots:closed",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params": {
         "range": "",
         "symbolName": "",
@@ -1179,14 +1200,40 @@ Get account info
 
 ```json
 {
-    "result": {
-        "hasMore": false,
-        "nextOffsetId": null,
-        "range": "202206",
-        "results": []
-    },
-    "id": 6,
-    "jsonrpc": "2.0"
+    "jsonrpc":"2.0",
+    "id":3,
+    "result":{
+        "range":"202207",
+        "hasMore":true,
+        "nextOffsetId":"125559832207",
+        "results":[
+            {
+                "id":"125564892207",
+                "clientOrderId":null,
+                "features":0,
+                "price":0.0000006722,
+                "fee":0.0238631,
+                "fillPrice":0.0000006722,
+                "marginTrade":false,
+                "chargeQuote":true,
+                "quantity":20000000,
+                "unfilledQuantity":0,
+                "makerFeeRate":0.001,
+                "takerFeeRate":0.002,
+                "type":"LIMIT",
+                "status":"FULLY_FILLED",
+                "direction":"SHORT",
+                "triggerDirection":"LONG",
+                "triggerOn":0,
+                "trailingBasePrice":0,
+                "trailingDistance":0,
+                "createdAt":1656669215978,
+                "updatedAt":1656669772039,
+                "symbol":"CTHAI_USDT",
+                "trailing":false
+            }
+        ]
+    }
 }
 ```
 
@@ -1211,7 +1258,6 @@ Get account info
     "id": 6,
     "method": "spots:getOrder",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params": {
         "orderId": 9870812206
     }
@@ -1279,7 +1325,6 @@ This endpoint returns a list of K-lines history data for all public users.
     "id": 3,
     "method": "cfdKline:history",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params":{
         "symbol": "btcusdt",
         "kType": 1,
@@ -1363,7 +1408,6 @@ This endpoint returns a list of historical orders owned by this API user.
     "id": 5,
     "method": "cfd:historyList",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params": {
         "tradeVO": {
             "code": "",
@@ -1505,7 +1549,6 @@ This endpoint returns a list of holding orders owned by this API user.
     "id": 5,
     "method": "cfd:holdingList",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params": {
         "tradeVO": {
             "code": "",
@@ -1648,7 +1691,6 @@ This endpoint returns a list of pending orders owned by this API user.
     "id": 5,
     "method": "cfd:pendingList",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params": {
         "tradeVO": {
             "code": "",
@@ -2414,7 +2456,6 @@ This endpoint returns a list of K-lines history data for all public users.
     "id": 3,
     "method": "cfdKline:history",
     "jsonrpc": "2.0",
-    "version": "2.0",  
     "params":{
         "symbol": "btcusdt",
         "kType": 1,
