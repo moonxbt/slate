@@ -767,7 +767,11 @@ Batch to open orders
 
 ```json
 {
-    "code": 0
+    "jsonrpc":"2.0",
+    "id":3,
+    "result":{
+        "code":0
+    }
 }
 ```
 
