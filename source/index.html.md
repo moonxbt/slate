@@ -197,7 +197,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 **Request Path**: `POST /api/endpoint`
 
-**HTTP Request**:
+**Request Body**:
 
 ```json
 {
@@ -217,7 +217,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 ## 
 
-**HTTP Response**:
+**Response Body**:
 
 ```json
 {
@@ -333,7 +333,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 
 
-**HTTP Response**:
+**Response Body**:
 
 ```json
 {
@@ -743,9 +743,9 @@ Batch to open orders
 
 ####  Batch Cancel
 
-Batch to open orders
+Batch to cancel orders
 
-**Body**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
 **Request Body**:
 
@@ -1721,7 +1721,7 @@ This endpoint returns a list of pending orders owned by this API user.
 | begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 | end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
