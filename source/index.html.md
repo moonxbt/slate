@@ -103,9 +103,9 @@ The signature info can be get by Query
 
 Get detailed market trading info about the trading symbol
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -128,7 +128,7 @@ Get detailed market trading info about the trading symbol
 
 ## 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -195,9 +195,9 @@ Get detailed market trading info about the trading symbol
 
 Get spots trading pair info about price, volume, symbol name.
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**HTTP Request**:
 
 ```json
 {
@@ -217,7 +217,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 ## 
 
-**HTTP Response Body**:
+**HTTP Response**:
 
 ```json
 {
@@ -253,9 +253,9 @@ Get spots trading pair info about price, volume, symbol name.
 
 Get kline info around recent 24h on the fixed symbol
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -279,7 +279,7 @@ Get kline info around recent 24h on the fixed symbol
 
 ## 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -317,9 +317,9 @@ About data:
 
 The summary of the K-line info, and the frequency is less than 10op/s
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -333,7 +333,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 
 
-**HTTP Response Body**:
+**HTTP Response**:
 
 ```json
 {
@@ -371,9 +371,9 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 Get the order book
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -388,7 +388,7 @@ Get the order book
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -415,9 +415,9 @@ Get the order book
 
 Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -441,7 +441,7 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -511,9 +511,9 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 Get the recent ticks info
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 | Field  | Description         | Data Type |
 | ------ | ------------------- | --------- |
@@ -537,7 +537,7 @@ Get the recent ticks info
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -570,9 +570,9 @@ Get the recent ticks info
 
 
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -588,7 +588,7 @@ Get the recent ticks info
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -608,9 +608,9 @@ Get the recent ticks info
 
 
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -626,7 +626,7 @@ Get the recent ticks info
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -648,9 +648,9 @@ Get the recent ticks info
 
 Send ping to check  the service whether available
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -665,7 +665,7 @@ Send ping to check  the service whether available
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -693,9 +693,9 @@ Send ping to check  the service whether available
 
 Batch to open orders
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -721,7 +721,7 @@ Batch to open orders
 }
 ```
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -745,9 +745,9 @@ Batch to open orders
 
 Batch to open orders
 
-**HTTP Request**: `POST /api/endpoint`
+**Body**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -763,7 +763,7 @@ Batch to open orders
 }
 ```
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -781,9 +781,9 @@ Batch to open orders
 
 Get the open state orders
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -796,7 +796,7 @@ Get the open state orders
 }
 ```
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -931,11 +931,11 @@ Get the open state orders
 
 Get the trade order by symbol
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
 Get the tradable symbols
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -949,7 +949,7 @@ Get the tradable symbols
 }
 ```
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -1084,9 +1084,9 @@ Get the tradable symbols
 
 Get account info
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -1099,7 +1099,7 @@ Get account info
 }
 ```
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -1182,9 +1182,9 @@ Get account info
 
 
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -1200,7 +1200,7 @@ Get account info
 }
 ```
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -1253,9 +1253,9 @@ Get account info
 
  Get the order by order id
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -1268,7 +1268,7 @@ Get account info
 }
 ```
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -1320,9 +1320,9 @@ Get account info
 
 This endpoint returns a list of K-lines history data for all public users.
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -1345,7 +1345,7 @@ This endpoint returns a list of K-lines history data for all public users.
 |size          | Fetch size                       | true              |integer  | 1-200 |
 |symbol        | Trading symbol (wildcard inacceptable)  | true |string  | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -1405,7 +1405,7 @@ API Key Permission：Read
 
 This endpoint returns a list of historical orders owned by this API user.
 
-**HTTP Request**: POST /api/endpoint
+**Request Path**: POST /api/endpoint
 
 ```json
 {
@@ -1439,7 +1439,7 @@ This endpoint returns a list of historical orders owned by this API user.
 | begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 | end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -1544,9 +1544,9 @@ API Key Permission：Read
 
 This endpoint returns a list of holding orders owned by this API user.
 
-**HTTP Request**: POST /api/endpoint
+**Request Path**: POST /api/endpoint
 
-**HTTP Request**:
+**Request Body**:
 
 ```json
 {
@@ -1579,7 +1579,7 @@ This endpoint returns a list of holding orders owned by this API user.
 | begin        | Filter start time | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 | end          | Filter end time   | false     | string    | Format `yyyy-MM-dd HH:mm:ss`             |
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
@@ -1686,9 +1686,9 @@ API Key Permission：Read
 
 This endpoint returns a list of pending orders owned by this API user.
 
-**HTTP Request**: ` Post /api/endpoint`
+**Request Path**: ` Post /api/endpoint`
 
-**HTTP Request Body**: 
+**Request Body**: 
 
 ```json
 {
@@ -1828,12 +1828,12 @@ This endpoint returns a list of pending orders owned by this API user.
 | code                          | Order id                                 | String     |
 | appendCharge                  | Fee to append                            | integer    |
 | extraData                     | Order extra data                         | integer    |
-| walletType                    | Wallet type: 0:BTC,1: USDT, 2:ETH, 3:Gold | integer    |
+| walletType                    | “contract_usdt”，“Gold”                   | String     |
 | orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
 | memo                          | Less than 64kb                           | String     |
 | type                          | CFD Order Type                           | integer    |
 | point                         | Number point                             | String     |
-| settlement                    | Settle price                             | Float      |
+| settlement                    | Settle price                             | BigDecimal |
 | holding                       | Judge the order whether is in position state | Boolean    |
 | orderTime                     | Create order time                        | datetime   |
 | interest                      | The total swap fee, to pass the midnight | BigDecimal |
@@ -1841,7 +1841,7 @@ This endpoint returns a list of pending orders owned by this API user.
 | profit                        | the order profit                         | BigDecimal |
 | direction                     | 0: Buy 1:Sell                            | integer    |
 | pendingTime                   | Create pending order time                | datetime   |
-| deviceType                    | iOS\|Android\|Web                        | string     |
+| deviceType                    | “iOS”,"Android","Web"                    | string     |
 | normal                        | true: ordinary order, false: pending order | string     |
 | amount                        | The amount to cost to buy other token    | BigDecimal |
 | charge                        | Trading fee                              | BigDecimal |
@@ -1854,7 +1854,7 @@ This endpoint returns a list of pending orders owned by this API user.
 | superior                      | Superior account, the present linked to the superior account. | String     |
 | money                         | the usdt amount to create order          | BigDecimal |
 | nextDeductingOverNightFeeTime | time to charge the night fee             | Datetime   |
-| walletName                    | BTC, USDT, ETH, Gold                     | String     |
+| walletName                    | “USDT”                                   | String     |
 | stopLoss                      | Stop loss                                | BigDecimal |
 | recycleExperienceGold         | Recycle the experience money             | BigDecimal |
 | overtime                      | The order closing time                   | Datetime   |
@@ -1887,7 +1887,7 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 Get detailed market trading info about the trading symbol
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -1910,7 +1910,7 @@ Get detailed market trading info about the trading symbol
 
 ##  
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -1979,7 +1979,7 @@ Get detailed market trading info about the trading symbol
 
 Get spots trading pair info about price, volume, symbol name.
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -1999,7 +1999,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 ##   
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2036,7 +2036,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 Get kline info around recent 24h on the fixed symbol
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2058,7 +2058,7 @@ Get kline info around recent 24h on the fixed symbol
 | jsonrpc | The json-rpc  version | String    |
 | symbol  | The request symbol    | String    |
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2094,7 +2094,7 @@ Get kline info around recent 24h on the fixed symbol
 
 The summary of the K-line info, and the frequency is less than 10op/s
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2109,7 +2109,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2147,7 +2147,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 Get the order book
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2162,7 +2162,7 @@ Get the order book
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2193,7 +2193,7 @@ Get the order book
 
 Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD
 
-**HTTP Request Body**:**HTTP Response Body**:
+**Request Body**:
 
 ```json
 {
@@ -2210,7 +2210,7 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 }
 ```
 
-
+**Request Body**:
 
 ```json
 {
@@ -2274,7 +2274,7 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 Get the recent ticks info
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2291,7 +2291,7 @@ Get the recent ticks info
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2324,7 +2324,7 @@ Get the recent ticks info
 
 
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2340,7 +2340,7 @@ Get the recent ticks info
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2364,7 +2364,7 @@ Get the recent ticks info
 
 
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2380,7 +2380,7 @@ Get the recent ticks info
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2404,7 +2404,7 @@ Get the recent ticks info
 
 Send ping to check  the service whether available
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2419,7 +2419,7 @@ Send ping to check  the service whether available
 
 
 
-**HTTP Response Body**:
+**Response Body**:
 
 ```json
 {
@@ -2451,9 +2451,9 @@ Send ping to check  the service whether available
 
 This endpoint returns a list of K-lines history data for all public users.
 
-**HTTP Request**: `POST /api/endpoint`
+**Request Path**: `POST /api/endpoint`
 
-**HTTP Request Body**:
+**Request Body**:
 
 ```json
 {
@@ -2478,7 +2478,7 @@ This endpoint returns a list of K-lines history data for all public users.
 
 
 
-**Response Content**:
+**Response Body**:
 
 ```json
 {
