@@ -584,7 +584,6 @@ Get the recent ticks info
     "method": "spotsKline:orderChanges",
     "jsonrpc": "2.0",
     "params": {
-        "account": "10009092",
         "symbol": "BTC_USDT",
         "updateAt": 1653537731930
     }
@@ -623,7 +622,6 @@ Get the recent ticks info
     "method": "spotsKline:orderMatches",
     "jsonrpc": "2.0",
     "params": {
-        "account": "10009092",
         "symbol": "BTC_USDT",
         "updateAt": 1653537731930
     }
@@ -664,7 +662,6 @@ Send ping to check  the service whether available
     "method": "spotsKline:ping",
     "jsonrpc": "2.0",
     "params": {
-        "account": "10009092",
         "ts": 1653537731930
     }
 }
@@ -1170,7 +1167,6 @@ Get account info
     "jsonrpc": "2.0",
     "version": "2.0",  
     "params": {
-        "account": "10119267",
         "range": "",
         "symbolName": "",
         "offsetId": 0,
@@ -2290,7 +2286,6 @@ Get the recent ticks info
     "method":"spotsKline:orderChanges",
     "jsonrpc":"2.0",
     "params":{
-        "account":"10009092",
         "symbol":"BTC_USDT",
         "updateAt":1653537731930
     }
@@ -2331,7 +2326,6 @@ Get the recent ticks info
     "method":"spotsKline:orderMatches",
     "jsonrpc":"2.0",
     "params":{
-        "account":"10009092",
         "symbol":"BTC_USDT",
         "updateAt":1653537731930
     }
@@ -2372,7 +2366,6 @@ Send ping to check  the service whether available
     "method":"spotsKline:ping",
     "jsonrpc":"2.0",
     "params":{
-        "account":"10009092",
         "ts":1653537731930
     }
 }
@@ -2407,6 +2400,86 @@ Send ping to check  the service whether available
 ## Liquid Contract
 
 ###  K-Line WebSocket streams
+
+#### History
+
+This endpoint returns a list of K-lines history data for all public users.
+
+**HTTP Request**: `POST /api/endpoint`
+
+**HTTP Request Body**:
+
+```json
+{
+    "id": 3,
+    "method": "cfdKline:history",
+    "jsonrpc": "2.0",
+    "version": "2.0",  
+    "params":{
+        "symbol": "btcusdt",
+        "kType": 1,
+        "size": 1
+    }
+}
+```
+
+**Reqeust Parameters**：
+
+| Parameter    | Description                      |  Mandatory      |  Data Type  |  Value Range
+| ------------ | -------------------------------- |------------------|--------------|---------------|
+|kType         | Data range                       | true              |integer  | 1: 1 day, 2: 1 min, 3: 5 mins, 4: 15 mins, 5: 1 hour, 7: 4 hours |
+|size          | Fetch size                       | true              |integer  | 1-200 |
+|symbol        | Trading symbol (wildcard inacceptable)  | true |string  | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
+
+
+
+**Response Content**:
+
+```json
+{
+    "result": {
+        "code": 0,
+        "data": [
+            {
+                "volume": 1.84740664,
+                "amount": 16307.12321434,
+                "high": 31861.83,
+                "low": 31435.82941177,
+                "time": 1653955200,
+                "close": 31728.01882353,
+                "open": 31734.24235294
+            }
+        ],
+        "time": "2022-05-31 19:05:30",
+        "message": "Success",
+        "tid": null
+    },
+    "id": 3,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description                              | Data Type |
+| ------- | ---------------------------------------- | --------- |
+| code    | Return code                              | integer   |
+| data    | Return data (if avaliable, check below `Kline Entity` ) | array     |
+| message | Return message                           | string    |
+| time    | Return timestamp                         | string    |
+| tid     | tracer id usd for open tracing           | string    |
+
+**Kline Entity**
+
+| Field  | Description      | Data Type                                |
+| ------ | ---------------- | ---------------------------------------- |
+| volume | Volume           | caculated by base token, for instance USD |
+| amount | Volume           | caculated by quote token, for instance BTC |
+| close  | Close price      | number                                   |
+| high   | High price       | number                                   |
+| low    | Low price        | number                                   |
+| open   | Open price       | number                                   |
+| time   | Market Timestamp | long                                     |
+
+
 
 
 
