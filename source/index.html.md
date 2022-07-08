@@ -689,6 +689,103 @@ Send ping to check  the service whether available
 
 ### Spots Trade Endpoint
 
+####  CreateOpenOrder
+
+Open one order
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+    "id":6,
+    "method":"spots:createOrder",
+    "jsonrpc":"2.0",
+    "params":{
+        "orderBean":{
+            "direction":"LONG",
+            "type":"LIMIT",
+            "source":"WEB",
+            "symbol":"BTC_USDT",
+            "quantity":0.01,
+            "postOnly":false,
+            "hidden":false,
+            "price":22538,
+            "fillOrKill":false,
+            "immediateOrCancel":false
+        }
+    }
+}
+```
+
+| Field             | Data Type | Data Description |
+| ----------------- | --------- | :--------------- |
+| symbol            | string    | R                |
+| type              | Enum      | Number           |
+| direction         | Enum      | String           |
+| price             | decimal   |                  |
+| quantity          | decimal   |                  |
+| fillOrKill        | decimal   |                  |
+| immediateOrCancel | boolean   |                  |
+| postOnly          | boolean   |                  |
+| hidden            | boolean   |                  |
+| clientOrderId     | String    |                  |
+
+| Field                 | Type        | Description                              |
+| --------------------- | ----------- | ---------------------------------------- |
+| **symbol**            | **string**  | **Required** , exchage pair to trade, such as `BTC_USDT` |
+| **type**              | **enum**    | **Required** order type：limit order="LIMIT"，market order="MARKET" |
+| **direction**         | **enum**    | **Required**  order direction：buy="LONG"，sell="SHORT" |
+| **price**             | **decimal** | **Only for Limited Order**  order price ，such as`7123.5` |
+| **quantity**          | **decimal** | **Required** order amount ,such as`1.02` |
+| **fillOrKill**        | **boolean** | **Not required**  whether to FOK. Order，such as`true` |
+| **immediateOrCancel** | **boolean** | **Not required** whether to IOC order，such as`true` |
+| **postOnly**          | **boolean** | **Required**  whether negtively to trust orders，such as`true` |
+| **hidden**            | **boolean** | **Required** whether to trust iceberg orders，such as `true`，the order fee for iceberg orders is of taker's fee |
+| **clientOrderId**     | **string**  | **Optional** customerised OrderId，used to query,canel order, which is available within 24h |
+
+
+
+Response Body**:
+
+```json
+{
+    "jsonrpc":"2.0",
+    "id":6,
+    "result":{
+        "symbol":"BTC_USDT",
+        "triggerOn":0,
+        "quantity":0.01,
+        "makerFeeRate":0.001,
+        "trailingDistance":0,
+        "fee":0,
+        "clientOrderId":null,
+        "marginTrade":false,
+        "trailingBasePrice":0,
+        "type":"LIMIT",
+        "fillPrice":0,
+        "triggerDirection":"LONG",
+        "features":0,
+        "createdAt":1657246741388,
+        "trailing":false,
+        "unfilledQuantity":0.01,
+        "price":22538,
+        "takerFeeRate":0.001,
+        "id":"223193832207",
+        "status":"PENDING",
+        "direction":"SHORT",
+        "updatedAt":1657246741388
+    }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | Number    |
+| jsonrpc | The json-rpc  version | String    |
+
 
 
 ####  Batch Cancel
@@ -725,7 +822,7 @@ Batch to cancel orders
 }
 ```
 
-#### Open
+#### Get Open Orders
 
 
 
