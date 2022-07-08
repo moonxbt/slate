@@ -286,13 +286,13 @@ Get kline info around recent 24h on the fixed symbol
     "result":{
         "symbol":"ETH_USDT",
         "data":[
-            1653557820000,
-            null,
-            null,
-            null,
-            null,
-            0,
-            0
+                1596445560000,
+                376.9,
+                388.3,
+                354.5,
+                382.9,
+                2196.89,
+                67.2
         ],
         "type":"TICKER",
         "sequenceId":"729912",
@@ -378,7 +378,7 @@ Get the order book
 ```json
 {
     "id": 3,
-    "method": "spotsKline:bars",
+    "method": "spotsKline:orderBook",
     "jsonrpc": "2.0",
     "params": {
         "symbol": "BTC_USDT",
@@ -394,8 +394,18 @@ Get the order book
 {
     "result": {
         "price": 40207.67,
-        "sellOrders": [],
-        "buyOrders": [],
+        "buyOrders": [
+            [6704.5, 0.9],
+            [6704, 1.1],
+            [6703.5, 1.0],
+            [6702.5, 0.3]
+        ],
+        "sellOrders": [
+            [6705.5, 0.9],
+            [6706, 1.3],
+            [6706.5, 0.1]
+        }
+
         "sequenceId": "157"
     },
     "id": 3,
@@ -408,6 +418,14 @@ Get the order book
 | result  | Return result         | Struct    |
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
+
+Result：
+
+| Field       | Description                              | Data Type  |
+| ----------- | ---------------------------------------- | ---------- |
+| price       | The newest price                         | BigDecimal |
+| Buy orders  | The buy order book: [ limitPirce: Amount] | Array      |
+| Sell orders | The buy order book:  [limitPirce: Amount] | Array      |
 
 
 
@@ -2214,13 +2232,18 @@ Get the order book
 ```json
 {
     "result":{
-        "price":40207.67,
-        "sellOrders":[
-
+        "price":6704.5,
+        "buyOrders": [
+            [6704.5, 0.9],
+            [6704, 1.1],
+            [6703.5, 1.0],
+            [6702.5, 0.3]
         ],
-        "buyOrders":[
-
-        ],
+        "sellOrders": [
+            [6705.5, 0.9],
+            [6706, 1.3],
+            [6706.5, 0.1]
+        }
         "sequenceId":"157"
     },
     "id":3,
@@ -2233,6 +2256,14 @@ Get the order book
 | result  | Return result         | Struct    |
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
+
+Result：
+
+| Field      | Description                             | Data Type  |
+| ---------- | --------------------------------------- | ---------- |
+| price      | The newest price                        | BigDecimal |
+| Buy orders | The buy order book:  limitPirce: Amount | Array      |
+| jsonrpc    | The buy order book:  limitPirce: Amount | Array      |
 
 
 
@@ -2264,12 +2295,12 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
     "result":[
         
         [
-            1652089500000,
-            36476.46,
-            36476.46,
-            36476.42,
-            36476.42,
-            0.00002
+            1652089500000,	//timestamp
+            36476.46,		//open
+            36476.46,		//high
+            36476.42,		//low
+            36476.42,		//close
+            0.00002			//amount
         ],
         [
             1652091300000,
@@ -2278,31 +2309,8 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
             36667.42,
             36667.42,
             0.00002
-        ],
-        [
-            1652096700000,
-            39999.99,
-            39999.99,
-            39999.99,
-            39999.99,
-            0.01
-        ],
-        [
-            1652151600000,
-            36667.42,
-            36667.42,
-            36667.42,
-            36667.42,
-            0.00001
-        ],
-        [
-            1652163300000,
-            40000,
-            40000,
-            40000,
-            40000,
-            0.0005
         ]
+
     ],
     "id":3,
     "jsonrpc":"2.0"
@@ -2315,7 +2323,12 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
 
+Results  Array Item
 
+```
+[timestamp, open, high, low, close, amount]
+[时间戳，开盘价，最高价，最低价，收盘价，成交量]
+```
 
 #### Ticks
 
