@@ -2125,18 +2125,20 @@ Get kline info around recent 24h on the fixed symbol
 
 **Response Body**:
 
+
+
 ```json
 {
     "result":{
         "symbol":"ETH_USDT",
         "data":[
-            1653557820000,
-            null,
-            null,
-            null,
-            null,
-            0,
-            0
+          1594973040000,		//timestamp
+          9100.8,				//open
+          9109.4,				//high
+          9099.7,				//low
+          9109.4,				//close
+          0.2004,				//amount
+          2.1					//volume
         ],
         "type":"TICKER",
         "sequenceId":"729912",
@@ -2152,6 +2154,12 @@ Get kline info around recent 24h on the fixed symbol
 | result  | Return result         | array     |
 | id      | The result id         | number    |
 | jsonrpc | The json-rpc  version | string    |
+
+Format Explanation:
+
+```json
+[1594973040000,9100.8,9109.4,9099.7,9109.4,0.2004] --- [timestamp, open, high, low, close, amount,volume]
+```
 
 
 
@@ -2181,15 +2189,15 @@ The summary of the K-line info, and the frequency is less than 10op/s
     "result":[
         {
             "symbol":"BTC_USDT",
-            "data":[
-                1653557820000,
-                null,
-                null,
-                null,
-                null,
-                0,
-                0
-            ],
+        	"data":[
+        	  1594973040000,		//timestamp
+        	  9100.8,				//open
+        	  9109.4,				//high
+        	  9099.7,				//low
+        	  9109.4,				//close
+        	  0.2004,				//amount
+        	  2.1					//volume
+        	],
             "type":"TICKER",
             "sequenceId":"920557",
             "ts":"1652163323227"
