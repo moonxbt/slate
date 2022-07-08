@@ -689,7 +689,7 @@ Send ping to check  the service whether available
 
 ### Spots Trade Endpoint
 
-####  CreateOpenOrder
+####  Create Open Order
 
 Open one order
 
