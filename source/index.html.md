@@ -77,7 +77,7 @@ This is a full URL to query one order:
 
 `&SignatureMethod=HmacSHA256`
 
-`&SignatureVersion=10`
+`&SignatureVersion=1`
 
 `&Timestamp=2022-05-28T08:30:50`
 
@@ -424,8 +424,8 @@ Result：
 | Field       | Description                              | Data Type  |
 | ----------- | ---------------------------------------- | ---------- |
 | price       | The newest price                         | BigDecimal |
-| Buy orders  | The buy order book: [ limitPirce: Amount] | Array      |
-| Sell orders | The buy order book:  [limitPirce: Amount] | Array      |
+| Buy orders  | The buy order book: [ LimitPirce, Amount] | Array      |
+| Sell orders | The buy order book:  [LimitPirce:, Amount] | Array      |
 
 
 
@@ -2267,11 +2267,11 @@ Get the order book
 
 Result：
 
-| Field      | Description                             | Data Type  |
-| ---------- | --------------------------------------- | ---------- |
-| price      | The newest price                        | BigDecimal |
-| Buy orders | The buy order book:  limitPirce: Amount | Array      |
-| jsonrpc    | The buy order book:  limitPirce: Amount | Array      |
+| Field       | Description                              | Data Type  |
+| ----------- | ---------------------------------------- | ---------- |
+| price       | The newest price                         | BigDecimal |
+| Buy orders  | The buy order book: [ LimitPirce, Amount] | Array      |
+| Sell orders | The buy order book:  [LimitPirce:, Amount] | Array      |
 
 
 
