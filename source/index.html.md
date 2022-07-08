@@ -703,7 +703,7 @@ Open one order
     "method":"spots:createOrder",
     "jsonrpc":"2.0",
     "params":{
-        "orderBean":{
+        "order":{
             "direction":"LONG",
             "type":"LIMIT",
             "source":"WEB",
