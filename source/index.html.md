@@ -65,21 +65,12 @@ A valid request consists of below parts:
 
 **Signature Method**
 
-The signature may be different if the request text is different, therefore the request should be normalized before signing. Below signing steps take the order query as an example:
+The signature may be different if the request text is different, therefore the request should be normalized and URL encoded before signing. Below we have an example to show how to organize them，currently the first line should be GET, and each line has to be splitted by '\n':
 
-This is a full URL to query one order:
-
-`https://v2api.moonxbt.com/api/endpoint?`
-
-`AccessKey=73915b6e-e41d-43ff-ae18-0c29df541b43`
-
-`&Signature=fN5ViyRfXY%2FlheM5rGmChIIsvzRD93hXYiUO6BFG8AY%3D`
-
-`&SignatureMethod=HmacSHA256`
-
-`&SignatureVersion=1`
-
-`&Timestamp=2022-05-28T08:30:50`
+GET
+v2api.moonxbt.com
+/api/endpoint
+AccessKey=97fde68b-4ca9-4d45-ab09-86821e87080c&SignatureMethod=HmacSHA256&SignatureVersion=1&Timestamp=2022-07-09T07%3A30%3A00
 
 **Http Request Body**:
 
