@@ -368,6 +368,10 @@ ResultObject:
 | sequenceId | sequence id | string    |
 | ts | time stamp ms | string    |
 
+```json
+[1594973040000,9100.8,9109.4,9099.7,9109.4,0.2004] --- [timestamp, open, high, low, close, amount,volume]
+```
+
 #### AllTicker
 
 The summary of the K-line info, and the frequency is less than 10op/s
