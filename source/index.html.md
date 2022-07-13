@@ -12,9 +12,7 @@ includes:
 
 search: true
 ---
-
 # Change Log
-
 
 ## 2022-5-30
 
@@ -96,6 +94,7 @@ The signature info can be get by Query
 ### K-line Spots Endpoint
 
 ####   Meta
+API Key Permission：Read
 
 Get detailed market trading info about the trading symbol
 
@@ -240,6 +239,8 @@ Get detailed market trading info about the trading symbol
 
 #### SpotsList
 
+API Key Permission：Read
+
 Get spots trading pair info about price, volume, symbol name.
 
 **Request Path**: `POST /api/endpoint`
@@ -307,6 +308,8 @@ Get spots trading pair info about price, volume, symbol name.
 
 
 #### Ticker
+
+API Key Permission：Read
 
 Get kline info around recent 24h on the fixed symbol
 
@@ -376,6 +379,8 @@ Get kline info around recent 24h on the fixed symbol
 
 #### AllTicker
 
+API Key Permission：Read
+
 The summary of the K-line info, and the frequency is less than 10op/s
 
 **Request Path**: `POST /api/endpoint`
@@ -442,6 +447,8 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 
 #### OrderBook
+
+API Key Permission：Read
 
 Get the order book
 
@@ -526,6 +533,8 @@ Get the order book
 
 #### Bars
 
+API Key Permission：Read
+
 Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD
 
 **Request Path**: `POST /api/endpoint`
@@ -606,11 +615,14 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 #### Ticks
 
+API Key Permission：Read
+
 Get the recent ticks info
 
 **Request Path**: `POST /api/endpoint`
 
 **Request Body**:
+
 ```json
 {
     "id": 7,
@@ -669,6 +681,9 @@ Get the recent ticks info
 
 
 #### OrderChanges
+
+API Key Permission：Read
+
 **Request Path**: `POST /api/endpoint`
 
 **Request Body**:
@@ -764,7 +779,7 @@ Get the recent ticks info
 
 #### OrderMatches
 
-
+API Key Permission：Read
 
 **Request Path**: `POST /api/endpoint`
 
@@ -839,6 +854,8 @@ Get the recent ticks info
 ### Spots Trade Endpoint
 
 ####  Create Open Order
+
+API Key Permission：Write
 
 Open one order
 
@@ -953,6 +970,8 @@ Open one order
 
 ####  Batch Cancel
 
+API Key Permission：Write
+
 Batch to cancel orders
 
 **Request Path**: `POST /api/endpoint`
@@ -1000,7 +1019,7 @@ Batch to cancel orders
 
 #### Get Open Orders
 
-
+API Key Permission：Read
 
 Get the open state orders
 
@@ -1135,6 +1154,8 @@ Get the open state orders
 [Abort status](#orderStatus)
 
 #### Open Symbol 
+
+API Key Permission：Read
 
 Get the trade order by symbol
 
@@ -1342,6 +1363,8 @@ Get the tradable symbols
 
 #### Account
 
+API Key Permission：Read
+
 Get account info
 
 **Request Path**: `POST /api/endpoint`
@@ -1451,7 +1474,7 @@ Get account info
 
 #### Closed
 
-
+API Key Permission：Read
 
 **Request Path**: `POST /api/endpoint`
 
@@ -1558,9 +1581,9 @@ Get account info
 
 #### GetOrder
 
+API Key Permission：Read
 
-
- Get the order by order id
+Get the order by order id
 
 **Request Path**: `POST /api/endpoint`
 
@@ -1650,15 +1673,15 @@ Get account info
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
+<a id = "orderStatus">Abort status</a>
 
 ### Order Status
-<a id = "orderStatus">Abort status</a>
 OrderStatus：Order Status Description
 
 | Field  | Description                              |
 | ------ | ---------------------------------------- |
 | STOP_PENDING | Waiting for the triggered stop order;|
-| PENDING | Waiting for the triggered stop order; |
+| PENDING | Activity orders that are waiting to be filled; |
 | FAILED | Order execution failed (insufficient margin, etc.), the final status; |
 | STOP_FAILED | After the Stop order is triggered, the execution fails (for reasons such as insufficient margin), and the final state; |
 | FULLY_FILLED | All transactions, final status; |
@@ -1679,6 +1702,8 @@ OrderStatus：Order Status Description
 #### 
 
 ####  History
+
+API Key Permission：Read
 
 This endpoint returns a list of K-lines history data for all public users.
 
@@ -1766,8 +1791,6 @@ This endpoint returns a list of K-lines history data for all public users.
 #### 
 
 #### Position History
-
-
 
 API Key Permission：Read
 
@@ -2139,8 +2162,6 @@ This endpoint returns a list of holding orders owned by this API user.
 
 #### Position Pendings
 
-
-
 API Key Permission：Read
 
 This endpoint returns a list of pending orders owned by this API user.
@@ -2344,6 +2365,8 @@ The WebSocket server will check the idle connections every 60 seconds. If the We
 
 #### Meta
 
+API Key Permission：Read
+
 Get detailed market trading info about the trading symbol
 
 **Request Body**:
@@ -2485,6 +2508,8 @@ Get detailed market trading info about the trading symbol
 
 ####  SpotsList
 
+API Key Permission：Read
+
 Get spots trading pair info about price, volume, symbol name.
 
 **Request Body**:
@@ -2550,6 +2575,8 @@ Get spots trading pair info about price, volume, symbol name.
 
 
 #### Ticker
+
+API Key Permission：Read
 
 Get kline info around recent 24h on the fixed symbol
 
@@ -2625,6 +2652,8 @@ Format Explanation:
 
 #### AllTicker
 
+API Key Permission：Read
+
 The summary of the K-line info, and the frequency is less than 10op/s
 
 **Request Body**:
@@ -2690,6 +2719,8 @@ The summary of the K-line info, and the frequency is less than 10op/s
 | ts | time stamp ms | string    |
 
 #### OrderBook
+
+API Key Permission：Read
 
 Get the order book
 
@@ -2773,6 +2804,8 @@ Get the order book
 
 #### Bars
 
+API Key Permission：Read
+
 Get the newest bar info about the fixed trading pair, the interface has no difference between spots and CFD
 
 **Request Body**:
@@ -2844,6 +2877,8 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 #### Ticks
 
+API Key Permission：Read
+
 Get the recent ticks info
 
 **Request Body**:
@@ -2902,8 +2937,9 @@ Get the recent ticks info
 
 [timestamp, dir, price, amount, flag]
 
-
 #### OrderChanges
+
+API Key Permission：Read
 
 **Request Body**:
 
@@ -3001,7 +3037,7 @@ Get the recent ticks info
 
 #### OrderMatches
 
-
+API Key Permission：Read
 
 **Request Body**:
 
@@ -3074,6 +3110,8 @@ Get the recent ticks info
 
 #### Ping
 
+API Key Permission：Read
+
 Send ping to check  the service whether available
 
 **Request Path**: `POST /api/endpoint`
@@ -3133,6 +3171,8 @@ Send ping to check  the service whether available
 ###  K-Line WebSocket streams
 
 #### History
+
+API Key Permission：Read
 
 This endpoint returns a list of K-lines history data for all public users.
 
