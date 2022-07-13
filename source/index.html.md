@@ -75,7 +75,12 @@ AccessKey=97fde68b-4ca9-4d45-ab09-86821e87080c&SignatureMethod=HmacSHA256&Signat
 **Http Request Body**:
 
 ```json
-{ "id": 3, "method": "spotsKline:meta", "jsonrpc": "2.0", "params": { } }
+{ 
+    "id": 3, 
+    "method": "spotsKline:meta", 
+    "jsonrpc": "2.0", 
+    "params": { } 
+}
 ```
 
 # Rest Api
@@ -744,21 +749,8 @@ ResultObject:
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
-Abort status:
-OrderStatus：订单状态说明
-| Field  | Description                              |
-| ------ | ---------------------------------------- |
-| STOP_PENDING | 正在等待触发的Stop单; |
-| PENDING | 正在等待触发的Stop单; |
-| FAILED | 订单执行失败（无足够保证金等原因），最终状态; |
-| STOP_FAILED | Stop订单触发后执行失败（无足够保证金等原因），最终状态; |
-| FULLY_FILLED | 全部成交，最终状态; |
-| PARTIAL_FILLED | 已部分成交; |
-| PARTIAL_CANCELLED | 正在等待触发的Stop单; |
-| STOP_CANCELLED | Stop订单尚未触发就被用户取消，最终状态; |
-| FULLY_CANCELLED | 订单尚未成交就被用户取消，最终状态; |
-| STOP_PENDING | 正在等待触发的Stop单 |
-| STOP_PENDING | 正在等待触发的Stop单 |
+
+[Abort status](#orderStatus)
 
 #### OrderMatches
 
@@ -857,9 +849,6 @@ Send ping to check  the service whether available
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | string    |
 | ts | now time stamp ms   | Long    |
-
-
-
 
 **Response Body**:
 
@@ -995,21 +984,7 @@ ResultObject:
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
-Abort status:
-OrderStatus：订单状态说明
-| Field  | Description                              |
-| ------ | ---------------------------------------- |
-| STOP_PENDING | 正在等待触发的Stop单; |
-| PENDING | 正在等待触发的Stop单; |
-| FAILED | 订单执行失败（无足够保证金等原因），最终状态; |
-| STOP_FAILED | Stop订单触发后执行失败（无足够保证金等原因），最终状态; |
-| FULLY_FILLED | 全部成交，最终状态; |
-| PARTIAL_FILLED | 已部分成交; |
-| PARTIAL_CANCELLED | 正在等待触发的Stop单; |
-| STOP_CANCELLED | Stop订单尚未触发就被用户取消，最终状态; |
-| FULLY_CANCELLED | 订单尚未成交就被用户取消，最终状态; |
-| STOP_PENDING | 正在等待触发的Stop单 |
-| STOP_PENDING | 正在等待触发的Stop单 |
+[Abort status](#orderStatus)
 
 
 ####  Batch Cancel
@@ -1183,21 +1158,7 @@ OrderObject:
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
-Abort status:
-OrderStatus：订单状态说明
-| Field  | Description                              |
-| ------ | ---------------------------------------- |
-| STOP_PENDING | 正在等待触发的Stop单; |
-| PENDING | 正在等待触发的Stop单; |
-| FAILED | 订单执行失败（无足够保证金等原因），最终状态; |
-| STOP_FAILED | Stop订单触发后执行失败（无足够保证金等原因），最终状态; |
-| FULLY_FILLED | 全部成交，最终状态; |
-| PARTIAL_FILLED | 已部分成交; |
-| PARTIAL_CANCELLED | 正在等待触发的Stop单; |
-| STOP_CANCELLED | Stop订单尚未触发就被用户取消，最终状态; |
-| FULLY_CANCELLED | 订单尚未成交就被用户取消，最终状态; |
-| STOP_PENDING | 正在等待触发的Stop单 |
-| STOP_PENDING | 正在等待触发的Stop单 |
+[Abort status](#orderStatus)
 
 #### Open Symbol 
 
@@ -1398,21 +1359,7 @@ OrderObject:
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
-Abort status:
-OrderStatus：订单状态说明
-| Field  | Description                              |
-| ------ | ---------------------------------------- |
-| STOP_PENDING | 正在等待触发的Stop单; |
-| PENDING | 正在等待触发的Stop单; |
-| FAILED | 订单执行失败（无足够保证金等原因），最终状态; |
-| STOP_FAILED | Stop订单触发后执行失败（无足够保证金等原因），最终状态; |
-| FULLY_FILLED | 全部成交，最终状态; |
-| PARTIAL_FILLED | 已部分成交; |
-| PARTIAL_CANCELLED | 正在等待触发的Stop单; |
-| STOP_CANCELLED | Stop订单尚未触发就被用户取消，最终状态; |
-| FULLY_CANCELLED | 订单尚未成交就被用户取消，最终状态; |
-| STOP_PENDING | 正在等待触发的Stop单 |
-| STOP_PENDING | 正在等待触发的Stop单 |
+[Abort status](#orderStatus)
 
 #### Account
 
@@ -1624,21 +1571,7 @@ ResultObject:
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
-Abort status:
-OrderStatus：订单状态说明
-| Field  | Description                              |
-| ------ | ---------------------------------------- |
-| STOP_PENDING | 正在等待触发的Stop单; |
-| PENDING | 正在等待触发的Stop单; |
-| FAILED | 订单执行失败（无足够保证金等原因），最终状态; |
-| STOP_FAILED | Stop订单触发后执行失败（无足够保证金等原因），最终状态; |
-| FULLY_FILLED | 全部成交，最终状态; |
-| PARTIAL_FILLED | 已部分成交; |
-| PARTIAL_CANCELLED | 正在等待触发的Stop单; |
-| STOP_CANCELLED | Stop订单尚未触发就被用户取消，最终状态; |
-| FULLY_CANCELLED | 订单尚未成交就被用户取消，最终状态; |
-| STOP_PENDING | 正在等待触发的Stop单 |
-| STOP_PENDING | 正在等待触发的Stop单 |
+[Abort status](#orderStatus)
 
 #### GetOrder
 
@@ -1731,7 +1664,9 @@ ResultObject:
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
-Abort status:
+
+### order status
+<a id = "orderStatus">Abort status</a>
 OrderStatus：订单状态说明
 | Field  | Description                              |
 | ------ | ---------------------------------------- |
