@@ -151,7 +151,7 @@ Get detailed market trading info about the trading symbol
             }
         ],
         "spotsCurrencies":[
-            "BTC", //币种名称
+            "BTC", //currency name
             "ETH",
             "USDT"
         ],
@@ -201,23 +201,23 @@ ResultObject:
 SpotsSymbols:
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| id      | 交易对 id            | Long   |
-| name    | 交易对名称            | String   |
+| id      | symbol id            | Long   |
+| name    | symbol name            | String   |
 | supportMarginTrade      | support margin trade            | Boolean   |
 | hidden      | true: disable, false: un disable             | Boolean   |
 | displayOrder      | sort field index           | Integer   |
 | derivative      | derivative            | Boolean   |
 | baseName      | base name          | String   |
 | quoteName      | quote name            | String   |
-| baseScale      | 基础币种价精度小数位数            | Integer   |
-| baseMinimumIncrement      | 基础币种价格最小变化刻度            | BigDecimal   |
-| baseMaximumQuantity      | 基础币种单笔最大交易数量            | Integer   |
-| baseMinimumQuantity      | 基础币种单笔最小交易数量            | BigDecimal   |
-| quoteScale      | 计价币种精度小数位数            | Integer   |
-| quoteMinimumIncrement      | 计价币种价格最小变化刻度            | BigDecimal   |
-| orderBookAccuracy      | 订单簿精度  0,0.1,0.01           | String   |
-| alwaysChargeQuote      | 手续费总是按计价货币收取           | Boolean   |
-| zone      | 允许什么区域的人可以进行交易           | String   |
+| baseScale      | Base currency price precision decimal places | Integer   |
+| baseMinimumIncrement      | The minimum change scale of the base currency price            | BigDecimal   |
+| baseMaximumQuantity      | The maximum number of transactions in a single base currency | Integer   |
+| baseMinimumQuantity    | The minimum number of transactions in a single base currency| BigDecimal   |
+| quoteScale      | Denomination currency precision decimal places            | Integer   |
+| quoteMinimumIncrement  | The minimum price change scale of the denominated currency            | BigDecimal   |
+| orderBookAccuracy      | Order Book Accuracy  0,0.1,0.01           | String   |
+| alwaysChargeQuote      | Fees are always charged in the currency of denomination           | Boolean   |
+| zone      | What regions are allowed to trade           | String   |
 | endTime      | end time company：ms            | Long   |
 | openTime      | open time company：ms           | Long   |
 
@@ -735,17 +735,17 @@ ResultObject:
 | type | order type limit: Limit order, market: market order| String    |
 | status   | order status | String |
 | direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | 订单成交均价 | BigDecimal |
-| price   | 订单限价 | BigDecimal |
-| quantity   | 订单数量 | BigDecimal |
-| unfilledQuantity   | 订单尚未成交数量 | BigDecimal |
-| makerFeeRate   | 作为Maker的费率 | BigDecimal |
-| takerFeeRate   | 作为Taker的费率 | BigDecimal |
-| fee   | 累积收取的手续费总额 | BigDecimal |
-| triggerOn   | Stop订单的触发价格，非Stop订单触发价格始终为0 | BigDecimal |
-| trailingBasePrice   | TrailingStop订单的基准价格，非此类型订单则始终为0 | BigDecimal |
-| trailingDistance | TrailingStop订单的触发价格距离，非此类型订单则始终为0 | BigDecimal |
-| clientOrderId |自定义id 全局唯一 | String |
+| fillPrice   | Average order price | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   | quantity of order | BigDecimal |
+| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
+| makerFeeRate   | Rate as Maker | BigDecimal |
+| takerFeeRate   | Rate as Taker | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
+| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
+| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId |The custom id is globally unique | String |
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
@@ -818,9 +818,9 @@ ResultObject:
 | symbolId | symbol id | Long    |
 | orderId | order id | String    |
 | direction   | LONG:buy,SHORT:sell | String |
-| price   | 订单限价 | BigDecimal |
-| quantity   | 订单数量 | BigDecimal |
-| fee   | 累积收取的手续费总额 | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   | quantity of order | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
 | createAt |create time stamp ms| Long |
 
 
@@ -965,22 +965,22 @@ ResultObject:
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
 | symbol | symbol id | Long    |
-| triggerOn   | Stop订单的触发价格，非Stop订单触发价格始终为0 | BigDecimal |
+| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
 | type | order type limit: Limit order, market: market order| String    |
-| marginTrade | 订单特性码| Long    |
-| features | 是否是杠杆交易(目前未开启)| String    |
+| marginTrade | Order feature code| Long    |
+| features | Whether it is leveraged trading (currently not open)| String    |
 | status   | order status | String |
 | direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | 订单成交均价 | BigDecimal |
-| price   | 订单限价 | BigDecimal |
-| quantity   | 订单数量 | BigDecimal |
-| unfilledQuantity   | 订单尚未成交数量 | BigDecimal |
-| makerFeeRate   | 作为Maker的费率 | BigDecimal |
-| takerFeeRate   | 作为Taker的费率 | BigDecimal |
-| fee   | 累积收取的手续费总额 | BigDecimal |
-| trailingBasePrice   | TrailingStop订单的基准价格，非此类型订单则始终为0 | BigDecimal |
-| trailingDistance | TrailingStop订单的触发价格距离，非此类型订单则始终为0 | BigDecimal |
-| clientOrderId |自定义id 全局唯一 | String |
+| fillPrice   | Average order price | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   | order quantity | BigDecimal |
+| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
+| makerFeeRate   | Rate as Maker | BigDecimal |
+| takerFeeRate   | Rate as Taker | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
+| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId |The custom id is globally unique | String |
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
@@ -1130,31 +1130,31 @@ AccountObject:
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | key  | BTC,USDT..... is currency name       | String  |
-| usdtPrice  | 币种对应的usdt价格         | BigDecimal|
-| available  | 可用余额         | BigDecimal|
-| frozen  | 冻结         | BigDecimal|
+| usdtPrice  | The price of usdt corresponding to the currency         | BigDecimal|
+| available  | Available Balance         | BigDecimal|
+| frozen  | freeze         | BigDecimal|
 
 OrderObject:
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
 | symbol | symbol id | Long    |
-| triggerOn   | Stop订单的触发价格，非Stop订单触发价格始终为0 | BigDecimal |
+| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
 | type | order type limit: Limit order, market: market order| String    |
-| marginTrade | 订单特性码| Long    |
-| features | 是否是杠杆交易(目前未开启)| String    |
+| marginTrade | Order feature code| Long    |
+| features | Whether it is leveraged trading (currently not open)| String    |
 | status   | order status | String |
 | direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | 订单成交均价 | BigDecimal |
-| price   | 订单限价 | BigDecimal |
-| quantity   | 订单数量 | BigDecimal |
-| unfilledQuantity   | 订单尚未成交数量 | BigDecimal |
-| makerFeeRate   | 作为Maker的费率 | BigDecimal |
-| takerFeeRate   | 作为Taker的费率 | BigDecimal |
-| fee   | 累积收取的手续费总额 | BigDecimal |
-| trailingBasePrice   | TrailingStop订单的基准价格，非此类型订单则始终为0 | BigDecimal |
-| trailingDistance | TrailingStop订单的触发价格距离，非此类型订单则始终为0 | BigDecimal |
-| clientOrderId |自定义id 全局唯一 | String |
+| fillPrice   | Average order price | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   | order quantity | BigDecimal |
+| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
+| makerFeeRate   | Rate as Maker | BigDecimal |
+| takerFeeRate   | Rate as Taker | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
+| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId |The custom id is globally unique | String |
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
@@ -1331,31 +1331,33 @@ AccountObject:
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | key  | BTC,USDT..... is currency name       | String  |
-| usdtPrice  | 币种对应的usdt价格         | BigDecimal|
-| available  | 可用余额         | BigDecimal|
-| frozen  | 冻结         | BigDecimal|
+| usdtPrice  | The price of usdt corresponding to the currency         | BigDecimal|
+| available  | Available Balance         | BigDecimal|
+| frozen  | freeze         | BigDecimal|
 
 OrderObject:
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
 | symbol | symbol id | Long    |
-| triggerOn   | Stop订单的触发价格，非Stop订单触发价格始终为0 | BigDecimal |
+| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0| BigDecimal |
 | type | order type limit: Limit order, market: market order| String    |
-| marginTrade | 订单特性码| Long    |
-| features | 是否是杠杆交易(目前未开启)| String    |
+| marginTrade | Order feature code| Long    |
+| features | Whether it is leveraged trading (currently not open)| String    |
 | status   | order status | String |
 | direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | 订单成交均价 | BigDecimal |
-| price   | 订单限价 | BigDecimal |
-| quantity   | 订单数量 | BigDecimal |
-| unfilledQuantity   | 订单尚未成交数量 | BigDecimal |
-| makerFeeRate   | 作为Maker的费率 | BigDecimal |
-| takerFeeRate   | 作为Taker的费率 | BigDecimal |
-| fee   | 累积收取的手续费总额 | BigDecimal |
-| trailingBasePrice   | TrailingStop订单的基准价格，非此类型订单则始终为0 | BigDecimal |
-| trailingDistance | TrailingStop订单的触发价格距离，非此类型订单则始终为0 | BigDecimal |
-| clientOrderId |自定义id 全局唯一 | String |
+| fillPrice   | Average order price | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   | quantity of order | BigDecimal |
+| unfilledQuantity   | Number of orders not yet filled  | BigDecimal |
+| makerFeeRate   | rate as maker | BigDecimal |
+| takerFeeRate   | rate as taker | BigDecimal |
+| fee   | Total accumulated handling fee
+ | BigDecimal |
+| trailingBasePrice   | The base price for trailing stop orders, otherwise it will always be 0 | BigDecimal |
+| trailingDistance | The trigger price distance for Trailing stop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId |The custom id is globally unique
+ | String |
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
@@ -1463,9 +1465,9 @@ ResultObject:
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | key  | BTC,USDT..... is currency name       | String  |
-| usdtPrice  | 币种对应的usdt价格         | BigDecimal|
-| available  | 可用余额         | BigDecimal|
-| frozen  | 冻结         | BigDecimal|
+| usdtPrice  | The price of usdt corresponding to the currency         | BigDecimal|
+| available  | Available Balance         | BigDecimal|
+| frozen  | freeze         | BigDecimal|
 
 #### Closed
 
@@ -1552,22 +1554,22 @@ ResultObject:
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
 | symbol | symbol id | Long    |
-| triggerOn   | Stop订单的触发价格，非Stop订单触发价格始终为0 | BigDecimal |
+| triggerOn   | The trigger price for stop orders, the trigger price for non-stop orders is always 0 | BigDecimal |
 | type | order type limit: Limit order, market: market order| String    |
-| marginTrade | 订单特性码| Long    |
-| features | 是否是杠杆交易(目前未开启)| String    |
+| marginTrade | Order feature code| Long    |
+| features | Whether it is leveraged trading (currently not open)| String    |
 | status   | order status | String |
 | direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | 订单成交均价 | BigDecimal |
-| price   | 订单限价 | BigDecimal |
-| quantity   | 订单数量 | BigDecimal |
-| unfilledQuantity   | 订单尚未成交数量 | BigDecimal |
-| makerFeeRate   | 作为Maker的费率 | BigDecimal |
-| takerFeeRate   | 作为Taker的费率 | BigDecimal |
-| fee   | 累积收取的手续费总额 | BigDecimal |
-| trailingBasePrice   | TrailingStop订单的基准价格，非此类型订单则始终为0 | BigDecimal |
-| trailingDistance | TrailingStop订单的触发价格距离，非此类型订单则始终为0 | BigDecimal |
-| clientOrderId |自定义id 全局唯一 | String |
+| fillPrice   | Average order price | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   |  quantity of order | BigDecimal |
+| unfilledQuantity   |  Number of orders not yet filled | BigDecimal |
+| makerFeeRate   | rate as maker | BigDecimal |
+| takerFeeRate   | rate as taker | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
+| trailingBasePrice   | The base price for trailing stop orders, otherwise it will always be 0 | BigDecimal |
+| trailingDistance | The trigger price distance for Trailing stop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId |The custom id is globally unique | String |
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
@@ -1645,22 +1647,23 @@ ResultObject:
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
 | symbol | symbol id | Long    |
-| triggerOn   | Stop订单的触发价格，非Stop订单触发价格始终为0 | BigDecimal |
+| triggerOn   |The custom id is globally unique | BigDecimal |
 | type | order type limit: Limit order, market: market order| String    |
-| marginTrade | 订单特性码| Long    |
-| features | 是否是杠杆交易(目前未开启)| String    |
+| marginTrade | Order feature code| Long    |
+| features | Whether it is leveraged trading (currently not open)| String    |
 | status   | order status | String |
 | direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | 订单成交均价 | BigDecimal |
-| price   | 订单限价 | BigDecimal |
-| quantity   | 订单数量 | BigDecimal |
-| unfilledQuantity   | 订单尚未成交数量 | BigDecimal |
-| makerFeeRate   | 作为Maker的费率 | BigDecimal |
-| takerFeeRate   | 作为Taker的费率 | BigDecimal |
-| fee   | 累积收取的手续费总额 | BigDecimal |
-| trailingBasePrice   | TrailingStop订单的基准价格，非此类型订单则始终为0 | BigDecimal |
-| trailingDistance | TrailingStop订单的触发价格距离，非此类型订单则始终为0 | BigDecimal |
-| clientOrderId |自定义id 全局唯一 | String |
+| fillPrice   | Average order price | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   | quantity of order | BigDecimal |
+| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
+| makerFeeRate   | rate as maker | BigDecimal |
+| takerFeeRate   | rate as taker | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
+| trailingBasePrice   | The base price for trailing stop orders, otherwise it will always be 0| BigDecimal |
+| trailingDistance | The trigger price distance for Trailing stop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId |The custom id is globally unique
+| String |
 | createAt |create time stamp | Long |
 | updateAt |update time stamp | Long |
 
