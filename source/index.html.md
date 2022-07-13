@@ -368,10 +368,6 @@ ResultObject:
 | sequenceId | sequence id | string    |
 | ts | time stamp ms | string    |
 
-```json
-[1594973040000,9100.8,9109.4,9099.7,9109.4,0.2004] --- [timestamp, open, high, low, close, amount,volume]
-```
-
 #### AllTicker
 
 The summary of the K-line info, and the frequency is less than 10op/s
@@ -826,57 +822,6 @@ ResultObject:
 | quantity   | quantity of order | BigDecimal |
 | fee   | Total accumulated handling fee | BigDecimal |
 | createAt |create time stamp ms| Long |
-
-
-#### Ping
-
-Send ping to check  the service whether available
-
-**Request Path**: `POST /api/endpoint`
-
-**Request Body**:
-
-```json
-{
-    "id": 10,
-    "method": "spotsKline:ping",
-    "jsonrpc": "2.0",
-    "params": {
-        "ts": 1653537731930
-    }
-}
-```
-
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| ts | now time stamp ms   | Long    |
-
-**Response Body**:
-
-```json
-{
-    "result": {
-        "gap": 293585010,
-        "type": "PONG",
-        "ts": 1653831316940
-    },
-    "id": 10,
-    "jsonrpc": "2.0"
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Struct    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
-| ts | server time stamp ms | Long    |
-| type | service type PONG| String     |
-| gap | abs(server ts - client ts) | Long    |
-
 
 
 ### Spots Trade Endpoint
@@ -1674,20 +1619,20 @@ ResultObject:
 
 ### order status
 <a id = "orderStatus">Abort status</a>
-OrderStatus：订单状态说明
+OrderStatus：Order Status Description
 | Field  | Description                              |
 | ------ | ---------------------------------------- |
-| STOP_PENDING | 正在等待触发的Stop单; |
-| PENDING | 正在等待触发的Stop单; |
-| FAILED | 订单执行失败（无足够保证金等原因），最终状态; |
-| STOP_FAILED | Stop订单触发后执行失败（无足够保证金等原因），最终状态; |
-| FULLY_FILLED | 全部成交，最终状态; |
-| PARTIAL_FILLED | 已部分成交; |
-| PARTIAL_CANCELLED | 正在等待触发的Stop单; |
-| STOP_CANCELLED | Stop订单尚未触发就被用户取消，最终状态; |
-| FULLY_CANCELLED | 订单尚未成交就被用户取消，最终状态; |
-| STOP_PENDING | 正在等待触发的Stop单 |
-| STOP_PENDING | 正在等待触发的Stop单 |
+| STOP_PENDING | Waiting for the triggered stop order;|
+| PENDING | Waiting for the triggered stop order; |
+| FAILED | Order execution failed (insufficient margin, etc.), the final status; |
+| STOP_FAILED | After the Stop order is triggered, the execution fails (for reasons such as insufficient margin), and the final state; |
+| FULLY_FILLED | All transactions, final status; |
+| PARTIAL_FILLED | Partially sold; |
+| PARTIAL_CANCELLED | Waiting for a triggered stop order; |
+| STOP_CANCELLED | The Stop order is canceled by the user before it is triggered, and the final state; |
+| FULLY_CANCELLED | The order is canceled by the user before it is completed, and the final status; |
+| STOP_PENDING | Waiting for a triggered stop order;|
+| STOP_PENDING | Waiting for a triggered stop order; |
 
 
 
@@ -1796,7 +1741,7 @@ This endpoint returns a list of historical orders owned by this API user.
 
 ```json
 {
-    "id": 5,
+    "id": 19,
     "method": "cfd:historyList",
     "jsonrpc": "2.0",
     "params": {
@@ -1916,7 +1861,7 @@ This endpoint returns a list of historical orders owned by this API user.
         "message": "Success",
         "tid": null
     },
-    "id": 5,
+    "id": 19,
     "jsonrpc": "2.0"
 }
 ```
@@ -1927,11 +1872,48 @@ This endpoint returns a list of historical orders owned by this API user.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field                         | Description                              | Data Type  |
+| ----------------------------- | ---------------------------------------- | ---------- |
+| orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
+| code                          | Order id                                 | String     |
+| appendCharge                  | Fee to append                            | integer    |
+| extraData                     | Order extra data                         | integer    |
+| walletType                    | “contract_usdt”，“Gold”                   | String     |
+| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
+| memo                          | Less than 64kb                           | String     |
+| type                          | CFD Order Type                           | integer    |
+| point                         | Number point                             | String     |
+| settlement                    | Settle price                             | BigDecimal |
+| holding                       | Judge the order whether is in position state | Boolean    |
+| orderTime                     | Create order time                        | datetime   |
+| interest                      | The total swap fee, to pass the midnight | BigDecimal |
+| currency                      | Token name: btc,eth                      | String     |
+| profit                        | the order profit                         | BigDecimal |
+| direction                     | 0: Buy 1:Sell                            | integer    |
+| pendingTime                   | Create pending order time                | datetime   |
+| deviceType                    | “iOS”,"Android","Web"                    | string     |
+| normal                        | true: ordinary order, false: pending order | string     |
+| amount                        | The amount to cost to buy other token    | BigDecimal |
+| charge                        | Trading fee                              | BigDecimal |
+| simulated                     | 0:not simulated, 1:simulated             | number     |
+| passNightFee                  | The swap fee, to pass this midnight (per day) | BigDecimal |
+| currentPrice                  | Current price                            | BigDecimal |
+| positions                     | The position for the repsent             | BigDecimal |
+| lever                         | level number: for example 100            | BigDecimal |
+| commissionType                | 0:not feedback the commission,1:feedback the commission by  Point | number     |
+| superior                      | Superior account, the present linked to the superior account. | String     |
+| money                         | the usdt amount to create order          | BigDecimal |
+| nextDeductingOverNightFeeTime | time to charge the night fee             | Datetime   |
+| walletName                    | “USDT”                                   | String     |
+| stopLoss                      | Stop loss                                | BigDecimal |
+| recycleExperienceGold         | Recycle the experience money             | BigDecimal |
+| overtime                      | The order closing time                   | Datetime   |
+| strikePrice                   | Strike price                             | BigDecimal |
+| settleCharge                  | The charge fee to close the order        | BigDecimal |
+| targetProfit                  | The taken profit                         | BigDecimal |
+| account                       | Registered account                       | String     |
+
+
 
 #### Position Holdings
 
@@ -1945,7 +1927,7 @@ This endpoint returns a list of holding orders owned by this API user.
 
 ```json
 {
-    "id": 5,
+    "id": 20,
     "method": "cfd:holdingList",
     "jsonrpc": "2.0",
     "params": {
@@ -2066,7 +2048,7 @@ This endpoint returns a list of holding orders owned by this API user.
         "message": "Success",
         "tid": null
     },
-    "id": 5,
+    "id": 20,
     "jsonrpc": "2.0"
 }
 ```
@@ -2134,7 +2116,7 @@ This endpoint returns a list of pending orders owned by this API user.
 
 ```json
 {
-    "id": 5,
+    "id": 21,
     "method": "cfd:pendingList",
     "jsonrpc": "2.0",
     "params": {
@@ -2255,7 +2237,7 @@ This endpoint returns a list of pending orders owned by this API user.
         "message": "Success",
         "tid": null
     },
-    "id": 5,
+    "id": 21,
     "jsonrpc": "2.0"
 }
 ```
@@ -2336,7 +2318,7 @@ Get detailed market trading info about the trading symbol
 
 ```json
 {
-    "id":3,
+    "id":22,
     "method":"spotsKline:meta",
     "jsonrpc":"2.0",
     "params":{}
@@ -2411,11 +2393,59 @@ Get detailed market trading info about the trading symbol
             }
         ]
     },
-    "id":3,
+    "id":22,
     "jsonrpc":"2.0"
 }
 ```
 
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| id      | Request id            | Integer    |
+| result  | request func          | ResultObject|
+| jsonrpc | The json-rpc  version | String    |
+
+ResultObject:
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| spotsSymbols      | spots symbols info            | Array < SpotsSymbols>   |
+| spotsCurrencies  | spots currencies info         | Array < String>|
+| currencies | currencies info | Array< Currencies>|
+
+SpotsSymbols:
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| id      | symbol id            | Long   |
+| name    | symbol name            | String   |
+| supportMarginTrade      | support margin trade            | Boolean   |
+| hidden      | true: disable, false: un disable             | Boolean   |
+| displayOrder      | sort field index           | Integer   |
+| derivative      | derivative            | Boolean   |
+| baseName      | base name          | String   |
+| quoteName      | quote name            | String   |
+| baseScale      | Base currency price precision decimal places | Integer   |
+| baseMinimumIncrement      | The minimum change scale of the base currency price            | BigDecimal   |
+| baseMaximumQuantity      | The maximum number of transactions in a single base currency | Integer   |
+| baseMinimumQuantity    | The minimum number of transactions in a single base currency| BigDecimal   |
+| quoteScale      | Denomination currency precision decimal places            | Integer   |
+| quoteMinimumIncrement  | The minimum price change scale of the denominated currency            | BigDecimal   |
+| orderBookAccuracy      | Order Book Accuracy  0,0.1,0.01           | String   |
+| alwaysChargeQuote      | Fees are always charged in the currency of denomination           | Boolean   |
+| zone      | What regions are allowed to trade           | String   |
+| endTime      | end time company：ms            | Long   |
+| openTime      | open time company：ms           | Long   |
+
+
+Currencies:
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| id      | currency id            | Long   |
+| name      | currency name            | String   |
+| hidden      | true: disable, false: un disable            | Boolean   |
+| depositOpenTime      | deposit open time            | Long   |
+| displayOrder      | sort field index           | Integer   |
+| iconUrl      | icon url            | String   |
+| withdrawOpenTime      | withdraw open time            | Long   |
+| displayScale      | Display accuracy            | Long   |
 
 
 ####  SpotsList
@@ -2426,7 +2456,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 ```json
 {
-    "id": 3,
+    "id": 23,
     "method": "spotsKline:spotsList",
     "jsonrpc": "2.0",
     "params": {
@@ -2436,7 +2466,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Number    |
+| Id      | Request id            | Integer    |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 
@@ -2462,17 +2492,24 @@ Get spots trading pair info about price, volume, symbol name.
             "changes":0
         }
     ],
-    "id":3,
+    "id":23,
     "jsonrpc":"2.0"
 }
 ```
-
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| result  | Return result         | array     |
-| id      | The result id         | number    |
-| jsonrpc | The json-rpc  version | string    |
+| result  | Return result         | Array< ResultObject>     |
+| id      | The result id         | Integer    |
+| jsonrpc | The json-rpc  version | String    |
 
+ResultObject: 
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| volume  | volume         | String     |
+| symbolId      | symbol id        | Integer    |
+| price | price | String    |
+| name | symbol name | String    |
+| changes | 24h up and down | BigDecimal    |
 
 
 #### Ticker
@@ -2483,7 +2520,7 @@ Get kline info around recent 24h on the fixed symbol
 
 ```json
 {
-    "id":3,
+    "id":24,
     "method":"spotsKline:ticker",
     "jsonrpc":"2.0",
     "params":{
@@ -2491,12 +2528,9 @@ Get kline info around recent 24h on the fixed symbol
     }
 }
 ```
-
-
-
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Number    |
+| Id      | Request id            | Integer    |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 | symbol  | The request symbol    | String    |
@@ -2522,16 +2556,25 @@ Get kline info around recent 24h on the fixed symbol
         "sequenceId":"729912",
         "ts":"1652090424479"
     },
-    "id":3,
+    "id":24,
     "jsonrpc":"2.0"
 }
 ```
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| result  | Return result         | array     |
-| id      | The result id         | number    |
+| result  | Return result         | Array< ResultObject>     |
+| id      | The result id         | Integer    |
 | jsonrpc | The json-rpc  version | string    |
+
+ResultObject:
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| symbol  | symbol name         | String     |
+| data      | [ timestamp, open, high, low, close, amount, change ]         | Array< String>    |
+| type | type | string    |
+| sequenceId | sequence id | string    |
+| ts | time stamp ms | string    |
 
 Format Explanation:
 
@@ -2549,7 +2592,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 ```json
 {
-    "id":3,
+    "id":25,
     "method":"spotsKline:allTicker",
     "jsonrpc":"2.0",
     "params":{
@@ -2557,7 +2600,11 @@ The summary of the K-line info, and the frequency is less than 10op/s
     }
 }
 ```
-
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Integer    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
 
 
 **Response Body**:
@@ -2581,18 +2628,24 @@ The summary of the K-line info, and the frequency is less than 10op/s
             "ts":"1652163323227"
         }
     ],
-    "id":3,
+    "id":25,
     "jsonrpc":"2.0"
 }
 ```
-
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| result  | Return result         | array     |
-| id      | The result id         | number    |
+| result  | Return result         | Array< ResultObject>     |
+| id      | The result id         | Integer    |
 | jsonrpc | The json-rpc  version | string    |
 
-
+ResultObject:
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| symbol  | symbol name         | String     |
+| data      | [ timestamp, open, high, low, close, amount, change ]         | Array< String>    |
+| type | type | string    |
+| sequenceId | sequence id | string    |
+| ts | time stamp ms | string    |
 
 #### OrderBook
 
@@ -2602,7 +2655,7 @@ Get the order book
 
 ```json
 {
-    "id":3,
+    "id":26,
     "method":"spotsKline:orderBook",
     "jsonrpc":"2.0",
     "params":{
@@ -2610,7 +2663,12 @@ Get the order book
     }
 }
 ```
-
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Integer    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| symbol | symbol name | String    |
 
 
 **Response Body**:
@@ -2618,25 +2676,42 @@ Get the order book
 ```json
 {
     "result":{
-        "price":6704.5,
-        "buyOrders": [
-            [6704.5, 0.9],
-            [6704, 1.1],
-            [6703.5, 1.0],
-            [6702.5, 0.3]
+        "price":19908.76,
+        "sellOrders":[
+            [
+                19909.45,
+                0.00017,
+                0.00017
+            ],
+            [
+                19914.62,
+                0.18917,
+                0.18934
+            ]
         ],
-        "sellOrders": [
-            [6705.5, 0.9],
-            [6706, 1.3],
-            [6706.5, 0.1]
-        }
-        "sequenceId":"157"
+        "buyOrders":[
+            [
+                19895.44,
+                0.06636,
+                0.06636
+            ],
+            [
+                19894.23,
+                0.23152,
+                0.29788000000000003
+            ],
+            [
+                19892.77,
+                0.1756,
+                0.47348
+            ]
+        ],
+        "sequenceId":"28109890"
     },
-    "id":3,
+    "id":26,
     "jsonrpc":"2.0"
 }
 ```
-
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | Struct    |
@@ -2648,8 +2723,9 @@ Result：
 | Field       | Description                              | Data Type  |
 | ----------- | ---------------------------------------- | ---------- |
 | price       | The newest price                         | BigDecimal |
-| Buy orders  | The buy order book: [ LimitPirce, Amount] | Array      |
-| Sell orders | The buy order book:  [LimitPirce:, Amount] | Array      |
+| Buy orders  | The buy order book: [ price, amount, total ] | Array< String>      |
+| Sell orders | The buy order book:  [ price, amount, total ] | Array< String>      |
+| sequenceId | sequence id | String      |
 
 
 
@@ -2661,7 +2737,7 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 ```json
 {
-    "id":3,
+    "id":27,
     "method":"spotsKline:bars",
     "jsonrpc":"2.0",
     "params":{
@@ -2673,8 +2749,18 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
     }
 }
 ```
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| id      | The result id         | Integer    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | string    |
+| symbol | name of the symbol                       | String    |
+| type   | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
+| start   | start timestamp ms eg: 0 | Long      |
+| end   | end timestamp ms eg: 0 | Long      |
+| limit   | The bar amount | Long      |
 
-**Request Body**:
+**Response Body**:
 
 ```json
 {
@@ -2698,23 +2784,19 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
         ]
 
     ],
-    "id":3,
+    "id":27,
     "jsonrpc":"2.0"
 }
 ```
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| result  | Return result         | Array     |
-| id      | The result id         | number    |
+| result  | Return result         | Array< Array < String>>     |
+| id      | The result id         | Integer    |
 | jsonrpc | The json-rpc  version | string    |
 
-Results  Array Item
-
-```
+Abort result: 
 [timestamp, open, high, low, close, amount]
-[时间戳，开盘价，最高价，最低价，收盘价，成交量]
-```
 
 #### Ticks
 
@@ -2724,7 +2806,7 @@ Get the recent ticks info
 
 ```json
 {
-    "id":3,
+    "id":28,
     "method":"spotsKline:ticks",
     "jsonrpc":"2.0",
     "params":{
@@ -2734,7 +2816,14 @@ Get the recent ticks info
     }
 }
 ```
-
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| id      | The result id         | Integer    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | string    |
+| symbol | name of the symbol                       | String    |
+| limit   | The bar amount 1-500，default: 200 | Long      |
+| sequenceId   | sequence id eg: 0 | Long      |
 
 
 **Response Body**:
@@ -2753,28 +2842,27 @@ Get the recent ticks info
             "sequenceId":3169352
         }
     ],
-    "id":3,
+    "id":28,
     "jsonrpc":"2.0"
 }
 ```
-
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| result  | Return result         | Array     |
-| id      | The result id         | Number    |
+| result  | Return result         | Array< String>     |
+| id      | The result id         | Integer    |
 | jsonrpc | The json-rpc  version | String    |
 
+Abort data:
+[timestamp, dir, price, amount, flag]
 
 
 #### OrderChanges
-
-
 
 **Request Body**:
 
 ```json
 {
-    "id":3,
+    "id":29,
     "method":"spotsKline:orderChanges",
     "jsonrpc":"2.0",
     "params":{
@@ -2783,6 +2871,13 @@ Get the recent ticks info
     }
 }
 ```
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| id      | The result id         | Integer    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | string    |
+| symbol | name of the symbol                       | String    |
+| updateAt   | latest timestamp | Long      |
 
 
 
@@ -2790,19 +2885,68 @@ Get the recent ticks info
 
 ```json
 {
+    "jsonrpc":"2.0",
+    "id":29,
     "result":[
-
-    ],
-    "id":3,
-    "jsonrpc":"2.0"
+        {
+            "id":281465252207,
+            "sequenceId":28146525,
+            "userId":10589459,
+            "symbolId":100105,
+            "type":"LIMIT",
+            "status":"FULLY_FILLED",
+            "direction":"SHORT",
+            "fillPrice":19842.33,
+            "price":19842.33,
+            "quantity":0.00046,
+            "unfilledQuantity":0,
+            "makerFeeRate":0.001,
+            "takerFeeRate":0.001,
+            "fee":0.0091274718,
+            "triggerDirection":"LONG",
+            "triggerOn":0,
+            "trailingBasePrice":0,
+            "trailingDistance":0,
+            "clientOrderId":"2022071215c26165c601b011ed8edc",
+            "createAt":1657609421074,
+            "updateAt":1657609421074
+        }
+    ]
 }
 ```
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| result  | Return result         | Array     |
-| id      | The result id         | Number    |
+| result  | Return result         | Array< ResultObject>    |
+| id      | The result id         | String    |
 | jsonrpc | The json-rpc  version | String    |
+
+
+ResultObject:
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| id      | order id         | Long    |
+| sequenceId  | sequence id         | Long    |
+| symbolId | symbol id | Long    |
+| type | order type limit: Limit order, market: market order| String    |
+| status   | order status | String |
+| direction   | LONG:buy,SHORT:sell | String |
+| fillPrice   | Average order price | BigDecimal |
+| price   | order limit | BigDecimal |
+| quantity   | quantity of order | BigDecimal |
+| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
+| makerFeeRate   | Rate as Maker | BigDecimal |
+| takerFeeRate   | Rate as Taker | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
+| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
+| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId |The custom id is globally unique | String |
+| createAt |create time stamp | Long |
+| updateAt |update time stamp | Long |
+
+
+[Abort status](#orderStatus)
 
 
 
@@ -2814,15 +2958,22 @@ Get the recent ticks info
 
 ```json
 {
-    "id":3,
-    "method":"spotsKline:orderMatches",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "updateAt":1653537731930
+    "id": 30,
+    "method": "spotsKline:orderMatches",
+    "jsonrpc": "2.0",
+    "params": {
+        "symbol": "BTC_USDT",
+        "updateAt": 1653537731930
     }
 }
 ```
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| id      | The result id         | Integer    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | string    |
+| symbol | name of the symbol   | String    |
+| updateAt   | latest timestamp | Long      |
 
 
 
@@ -2830,19 +2981,43 @@ Get the recent ticks info
 
 ```json
 {
+    "jsonrpc":"2.0",
+    "id":30,
     "result":[
-
-    ],
-    "id":3,
-    "jsonrpc":"2.0"
+        {
+            "id":112058272207,
+            "sequenceId":11205827,
+            "userId":10589459,
+            "symbolId":100105,
+            "orderId":"112057922207",
+            "direction":"LONG",
+            "price":19145.25,
+            "quantity":0.00008,
+            "fee":0.00153162,
+            "createAt":1656605021615
+        }
+    ]
 }
 ```
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| result  | Return result         | Array     |
+| result  | Return result         | Array< ResultObject>    |
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
+
+ResultObject:
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| id      | order id         | Long    |
+| sequenceId  | sequence id         | Long    |
+| symbolId | symbol id | Long    |
+| orderId | order id | String    |
+| direction   | LONG:buy,SHORT:sell | String |
+| price   | order limit | BigDecimal |
+| quantity   | quantity of order | BigDecimal |
+| fee   | Total accumulated handling fee | BigDecimal |
+| createAt |create time stamp ms| Long |
 
 
 
@@ -2850,32 +3025,39 @@ Get the recent ticks info
 
 Send ping to check  the service whether available
 
+**Request Path**: `POST /api/endpoint`
+
 **Request Body**:
 
 ```json
 {
-    "id":3,
-    "method":"spotsKline:ping",
-    "jsonrpc":"2.0",
-    "params":{
-        "ts":1653537731930
+    "id": 31,
+    "method": "spotsKline:ping",
+    "jsonrpc": "2.0",
+    "params": {
+        "ts": 1653537731930
     }
 }
 ```
 
-
+| Field  | Description                              | Data Type |
+| ------ | ---------------------------------------- | --------- |
+| id      | The result id         | Integer    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | string    |
+| ts | now time stamp ms   | Long    |
 
 **Response Body**:
 
 ```json
 {
-    "result":{
-        "gap":293585010,
-        "type":"PONG",
-        "ts":1653831316940
+    "result": {
+        "gap": 293585010,
+        "type": "PONG",
+        "ts": 1653831316940
     },
-    "id":3,
-    "jsonrpc":"2.0"
+    "id": 31,
+    "jsonrpc": "2.0"
 }
 ```
 
@@ -2884,6 +3066,12 @@ Send ping to check  the service whether available
 | result  | Return result         | Struct    |
 | id      | The result id         | Number    |
 | jsonrpc | The json-rpc  version | String    |
+| ts | server time stamp ms | Long    |
+| type | service type PONG| String     |
+| gap | abs(server ts - client ts) | Long    |
+
+
+
 
 
 
@@ -2903,7 +3091,7 @@ This endpoint returns a list of K-lines history data for all public users.
 
 ```json
 {
-    "id": 3,
+    "id": 32,
     "method": "cfdKline:history",
     "jsonrpc": "2.0",
     "params":{
@@ -2921,8 +3109,6 @@ This endpoint returns a list of K-lines history data for all public users.
 |kType         | Data range                       | true              |integer  | 1: 1 day, 2: 1 min, 3: 5 mins, 4: 15 mins, 5: 1 hour, 7: 4 hours |
 |size          | Fetch size                       | true              |integer  | 1-200 |
 |symbol        | Trading symbol (wildcard inacceptable)  | true |string  | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
-
-
 
 **Response Body**:
 
@@ -2945,32 +3131,34 @@ This endpoint returns a list of K-lines history data for all public users.
         "message": "Success",
         "tid": null
     },
-    "id": 3,
+    "id": 32,
     "jsonrpc": "2.0"
 }
 ```
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | ResultObject    |
+| id      | The result id         | Integer    |
+| jsonrpc | The json-rpc  version | String    |
 
+ResultObject:
 | Field   | Description                              | Data Type |
 | ------- | ---------------------------------------- | --------- |
-| code    | Return code                              | integer   |
-| data    | Return data (if avaliable, check below `Kline Entity` ) | array     |
-| message | Return message                           | string    |
-| time    | Return timestamp                         | string    |
-| tid     | tracer id usd for open tracing           | string    |
+| code    | Return code                              | Integer   |
+| data    | Return data | Array< DataObject>     |
+| message | Return message                           | String    |
+| time    | Return timestamp                         | String    |
+| tid     | tracer id usd for open tracing           | String    |
 
-**Kline Entity**
-
+DataObject:
 | Field  | Description      | Data Type                                |
 | ------ | ---------------- | ---------------------------------------- |
 | volume | Volume           | caculated by base token, for instance USD |
 | amount | Volume           | caculated by quote token, for instance BTC |
-| close  | Close price      | number                                   |
-| high   | High price       | number                                   |
-| low    | Low price        | number                                   |
-| open   | Open price       | number                                   |
+| close  | Close price      | BigDecimal                                   |
+| high   | High price       | BigDecimal                                   |
+| low    | Low price        | BigDecimal                                   |
+| open   | Open price       | BigDecimal                                   |
 | time   | Market Timestamp | long                                     |
-
-
-
 
 
