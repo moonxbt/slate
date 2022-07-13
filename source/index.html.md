@@ -192,6 +192,7 @@ Get detailed market trading info about the trading symbol
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | spotsSymbols      | spots symbols info            | Array < SpotsSymbols>   |
@@ -199,6 +200,7 @@ ResultObject:
 | currencies | currencies info | Array< Currencies>|
 
 SpotsSymbols:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | id      | symbol id            | Long   |
@@ -223,6 +225,7 @@ SpotsSymbols:
 
 
 Currencies:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | id      | currency id            | Long   |
@@ -284,6 +287,7 @@ Get spots trading pair info about price, volume, symbol name.
     "jsonrpc":"2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | Array< ResultObject>     |
@@ -291,6 +295,7 @@ Get spots trading pair info about price, volume, symbol name.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject: 
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | volume  | volume         | String     |
@@ -360,6 +365,7 @@ Get kline info around recent 24h on the fixed symbol
 | jsonrpc | The json-rpc  version | string    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | symbol  | symbol name         | String     |
@@ -384,6 +390,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
     "params": {}
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | Id      | Request id            | Integer    |
@@ -423,6 +430,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 | jsonrpc | The json-rpc  version | string    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | symbol  | symbol name         | String     |
@@ -616,6 +624,7 @@ Get the recent ticks info
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -727,6 +736,7 @@ Abort data:
 
 
 ResultObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -771,6 +781,7 @@ ResultObject:
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -811,6 +822,7 @@ ResultObject:
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -855,6 +867,7 @@ Open one order
     }
 }
 ```
+
 | Field                 | Type        | Description                              |
 | --------------------- | ----------- | ---------------------------------------- |
 | **symbol**            | **string**  | **Required** , exchage pair to trade, such as `BTC_USDT` |
@@ -910,6 +923,7 @@ Response Body**:
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -997,6 +1011,7 @@ Get the open state orders
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -1069,6 +1084,7 @@ Get the open state orders
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | account  | Return result         | AccountObject    |
@@ -1076,6 +1092,7 @@ ResultObject:
 
 
 AccountObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | key  | BTC,USDT..... is currency name       | String  |
@@ -1084,6 +1101,7 @@ AccountObject:
 | frozen  | freeze         | BigDecimal|
 
 OrderObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -1130,6 +1148,7 @@ Get the tradable symbols
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -1270,13 +1289,14 @@ Get the tradable symbols
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | account  | Return result         | AccountObject    |
 | order      | The result id         | Array< OrderObject>    |
 
-
 AccountObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | key  | BTC,USDT..... is currency name       | String  |
@@ -1285,6 +1305,7 @@ AccountObject:
 | frozen  | freeze         | BigDecimal|
 
 OrderObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -1328,11 +1349,13 @@ Get account info
     "params": {}
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | string    |
+
 **Response Body**:
 
 ```json
@@ -1411,6 +1434,7 @@ Get account info
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | key  | BTC,USDT..... is currency name       | String  |
@@ -1499,6 +1523,7 @@ ResultObject:
 
 
 ResultObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -1544,6 +1569,7 @@ ResultObject:
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -1592,6 +1618,7 @@ ResultObject:
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -1620,6 +1647,7 @@ ResultObject:
 ### order status
 <a id = "orderStatus">Abort status</a>
 OrderStatus：Order Status Description
+
 | Field  | Description                              |
 | ------ | ---------------------------------------- |
 | STOP_PENDING | Waiting for the triggered stop order;|
@@ -1697,6 +1725,7 @@ This endpoint returns a list of K-lines history data for all public users.
     "jsonrpc": "2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | ResultObject    |
@@ -1704,6 +1733,7 @@ This endpoint returns a list of K-lines history data for all public users.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field   | Description                              | Data Type |
 | ------- | ---------------------------------------- | --------- |
 | code    | Return code                              | Integer   |
@@ -1713,6 +1743,7 @@ ResultObject:
 | tid     | tracer id usd for open tracing           | String    |
 
 DataObject:
+
 | Field  | Description      | Data Type                                |
 | ------ | ---------------- | ---------------------------------------- |
 | volume | Volume           | caculated by base token, for instance USD |
@@ -1865,6 +1896,7 @@ This endpoint returns a list of historical orders owned by this API user.
     "jsonrpc": "2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | ResultObject    |
@@ -1872,6 +1904,7 @@ This endpoint returns a list of historical orders owned by this API user.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field                         | Description                              | Data Type  |
 | ----------------------------- | ---------------------------------------- | ---------- |
 | orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
@@ -2052,6 +2085,7 @@ This endpoint returns a list of holding orders owned by this API user.
     "jsonrpc": "2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | ResultObject    |
@@ -2059,6 +2093,7 @@ This endpoint returns a list of holding orders owned by this API user.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field                         | Description                              | Data Type  |
 | ----------------------------- | ---------------------------------------- | ---------- |
 | orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
@@ -2249,6 +2284,7 @@ This endpoint returns a list of pending orders owned by this API user.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject: 
+
 | Field   | Description | Data Type  |
 | ------ | ---------- | ---------- |
 | orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
@@ -2405,6 +2441,7 @@ Get detailed market trading info about the trading symbol
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | spotsSymbols      | spots symbols info            | Array < SpotsSymbols>   |
@@ -2412,6 +2449,7 @@ ResultObject:
 | currencies | currencies info | Array< Currencies>|
 
 SpotsSymbols:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | id      | symbol id            | Long   |
@@ -2436,6 +2474,7 @@ SpotsSymbols:
 
 
 Currencies:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | id      | currency id            | Long   |
@@ -2496,6 +2535,7 @@ Get spots trading pair info about price, volume, symbol name.
     "jsonrpc":"2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | Array< ResultObject>     |
@@ -2503,6 +2543,7 @@ Get spots trading pair info about price, volume, symbol name.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject: 
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | volume  | volume         | String     |
@@ -2528,6 +2569,7 @@ Get kline info around recent 24h on the fixed symbol
     }
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | Id      | Request id            | Integer    |
@@ -2568,6 +2610,7 @@ Get kline info around recent 24h on the fixed symbol
 | jsonrpc | The json-rpc  version | string    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | symbol  | symbol name         | String     |
@@ -2600,6 +2643,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
     }
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | Id      | Request id            | Integer    |
@@ -2632,6 +2676,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
     "jsonrpc":"2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | Array< ResultObject>     |
@@ -2639,6 +2684,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 | jsonrpc | The json-rpc  version | string    |
 
 ResultObject:
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | symbol  | symbol name         | String     |
@@ -2663,6 +2709,7 @@ Get the order book
     }
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | Id      | Request id            | Integer    |
@@ -2712,6 +2759,7 @@ Get the order book
     "jsonrpc":"2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | Struct    |
@@ -2749,6 +2797,7 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -2816,6 +2865,7 @@ Get the recent ticks info
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -2846,6 +2896,7 @@ Get the recent ticks info
     "jsonrpc":"2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | Array< String>     |
@@ -2871,6 +2922,7 @@ Abort data:
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -2923,6 +2975,7 @@ Abort data:
 
 
 ResultObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -2967,6 +3020,7 @@ ResultObject:
     }
 }
 ```
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | The result id         | Integer    |
@@ -3007,6 +3061,7 @@ ResultObject:
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field  | Description                              | Data Type |
 | ------ | ---------------------------------------- | --------- |
 | id      | order id         | Long    |
@@ -3135,6 +3190,7 @@ This endpoint returns a list of K-lines history data for all public users.
     "jsonrpc": "2.0"
 }
 ```
+
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
 | result  | Return result         | ResultObject    |
@@ -3142,6 +3198,7 @@ This endpoint returns a list of K-lines history data for all public users.
 | jsonrpc | The json-rpc  version | String    |
 
 ResultObject:
+
 | Field   | Description                              | Data Type |
 | ------- | ---------------------------------------- | --------- |
 | code    | Return code                              | Integer   |
@@ -3151,6 +3208,7 @@ ResultObject:
 | tid     | tracer id usd for open tracing           | String    |
 
 DataObject:
+
 | Field  | Description      | Data Type                                |
 | ------ | ---------------- | ---------------------------------------- |
 | volume | Volume           | caculated by base token, for instance USD |
