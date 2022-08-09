@@ -3844,7 +3844,7 @@ Get order info by client order id
 | Id            | Request id            | Number    |
 | Method        | request func          | String    |
 | jsonrpc       | The json-rpc  version | String    |
-| clientOrderId | order id              | String    |
+| clientOrderId | Client order id              | String    |
 
 
 **Response Body**:
@@ -3965,7 +3965,7 @@ cancel order
 | Id            | Request id            | Number    |
 | Method        | request func          | String    |
 | jsonrpc       | The json-rpc  version | String    |
-| clientOrderId | order id              | String    |
+| clientOrderId | Client order id              | String    |
 
 
 **Response Body**:
@@ -4116,7 +4116,7 @@ Batch create order
 | postOnly                   | "Post Only" limit orders are orders that allow you to be sure to always be maker. When placed, a "Post Only" limit order is either inserted into the order book or cancelled (only for limit orders). Default to false. | Boolean   |
 | hidden                     | This field allows you to place an order into the book but not have it displayed to other traders. Price/time priority is the same as a displayed order (only for limit orders). Default to false. | Boolean   |
 | reduceOnly                 | A reduce-only order will only reduce your position, not increase it. If this order would increase your position, it is amended down or canceled such that it does not. | Boolean   |
-| clientOrderId              | client order id                          | String    |
+| clientOrderId              | Client order id                          | String    |
 | validCrossHaveEnoughMargin | Default to false.                        | Boolean   |
 
 
