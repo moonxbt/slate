@@ -14,6 +14,10 @@ search: true
 ---
 # Change Log
 
+## 2022-8-04
+
+Add USDT Perpetual contracts related interfaces.
+
 ## 2022-5-30
 
 1st release of API document.
@@ -184,57 +188,57 @@ Get detailed market trading info about the trading symbol
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| id      | Request id            | Integer    |
-| result  | request func          | ResultObject|
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| spotsSymbols      | spots symbols info            | Array < SpotsSymbols>   |
-| spotsCurrencies  | spots currencies info         | Array < String>|
-| currencies | currencies info | Array< Currencies>|
+| Field           | Description           | Data Type             |
+| --------------- | --------------------- | --------------------- |
+| spotsSymbols    | spots symbols info    | Array < SpotsSymbols> |
+| spotsCurrencies | spots currencies info | Array < String>       |
+| currencies      | currencies info       | Array< Currencies>    |
 
 **SpotsSymbols**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| id      | symbol id            | Long   |
-| name    | symbol name            | String   |
-| supportMarginTrade      | support margin trade            | Boolean   |
-| hidden      | true: disable, false: un disable             | Boolean   |
-| displayOrder      | sort field index           | Integer   |
-| derivative      | derivative            | Boolean   |
-| baseName      | base name          | String   |
-| quoteName      | quote name            | String   |
-| baseScale      | Base currency price precision decimal places | Integer   |
-| baseMinimumIncrement      | The minimum change scale of the base currency price            | BigDecimal   |
-| baseMaximumQuantity      | The maximum number of transactions in a single base currency | Integer   |
-| baseMinimumQuantity    | The minimum number of transactions in a single base currency| BigDecimal   |
-| quoteScale      | Denomination currency precision decimal places            | Integer   |
-| quoteMinimumIncrement  | The minimum price change scale of the denominated currency            | BigDecimal   |
-| orderBookAccuracy      | Order Book Accuracy  0,0.1,0.01           | String   |
-| alwaysChargeQuote      | Fees are always charged in the currency of denomination           | Boolean   |
-| zone      | What regions are allowed to trade           | String   |
-| endTime      | end time company：ms            | Long   |
-| openTime      | open time company：ms           | Long   |
+| Field                 | Description                              | Data Type  |
+| --------------------- | ---------------------------------------- | ---------- |
+| id                    | symbol id                                | Long       |
+| name                  | symbol name                              | String     |
+| supportMarginTrade    | support margin trade                     | Boolean    |
+| hidden                | true: disable, false: un disable         | Boolean    |
+| displayOrder          | sort field index                         | Integer    |
+| derivative            | derivative                               | Boolean    |
+| baseName              | base name                                | String     |
+| quoteName             | quote name                               | String     |
+| baseScale             | Base currency price precision decimal places | Integer    |
+| baseMinimumIncrement  | The minimum change scale of the base currency price | BigDecimal |
+| baseMaximumQuantity   | The maximum number of transactions in a single base currency | Integer    |
+| baseMinimumQuantity   | The minimum number of transactions in a single base currency | BigDecimal |
+| quoteScale            | Denomination currency precision decimal places | Integer    |
+| quoteMinimumIncrement | The minimum price change scale of the denominated currency | BigDecimal |
+| orderBookAccuracy     | Order Book Accuracy  0,0.1,0.01          | String     |
+| alwaysChargeQuote     | Fees are always charged in the currency of denomination | Boolean    |
+| zone                  | What regions are allowed to trade        | String     |
+| endTime               | end time company：ms                      | Long       |
+| openTime              | open time company：ms                     | Long       |
 
 
 **Currencies**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| id      | currency id            | Long   |
-| name      | currency name            | String   |
-| hidden      | true: disable, false: un disable            | Boolean   |
-| depositOpenTime      | deposit open time            | Long   |
-| displayOrder      | sort field index           | Integer   |
-| iconUrl      | icon url            | String   |
-| withdrawOpenTime      | withdraw open time            | Long   |
-| displayScale      | Display accuracy            | Long   |
+| Field            | Description                      | Data Type |
+| ---------------- | -------------------------------- | --------- |
+| id               | currency id                      | Long      |
+| name             | currency name                    | String    |
+| hidden           | true: disable, false: un disable | Boolean   |
+| depositOpenTime  | deposit open time                | Long      |
+| displayOrder     | sort field index                 | Integer   |
+| iconUrl          | icon url                         | String    |
+| withdrawOpenTime | withdraw open time               | Long      |
+| displayScale     | Display accuracy                 | Long      |
 
 
 #### SpotsList
@@ -258,7 +262,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 
@@ -289,21 +293,21 @@ Get spots trading pair info about price, volume, symbol name.
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | String               |
 
 **ResultObject**: 
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| volume  | volume         | String     |
-| symbolId      | symbol id        | Integer    |
-| price | price | String    |
-| name | symbol name | String    |
-| changes | 24h up and down | BigDecimal    |
+| Field    | Description     | Data Type  |
+| -------- | --------------- | ---------- |
+| volume   | volume          | String     |
+| symbolId | symbol id       | Integer    |
+| price    | price           | String     |
+| name     | symbol name     | String     |
+| changes  | 24h up and down | BigDecimal |
 
 
 
@@ -330,7 +334,7 @@ Get kline info around recent 24h on the fixed symbol
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 | symbol  | The request symbol    | String    |
@@ -361,21 +365,21 @@ Get kline info around recent 24h on the fixed symbol
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | string    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | string               |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| symbol  | symbol name         | String     |
-| data      | [ timestamp, open, high, low, close, amount, change ]         | Array< String>    |
-| type | type | string    |
-| sequenceId | sequence id | string    |
-| ts | time stamp ms | string    |
+| Field      | Description                              | Data Type      |
+| ---------- | ---------------------------------------- | -------------- |
+| symbol     | symbol name                              | String         |
+| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
+| type       | type                                     | string         |
+| sequenceId | sequence id                              | string         |
+| ts         | time stamp ms                            | string         |
 
 #### AllTicker
 
@@ -398,7 +402,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 
@@ -428,21 +432,21 @@ The summary of the K-line info, and the frequency is less than 10op/s
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | string    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | string               |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| symbol  | symbol name         | String     |
-| data      | [ timestamp, open, high, low, close, amount, change ]         | Array< String>    |
-| type | type | string    |
-| sequenceId | sequence id | string    |
-| ts | time stamp ms | string    |
+| Field      | Description                              | Data Type      |
+| ---------- | ---------------------------------------- | -------------- |
+| symbol     | symbol name                              | String         |
+| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
+| type       | type                                     | string         |
+| sequenceId | sequence id                              | string         |
+| ts         | time stamp ms                            | string         |
 
 
 
@@ -469,10 +473,10 @@ Get the order book
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
-| symbol | symbol name | String    |
+| symbol  | symbol name           | String    |
 
 **Response Body**:
 
@@ -524,12 +528,12 @@ Get the order book
 
 **Result**：
 
-| Field       | Description                              | Data Type  |
-| ----------- | ---------------------------------------- | ---------- |
-| price       | The newest price                         | BigDecimal |
-| Buy orders  | The buy order book: [ price, amount, total ] | Array< String>      |
-| Sell orders | The buy order book:  [ price, amount, total ] | Array< String>      |
-| sequenceId | sequence id | String      |
+| Field       | Description                              | Data Type      |
+| ----------- | ---------------------------------------- | -------------- |
+| price       | The newest price                         | BigDecimal     |
+| Buy orders  | The buy order book: [ price, amount, total ] | Array< String> |
+| Sell orders | The buy order book:  [ price, amount, total ] | Array< String> |
+| sequenceId  | sequence id                              | String         |
 
 #### Bars
 
@@ -556,16 +560,16 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol                       | String    |
-| type   | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
-| start   | start timestamp ms eg: 0 | Long      |
-| end   | end timestamp ms eg: 0 | Long      |
-| limit   | The bar amount | Long      |
+| Field   | Description                              | Data Type |
+| ------- | ---------------------------------------- | --------- |
+| id      | The result id                            | Integer   |
+| Method  | request func                             | String    |
+| jsonrpc | The json-rpc  version                    | string    |
+| symbol  | name of the symbol                       | String    |
+| type    | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
+| start   | start timestamp ms eg: 0                 | Long      |
+| end     | end timestamp ms eg: 0                   | Long      |
+| limit   | The bar amount                           | Long      |
 
 **Response Body**:
 
@@ -602,11 +606,11 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< Array < String>>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | string    |
+| Field   | Description           | Data Type               |
+| ------- | --------------------- | ----------------------- |
+| result  | Return result         | Array< Array < String>> |
+| id      | The result id         | Integer                 |
+| jsonrpc | The json-rpc  version | string                  |
 
 **Abort result**: 
 
@@ -636,14 +640,14 @@ Get the recent ticks info
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol                       | String    |
-| limit   | The bar amount 1-500，default: 200 | Long      |
-| sequenceId   | sequence id eg: 0 | Long      |
+| Field      | Description                       | Data Type |
+| ---------- | --------------------------------- | --------- |
+| id         | The result id                     | Integer   |
+| Method     | request func                      | String    |
+| jsonrpc    | The json-rpc  version             | string    |
+| symbol     | name of the symbol                | String    |
+| limit      | The bar amount 1-500，default: 200 | Long      |
+| sequenceId | sequence id eg: 0                 | Long      |
 
 
 
@@ -668,11 +672,11 @@ Get the recent ticks info
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< String>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type      |
+| ------- | --------------------- | -------------- |
+| result  | Return result         | Array< String> |
+| id      | The result id         | Integer        |
+| jsonrpc | The json-rpc  version | String         |
 
 **Abort data**:
 
@@ -700,13 +704,13 @@ API Key Permission：Read
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol                       | String    |
-| updateAt   | latest timestamp | Long      |
+| Field    | Description           | Data Type |
+| -------- | --------------------- | --------- |
+| id       | The result id         | Integer   |
+| Method   | request func          | String    |
+| jsonrpc  | The json-rpc  version | string    |
+| symbol   | name of the symbol    | String    |
+| updateAt | latest timestamp      | Long      |
 
 
 **Response Body**:
@@ -743,36 +747,36 @@ API Key Permission：Read
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>    |
-| id      | The result id         | String    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | String               |
+| jsonrpc | The json-rpc  version | String               |
 
 
 **ResultObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| sequenceId  | sequence id         | Long    |
-| symbolId | symbol id | Long    |
-| type | order type limit: Limit order, market: market order| String    |
-| status   | order status | String |
-| direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | Average order price | BigDecimal |
-| price   | order limit | BigDecimal |
-| quantity   | quantity of order | BigDecimal |
-| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
-| makerFeeRate   | Rate as Maker | BigDecimal |
-| takerFeeRate   | Rate as Taker | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
-| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
-| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
-| clientOrderId |The custom id is globally unique | String |
-| createAt |create time stamp | Long |
-| updateAt |update time stamp | Long |
+| Field             | Description                              | Data Type  |
+| ----------------- | ---------------------------------------- | ---------- |
+| id                | order id                                 | Long       |
+| sequenceId        | sequence id                              | Long       |
+| symbolId          | symbol id                                | Long       |
+| type              | order type limit: Limit order, market: market order | String     |
+| status            | order status                             | String     |
+| direction         | LONG:buy,SHORT:sell                      | String     |
+| fillPrice         | Average order price                      | BigDecimal |
+| price             | order limit                              | BigDecimal |
+| quantity          | quantity of order                        | BigDecimal |
+| unfilledQuantity  | Number of orders not yet filled          | BigDecimal |
+| makerFeeRate      | Rate as Maker                            | BigDecimal |
+| takerFeeRate      | Rate as Taker                            | BigDecimal |
+| fee               | Total accumulated handling fee           | BigDecimal |
+| triggerOn         | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
+| trailingBasePrice | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance  | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId     | The custom id is globally unique         | String     |
+| createAt          | create time stamp                        | Long       |
+| updateAt          | update time stamp                        | Long       |
 
 
 [Abort status](#orderStatus)
@@ -797,13 +801,13 @@ API Key Permission：Read
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol   | String    |
-| updateAt   | latest timestamp | Long      |
+| Field    | Description           | Data Type |
+| -------- | --------------------- | --------- |
+| id       | The result id         | Integer   |
+| Method   | request func          | String    |
+| jsonrpc  | The json-rpc  version | string    |
+| symbol   | name of the symbol    | String    |
+| updateAt | latest timestamp      | Long      |
 
 
 
@@ -830,25 +834,25 @@ API Key Permission：Read
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Number               |
+| jsonrpc | The json-rpc  version | String               |
 
 **ResultObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| sequenceId  | sequence id         | Long    |
-| symbolId | symbol id | Long    |
-| orderId | order id | String    |
-| direction   | LONG:buy,SHORT:sell | String |
-| price   | order limit | BigDecimal |
-| quantity   | quantity of order | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| createAt |create time stamp ms| Long |
+| Field      | Description                    | Data Type  |
+| ---------- | ------------------------------ | ---------- |
+| id         | order id                       | Long       |
+| sequenceId | sequence id                    | Long       |
+| symbolId   | symbol id                      | Long       |
+| orderId    | order id                       | String     |
+| direction  | LONG:buy,SHORT:sell            | String     |
+| price      | order limit                    | BigDecimal |
+| quantity   | quantity of order              | BigDecimal |
+| fee        | Total accumulated handling fee | BigDecimal |
+| createAt   | create time stamp ms           | Long       |
 
 
 ### Spots Trade Endpoint
@@ -886,13 +890,13 @@ Open one order
 ```
 
 
-| Field                 | Type        | Description                              |
-| --------------------- | ----------- | ---------------------------------------- |
-| symbol           | string  | Required , exchage pair to trade, such as `BTC_USDT` |
+| Field             | Type    | Description                              |
+| ----------------- | ------- | ---------------------------------------- |
+| symbol            | string  | Required , exchage pair to trade, such as `BTC_USDT` |
 | type              | enum    | Required order type：limit order="LIMIT"，market order="MARKET" |
 | direction         | enum    | Required  order direction：buy="LONG"，sell="SHORT" |
 | price             | decimal | Only for Limited Order  order price ，such as`7123.5` |
-| quantity          | decimal | Required order amount ,such as`1.02` |
+| quantity          | decimal | Required order amount ,such as`1.02`     |
 | fillOrKill        | boolean | Not required  whether to FOK. Order，such as`true` |
 | immediateOrCancel | boolean | Not required whether to IOC order，such as`true` |
 | postOnly          | boolean | Required  whether negtively to trust orders，such as`true` |
@@ -934,36 +938,36 @@ Open one order
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | String               |
 
 **ResultObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| symbol | symbol id | Long    |
-| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
-| type | order type limit: Limit order, market: market order| String    |
-| marginTrade | Order feature code| Long    |
-| features | Whether it is leveraged trading (currently not open)| String    |
-| status   | order status | String |
-| direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | Average order price | BigDecimal |
-| price   | order limit | BigDecimal |
-| quantity   | order quantity | BigDecimal |
-| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
-| makerFeeRate   | Rate as Maker | BigDecimal |
-| takerFeeRate   | Rate as Taker | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
-| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
-| clientOrderId |The custom id is globally unique | String |
-| createAt |create time stamp | Long |
-| updateAt |update time stamp | Long |
+| Field             | Description                              | Data Type  |
+| ----------------- | ---------------------------------------- | ---------- |
+| id                | order id                                 | Long       |
+| symbol            | symbol id                                | Long       |
+| triggerOn         | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
+| type              | order type limit: Limit order, market: market order | String     |
+| marginTrade       | Order feature code                       | Long       |
+| features          | Whether it is leveraged trading (currently not open) | String     |
+| status            | order status                             | String     |
+| direction         | LONG:buy,SHORT:sell                      | String     |
+| fillPrice         | Average order price                      | BigDecimal |
+| price             | order limit                              | BigDecimal |
+| quantity          | order quantity                           | BigDecimal |
+| unfilledQuantity  | Number of orders not yet filled          | BigDecimal |
+| makerFeeRate      | Rate as Maker                            | BigDecimal |
+| takerFeeRate      | Rate as Taker                            | BigDecimal |
+| fee               | Total accumulated handling fee           | BigDecimal |
+| trailingBasePrice | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance  | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId     | The custom id is globally unique         | String     |
+| createAt          | create time stamp                        | Long       |
+| updateAt          | update time stamp                        | Long       |
 
 [Abort status](#orderStatus)
 
@@ -992,12 +996,12 @@ Batch to cancel orders
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| orderIds | cancel order id   | Array< String>    |
+| Field    | Description           | Data Type      |
+| -------- | --------------------- | -------------- |
+| id       | The result id         | Integer        |
+| Method   | request func          | String         |
+| jsonrpc  | The json-rpc  version | string         |
+| orderIds | cancel order id       | Array< String> |
 
 **Response Body**:
 
@@ -1010,12 +1014,12 @@ Batch to cancel orders
     }
 }
 ```
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
-| code | code 0 success other failure | Integer |
+| Field   | Description                  | Data Type            |
+| ------- | ---------------------------- | -------------------- |
+| result  | Return result                | Array< ResultObject> |
+| id      | The result id                | Integer              |
+| jsonrpc | The json-rpc  version        | String               |
+| code    | code 0 success other failure | Integer              |
 
 #### Get Open Orders
 
@@ -1038,12 +1042,12 @@ Get the open state orders
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| marginTrade | margin trade only false  | Boolean    |
+| Field       | Description             | Data Type |
+| ----------- | ----------------------- | --------- |
+| id          | The result id           | Integer   |
+| Method      | request func            | String    |
+| jsonrpc     | The json-rpc  version   | string    |
+| marginTrade | margin trade only false | Boolean   |
 
 **Response Body**:
 
@@ -1103,53 +1107,53 @@ Get the open state orders
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Number       |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| account  | Return result         | AccountObject    |
-| order      | The result id         | Array< OrderObject>    |
+| Field   | Description   | Data Type           |
+| ------- | ------------- | ------------------- |
+| account | Return result | AccountObject       |
+| order   | The result id | Array< OrderObject> |
 
 
 **AccountObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| key  | BTC,USDT..... is currency name       | String  |
-| usdtPrice  | The price of usdt corresponding to the currency         | BigDecimal|
-| available  | Available Balance         | BigDecimal|
-| frozen  | freeze         | BigDecimal|
+| Field     | Description                              | Data Type  |
+| --------- | ---------------------------------------- | ---------- |
+| key       | BTC,USDT..... is currency name           | String     |
+| usdtPrice | The price of usdt corresponding to the currency | BigDecimal |
+| available | Available Balance                        | BigDecimal |
+| frozen    | freeze                                   | BigDecimal |
 
 **OrderObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| symbol | symbol id | Long    |
-| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
-| type | order type limit: Limit order, market: market order| String    |
-| marginTrade | Order feature code| Long    |
-| features | Whether it is leveraged trading (currently not open)| String    |
-| status   | order status | String |
-| direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | Average order price | BigDecimal |
-| price   | order limit | BigDecimal |
-| quantity   | order quantity | BigDecimal |
-| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
-| makerFeeRate   | Rate as Maker | BigDecimal |
-| takerFeeRate   | Rate as Taker | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
-| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
-| clientOrderId |The custom id is globally unique | String |
-| createAt |create time stamp | Long |
-| updateAt |update time stamp | Long |
+| Field             | Description                              | Data Type  |
+| ----------------- | ---------------------------------------- | ---------- |
+| id                | order id                                 | Long       |
+| symbol            | symbol id                                | Long       |
+| triggerOn         | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
+| type              | order type limit: Limit order, market: market order | String     |
+| marginTrade       | Order feature code                       | Long       |
+| features          | Whether it is leveraged trading (currently not open) | String     |
+| status            | order status                             | String     |
+| direction         | LONG:buy,SHORT:sell                      | String     |
+| fillPrice         | Average order price                      | BigDecimal |
+| price             | order limit                              | BigDecimal |
+| quantity          | order quantity                           | BigDecimal |
+| unfilledQuantity  | Number of orders not yet filled          | BigDecimal |
+| makerFeeRate      | Rate as Maker                            | BigDecimal |
+| takerFeeRate      | Rate as Taker                            | BigDecimal |
+| fee               | Total accumulated handling fee           | BigDecimal |
+| trailingBasePrice | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance  | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId     | The custom id is globally unique         | String     |
+| createAt          | create time stamp                        | Long       |
+| updateAt          | update time stamp                        | Long       |
 
 [Abort status](#orderStatus)
 
@@ -1177,13 +1181,13 @@ Get the tradable symbols
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| marginTrade | margin trade only false  | Boolean    |
-| symbolName | symbol name  | String    |
+| Field       | Description             | Data Type |
+| ----------- | ----------------------- | --------- |
+| id          | The result id           | Integer   |
+| Method      | request func            | String    |
+| jsonrpc     | The json-rpc  version   | string    |
+| marginTrade | margin trade only false | Boolean   |
+| symbolName  | symbol name             | String    |
 
 **Response Body**:
 
@@ -1310,46 +1314,46 @@ Get the tradable symbols
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Number       |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| account  | Return result         | AccountObject    |
-| order      | The result id         | Array< OrderObject>    |
+| Field   | Description   | Data Type           |
+| ------- | ------------- | ------------------- |
+| account | Return result | AccountObject       |
+| order   | The result id | Array< OrderObject> |
 
 **AccountObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| key  | BTC,USDT..... is currency name       | String  |
-| usdtPrice  | The price of usdt corresponding to the currency         | BigDecimal|
-| available  | Available Balance         | BigDecimal|
-| frozen  | freeze         | BigDecimal|
+| Field     | Description                              | Data Type  |
+| --------- | ---------------------------------------- | ---------- |
+| key       | BTC,USDT..... is currency name           | String     |
+| usdtPrice | The price of usdt corresponding to the currency | BigDecimal |
+| available | Available Balance                        | BigDecimal |
+| frozen    | freeze                                   | BigDecimal |
 
 **OrderObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| symbol | symbol id | Long    |
-| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0| BigDecimal |
-| type | order type limit: Limit order, market: market order| String    |
-| marginTrade | Order feature code| Long    |
-| features | Whether it is leveraged trading (currently not open)| String    |
-| status   | order status | String |
-| direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | Average order price | BigDecimal |
-| price   | order limit | BigDecimal |
-| quantity   | quantity of order | BigDecimal |
-| unfilledQuantity   | Number of orders not yet filled  | BigDecimal |
-| makerFeeRate   | rate as maker | BigDecimal |
-| takerFeeRate   | rate as taker | BigDecimal |
+| Field            | Description                              | Data Type  |
+| ---------------- | ---------------------------------------- | ---------- |
+| id               | order id                                 | Long       |
+| symbol           | symbol id                                | Long       |
+| triggerOn        | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
+| type             | order type limit: Limit order, market: market order | String     |
+| marginTrade      | Order feature code                       | Long       |
+| features         | Whether it is leveraged trading (currently not open) | String     |
+| status           | order status                             | String     |
+| direction        | LONG:buy,SHORT:sell                      | String     |
+| fillPrice        | Average order price                      | BigDecimal |
+| price            | order limit                              | BigDecimal |
+| quantity         | quantity of order                        | BigDecimal |
+| unfilledQuantity | Number of orders not yet filled          | BigDecimal |
+| makerFeeRate     | rate as maker                            | BigDecimal |
+| takerFeeRate     | rate as taker                            | BigDecimal |
 | fee   | Total accumulated handling fee
  | BigDecimal |
 | trailingBasePrice   | The base price for trailing stop orders, otherwise it will always be 0 | BigDecimal |
@@ -1380,9 +1384,9 @@ Get account info
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| id      | The result id         | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | string    |
 
@@ -1457,20 +1461,20 @@ Get account info
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Number       |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| key  | BTC,USDT..... is currency name       | String  |
-| usdtPrice  | The price of usdt corresponding to the currency         | BigDecimal|
-| available  | Available Balance         | BigDecimal|
-| frozen  | freeze         | BigDecimal|
+| Field     | Description                              | Data Type  |
+| --------- | ---------------------------------------- | ---------- |
+| key       | BTC,USDT..... is currency name           | String     |
+| usdtPrice | The price of usdt corresponding to the currency | BigDecimal |
+| available | Available Balance                        | BigDecimal |
+| frozen    | freeze                                   | BigDecimal |
 
 #### Closed
 
@@ -1494,15 +1498,15 @@ API Key Permission：Read
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| range | year month eg: 202207| String |
-| symbolName | symbol name  version | String    |
-| offsetId | last order id | String    |
-| limit | The json-rpc  version | Integer    |
+| Field      | Description           | Data Type |
+| ---------- | --------------------- | --------- |
+| id         | The result id         | Integer   |
+| Method     | request func          | String    |
+| jsonrpc    | The json-rpc  version | string    |
+| range      | year month eg: 202207 | String    |
+| symbolName | symbol name  version  | String    |
+| offsetId   | last order id         | String    |
+| limit      | The json-rpc  version | Integer   |
 
 **Response Body**:
 
@@ -1545,37 +1549,37 @@ API Key Permission：Read
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Number       |
+| jsonrpc | The json-rpc  version | String       |
 
 
 **ResultObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| symbol | symbol id | Long    |
-| triggerOn   | The trigger price for stop orders, the trigger price for non-stop orders is always 0 | BigDecimal |
-| type | order type limit: Limit order, market: market order| String    |
-| marginTrade | Order feature code| Long    |
-| features | Whether it is leveraged trading (currently not open)| String    |
-| status   | order status | String |
-| direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | Average order price | BigDecimal |
-| price   | order limit | BigDecimal |
-| quantity   |  quantity of order | BigDecimal |
-| unfilledQuantity   |  Number of orders not yet filled | BigDecimal |
-| makerFeeRate   | rate as maker | BigDecimal |
-| takerFeeRate   | rate as taker | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| trailingBasePrice   | The base price for trailing stop orders, otherwise it will always be 0 | BigDecimal |
-| trailingDistance | The trigger price distance for Trailing stop orders, otherwise it is always 0 | BigDecimal |
-| clientOrderId |The custom id is globally unique | String |
-| createAt |create time stamp | Long |
-| updateAt |update time stamp | Long |
+| Field             | Description                              | Data Type  |
+| ----------------- | ---------------------------------------- | ---------- |
+| id                | order id                                 | Long       |
+| symbol            | symbol id                                | Long       |
+| triggerOn         | The trigger price for stop orders, the trigger price for non-stop orders is always 0 | BigDecimal |
+| type              | order type limit: Limit order, market: market order | String     |
+| marginTrade       | Order feature code                       | Long       |
+| features          | Whether it is leveraged trading (currently not open) | String     |
+| status            | order status                             | String     |
+| direction         | LONG:buy,SHORT:sell                      | String     |
+| fillPrice         | Average order price                      | BigDecimal |
+| price             | order limit                              | BigDecimal |
+| quantity          | quantity of order                        | BigDecimal |
+| unfilledQuantity  | Number of orders not yet filled          | BigDecimal |
+| makerFeeRate      | rate as maker                            | BigDecimal |
+| takerFeeRate      | rate as taker                            | BigDecimal |
+| fee               | Total accumulated handling fee           | BigDecimal |
+| trailingBasePrice | The base price for trailing stop orders, otherwise it will always be 0 | BigDecimal |
+| trailingDistance  | The trigger price distance for Trailing stop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId     | The custom id is globally unique         | String     |
+| createAt          | create time stamp                        | Long       |
+| updateAt          | update time stamp                        | Long       |
 
 [Abort status](#orderStatus)
 
@@ -1600,12 +1604,12 @@ Get the order by order id
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| id      | The result id         | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | string    |
-| orderId | order id| String |
+| orderId | order id              | String    |
 
 **Response Body**:
 
@@ -1641,33 +1645,33 @@ Get the order by order id
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| symbol | symbol id | Long    |
-| triggerOn   |The custom id is globally unique | BigDecimal |
-| type | order type limit: Limit order, market: market order| String    |
-| marginTrade | Order feature code| Long    |
-| features | Whether it is leveraged trading (currently not open)| String    |
-| status   | order status | String |
-| direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | Average order price | BigDecimal |
-| price   | order limit | BigDecimal |
-| quantity   | quantity of order | BigDecimal |
-| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
-| makerFeeRate   | rate as maker | BigDecimal |
-| takerFeeRate   | rate as taker | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| trailingBasePrice   | The base price for trailing stop orders, otherwise it will always be 0| BigDecimal |
-| trailingDistance | The trigger price distance for Trailing stop orders, otherwise it is always 0 | BigDecimal |
+| Field             | Description                              | Data Type  |
+| ----------------- | ---------------------------------------- | ---------- |
+| id                | order id                                 | Long       |
+| symbol            | symbol id                                | Long       |
+| triggerOn         | The custom id is globally unique         | BigDecimal |
+| type              | order type limit: Limit order, market: market order | String     |
+| marginTrade       | Order feature code                       | Long       |
+| features          | Whether it is leveraged trading (currently not open) | String     |
+| status            | order status                             | String     |
+| direction         | LONG:buy,SHORT:sell                      | String     |
+| fillPrice         | Average order price                      | BigDecimal |
+| price             | order limit                              | BigDecimal |
+| quantity          | quantity of order                        | BigDecimal |
+| unfilledQuantity  | Number of orders not yet filled          | BigDecimal |
+| makerFeeRate      | rate as maker                            | BigDecimal |
+| takerFeeRate      | rate as taker                            | BigDecimal |
+| fee               | Total accumulated handling fee           | BigDecimal |
+| trailingBasePrice | The base price for trailing stop orders, otherwise it will always be 0 | BigDecimal |
+| trailingDistance  | The trigger price distance for Trailing stop orders, otherwise it is always 0 | BigDecimal |
 | clientOrderId |The custom id is globally unique
 | String |
 | createAt |create time stamp | Long |
@@ -1678,19 +1682,19 @@ Get the order by order id
 ### Order Status
 OrderStatus：Order Status Description
 
-| Field  | Description                              |
-| ------ | ---------------------------------------- |
-| STOP_PENDING | Waiting for the triggered stop order;|
-| PENDING | Activity orders that are waiting to be filled; |
-| FAILED | Order execution failed (insufficient margin, etc.), the final status; |
-| STOP_FAILED | After the Stop order is triggered, the execution fails (for reasons such as insufficient margin), and the final state; |
-| FULLY_FILLED | All transactions, final status; |
-| PARTIAL_FILLED | Partially sold; |
-| PARTIAL_CANCELLED | Waiting for a triggered stop order; |
-| STOP_CANCELLED | The Stop order is canceled by the user before it is triggered, and the final state; |
-| FULLY_CANCELLED | The order is canceled by the user before it is completed, and the final status; |
-| STOP_PENDING | Waiting for a triggered stop order;|
-| STOP_PENDING | Waiting for a triggered stop order; |
+| Field             | Description                              |
+| ----------------- | ---------------------------------------- |
+| STOP_PENDING      | Waiting for the triggered stop order;    |
+| PENDING           | Activity orders that are waiting to be filled; |
+| FAILED            | Order execution failed (insufficient margin, etc.), the final status; |
+| STOP_FAILED       | After the Stop order is triggered, the execution fails (for reasons such as insufficient margin), and the final state; |
+| FULLY_FILLED      | All transactions, final status;          |
+| PARTIAL_FILLED    | Partially sold;                          |
+| PARTIAL_CANCELLED | Waiting for a triggered stop order;      |
+| STOP_CANCELLED    | The Stop order is canceled by the user before it is triggered, and the final state; |
+| FULLY_CANCELLED   | The order is canceled by the user before it is completed, and the final status; |
+| STOP_PENDING      | Waiting for a triggered stop order;      |
+| STOP_PENDING      | Waiting for a triggered stop order;      |
 
 
 
@@ -1756,21 +1760,21 @@ This endpoint returns a list of K-lines history data for all public users.
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field   | Description                              | Data Type |
-| ------- | ---------------------------------------- | --------- |
-| code    | Return code                              | Integer   |
-| data    | Return data | Array< DataObject>     |
-| message | Return message                           | String    |
-| time    | Return timestamp                         | String    |
-| tid     | tracer id usd for open tracing           | String    |
+| Field   | Description                    | Data Type          |
+| ------- | ------------------------------ | ------------------ |
+| code    | Return code                    | Integer            |
+| data    | Return data                    | Array< DataObject> |
+| message | Return message                 | String             |
+| time    | Return timestamp               | String             |
+| tid     | tracer id usd for open tracing | String             |
 
 **DataObject**:
 
@@ -1778,10 +1782,10 @@ This endpoint returns a list of K-lines history data for all public users.
 | ------ | ---------------- | ---------------------------------------- |
 | volume | Volume           | caculated by base token, for instance USD |
 | amount | Volume           | caculated by quote token, for instance BTC |
-| close  | Close price      | BigDecimal                                   |
-| high   | High price       | BigDecimal                                   |
-| low    | Low price        | BigDecimal                                   |
-| open   | Open price       | BigDecimal                                   |
+| close  | Close price      | BigDecimal                               |
+| high   | High price       | BigDecimal                               |
+| low    | Low price        | BigDecimal                               |
+| open   | Open price       | BigDecimal                               |
 | time   | Market Timestamp | long                                     |
 
 
@@ -1923,11 +1927,11 @@ This endpoint returns a list of historical orders owned by this API user.
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
@@ -2109,11 +2113,11 @@ This endpoint returns a list of holding orders owned by this API user.
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
@@ -2294,16 +2298,16 @@ This endpoint returns a list of pending orders owned by this API user.
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
 
 ResultObject: 
 
-| Field   | Description | Data Type  |
-| ------ | ---------- | ---------- |
+| Field                         | Description                              | Data Type  |
+| ----------------------------- | ---------------------------------------- | ---------- |
 | orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
 | code                          | Order id                                 | String     |
 | appendCharge                  | Fee to append                            | integer    |
@@ -2342,6 +2346,1869 @@ ResultObject:
 | settleCharge                  | The charge fee to close the order        | BigDecimal |
 | targetProfit                  | The taken profit                         | BigDecimal |
 | account                       | Registered account                       | String     |
+
+
+## USDT Perpetual contracts
+
+
+
+### orderGetClosed
+
+**Meta**
+
+API Key Permission：Read
+
+Get closed orders.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetClosed",
+  "jsonrpc": "2.0",
+  "params": {
+    "range":"",
+    "symbol":"",
+    "offsetId":"",
+    "limit":0
+  }
+}
+```
+
+| Field    | Description                              | Data Type |
+| -------- | ---------------------------------------- | --------- |
+| Id       | Request id                               | Number    |
+| Method   | request func                             | String    |
+| jsonrpc  | The json-rpc  version                    | String    |
+| range    | Range as int like 201808.                | String    |
+| symbol   | Return related symbol-only Default to "" (all symbols). | String    |
+| offsetId | From start order id. Default to 0. (latest first). | String    |
+| limit    | Limited number per page                  | Number    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "hasMore": true,
+    "nextOffsetId": "12035612208",
+    "range": "202208",
+    "results": [
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 2,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": "",
+        "fee": 0.0061323,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 20441,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1659603034843,
+        "trailing": false,
+        "unfilledQuantity": 0,
+        "price": 20441,
+        "takerFeeRate": 0.0015,
+        "id": "12035682208",
+        "status": "FULLY_FILLED",
+        "direction": "SHORT",
+        "updatedAt": 1659603034843
+      }
+    ]
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| hasMore           | Whether having more data                 | Boolean   |
+| nextOffsetId      | Next offset id                           | String    |
+| range             | year month eg: 202207                    | String    |
+| symbol            | Symbol name                              | String    |
+| quantity          | Amount                                   | Number    |
+| triggerOn         | The trigger price for stop orders, the trigger price for non-stop orders is always 0 | Decimal   |
+| makerFeeRate      | Rate as maker                            | Decimal   |
+| trailingDistance  | The trigger price distance for Trailing stop orders, otherwise it is always 0 | Decimal   |
+| clientOrderId     | The custom id is globally unique         | String    |
+| fee               | Total accumulated handling fee           | Decimal   |
+| trailingBasePrice | The base price for trailing stop orders, otherwise it will always be 0 | Decimal   |
+| type              | order type limit: Limit order, market: market order | String    |
+| fillPrice         | Average order price                      | Decimal   |
+| triggerDirection  | LONG:buy,SHORT:sell                      | String    |
+| features          | Whether it is leveraged trading (currently not open) | Number    |
+| createdAt         | create time stamp                        | Number    |
+| trailing          | Whether tracing the SL or TP orders      | Boolean   |
+| unfilledQuantity  | Number of orders not yet filled          | Number    |
+| price             | Order limit price                        | Decimal   |
+| takerFeeRate      | Rate as taker                            | Decimal   |
+| id                | Order id                                 | String    |
+| status            | Order status                             | String    |
+| direction         | LONG:buy,SHORT:sell                      | String    |
+| updatedAt         | Update time stamp                        | Number    |
+
+
+
+### orderGetOpens
+
+**Meta**
+
+API Key Permission：Read
+
+Get open orders.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetOpens",
+  "jsonrpc": "2.0",
+  "params": {
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "account": {
+      "USDT": {
+        "usdtPrice": 0,
+        "assets": 1004.06182639,
+        "available": 999.77534869,
+        "transferAmount": 999.77534869,
+        "frozen": 0.163528,
+        "position": 0.0347497,
+        "unRealizedPNL": 4.0882
+      }
+    },
+    "order": [
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 10,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": null,
+        "fee": 0.0061323,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 20441,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1659603041720,
+        "trailing": false,
+        "unfilledQuantity": 8,
+        "price": 20441,
+        "takerFeeRate": 0.0015,
+        "id": "12035832208",
+        "status": "PARTIAL_FILLED",
+        "direction": "SHORT",
+        "updatedAt": 1659603041720
+      }
+    ]
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field   | Description | Data Type |
+| ------- | ----------- | --------- |
+| account | Acount info | Object    |
+| order   | Orders info | List      |
+
+**account**:
+
+| Field          | Description                         | Data Type |
+| -------------- | ----------------------------------- | --------- |
+| usdtPrice      | Usdt price                          | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| available      | The amount of asset can be used     | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| transferAmount | The balance can be transfer         | Decimal   |
+| frozen         | The Amount  to be frozen            | Decimal   |
+| position       | The amount used by position         | Decimal   |
+| unRealizedPNL  | Unrealized profit and loss          | Decimal   |
+
+
+
+**order**:
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+### orderGetOpensNormal
+
+**Meta**
+
+API Key Permission：Read
+
+To get the Limited or Market orders
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetOpensNormal",
+  "jsonrpc": "2.0",
+  "params": {
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "positionNum": 1,
+    "openNum": 1,
+    "triggerNum": 0,
+    "account": {
+      "USDT": {
+        "usdtPrice": 0,
+        "assets": 1004.06182639,
+        "available": 999.77534869,
+        "transferAmount": 999.77534869,
+        "frozen": 0.16352,
+        "position": 0.0347497,
+        "unRealizedPNL": 4.0882
+      }
+    },
+    "order": [
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 10,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": null,
+        "fee": 0.0061323,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 20441,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1659603041720,
+        "trailing": false,
+        "unfilledQuantity": 8,
+        "price": 20441,
+        "takerFeeRate": 0.0015,
+        "id": "12035832208",
+        "status": "PARTIAL_FILLED",
+        "direction": "SHORT",
+        "updatedAt": 1659603041720
+      }
+    ]
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field       | Description                              | Data Type |
+| ----------- | ---------------------------------------- | --------- |
+| positionNum | The position num                         | Number    |
+| openNum     | The open order num, only owned by trust or SL interface | Number    |
+| triggerNum  | The trigger order num                    | Number    |
+| account     | The acount                               | Object    |
+| order       | The order list                           | List      |
+
+**account**:
+
+| Field          | Description                         | Data Type |
+| -------------- | ----------------------------------- | --------- |
+| usdtPrice      | Usdt price                          | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| available      | The amount of asset can be used     | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| transferAmount | The balance can be transfer         | Decimal   |
+| frozen         | The Amount  to be frozen            | Decimal   |
+| position       | The amount used by position         | Decimal   |
+| unRealizedPNL  | Unrealized profit and loss          | Decimal   |
+
+
+
+**order**:
+
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+
+### orderGetOpensTrigger
+
+**Meta**
+
+API Key Permission：Read
+
+To Get the SL or TP orders
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetOpensTrigger",
+  "jsonrpc": "2.0",
+  "params": {
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "positionNum": 1,
+    "openNum": 1,
+    "triggerNum": 0,
+    "account": {
+      "USDT": {
+        "usdtPrice": 0,
+        "assets": 1004.06182639,
+        "available": 999.77534869,
+        "transferAmount": 999.77534869,
+        "frozen": 0.16352,
+        "position": 0.0347497,
+        "unRealizedPNL": 4.0882
+      }
+    },
+    "order": [
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 10,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": null,
+        "fee": 0.0061323,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 20441,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1659603041720,
+        "trailing": false,
+        "unfilledQuantity": 8,
+        "price": 20441,
+        "takerFeeRate": 0.0015,
+        "id": "12035832208",
+        "status": "PARTIAL_FILLED",
+        "direction": "SHORT",
+        "updatedAt": 1659603041720
+      }
+    ]
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field       | Description                              | Data Type |
+| ----------- | ---------------------------------------- | --------- |
+| positionNum | The position num                         | Number    |
+| openNum     | The open order num, only owned by trust or SL interface | Number    |
+| triggerNum  | The trigger order num                    | Number    |
+| account     | The acount                               | Object    |
+| order       | The order list                           | List      |
+
+**account**:
+
+| Field          | Description                         | Data Type |
+| -------------- | ----------------------------------- | --------- |
+| usdtPrice      | Usdt price                          | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| available      | The amount of asset can be used     | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| transferAmount | The balance can be transfer         | Decimal   |
+| frozen         | The Amount  to be frozen            | Decimal   |
+| position       | The amount used by position         | Decimal   |
+| unRealizedPNL  | Unrealized profit and loss          | Decimal   |
+
+
+**order**:
+
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+### orderGetOpensData
+
+**Meta**
+
+API Key Permission：Read
+
+
+Interface used to get aggregated order position
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetOpensData",
+  "jsonrpc": "2.0",
+  "params": {
+    "type":0
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| type    | Type                  | Number    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "positionNum": 1,
+    "openNum": 1,
+    "order": [
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 10,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": null,
+        "fee": 0.0061323,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 20441,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1659603041720,
+        "trailing": false,
+        "unfilledQuantity": 8,
+        "price": 20441,
+        "takerFeeRate": 0.0015,
+        "id": "12035832208",
+        "status": "PARTIAL_FILLED",
+        "direction": "SHORT",
+        "updatedAt": 1659603041720
+      }
+    ],
+    "positions": [
+      {
+        "val": 40882,
+        "leverage": 0,
+        "symbol": "BTC_USDT",
+        "margin": 0.0347497,
+        "returnRate": 117.65,
+        "riskLevel": 0,
+        "quantity": 2,
+        "maxQuantity": 100000,
+        "bankruptcyPrice": 0,
+        "minimumMaintenanceMarginRate": 0.005,
+        "liquidationPrice": 0,
+        "fairPrice": 0,
+        "maxLeverage": 100,
+        "entryPrice": 20441,
+        "realizedPNL": -0.0061323,
+        "takerFeeRate": 0.0015,
+        "closed": false,
+        "id": "10119870_100105",
+        "unRealizedPNL": 4.0882,
+        "riskLight": 5,
+        "updatedAt": 1659603041720,
+        "direction": "SHORT"
+      }
+    ],
+    "triggerNum": 0,
+    "account": {
+      "USDT": {
+        "usdtPrice": 0,
+        "assets": 1004.06182639,
+        "available": 999.77534869,
+        "transferAmount": 999.77534869,
+        "frozen": 0.163528,
+        "position": 0.0347497,
+        "unRealizedPNL": 4.0882
+      }
+    }
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field       | Description                              | Data Type |
+| ----------- | ---------------------------------------- | --------- |
+| positionNum | The position num                         | Number    |
+| openNum     | The open order num, only owned by trust or SL interface | Number    |
+| triggerNum  | The trigger order num                    | Number    |
+| account     | The acount                               | Object    |
+| order       | The order list                           | List      |
+
+**account**:
+
+| Field          | Description                         | Data Type |
+| -------------- | ----------------------------------- | --------- |
+| usdtPrice      | Usdt price                          | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| available      | The amount of asset can be used     | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| transferAmount | The balance can be transfer         | Decimal   |
+| frozen         | The Amount  to be frozen            | Decimal   |
+| position       | The amount used by position         | Decimal   |
+| unRealizedPNL  | Unrealized profit and loss          | Decimal   |
+
+
+**order**:
+
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+**positions**:
+
+| Field                        | Description | Data Type |
+| ---------------------------- | ----------- | --------- |
+| val                          | value        | Decimal   |
+| leverage                     | The leverage        | Number    |
+| symbol                       | The symbol        | String    |
+| margin                       | The margin, should >0        | Decimal   |
+| returnRate                   | Return rate       | Decimal   |
+| riskLevel                    | Risk level for the present account        | Number    |
+| quantity                     | The position amount, 0 means closed, need multiply the multiplier in meta        | Number    |
+| maxQuantity                  | The max quatity under this risk level        | Number    |
+| bankruptcyPrice              | Bankruptcy price        | Decimal   |
+| minimumMaintenanceMarginRate | The minimum Maintenance Margin Rate        | Decimal   |
+| liquidationPrice             | The liquidation price        | Decimal   |
+| fairPrice                    | The mark price         | Decimal   |
+| maxLeverage                  | The maximum leverage        | Number    |
+| entryPrice                   | Open price        | Decimal   |
+| realizedPNL                  | Realized profit and loss        | Decimal   |
+| takerFeeRate                 | Taker fee rate        | Decimal   |
+| closed                       | Whether closed        | Boolean   |
+| id                           | Position id        | String    |
+| unRealizedPNL                | Unrealized profit and loss        | Decimal   |
+| riskLight                    | Risk light,0-no one ligthing, 5- all lighting         | Number    |
+| updatedAt                    | Updated time        | Number    |
+| direction                    | Direction "SHORT", "LONG"        | String    |
+
+
+
+### orderGetSymbolOpens
+
+**Meta**
+
+API Key Permission：Read
+
+Get orders by symbol
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetSymbolOpens",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol":"BTC_USDT"
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| symbol  | Symbol name                  | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "account": {
+      "USDT": {
+        "usdtPrice": 0,
+        "assets": 1004.061826390000000541222085975110530853271484375,
+        "available": 999.77534869,
+        "transferAmount": 999.77534869,
+        "frozen": 0.163528000000000034,
+        "position": 0.034749700000000007,
+        "unRealizedPNL": 4.088200000000000500222085975110530853271484375
+      }
+    },
+    "order": [
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 10,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": null,
+        "fee": 0.0061323,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 20441,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1659603041720,
+        "trailing": false,
+        "unfilledQuantity": 8,
+        "price": 20441,
+        "takerFeeRate": 0.0015,
+        "id": "12035832208",
+        "status": "PARTIAL_FILLED",
+        "direction": "SHORT",
+        "updatedAt": 1659603041720
+      }
+    ]
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field   | Description | Data Type |
+| ------- | ----------- | --------- |
+| account | Account        | Object    |
+| order   | Order list        | List      |
+
+**account**:
+
+| Field          | Description                         | Data Type |
+| -------------- | ----------------------------------- | --------- |
+| usdtPrice      | Usdt price                          | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| available      | The amount of asset can be used     | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| transferAmount | The balance can be transfer         | Decimal   |
+| frozen         | The Amount  to be frozen            | Decimal   |
+| position       | The amount used by position         | Decimal   |
+| unRealizedPNL  | Unrealized profit and loss          | Decimal   |
+
+**order**:
+
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+
+
+### orderGetById
+
+**Meta**
+
+API Key Permission：Read
+
+Get order by id.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetById",
+  "jsonrpc": "2.0",
+  "params": {
+    "encryptOrderId":"12035832208"
+  }
+}
+```
+
+| Field          | Description           | Data Type |
+| -------------- | --------------------- | --------- |
+| Id             | Request id            | Number    |
+| Method         | request func          | String    |
+| jsonrpc        | The json-rpc  version | String    |
+| encryptOrderId | order id              | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "symbol": "BTC_USDT",
+    "quantity": 10,
+    "triggerOn": 0,
+    "makerFeeRate": 0.001,
+    "trailingDistance": 0,
+    "clientOrderId": null,
+    "fee": 0.0061323,
+    "trailingBasePrice": 0,
+    "type": "LIMIT",
+    "fillPrice": 20441,
+    "triggerDirection": "LONG",
+    "features": 0,
+    "createdAt": 1659603041720,
+    "trailing": false,
+    "unfilledQuantity": 8,
+    "price": 20441,
+    "takerFeeRate": 0.0015,
+    "id": "12035832208",
+    "status": "PARTIAL_FILLED",
+    "direction": "SHORT",
+    "updatedAt": 1659603041720
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+### orderGetOpenByClientOrderId
+
+**Meta**
+
+API Key Permission：Read
+
+Get open order by clientOrderId.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetOpenByClientOrderId",
+  "jsonrpc": "2.0",
+  "params": {
+    "encryptOrderId":"12035832208"
+  }
+}
+```
+
+| Field          | Description           | Data Type |
+| -------------- | --------------------- | --------- |
+| Id             | Request id            | Number    |
+| Method         | request func          | String    |
+| jsonrpc        | The json-rpc  version | String    |
+| encryptOrderId | order id              | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "symbol": "BTC_USDT",
+    "quantity": 10,
+    "triggerOn": 0,
+    "makerFeeRate": 0.001,
+    "trailingDistance": 0,
+    "clientOrderId": null,
+    "fee": 0.0061323,
+    "trailingBasePrice": 0,
+    "type": "LIMIT",
+    "fillPrice": 20441,
+    "triggerDirection": "LONG",
+    "features": 0,
+    "createdAt": 1659603041720,
+    "trailing": false,
+    "unfilledQuantity": 8,
+    "price": 20441,
+    "takerFeeRate": 0.0015,
+    "id": "12035832208",
+    "status": "PARTIAL_FILLED",
+    "direction": "SHORT",
+    "updatedAt": 1659603041720
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+
+
+### orderGetByClientOrderId
+
+**Meta**
+
+API Key Permission：Read
+
+Get order by clientOrderId.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetByClientOrderId",
+  "jsonrpc": "2.0",
+  "params": {
+    "encryptOrderId":"12035832208"
+  }
+}
+```
+
+| Field          | Description           | Data Type |
+| -------------- | --------------------- | --------- |
+| Id             | Request id            | Number    |
+| Method         | request func          | String    |
+| jsonrpc        | The json-rpc  version | String    |
+| encryptOrderId | order id              | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "symbol": "BTC_USDT",
+    "quantity": 10,
+    "triggerOn": 0,
+    "makerFeeRate": 0.001,
+    "trailingDistance": 0,
+    "clientOrderId": null,
+    "fee": 0.0061323,
+    "trailingBasePrice": 0,
+    "type": "LIMIT",
+    "fillPrice": 20441,
+    "triggerDirection": "LONG",
+    "features": 0,
+    "createdAt": 1659603041720,
+    "trailing": false,
+    "unfilledQuantity": 8,
+    "price": 20441,
+    "takerFeeRate": 0.0015,
+    "id": "12035832208",
+    "status": "PARTIAL_FILLED",
+    "direction": "SHORT",
+    "updatedAt": 1659603041720
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+
+| Field             | Description                              | Data Type |
+| ----------------- | ---------------------------------------- | --------- |
+| symbol            | Symbol name                              | String    |
+| quantity          | Order quantity                           | Number    |
+| triggerOn         | The trigger price                        | Decimal   |
+| makerFeeRate      | Maker fee rate                           | Decimal   |
+| trailingDistance  | Traceing price distance,only for market order, can not set with triggerOn at the same time | Decimal   |
+| clientOrderId     | Client order id                          | String    |
+| fee               | The accumulated fee                      | Decimal   |
+| trailingBasePrice | The tracing base price                   | Decimal   |
+| type              | Order type: "LIMIT", "MARKET"            | String    |
+| fillPrice         | The average trading price , only for display | Decimal   |
+| triggerDirection  | Trigger direction, for instance "LONG"   | String    |
+| features          | The order feature code                   | Number    |
+| createdAt         | Created time                             | Number    |
+| trailing          | Whether to trace                         | Boolean   |
+| unfilledQuantity  | The order amount not to be trade; need multiply the  multiplier in meta data | Number    |
+| price             | The limit price                          | Decimal   |
+| takerFeeRate      | The taker fee rate                       | Decimal   |
+| id                | Order ID                                 | String    |
+| status            | The order state                          | String    |
+| direction         | Order direction:  "LONG", "SHORT"        | String    |
+| updatedAt         | Updated time                             | Number    |
+
+
+
+
+
+### positionClearingsGetByRange
+
+**Meta**
+
+API Key Permission：Read
+
+Get position clearings by range.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:positionClearingsGetByRange",
+  "jsonrpc": "2.0",
+  "params": {
+    "range":"",
+    "symbol":"BTC_USDT",
+    "offsetId":"0",
+    "limit":1
+  }
+}
+```
+
+| Field    | Description                              | Data Type |
+| -------- | ---------------------------------------- | --------- |
+| Id       | Request id                               | Number    |
+| Method   | request func                             | String    |
+| jsonrpc  | The json-rpc  version                    | String    |
+| range    | Range as int like 201808.                | String    |
+| symbol   | Return related symbol-only Default to "" (all symbols). | String    |
+| offsetId | From start order id. Default to 0. (latest first). | String    |
+| limit    | Limited number per page                  | Number    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "hasMore": true,
+    "nextOffsetId": "9",
+    "range": "202208",
+    "results": [
+      {
+        "symbol": "BTC_USDT",
+        "realizedPNLChanged": -0.0061323,
+        "orderId": "12035832208",
+        "fee": 0.0061323,
+        "type": "OPEN",
+        "sequenceId": 1203583,
+        "quantityChanged": 2,
+        "createdAt": 1659603041720,
+        "rate": 0.0015,
+        "clearingPrice": 20441,
+        "quantityAfterClearing": 2,
+        "id": 10,
+        "positionMargin": 0.034749700000000007,
+        "direction": "SHORT"
+      }
+    ]
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field                 | Description | Data Type |
+| --------------------- | ----------- | --------- |
+| hasMore               | Whether having more data                 | Boolean   |
+| nextOffsetId          | Next offset id                           | String    |
+| range                 | year month eg: 202207                    | String    |
+| symbol                | Symbol name                              | String    |
+| realizedPNLChanged    | Realized profit and loss  changed        | Decimal   |
+| orderId               | Order id        | String    |
+| fee                   | The accumulated fee        | Decimal   |
+| type                  | The position type        | String    |
+| sequenceId            | Sequence Id        | Number    |
+| quantityChanged       | Quantity changed, need multiply the multiplier in meta data        | Number    |
+| createdAt             | Created time        | Number    |
+| rate                  | The fee rate        | Decimal   |
+| clearingPrice         | Liquidation price        | Decimal   |
+| quantityAfterClearing | Quantity after clearing        | Number    |
+| id                    | Id        | Number    |
+| positionMargin        | Position margin        | Decimal   |
+| direction             | Direction "SHORT" or "LONG"        | String    |
+
+
+
+
+### positionGetAllByUser
+
+**Meta**
+
+API Key Permission：Read
+
+Get all positions.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:positionGetAllByUser",
+  "jsonrpc": "2.0",
+  "params": {
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "positionNum": 1,
+    "openNum": 1,
+    "positions": [
+      {
+        "val": 40882,
+        "leverage": 0,
+        "symbol": "BTC_USDT",
+        "margin": 0.034749700000000007,
+        "returnRate": 117.65,
+        "riskLevel": 0,
+        "quantity": 2,
+        "maxQuantity": 100000,
+        "bankruptcyPrice": 0,
+        "minimumMaintenanceMarginRate": 0.005,
+        "liquidationPrice": 0,
+        "fairPrice": 0,
+        "maxLeverage": 100,
+        "entryPrice": 20441,
+        "realizedPNL": -0.0061323,
+        "takerFeeRate": 0.0015,
+        "closed": false,
+        "id": "10119870_100105",
+        "unRealizedPNL": 4.088200000000000500222085975110530853271484375,
+        "riskLight": 5,
+        "updatedAt": 1659603041720,
+        "direction": "SHORT"
+      }
+    ],
+    "triggerNum": 0,
+    "account": {
+      "USDT": {
+        "usdtPrice": 0,
+        "assets": 1004.061826390000000541222085975110530853271484375,
+        "available": 999.77534869,
+        "transferAmount": 999.77534869,
+        "frozen": 0.163528000000000034,
+        "position": 0.034749700000000007,
+        "unRealizedPNL": 4.088200000000000500222085975110530853271484375
+      }
+    }
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field       | Description                              | Data Type |
+| ----------- | ---------------------------------------- | --------- |
+| positionNum | The position num                         | Number    |
+| openNum     | The open order num, only owned by trust or SL interface | Number    |
+| triggerNum  | The trigger order num                    | Number    |
+| account     | The acount                               | Object    |
+| order       | The order list                           | List      |
+
+**account**:
+
+| Field          | Description                         | Data Type |
+| -------------- | ----------------------------------- | --------- |
+| usdtPrice      | Usdt price                          | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| available      | The amount of asset can be used     | Decimal   |
+| assets         | Total asset (It is used in example) | Decimal   |
+| transferAmount | The balance can be transfer         | Decimal   |
+| frozen         | The Amount  to be frozen            | Decimal   |
+| position       | The amount used by position         | Decimal   |
+| unRealizedPNL  | Unrealized profit and loss          | Decimal   |
+
+
+**positions**:
+
+| Field                        | Description | Data Type |
+| ---------------------------- | ----------- | --------- |
+| val                          | value        | Decimal   |
+| leverage                     | The leverage        | Number    |
+| symbol                       | The symbol        | String    |
+| margin                       | The margin, should >0        | Decimal   |
+| returnRate                   | Return rate       | Decimal   |
+| riskLevel                    | Risk level for the present account        | Number    |
+| quantity                     | The position amount, 0 means closed, need multiply the multiplier in meta        | Number    |
+| maxQuantity                  | The max quatity under this risk level        | Number    |
+| bankruptcyPrice              | Bankruptcy price        | Decimal   |
+| minimumMaintenanceMarginRate | The minimum Maintenance Margin Rate        | Decimal   |
+| liquidationPrice             | The liquidation price        | Decimal   |
+| fairPrice                    | The mark price         | Decimal   |
+| maxLeverage                  | The maximum leverage        | Number    |
+| entryPrice                   | Open price        | Decimal   |
+| realizedPNL                  | Realized profit and loss        | Decimal   |
+| takerFeeRate                 | Taker fee rate        | Decimal   |
+| closed                       | Whether closed        | Boolean   |
+| id                           | Position id        | String    |
+| unRealizedPNL                | Unrealized profit and loss        | Decimal   |
+| riskLight                    | Risk light,0-no one ligthing, 5- all lighting         | Number    |
+| updatedAt                    | Updated time        | Number    |
+| direction                    | Direction "SHORT", "LONG"        | String    |
+
+
+
+### orderGetMatchDetails
+
+**Meta**
+
+API Key Permission：Read
+
+Get order trading entries
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetMatchDetails",
+  "jsonrpc": "2.0",
+  "params": {
+    "encryptOrderId":"12035832208"
+  }
+}
+```
+
+| Field          | Description           | Data Type |
+| -------------- | --------------------- | --------- |
+| Id             | Request id            | Number    |
+| Method         | request func          | String    |
+| jsonrpc        | The json-rpc  version | String    |
+| encryptOrderId | order id              | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": [
+    {
+      "createdAt": 1659603041720,
+      "symbol": "BTC_USDT",
+      "quantity": 2,
+      "price": 20441,
+      "fee": 0.0061323,
+      "taker": true,
+      "type": "TAKER",
+      "direction": "SHORT"
+    }
+  ],
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field     | Description | Data Type |
+| --------- | ----------- | --------- |
+| createdAt | Created time        | Number    |
+| symbol    | Symbol        | String    |
+| quantity  | Quantity, need to multiply the multiplier in meta data        | Number    |
+| price     | Trade price        | Decimal   |
+| fee       | Accumulated fee        | Decimal   |
+| taker     | Whether taker       | Boolean   |
+| type      | Position type        | String    |
+| direction | "SHORT" or "LONG"        | String    |
+
+
+
+### orderGetMatchDetailsByClientOrderId
+
+**Meta**
+
+API Key Permission：Read
+
+Get order info by client order id 
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetMatchDetailsByClientOrderId",
+  "jsonrpc": "2.0",
+  "params": {
+    "clientOrderId":"12035832208"
+  }
+}
+```
+
+| Field         | Description           | Data Type |
+| ------------- | --------------------- | --------- |
+| Id            | Request id            | Number    |
+| Method        | request func          | String    |
+| jsonrpc       | The json-rpc  version | String    |
+| clientOrderId | order id              | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": [
+    {
+      "createdAt": 1659603041720,
+      "symbol": "BTC_USDT",
+      "quantity": 2,
+      "price": 20441,
+      "fee": 0.0061323,
+      "taker": true,
+      "type": "TAKER",
+      "direction": "SHORT"
+    }
+  ],
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field     | Description | Data Type |
+| --------- | ----------- | --------- |
+| createdAt | Created time        | Number    |
+| symbol    | Symbol        | String    |
+| quantity  | Quantity, need to multiply the multiplier in meta data        | Number    |
+| price     | Trade price        | Decimal   |
+| fee       | Accumulated fee        | Decimal   |
+| taker     | Whether taker       | Boolean   |
+| type      | Position type        | String    |
+| direction | "SHORT" or "LONG"        | String    |
+
+
+### orderCancelAll
+
+**Meta**
+
+API Key Permission：Read
+
+Cancel all order based on symbol
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderCancelAll",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol":"BTC_USDT"
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| symbol  | Symbol                  | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": 1,
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+
+
+### orderCancel
+
+**Meta**
+
+API Key Permission：Read
+
+cancel order 
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:orderGetMatchDetailsByClientOrderId",
+  "jsonrpc": "2.0",
+  "params": {
+    "clientOrderId":"12035832208"
+  }
+}
+```
+
+| Field         | Description           | Data Type |
+| ------------- | --------------------- | --------- |
+| Id            | Request id            | Number    |
+| Method        | request func          | String    |
+| jsonrpc       | The json-rpc  version | String    |
+| clientOrderId | order id              | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "result": null,
+    "setOrExpired": false
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field        | Description | Data Type |
+| ------------ | ----------- | --------- |
+| result       | result         | String    |
+| setOrExpired | Whether set or expired        | Boolean   |
+
+
+
+### batchCancel
+
+**Meta**
+
+API Key Permission：Read
+
+Batch cancel order
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:batchCancel",
+  "jsonrpc": "2.0",
+  "params": {
+    "orderIds": [13292052208]
+  }
+}
+```
+
+| Field    | Description           | Data Type    |
+| -------- | --------------------- | ------------ |
+| Id       | Request id            | Number       |
+| Method   | request func          | String       |
+| jsonrpc  | The json-rpc  version | String       |
+| orderIds | order id array        | List<String> |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "code": 0
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field | Description | Data Type |
+| ----- | ----------- | --------- |
+| code  | Code number        | Number    |
+
+
+
+### batchCreateOrder
+
+**Meta**
+
+API Key Permission：Read
+
+Batch create order
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:batchCreateOrder",
+  "jsonrpc": "2.0",
+  "params": {
+    "orders":[
+      {
+        "type": "LIMIT",
+        "direction": "LONG",
+        "source": "WEB",
+        "symbol": "BTC_USDT",
+        "price": 20441.0,
+        "quantity": 230,
+        "triggerType": 1,
+        "triggerDirection": "LONG",
+        "triggerOn": null,
+        "trailingDistance": 0,
+        "fillOrKill": false,
+        "immediateOrCancel": false,
+        "postOnly": false,
+        "hidden": false,
+        "reduceOnly": false,
+        "clientOrderId": "2022080511",
+        "validCrossHaveEnoughMargin":true
+      }
+    ]
+  }
+}
+```
+
+| Field                      | Description                              | Data Type |
+| -------------------------- | ---------------------------------------- | --------- |
+| Id                         | Request id                               | Number    |
+| Method                     | request func                             | String    |
+| jsonrpc                    | The json-rpc  version                    | String    |
+| type                       | Order type.                              | String    |
+| direction                  | Order direction.                         | String    |
+| source                     | Source like "WEB", "APP", "API", could be any string composed by 0~9, a~z,A~Z and "_". default to empty string. | String    |
+| symbol                     | Symbol like "XBTC".                      | String    |
+| price                      | Buy or sell price.                       | Decimal   |
+| quantity                   | Buy or sell quantity.                    | Number    |
+| triggerType                | Tigger type                                    | String    |
+| triggerDirection           | Trigger direction.                       | String    |
+| triggerOn                  | Trigger price for stop, stop-limit, take-profit, take-profit-limit and trailing-stop. | Decimal   |
+| trailingDistance           | Trailing distance for trailing-stop order. | Decimal   |
+| fillOrKill                 | A "Fill or Kill" (FOK) order is a limit order that must be filled immediately in its entirety or it is cancelled (killed). The purpose of a fill-or-kill order is to ensure that a position is entered instantly and at a specific price. Default to false. | Boolean   |
+| immediateOrCancel          | An immediate or cancel order (IOC) is an order that must be executed immediately, and any portion of the order that cannot be immediately filled is cancelled (only for limit orders). Default to false. | Boolean   |
+| postOnly                   | "Post Only" limit orders are orders that allow you to be sure to always be maker. When placed, a "Post Only" limit order is either inserted into the order book or cancelled (only for limit orders). Default to false. | Boolean   |
+| hidden                     | This field allows you to place an order into the book but not have it displayed to other traders. Price/time priority is the same as a displayed order (only for limit orders). Default to false. | Boolean   |
+| reduceOnly                 | A reduce-only order will only reduce your position, not increase it. If this order would increase your position, it is amended down or canceled such that it does not. | Boolean   |
+| clientOrderId              | client order id                          | String    |
+| validCrossHaveEnoughMargin | Default to false.                        | Boolean   |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "total": 1,
+    "success": 1,
+    "failure": 0
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field   | Description | Data Type |
+| ------- | ----------- | --------- |
+| total   | Total quantity        | Number    |
+| success | Success quantity        | Number    |
+| failure | Failed quantity        | Number    |
+
+
+
+### feeRateQuery
+
+**Meta**
+
+API Key Permission：Read
+
+Fee query 
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:feeRateQuery",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol":"BTC_USDT"
+  }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| symbol  | Symbol name           | String    |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "maker": 0.001,
+    "taker": 0.0015,
+    "timestamp": 1659667196592
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field     | Description | Data Type |
+| --------- | ----------- | --------- |
+| maker     | Maker fee   | Decimal   |
+| taker     | Taker fee   | Decimal   |
+| timestamp | Timestamp   | Number    |
+
 
 # WebSocket Api
 
@@ -2453,57 +4320,57 @@ Get detailed market trading info about the trading symbol
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| id      | Request id            | Integer    |
-| result  | request func          | ResultObject|
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| spotsSymbols      | spots symbols info            | Array < SpotsSymbols>   |
-| spotsCurrencies  | spots currencies info         | Array < String>|
-| currencies | currencies info | Array< Currencies>|
+| Field           | Description           | Data Type             |
+| --------------- | --------------------- | --------------------- |
+| spotsSymbols    | spots symbols info    | Array < SpotsSymbols> |
+| spotsCurrencies | spots currencies info | Array < String>       |
+| currencies      | currencies info       | Array< Currencies>    |
 
 **SpotsSymbols**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| id      | symbol id            | Long   |
-| name    | symbol name            | String   |
-| supportMarginTrade      | support margin trade            | Boolean   |
-| hidden      | true: disable, false: un disable             | Boolean   |
-| displayOrder      | sort field index           | Integer   |
-| derivative      | derivative            | Boolean   |
-| baseName      | base name          | String   |
-| quoteName      | quote name            | String   |
-| baseScale      | Base currency price precision decimal places | Integer   |
-| baseMinimumIncrement      | The minimum change scale of the base currency price            | BigDecimal   |
-| baseMaximumQuantity      | The maximum number of transactions in a single base currency | Integer   |
-| baseMinimumQuantity    | The minimum number of transactions in a single base currency| BigDecimal   |
-| quoteScale      | Denomination currency precision decimal places            | Integer   |
-| quoteMinimumIncrement  | The minimum price change scale of the denominated currency            | BigDecimal   |
-| orderBookAccuracy      | Order Book Accuracy  0,0.1,0.01           | String   |
-| alwaysChargeQuote      | Fees are always charged in the currency of denomination           | Boolean   |
-| zone      | What regions are allowed to trade           | String   |
-| endTime      | end time company：ms            | Long   |
-| openTime      | open time company：ms           | Long   |
+| Field                 | Description                              | Data Type  |
+| --------------------- | ---------------------------------------- | ---------- |
+| id                    | symbol id                                | Long       |
+| name                  | symbol name                              | String     |
+| supportMarginTrade    | support margin trade                     | Boolean    |
+| hidden                | true: disable, false: un disable         | Boolean    |
+| displayOrder          | sort field index                         | Integer    |
+| derivative            | derivative                               | Boolean    |
+| baseName              | base name                                | String     |
+| quoteName             | quote name                               | String     |
+| baseScale             | Base currency price precision decimal places | Integer    |
+| baseMinimumIncrement  | The minimum change scale of the base currency price | BigDecimal |
+| baseMaximumQuantity   | The maximum number of transactions in a single base currency | Integer    |
+| baseMinimumQuantity   | The minimum number of transactions in a single base currency | BigDecimal |
+| quoteScale            | Denomination currency precision decimal places | Integer    |
+| quoteMinimumIncrement | The minimum price change scale of the denominated currency | BigDecimal |
+| orderBookAccuracy     | Order Book Accuracy  0,0.1,0.01          | String     |
+| alwaysChargeQuote     | Fees are always charged in the currency of denomination | Boolean    |
+| zone                  | What regions are allowed to trade        | String     |
+| endTime               | end time company：ms                      | Long       |
+| openTime              | open time company：ms                     | Long       |
 
 
 **Currencies**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| id      | currency id            | Long   |
-| name      | currency name            | String   |
-| hidden      | true: disable, false: un disable            | Boolean   |
-| depositOpenTime      | deposit open time            | Long   |
-| displayOrder      | sort field index           | Integer   |
-| iconUrl      | icon url            | String   |
-| withdrawOpenTime      | withdraw open time            | Long   |
-| displayScale      | Display accuracy            | Long   |
+| Field            | Description                      | Data Type |
+| ---------------- | -------------------------------- | --------- |
+| id               | currency id                      | Long      |
+| name             | currency name                    | String    |
+| hidden           | true: disable, false: un disable | Boolean   |
+| depositOpenTime  | deposit open time                | Long      |
+| displayOrder     | sort field index                 | Integer   |
+| iconUrl          | icon url                         | String    |
+| withdrawOpenTime | withdraw open time               | Long      |
+| displayScale     | Display accuracy                 | Long      |
 
 
 ####  SpotsList
@@ -2526,7 +4393,7 @@ Get spots trading pair info about price, volume, symbol name.
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 
@@ -2557,21 +4424,21 @@ Get spots trading pair info about price, volume, symbol name.
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | String               |
 
 **ResultObject**: 
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| volume  | volume         | String     |
-| symbolId      | symbol id        | Integer    |
-| price | price | String    |
-| name | symbol name | String    |
-| changes | 24h up and down | BigDecimal    |
+| Field    | Description     | Data Type  |
+| -------- | --------------- | ---------- |
+| volume   | volume          | String     |
+| symbolId | symbol id       | Integer    |
+| price    | price           | String     |
+| name     | symbol name     | String     |
+| changes  | 24h up and down | BigDecimal |
 
 
 #### Ticker
@@ -2595,7 +4462,7 @@ Get kline info around recent 24h on the fixed symbol
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 | symbol  | The request symbol    | String    |
@@ -2626,21 +4493,21 @@ Get kline info around recent 24h on the fixed symbol
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | string    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | string               |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| symbol  | symbol name         | String     |
-| data      | [ timestamp, open, high, low, close, amount, change ]         | Array< String>    |
-| type | type | string    |
-| sequenceId | sequence id | string    |
-| ts | time stamp ms | string    |
+| Field      | Description                              | Data Type      |
+| ---------- | ---------------------------------------- | -------------- |
+| symbol     | symbol name                              | String         |
+| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
+| type       | type                                     | string         |
+| sequenceId | sequence id                              | string         |
+| ts         | time stamp ms                            | string         |
 
 Format Explanation:
 
@@ -2671,7 +4538,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 
@@ -2702,21 +4569,21 @@ The summary of the K-line info, and the frequency is less than 10op/s
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | string    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | string               |
 
 **ResultObject**:
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| symbol  | symbol name         | String     |
-| data      | [ timestamp, open, high, low, close, amount, change ]         | Array< String>    |
-| type | type | string    |
-| sequenceId | sequence id | string    |
-| ts | time stamp ms | string    |
+| Field      | Description                              | Data Type      |
+| ---------- | ---------------------------------------- | -------------- |
+| symbol     | symbol name                              | String         |
+| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
+| type       | type                                     | string         |
+| sequenceId | sequence id                              | string         |
+| ts         | time stamp ms                            | string         |
 
 #### OrderBook
 
@@ -2739,10 +4606,10 @@ Get the order book
 
 | Field   | Description           | Data Type |
 | ------- | --------------------- | --------- |
-| Id      | Request id            | Integer    |
+| Id      | Request id            | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
-| symbol | symbol name | String    |
+| symbol  | symbol name           | String    |
 
 
 **Response Body**:
@@ -2795,12 +4662,12 @@ Get the order book
 
 **Result**:
 
-| Field       | Description                              | Data Type  |
-| ----------- | ---------------------------------------- | ---------- |
-| price       | The newest price                         | BigDecimal |
-| Buy orders  | The buy order book: [ price, amount, total ] | Array< String>      |
-| Sell orders | The buy order book:  [ price, amount, total ] | Array< String>      |
-| sequenceId | sequence id | String      |
+| Field       | Description                              | Data Type      |
+| ----------- | ---------------------------------------- | -------------- |
+| price       | The newest price                         | BigDecimal     |
+| Buy orders  | The buy order book: [ price, amount, total ] | Array< String> |
+| Sell orders | The buy order book:  [ price, amount, total ] | Array< String> |
+| sequenceId  | sequence id                              | String         |
 
 #### Bars
 
@@ -2825,16 +4692,16 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol                       | String    |
-| type   | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
-| start   | start timestamp ms eg: 0 | Long      |
-| end   | end timestamp ms eg: 0 | Long      |
-| limit   | The bar amount | Long      |
+| Field   | Description                              | Data Type |
+| ------- | ---------------------------------------- | --------- |
+| id      | The result id                            | Integer   |
+| Method  | request func                             | String    |
+| jsonrpc | The json-rpc  version                    | string    |
+| symbol  | name of the symbol                       | String    |
+| type    | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
+| start   | start timestamp ms eg: 0                 | Long      |
+| end     | end timestamp ms eg: 0                   | Long      |
+| limit   | The bar amount                           | Long      |
 
 **Response Body**:
 
@@ -2865,11 +4732,11 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< Array < String>>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | string    |
+| Field   | Description           | Data Type               |
+| ------- | --------------------- | ----------------------- |
+| result  | Return result         | Array< Array < String>> |
+| id      | The result id         | Integer                 |
+| jsonrpc | The json-rpc  version | string                  |
 
 **Abort result**:
 
@@ -2896,14 +4763,14 @@ Get the recent ticks info
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol                       | String    |
-| limit   | The bar amount 1-500，default: 200 | Long      |
-| sequenceId   | sequence id eg: 0 | Long      |
+| Field      | Description                       | Data Type |
+| ---------- | --------------------------------- | --------- |
+| id         | The result id                     | Integer   |
+| Method     | request func                      | String    |
+| jsonrpc    | The json-rpc  version             | string    |
+| symbol     | name of the symbol                | String    |
+| limit      | The bar amount 1-500，default: 200 | Long      |
+| sequenceId | sequence id eg: 0                 | Long      |
 
 
 **Response Body**:
@@ -2927,11 +4794,11 @@ Get the recent ticks info
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< String>     |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type      |
+| ------- | --------------------- | -------------- |
+| result  | Return result         | Array< String> |
+| id      | The result id         | Integer        |
+| jsonrpc | The json-rpc  version | String         |
 
 **Abort data**:
 
@@ -2955,13 +4822,13 @@ API Key Permission：Read
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol                       | String    |
-| updateAt   | latest timestamp | Long      |
+| Field    | Description           | Data Type |
+| -------- | --------------------- | --------- |
+| id       | The result id         | Integer   |
+| Method   | request func          | String    |
+| jsonrpc  | The json-rpc  version | string    |
+| symbol   | name of the symbol    | String    |
+| updateAt | latest timestamp      | Long      |
 
 
 
@@ -2999,36 +4866,36 @@ API Key Permission：Read
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>    |
-| id      | The result id         | String    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | String               |
+| jsonrpc | The json-rpc  version | String               |
 
 
 **ResultObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| sequenceId  | sequence id         | Long    |
-| symbolId | symbol id | Long    |
-| type | order type limit: Limit order, market: market order| String    |
-| status   | order status | String |
-| direction   | LONG:buy,SHORT:sell | String |
-| fillPrice   | Average order price | BigDecimal |
-| price   | order limit | BigDecimal |
-| quantity   | quantity of order | BigDecimal |
-| unfilledQuantity   | Number of orders not yet filled | BigDecimal |
-| makerFeeRate   | Rate as Maker | BigDecimal |
-| takerFeeRate   | Rate as Taker | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| triggerOn   | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
-| trailingBasePrice   | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
-| trailingDistance | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
-| clientOrderId |The custom id is globally unique | String |
-| createAt |create time stamp | Long |
-| updateAt |update time stamp | Long |
+| Field             | Description                              | Data Type  |
+| ----------------- | ---------------------------------------- | ---------- |
+| id                | order id                                 | Long       |
+| sequenceId        | sequence id                              | Long       |
+| symbolId          | symbol id                                | Long       |
+| type              | order type limit: Limit order, market: market order | String     |
+| status            | order status                             | String     |
+| direction         | LONG:buy,SHORT:sell                      | String     |
+| fillPrice         | Average order price                      | BigDecimal |
+| price             | order limit                              | BigDecimal |
+| quantity          | quantity of order                        | BigDecimal |
+| unfilledQuantity  | Number of orders not yet filled          | BigDecimal |
+| makerFeeRate      | Rate as Maker                            | BigDecimal |
+| takerFeeRate      | Rate as Taker                            | BigDecimal |
+| fee               | Total accumulated handling fee           | BigDecimal |
+| triggerOn         | The trigger price for Stop orders, the trigger price for non-Stop orders is always 0 | BigDecimal |
+| trailingBasePrice | Base price for TrailingStop orders, always 0 for orders other than this type | BigDecimal |
+| trailingDistance  | The trigger price distance for TrailingStop orders, otherwise it is always 0 | BigDecimal |
+| clientOrderId     | The custom id is globally unique         | String     |
+| createAt          | create time stamp                        | Long       |
+| updateAt          | update time stamp                        | Long       |
 
 
 [Abort status](#orderStatus)
@@ -3053,13 +4920,13 @@ API Key Permission：Read
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| symbol | name of the symbol   | String    |
-| updateAt   | latest timestamp | Long      |
+| Field    | Description           | Data Type |
+| -------- | --------------------- | --------- |
+| id       | The result id         | Integer   |
+| Method   | request func          | String    |
+| jsonrpc  | The json-rpc  version | string    |
+| symbol   | name of the symbol    | String    |
+| updateAt | latest timestamp      | Long      |
 
 
 
@@ -3086,25 +4953,25 @@ API Key Permission：Read
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Array< ResultObject>    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Number               |
+| jsonrpc | The json-rpc  version | String               |
 
 **ResultObject**:
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | order id         | Long    |
-| sequenceId  | sequence id         | Long    |
-| symbolId | symbol id | Long    |
-| orderId | order id | String    |
-| direction   | LONG:buy,SHORT:sell | String |
-| price   | order limit | BigDecimal |
-| quantity   | quantity of order | BigDecimal |
-| fee   | Total accumulated handling fee | BigDecimal |
-| createAt |create time stamp ms| Long |
+| Field      | Description                    | Data Type  |
+| ---------- | ------------------------------ | ---------- |
+| id         | order id                       | Long       |
+| sequenceId | sequence id                    | Long       |
+| symbolId   | symbol id                      | Long       |
+| orderId    | order id                       | String     |
+| direction  | LONG:buy,SHORT:sell            | String     |
+| price      | order limit                    | BigDecimal |
+| quantity   | quantity of order              | BigDecimal |
+| fee        | Total accumulated handling fee | BigDecimal |
+| createAt   | create time stamp ms           | Long       |
 
 
 
@@ -3129,12 +4996,12 @@ Send ping to check  the service whether available
 }
 ```
 
-| Field  | Description                              | Data Type |
-| ------ | ---------------------------------------- | --------- |
-| id      | The result id         | Integer    |
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| id      | The result id         | Integer   |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | string    |
-| ts | now time stamp ms   | Long    |
+| ts      | now time stamp ms     | Long      |
 
 **Response Body**:
 
@@ -3150,14 +5017,14 @@ Send ping to check  the service whether available
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Struct    |
-| id      | The result id         | Number    |
-| jsonrpc | The json-rpc  version | String    |
-| ts | server time stamp ms | Long    |
-| type | service type PONG| String     |
-| gap | abs(server ts - client ts) | Long    |
+| Field   | Description                | Data Type |
+| ------- | -------------------------- | --------- |
+| result  | Return result              | Struct    |
+| id      | The result id              | Number    |
+| jsonrpc | The json-rpc  version      | String    |
+| ts      | server time stamp ms       | Long      |
+| type    | service type PONG          | String    |
+| gap     | abs(server ts - client ts) | Long      |
 
 
 
@@ -3225,21 +5092,21 @@ This endpoint returns a list of K-lines history data for all public users.
 }
 ```
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | ResultObject    |
-| id      | The result id         | Integer    |
-| jsonrpc | The json-rpc  version | String    |
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
 
 **ResultObject**:
 
-| Field   | Description                              | Data Type |
-| ------- | ---------------------------------------- | --------- |
-| code    | Return code                              | Integer   |
-| data    | Return data | Array< DataObject>     |
-| message | Return message                           | String    |
-| time    | Return timestamp                         | String    |
-| tid     | tracer id usd for open tracing           | String    |
+| Field   | Description                    | Data Type          |
+| ------- | ------------------------------ | ------------------ |
+| code    | Return code                    | Integer            |
+| data    | Return data                    | Array< DataObject> |
+| message | Return message                 | String             |
+| time    | Return timestamp               | String             |
+| tid     | tracer id usd for open tracing | String             |
 
 **DataObject**:
 
@@ -3247,10 +5114,10 @@ This endpoint returns a list of K-lines history data for all public users.
 | ------ | ---------------- | ---------------------------------------- |
 | volume | Volume           | caculated by base token, for instance USD |
 | amount | Volume           | caculated by quote token, for instance BTC |
-| close  | Close price      | BigDecimal                                   |
-| high   | High price       | BigDecimal                                   |
-| low    | Low price        | BigDecimal                                   |
-| open   | Open price       | BigDecimal                                   |
+| close  | Close price      | BigDecimal                               |
+| high   | High price       | BigDecimal                               |
+| low    | Low price        | BigDecimal                               |
+| open   | Open price       | BigDecimal                               |
 | time   | Market Timestamp | long                                     |
 
 
