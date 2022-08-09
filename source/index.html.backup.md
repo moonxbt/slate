@@ -3044,30 +3044,30 @@ Interface used to get aggregated order position
 
 **positions**:
 
-| Field                        | Description                              | Data Type |
-| ---------------------------- | ---------------------------------------- | --------- |
-| val                          | value                                    | Decimal   |
-| leverage                     | The leverage                             | Number    |
-| symbol                       | The symbol                               | String    |
-| margin                       | The margin, should >0                    | Decimal   |
-| returnRate                   | Return rate                              | Decimal   |
-| riskLevel                    | Risk level for the present account       | Number    |
-| quantity                     | The position amount, 0 means closed, need multiply the multiplier in meta | Number    |
-| maxQuantity                  | The max quatity under this risk level    | Number    |
-| bankruptcyPrice              | Bankruptcy price                         | Decimal   |
-| minimumMaintenanceMarginRate | The minimum Maintenance Margin Rate      | Decimal   |
-| liquidationPrice             | The liquidation price                    | Decimal   |
-| fairPrice                    | The mark price                           | Decimal   |
-| maxLeverage                  | The maximum leverage                     | Number    |
-| entryPrice                   | Open price                               | Decimal   |
-| realizedPNL                  | Realized profit and loss                 | Decimal   |
-| takerFeeRate                 | Taker fee rate                           | Decimal   |
-| closed                       | Whether closed                           | Boolean   |
-| id                           | Position id                              | String    |
-| unRealizedPNL                | Unrealized profit and loss               | Decimal   |
-| riskLight                    | Risk light,0-no one ligthing, 5- all lighting | Number    |
-| updatedAt                    | Updated time                             | Number    |
-| direction                    | Direction "SHORT", "LONG"                | String    |
+| Field                        | Description | Data Type |
+| ---------------------------- | ----------- | --------- |
+| val                          | value        | Decimal   |
+| leverage                     | The leverage        | Number    |
+| symbol                       | The symbol        | String    |
+| margin                       | The margin, should >0        | Decimal   |
+| returnRate                   | Return rate       | Decimal   |
+| riskLevel                    | Risk level for the present account        | Number    |
+| quantity                     | The position amount, 0 means closed, need multiply the multiplier in meta        | Number    |
+| maxQuantity                  | The max quatity under this risk level        | Number    |
+| bankruptcyPrice              | Bankruptcy price        | Decimal   |
+| minimumMaintenanceMarginRate | The minimum Maintenance Margin Rate        | Decimal   |
+| liquidationPrice             | The liquidation price        | Decimal   |
+| fairPrice                    | The mark price         | Decimal   |
+| maxLeverage                  | The maximum leverage        | Number    |
+| entryPrice                   | Open price        | Decimal   |
+| realizedPNL                  | Realized profit and loss        | Decimal   |
+| takerFeeRate                 | Taker fee rate        | Decimal   |
+| closed                       | Whether closed        | Boolean   |
+| id                           | Position id        | String    |
+| unRealizedPNL                | Unrealized profit and loss        | Decimal   |
+| riskLight                    | Risk light,0-no one ligthing, 5- all lighting         | Number    |
+| updatedAt                    | Updated time        | Number    |
+| direction                    | Direction "SHORT", "LONG"        | String    |
 
 
 
@@ -3099,7 +3099,7 @@ Get orders by symbol
 | Id      | Request id            | Number    |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
-| symbol  | Symbol name           | String    |
+| symbol  | Symbol name                  | String    |
 
 
 **Response Body**:
@@ -3159,8 +3159,8 @@ Get orders by symbol
 
 | Field   | Description | Data Type |
 | ------- | ----------- | --------- |
-| account | Account     | Object    |
-| order   | Order list  | List      |
+| account | Account        | Object    |
+| order   | Order list        | List      |
 
 **account**:
 
@@ -3581,25 +3581,25 @@ Get position clearings by range.
 
 **ResultObject**:
 
-| Field                 | Description                              | Data Type |
-| --------------------- | ---------------------------------------- | --------- |
+| Field                 | Description | Data Type |
+| --------------------- | ----------- | --------- |
 | hasMore               | Whether having more data                 | Boolean   |
 | nextOffsetId          | Next offset id                           | String    |
 | range                 | year month eg: 202207                    | String    |
 | symbol                | Symbol name                              | String    |
 | realizedPNLChanged    | Realized profit and loss  changed        | Decimal   |
-| orderId               | Order id                                 | String    |
-| fee                   | The accumulated fee                      | Decimal   |
-| type                  | The position type                        | String    |
-| sequenceId            | Sequence Id                              | Number    |
-| quantityChanged       | Quantity changed, need multiply the multiplier in meta data | Number    |
-| createdAt             | Created time                             | Number    |
-| rate                  | The fee rate                             | Decimal   |
-| clearingPrice         | Liquidation price                        | Decimal   |
-| quantityAfterClearing | Quantity after clearing                  | Number    |
-| id                    | Id                                       | Number    |
-| positionMargin        | Position margin                          | Decimal   |
-| direction             | Direction "SHORT" or "LONG"              | String    |
+| orderId               | Order id        | String    |
+| fee                   | The accumulated fee        | Decimal   |
+| type                  | The position type        | String    |
+| sequenceId            | Sequence Id        | Number    |
+| quantityChanged       | Quantity changed, need multiply the multiplier in meta data        | Number    |
+| createdAt             | Created time        | Number    |
+| rate                  | The fee rate        | Decimal   |
+| clearingPrice         | Liquidation price        | Decimal   |
+| quantityAfterClearing | Quantity after clearing        | Number    |
+| id                    | Id        | Number    |
+| positionMargin        | Position margin        | Decimal   |
+| direction             | Direction "SHORT" or "LONG"        | String    |
 
 
 
@@ -3716,30 +3716,30 @@ Get all positions.
 
 **positions**:
 
-| Field                        | Description                              | Data Type |
-| ---------------------------- | ---------------------------------------- | --------- |
-| val                          | value                                    | Decimal   |
-| leverage                     | The leverage                             | Number    |
-| symbol                       | The symbol                               | String    |
-| margin                       | The margin, should >0                    | Decimal   |
-| returnRate                   | Return rate                              | Decimal   |
-| riskLevel                    | Risk level for the present account       | Number    |
-| quantity                     | The position amount, 0 means closed, need multiply the multiplier in meta | Number    |
-| maxQuantity                  | The max quatity under this risk level    | Number    |
-| bankruptcyPrice              | Bankruptcy price                         | Decimal   |
-| minimumMaintenanceMarginRate | The minimum Maintenance Margin Rate      | Decimal   |
-| liquidationPrice             | The liquidation price                    | Decimal   |
-| fairPrice                    | The mark price                           | Decimal   |
-| maxLeverage                  | The maximum leverage                     | Number    |
-| entryPrice                   | Open price                               | Decimal   |
-| realizedPNL                  | Realized profit and loss                 | Decimal   |
-| takerFeeRate                 | Taker fee rate                           | Decimal   |
-| closed                       | Whether closed                           | Boolean   |
-| id                           | Position id                              | String    |
-| unRealizedPNL                | Unrealized profit and loss               | Decimal   |
-| riskLight                    | Risk light,0-no one ligthing, 5- all lighting | Number    |
-| updatedAt                    | Updated time                             | Number    |
-| direction                    | Direction "SHORT", "LONG"                | String    |
+| Field                        | Description | Data Type |
+| ---------------------------- | ----------- | --------- |
+| val                          | value        | Decimal   |
+| leverage                     | The leverage        | Number    |
+| symbol                       | The symbol        | String    |
+| margin                       | The margin, should >0        | Decimal   |
+| returnRate                   | Return rate       | Decimal   |
+| riskLevel                    | Risk level for the present account        | Number    |
+| quantity                     | The position amount, 0 means closed, need multiply the multiplier in meta        | Number    |
+| maxQuantity                  | The max quatity under this risk level        | Number    |
+| bankruptcyPrice              | Bankruptcy price        | Decimal   |
+| minimumMaintenanceMarginRate | The minimum Maintenance Margin Rate        | Decimal   |
+| liquidationPrice             | The liquidation price        | Decimal   |
+| fairPrice                    | The mark price         | Decimal   |
+| maxLeverage                  | The maximum leverage        | Number    |
+| entryPrice                   | Open price        | Decimal   |
+| realizedPNL                  | Realized profit and loss        | Decimal   |
+| takerFeeRate                 | Taker fee rate        | Decimal   |
+| closed                       | Whether closed        | Boolean   |
+| id                           | Position id        | String    |
+| unRealizedPNL                | Unrealized profit and loss        | Decimal   |
+| riskLight                    | Risk light,0-no one ligthing, 5- all lighting         | Number    |
+| updatedAt                    | Updated time        | Number    |
+| direction                    | Direction "SHORT", "LONG"        | String    |
 
 
 
@@ -3803,16 +3803,16 @@ Get order trading entries
 
 **ResultObject**:
 
-| Field     | Description                              | Data Type |
-| --------- | ---------------------------------------- | --------- |
-| createdAt | Created time                             | Number    |
-| symbol    | Symbol                                   | String    |
-| quantity  | Quantity, need to multiply the multiplier in meta data | Number    |
-| price     | Trade price                              | Decimal   |
-| fee       | Accumulated fee                          | Decimal   |
-| taker     | Whether taker                            | Boolean   |
-| type      | Position type                            | String    |
-| direction | "SHORT" or "LONG"                        | String    |
+| Field     | Description | Data Type |
+| --------- | ----------- | --------- |
+| createdAt | Created time        | Number    |
+| symbol    | Symbol        | String    |
+| quantity  | Quantity, need to multiply the multiplier in meta data        | Number    |
+| price     | Trade price        | Decimal   |
+| fee       | Accumulated fee        | Decimal   |
+| taker     | Whether taker       | Boolean   |
+| type      | Position type        | String    |
+| direction | "SHORT" or "LONG"        | String    |
 
 
 
@@ -3844,7 +3844,7 @@ Get order info by client order id
 | Id            | Request id            | Number    |
 | Method        | request func          | String    |
 | jsonrpc       | The json-rpc  version | String    |
-| clientOrderId | Client order id       | String    |
+| clientOrderId | Client order id              | String    |
 
 
 **Response Body**:
@@ -3876,16 +3876,16 @@ Get order info by client order id
 
 **ResultObject**:
 
-| Field     | Description                              | Data Type |
-| --------- | ---------------------------------------- | --------- |
-| createdAt | Created time                             | Number    |
-| symbol    | Symbol                                   | String    |
-| quantity  | Quantity, need to multiply the multiplier in meta data | Number    |
-| price     | Trade price                              | Decimal   |
-| fee       | Accumulated fee                          | Decimal   |
-| taker     | Whether taker                            | Boolean   |
-| type      | Position type                            | String    |
-| direction | "SHORT" or "LONG"                        | String    |
+| Field     | Description | Data Type |
+| --------- | ----------- | --------- |
+| createdAt | Created time        | Number    |
+| symbol    | Symbol        | String    |
+| quantity  | Quantity, need to multiply the multiplier in meta data        | Number    |
+| price     | Trade price        | Decimal   |
+| fee       | Accumulated fee        | Decimal   |
+| taker     | Whether taker       | Boolean   |
+| type      | Position type        | String    |
+| direction | "SHORT" or "LONG"        | String    |
 
 
 ### orderCancelAll
@@ -3916,7 +3916,7 @@ Cancel all order based on symbol
 | Id      | Request id            | Number    |
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
-| symbol  | Symbol                | String    |
+| symbol  | Symbol                  | String    |
 
 
 **Response Body**:
@@ -3965,7 +3965,7 @@ cancel order
 | Id            | Request id            | Number    |
 | Method        | request func          | String    |
 | jsonrpc       | The json-rpc  version | String    |
-| clientOrderId | Client order id       | String    |
+| clientOrderId | Client order id              | String    |
 
 
 **Response Body**:
@@ -3989,10 +3989,166 @@ cancel order
 
 **ResultObject**:
 
-| Field        | Description            | Data Type |
-| ------------ | ---------------------- | --------- |
-| result       | result                 | String    |
-| setOrExpired | Whether set or expired | Boolean   |
+| Field        | Description | Data Type |
+| ------------ | ----------- | --------- |
+| result       | result         | String    |
+| setOrExpired | Whether set or expired        | Boolean   |
+
+
+
+### batchCancel
+
+**Meta**
+
+API Key Permission：Read
+
+Batch cancel order
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:batchCancel",
+  "jsonrpc": "2.0",
+  "params": {
+    "orderIds": [13292052208]
+  }
+}
+```
+
+| Field    | Description           | Data Type    |
+| -------- | --------------------- | ------------ |
+| Id       | Request id            | Number       |
+| Method   | request func          | String       |
+| jsonrpc  | The json-rpc  version | String       |
+| orderIds | order id array        | List<String> |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "code": 0
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field | Description | Data Type |
+| ----- | ----------- | --------- |
+| code  | Code number        | Number    |
+
+
+
+### batchCreateOrder
+
+**Meta**
+
+API Key Permission：Read
+
+Batch create order
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+  "id": 5,
+  "method": "contracts:batchCreateOrder",
+  "jsonrpc": "2.0",
+  "params": {
+    "orders":[
+      {
+        "type": "LIMIT",
+        "direction": "LONG",
+        "source": "WEB",
+        "symbol": "BTC_USDT",
+        "price": 20441.0,
+        "quantity": 230,
+        "triggerType": 1,
+        "triggerDirection": "LONG",
+        "triggerOn": null,
+        "trailingDistance": 0,
+        "fillOrKill": false,
+        "immediateOrCancel": false,
+        "postOnly": false,
+        "hidden": false,
+        "reduceOnly": false,
+        "clientOrderId": "2022080511",
+        "validCrossHaveEnoughMargin":true
+      }
+    ]
+  }
+}
+```
+
+| Field                      | Description                              | Data Type |
+| -------------------------- | ---------------------------------------- | --------- |
+| Id                         | Request id                               | Number    |
+| Method                     | request func                             | String    |
+| jsonrpc                    | The json-rpc  version                    | String    |
+| type                       | Order type.                              | String    |
+| direction                  | Order direction.                         | String    |
+| source                     | Source like "WEB", "APP", "API", could be any string composed by 0~9, a~z,A~Z and "_". default to empty string. | String    |
+| symbol                     | Symbol like "XBTC".                      | String    |
+| price                      | Buy or sell price.                       | Decimal   |
+| quantity                   | Buy or sell quantity.                    | Number    |
+| triggerType                | Tigger type                                    | String    |
+| triggerDirection           | Trigger direction.                       | String    |
+| triggerOn                  | Trigger price for stop, stop-limit, take-profit, take-profit-limit and trailing-stop. | Decimal   |
+| trailingDistance           | Trailing distance for trailing-stop order. | Decimal   |
+| fillOrKill                 | A "Fill or Kill" (FOK) order is a limit order that must be filled immediately in its entirety or it is cancelled (killed). The purpose of a fill-or-kill order is to ensure that a position is entered instantly and at a specific price. Default to false. | Boolean   |
+| immediateOrCancel          | An immediate or cancel order (IOC) is an order that must be executed immediately, and any portion of the order that cannot be immediately filled is cancelled (only for limit orders). Default to false. | Boolean   |
+| postOnly                   | "Post Only" limit orders are orders that allow you to be sure to always be maker. When placed, a "Post Only" limit order is either inserted into the order book or cancelled (only for limit orders). Default to false. | Boolean   |
+| hidden                     | This field allows you to place an order into the book but not have it displayed to other traders. Price/time priority is the same as a displayed order (only for limit orders). Default to false. | Boolean   |
+| reduceOnly                 | A reduce-only order will only reduce your position, not increase it. If this order would increase your position, it is amended down or canceled such that it does not. | Boolean   |
+| clientOrderId              | Client order id                          | String    |
+| validCrossHaveEnoughMargin | Default to false.                        | Boolean   |
+
+
+**Response Body**:
+
+```json
+{
+  "result": {
+    "total": 1,
+    "success": 1,
+    "failure": 0
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description           | Data Type          |
+| ------- | --------------------- | ------------------ |
+| id      | Request id            | Integer            |
+| result  | request func          | List<ResultObject> |
+| jsonrpc | The json-rpc  version | String             |
+
+**ResultObject**:
+
+| Field   | Description | Data Type |
+| ------- | ----------- | --------- |
+| total   | Total quantity        | Number    |
+| success | Success quantity        | Number    |
+| failure | Failed quantity        | Number    |
+
+
 
 ### feeRateQuery
 
