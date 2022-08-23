@@ -4049,6 +4049,156 @@ Fee query
 
 
 
+####  update leverage
+
+API Key Permission：Write
+
+Change leverage for specific symbol. Margin will be adjusted if there is open position, frozen will be adjusted if there is active orders. Change leverage may failed if there is no enough available.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+    "id":12,
+    "method":"contracts:positionSetLeverage",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "leverage":1
+    }
+}
+```
+
+| Field    | Description           | Data Type     |
+| -------- | --------------------- | ------------- |
+| id       | The result id         | Integer       |
+| Method   | request func          | String        |
+| jsonrpc  | The json-rpc  version | string        |
+| symbol | Symbol name       | String |
+| leverage | leverage       | Integer |
+
+**Response Body**:
+
+```json
+{
+    "jsonrpc":"2.0",
+    "id":12,
+    "result":{
+        "code":0
+    }
+}
+```
+| Field   | Description                  | Data Type           |
+| ------- | ---------------------------- | ------------------- |
+| result  | Return result                | ResultObject |
+| id      | The result id                | Integer             |
+| jsonrpc | The json-rpc  version        | String              |
+| code    | code 0 success other failure | Integer             |
+
+
+
+####  change margin
+
+API Key Permission：Write
+
+Change margin of open position.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+    "id":12,
+    "method":"contracts:positionChangeMargin",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "margin":0.1
+    }
+}
+```
+
+| Field    | Description           | Data Type     |
+| -------- | --------------------- | ------------- |
+| id       | The result id         | Integer       |
+| Method   | request func          | String        |
+| jsonrpc  | The json-rpc  version | string        |
+| symbol | Symbol name       | String |
+| margin | margin       | BigDecimal |
+
+**Response Body**:
+
+```json
+{
+    "jsonrpc":"2.0",
+    "id":12,
+    "result":{
+        "code":0
+    }
+}
+```
+| Field   | Description                  | Data Type           |
+| ------- | ---------------------------- | ------------------- |
+| result  | Return result                | ResultObject |
+| id      | The result id                | Integer             |
+| jsonrpc | The json-rpc  version        | String              |
+| code    | code 0 success other failure | Integer             |
+
+
+
+####  Change risk level
+
+API Key Permission：Write
+
+Change risk level for symbol.
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+    "id":12,
+    "method":"contracts:positionSetRiskLevel",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "riskLevel":5
+    }
+}
+```
+
+| Field    | Description           | Data Type     |
+| -------- |-----------------------| ------------- |
+| id       | The result id         | Integer       |
+| Method   | request func          | String        |
+| jsonrpc  | The json-rpc  version | string        |
+| symbol | Symbol name           | String |
+| riskLevel | risk level            | Integer |
+
+**Response Body**:
+
+```json
+{
+    "jsonrpc":"2.0",
+    "id":12,
+    "result":{
+        "code":0
+    }
+}
+```
+| Field   | Description                  | Data Type           |
+| ------- | ---------------------------- | ------------------- |
+| result  | Return result                | ResultObject |
+| id      | The result id                | Integer             |
+| jsonrpc | The json-rpc  version        | String              |
+| code    | code 0 success other failure | Integer             |
+
+
+
 ####  Batch Cancel
 
 API Key Permission：Write
@@ -4091,13 +4241,12 @@ Batch to cancel orders
     }
 }
 ```
-| Field   | Description                  | Data Type            |
-| ------- | ---------------------------- | -------------------- |
-| result  | Return result                | Array< ResultObject> |
-| id      | The result id                | Integer              |
-| jsonrpc | The json-rpc  version        | String               |
-| code    | code 0 success other failure | Integer              |
-
+| Field   | Description                  | Data Type           |
+| ------- | ---------------------------- | ------------------- |
+| result  | Return result                | ResultObject |
+| id      | The result id                | Integer             |
+| jsonrpc | The json-rpc  version        | String              |
+| code    | code 0 success other failure | Integer             |
 
 
 #### Ping
