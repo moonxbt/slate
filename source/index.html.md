@@ -2352,7 +2352,7 @@ ResultObject:
 
 
 
-### orderGetClosed
+### get closed orders
 
 **Meta**
 
@@ -2465,7 +2465,7 @@ Get closed orders.
 
 
 
-### orderGetOpens
+### get open orders
 
 **Meta**
 
@@ -2596,7 +2596,7 @@ Get open orders.
 
 
 
-### orderGetOpensNormal
+### limited or market orders
 
 **Meta**
 
@@ -2735,7 +2735,7 @@ To get the Limited or Market orders
 
 
 
-### orderGetOpensTrigger
+### SL or TP orders
 
 **Meta**
 
@@ -2872,7 +2872,7 @@ To Get the SL or TP orders
 
 
 
-### orderGetOpensData
+### aggregated order position
 
 **Meta**
 
@@ -3067,7 +3067,7 @@ Interface used to get aggregated order position
 
 
 
-### orderGetSymbolOpens
+### orders info by symbol
 
 **Meta**
 
@@ -3200,8 +3200,7 @@ Get orders by symbol
 
 
 
-
-### orderGetById
+### order info by order id
 
 **Meta**
 
@@ -3299,7 +3298,7 @@ Get order by id.
 
 
 
-### orderGetOpenByClientOrderId
+### get open order
 
 **Meta**
 
@@ -3398,8 +3397,7 @@ Get open order by clientOrderId.
 
 
 
-
-### orderGetByClientOrderId
+### order info by clientOrderId
 
 **Meta**
 
@@ -3499,7 +3497,7 @@ Get order by clientOrderId.
 
 
 
-### positionClearingsGetByRange
+### position clearings
 
 **Meta**
 
@@ -3599,13 +3597,13 @@ Get position clearings by range.
 
 
 
-### positionGetAllByUser
+### all positions.
 
 **Meta**
 
 API Key Permission：Read
 
-Get all positions.
+get all positions.
 
 **Request Path**: `POST /api/endpoint`
 
@@ -3737,7 +3735,7 @@ Get all positions.
 
 
 
-### orderGetMatchDetails
+### order trading entries
 
 **Meta**
 
@@ -3810,7 +3808,7 @@ Get order trading entries
 
 
 
-### orderGetMatchDetailsByClientOrderId
+### order info 
 
 **Meta**
 
@@ -3882,56 +3880,90 @@ Get order info by client order id
 | direction | "SHORT" or "LONG"                        | String    |
 
 
-### orderCancelAll
+[//]: # (### orderCancelAll)
 
-**Meta**
+[//]: # ()
+[//]: # (**Meta**)
 
-API Key Permission：Read
+[//]: # ()
+[//]: # (API Key Permission：Read)
 
-Cancel all order based on symbol
+[//]: # ()
+[//]: # (Cancel all order based on symbol)
 
-**Request Path**: `POST /api/endpoint`
+[//]: # ()
+[//]: # (**Request Path**: `POST /api/endpoint`)
 
-**Request Body**:
+[//]: # ()
+[//]: # (**Request Body**:)
 
-```json
-{
-  "id": 5,
-  "method": "contracts:orderCancelAll",
-  "jsonrpc": "2.0",
-  "params": {
-    "symbol":"BTC_USDT"
-  }
-}
-```
+[//]: # ()
+[//]: # (```json)
 
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| Id      | Request id            | Number    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | String    |
-| symbol  | Symbol                | String    |
+[//]: # ({)
+
+[//]: # (  "id": 5,)
+
+[//]: # (  "method": "contracts:orderCancelAll",)
+
+[//]: # (  "jsonrpc": "2.0",)
+
+[//]: # (  "params": {)
+
+[//]: # (    "symbol":"BTC_USDT")
+
+[//]: # (  })
+
+[//]: # (})
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (| Field   | Description           | Data Type |)
+
+[//]: # (| ------- | --------------------- | --------- |)
+
+[//]: # (| Id      | Request id            | Number    |)
+
+[//]: # (| Method  | request func          | String    |)
+
+[//]: # (| jsonrpc | The json-rpc  version | String    |)
+
+[//]: # (| symbol  | Symbol                | String    |)
+
+[//]: # ()
+[//]: # ()
+[//]: # (**Response Body**:)
+
+[//]: # ()
+[//]: # (```json)
+
+[//]: # ({)
+
+[//]: # (  "result": 1,)
+
+[//]: # (  "id": 5,)
+
+[//]: # (  "jsonrpc": "2.0")
+
+[//]: # (})
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (| Field   | Description           | Data Type    |)
+
+[//]: # (| ------- | --------------------- | ------------ |)
+
+[//]: # (| id      | Request id            | Integer      |)
+
+[//]: # (| result  | request func          | ResultObject |)
+
+[//]: # (| jsonrpc | The json-rpc  version | String       |)
 
 
-**Response Body**:
 
-```json
-{
-  "result": 1,
-  "id": 5,
-  "jsonrpc": "2.0"
-}
-```
-
-| Field   | Description           | Data Type    |
-| ------- | --------------------- | ------------ |
-| id      | Request id            | Integer      |
-| result  | request func          | ResultObject |
-| jsonrpc | The json-rpc  version | String       |
-
-
-
-### orderCancel
+### cancel order
 
 **Meta**
 
@@ -3988,13 +4020,13 @@ cancel order
 | result       | result                 | String    |
 | setOrExpired | Whether set or expired | Boolean   |
 
-### feeRateQuery
+### query fee
 
 **Meta**
 
 API Key Permission：Read
 
-Fee query
+Query user's fee rate at this time.
 
 **Request Path**: `POST /api/endpoint`
 
@@ -4049,7 +4081,7 @@ Fee query
 
 
 
-####  update leverage
+###  change leverage
 
 API Key Permission：Write
 
@@ -4099,7 +4131,7 @@ Change leverage for specific symbol. Margin will be adjusted if there is open po
 
 
 
-####  change margin
+###  change margin
 
 API Key Permission：Write
 
@@ -4149,7 +4181,7 @@ Change margin of open position.
 
 
 
-####  Change risk level
+###  Change risk level
 
 API Key Permission：Write
 
@@ -4199,57 +4231,7 @@ Change risk level for symbol.
 
 
 
-####  Batch Cancel
-
-API Key Permission：Write
-
-Batch to cancel orders
-
-**Request Path**: `POST /api/endpoint`
-
-**Request Body**:
-
-```json
-{
-    "id":12,
-    "method":"contracts:batchCancel",
-    "jsonrpc":"2.0",
-    "params":{
-        "orderIds":[
-            283132203,
-            283142203
-        ]
-    }
-}
-```
-
-| Field    | Description           | Data Type      |
-| -------- | --------------------- | -------------- |
-| id       | The result id         | Integer        |
-| Method   | request func          | String         |
-| jsonrpc  | The json-rpc  version | string         |
-| orderIds | cancel order id       | Array< String> |
-
-**Response Body**:
-
-```json
-{
-    "jsonrpc":"2.0",
-    "id":12,
-    "result":{
-        "code":0
-    }
-}
-```
-| Field   | Description                  | Data Type           |
-| ------- | ---------------------------- | ------------------- |
-| result  | Return result                | ResultObject |
-| id      | The result id                | Integer             |
-| jsonrpc | The json-rpc  version        | String              |
-| code    | code 0 success other failure | Integer             |
-
-
-#### Ping
+### check service
 
 API Key Permission：Read
 
@@ -4300,7 +4282,7 @@ Send ping to check  the service whether available
 | type    | service type PONG          | String    |
 | gap     | abs(server ts - client ts) | Long      |
 
-#### Meta
+### detailed market
 
 API Key Permission：Read
 
@@ -4323,7 +4305,6 @@ Get detailed market trading info about the trading symbol
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 
-##  
 
 **Response Body**:
 
@@ -4463,7 +4444,7 @@ Get detailed market trading info about the trading symbol
 
 
 
-####  contractsList
+###  contracts order list
 
 API Key Permission：Read
 
@@ -4487,7 +4468,6 @@ Get contracts trading pair info about price, volume, symbol name.
 | Method  | request func          | String    |
 | jsonrpc | The json-rpc  version | String    |
 
-##   
 
 **Response Body**:
 
@@ -4554,7 +4534,7 @@ Get contracts trading pair info about price, volume, symbol name.
 | displayOrder  | display order     | Integer |
 
 
-#### Ticker
+### Ticker
 
 API Key Permission：Read
 
@@ -4630,7 +4610,7 @@ Format Explanation:
 
 
 
-#### AllTicker
+### all ticker
 
 API Key Permission：Read
 
@@ -4698,7 +4678,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 | sequenceId | sequence id                              | string         |
 | ts         | time stamp ms                            | string         |
 
-#### OrderBook
+### order book
 
 API Key Permission：Read
 
@@ -4782,7 +4762,7 @@ Get the order book
 | Sell orders | The buy order book:  [ price, amount, total ] | Array< String> |
 | sequenceId  | sequence id                              | String         |
 
-#### Bars
+### bars
 
 API Key Permission：Read
 
@@ -4855,7 +4835,7 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 [timestamp, open, high, low, close, amount]
 
-#### Ticks
+### Ticks
 
 API Key Permission：Read
 
