@@ -2372,7 +2372,7 @@ Get closed orders.
   "params": {
     "range":"",
     "symbol":"",
-    "offsetId":"",
+    "offsetId":0,
     "limit":0
   }
 }
@@ -2385,7 +2385,7 @@ Get closed orders.
 | jsonrpc  | The json-rpc  version                    | String    |
 | range    | Range as int like 201808.                | String    |
 | symbol   | Return related symbol-only Default to "" (all symbols). | String    |
-| offsetId | From start order id. Default to 0. (latest first). | String    |
+| offsetId | From start order id. Default to 0. (latest first). | Number    |
 | limit    | Limited number per page                  | Number    |
 
 
@@ -4036,7 +4036,8 @@ Change leverage for specific symbol. Margin will be adjusted if there is open po
     "jsonrpc":"2.0",
     "id":12,
     "result":{
-        "code":0
+        "code":0,
+        "msg":"success"
     }
 }
 ```
@@ -4046,7 +4047,7 @@ Change leverage for specific symbol. Margin will be adjusted if there is open po
 | id      | The result id                | Integer             |
 | jsonrpc | The json-rpc  version        | String              |
 | code    | code 0 success other failure | Integer             |
-
+| msg    | response message | String             |
 
 
 ###  change margin
@@ -4086,7 +4087,8 @@ Change margin of open position.
     "jsonrpc":"2.0",
     "id":12,
     "result":{
-        "code":0
+      "code":0,
+      "msg":"success"
     }
 }
 ```
@@ -4096,6 +4098,7 @@ Change margin of open position.
 | id      | The result id                | Integer             |
 | jsonrpc | The json-rpc  version        | String              |
 | code    | code 0 success other failure | Integer             |
+| msg    | response message | String             |
 
 
 
@@ -4136,7 +4139,8 @@ Change risk level for symbol.
     "jsonrpc":"2.0",
     "id":12,
     "result":{
-        "code":0
+        "code":0,
+        "msg":"success"
     }
 }
 ```
@@ -4146,6 +4150,7 @@ Change risk level for symbol.
 | id      | The result id                | Integer             |
 | jsonrpc | The json-rpc  version        | String              |
 | code    | code 0 success other failure | Integer             |
+| msg    | response message | String             |
 
 
 
