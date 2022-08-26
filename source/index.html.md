@@ -1794,7 +1794,7 @@ This endpoint returns a list of K-lines history data for all public users.
 
 #### 
 
-#### Position History
+### Position History
 
 API Key Permission：Read
 
@@ -1978,7 +1978,7 @@ This endpoint returns a list of historical orders owned by this API user.
 
 
 
-#### Position Holdings
+### Position Holdings
 
 API Key Permission：Read
 
@@ -2164,7 +2164,7 @@ This endpoint returns a list of holding orders owned by this API user.
 
 
 
-#### Position Pendings
+### Position Pendings
 
 API Key Permission：Read
 
@@ -2346,6 +2346,495 @@ ResultObject:
 | settleCharge                  | The charge fee to close the order        | BigDecimal |
 | targetProfit                  | The taken profit                         | BigDecimal |
 | account                       | Registered account                       | String     |
+
+
+
+
+### Entry Orders
+
+API Key Permission：Write
+
+create entry orders
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:pend",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "order": {
+                  "pendingPrice": 20000,
+                  "symbol": "btcusdt",
+                  "leverage": 1,
+                  "amount": "2",
+                  "direction": 0,
+                  "type": 0
+            }
+      }
+}
+```
+
+| Parameter    | Description                            | Mandatory | Data Type | Value Range                                                 |
+| ------------ |----------------------------------------|-----------|-----------|-------------------------------------------------------------|
+| pendingPrice         | pending price                          | true      | Decimal   | -                                                           |
+| symbol    | Trading symbol (wildcard inacceptable) | true     | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
+| leverage   | leverage                               | true     | integer   | 1-125                                                       |
+| amount        | The amount to cost to buy other token  | true     | Decimal   |                  Decimal                                           |
+| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                      |
+| type          | CFD Order Type                         | true     | integer   | 0 or 1                                                      |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 17:28:18",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "code": 0,
+                  "walletName": "contract_usdt",
+                  "walletType": "USDT",
+                  "orderCode": "9e3144faf99f4e938cbf27284622523e"
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                  | Data Type |
+| ----------------------------- |------------------------------|-----------|
+| message                     | result message               | String    |
+| code                          | code 0 success other failure | integer    |
+| time                  | Response time                | String   |
+| walletName                     | wallet name                  | String   |
+| walletType                    | wallet type                  | String    |
+| orderCode                   | order code                   | String    |
+
+
+
+### create Orders
+
+API Key Permission：Write
+
+create orders
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:place",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "order": {
+                  "symbol": "btcusdt",
+                  "leverage": 1,
+                  "amount": "2",
+                  "direction": 0,
+                  "type": 0
+            }
+      }
+}
+```
+
+| Parameter    | Description                           | Mandatory | Data Type | Value Range |
+| ------------ |---------------------------------------|-----------|-----------|------------|
+| symbol    | Trading symbol (wildcard inacceptable) | true     | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
+| leverage   | leverage                               | true     | integer   | 1-125                                                       |
+| amount        | The amount to cost to buy other token  | true     | Decimal   |                  Decimal                                           |
+| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                      |
+| type          | CFD Order Type                         | true     | integer   | 0 or 1                                                      |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 17:39:23",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "code": 0,
+                  "walletName": "contract_usdt",
+                  "walletType": "USDT",
+                  "orderCode": "01f0a248c8954430a25bad70176561ef"
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                  | Data Type |
+| ----------------------------- |------------------------------|-----------|
+| message                     | result message               | String    |
+| code                          | code 0 success other failure | integer    |
+| time                  | Response time                | String   |
+| walletName                     | wallet name                  | String   |
+| walletType                    | wallet type                  | String    |
+| orderCode                   | order code                   | String    |
+
+
+
+### create Orders
+
+API Key Permission：Write
+
+create orders
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:place",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "order": {
+                  "symbol": "btcusdt",
+                  "leverage": 1,
+                  "amount": "2",
+                  "direction": 0,
+                  "type": 0
+            }
+      }
+}
+```
+
+| Parameter    | Description                           | Mandatory | Data Type | Value Range |
+| ------------ |---------------------------------------|-----------|-----------|------------|
+| symbol    | Trading symbol (wildcard inacceptable) | true     | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
+| leverage   | leverage                               | true     | integer   | 1-125                                                       |
+| amount        | The amount to cost to buy other token  | true     | Decimal   |                  Decimal                                           |
+| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                      |
+| type          | CFD Order Type                         | true     | integer   | 0 or 1                                                      |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 17:39:23",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "code": 0,
+                  "walletName": "contract_usdt",
+                  "walletType": "USDT",
+                  "orderCode": "01f0a248c8954430a25bad70176561ef"
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                  | Data Type |
+| ----------------------------- |------------------------------|-----------|
+| message                     | result message               | String    |
+| code                          | code 0 success other failure | integer    |
+| time                  | Response time                | String   |
+| walletName                     | wallet name                  | String   |
+| walletType                    | wallet type                  | String    |
+| orderCode                   | order code                   | String    |
+
+
+
+### settle Orders
+
+API Key Permission：Write
+
+settle orders
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:settle",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "code": "01f0a248c8954430a25bad70176561ef"
+      }
+}
+```
+
+| Parameter    | Description                           | Mandatory | Data Type | Value Range |
+| ------------ |---------------------------------------|-----------|-----------|------------|
+| code         | order code                            | true      | string   | order code |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 17:41:32",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "code": 0
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                  | Data Type |
+| ----------------------------- |------------------------------|-----------|
+| message                     | result message               | String    |
+| code                          | code 0 success other failure | integer    |
+| time                  | Response time                | String   |
+
+
+
+### append Orders
+
+API Key Permission：Write
+
+append orders
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:append",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "code": "facea80b612a4ca6a1c7c0df5c0375be",
+            "appendAmount": 5
+      }
+}
+```
+
+| Parameter    | Description   | Mandatory | Data Type | Value Range |
+| ------------ |---------------|-----------|-----------|-------------|
+| code         | order code    | true      | string    | order code  |
+| appendAmount         | append amount | true      | Decimal        | amount      |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 19:20:58",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "code": 0,
+                  "appendMarginLog": "{\"account\":\"10119864\",\"appendCharge\":0,\"appendCount\":1,\"appendMargin\":5,\"appendTime\":1657106448875,\"code\":\"facea80b612a4ca6a1c7c0df5c0375be\",\"currency\":\"btcusdt\",\"deviceType\":\"OpenAPI\",\"direction\":0,\"lever\":2.857142,\"stopLoss\":13739.039731,\"strikePrice\":20056.992305,\"targetProfit\":55156.728837,\"walletName\":\"contract_usdt\",\"walletType\":\"USDT\"}"
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                  | Data Type |
+| ----------------------------- |------------------------------|-----------|
+| message                     | result message               | String    |
+| code                          | code 0 success other failure | integer    |
+| time                  | Response time                | String   |
+| appendMarginLog                  | append orders message               | String   |
+
+
+
+### change over night status
+
+API Key Permission：Write
+
+change over night status
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:changeOverNightType",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "code": "3428656c824f43b985f003ee83660c5d",
+            "type": 0
+      }
+}
+```
+
+| Parameter    | Description | Mandatory | Data Type | Value Range |
+| ------------ |-------------|-----------|-----------|-------------|
+| code         | order code  | true      | string    | order code  |
+| type         | 1:pass night, 2:no append margin  | true      | integer   | 1 or 2      |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 17:44:07",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "code": 0
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                  | Data Type |
+| ----------------------------- |------------------------------|-----------|
+| message                     | result message               | String    |
+| code                          | code 0 success other failure | integer    |
+| time                  | Response time                | String   |
+
+
+
+### change target profit and stop loss
+
+API Key Permission：Write
+
+change target profit and stop loss
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:changeTargetProfitAndStopLoss",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "profitAndStopLoss": {
+                  "code": "3428656c824f43b985f003ee83660c5d",
+                  "targetProfit": 24000,
+                  "stopLoss": 19000,
+                  "targetProfitRatio": 20,
+                  "stopLossRatio": 20
+                      
+            }
+      }
+}
+```
+
+| Parameter    | Description                                                  | Mandatory | Data Type | Value Range |
+| ------------ |--------------------------------------------------------------|-----------|-----------|-------------|
+| code         | holding order code                                           | true      | string    | order code  |
+| targetProfit         | target Profit. need match stop loss price                         | false      | Decimal   | Decimal        |
+| stopLoss         | stop loss price. need match target profit                         | false      | Decimal   | Decimal        |
+| targetProfitRatio         | target profit ratio. need match stop loss ratio                   | false      | Decimal   | 1-100       |
+| stopLossRatio         | stop loss ratio. need match stop loss ratio or target Profit | false     | Decimal   | 1-100        |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 17:53:48",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "code": 0
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                  | Data Type |
+| ----------------------------- |------------------------------|-----------|
+| message                     | result message               | String    |
+| code                          | code 0 success other failure | integer    |
+| time                  | Response time                | String   |
+
 
 
 ## USDT Perpetual contracts
