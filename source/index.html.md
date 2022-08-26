@@ -2798,9 +2798,9 @@ change target profit and stop loss
 | Parameter    | Description                                                  | Mandatory | Data Type | Value Range |
 | ------------ |--------------------------------------------------------------|-----------|-----------|-------------|
 | code         | holding order code                                           | true      | string    | order code  |
-| targetProfit         | target Profit. must be used together with stopLoss                         | false      | Decimal   | Decimal        |
-| stopLoss         | stop loss price. must be used together with targetProfit                         | false      | Decimal   | Decimal        |
-| targetProfitRatio         | target profit ratio. must be used together with stopLossRatio                   | false      | Decimal   | 1-100       |
+| targetProfit         | target Profit. must be used together with stopLossRatio or stopLoss                         | false      | Decimal   | Decimal        |
+| stopLoss         | stop loss price. must be used together with targetProfitRatio or targetProfit                         | false      | Decimal   | Decimal        |
+| targetProfitRatio         | target profit ratio. must be used together with stopLossRatio or stopLoss                   | false      | Decimal   | 1-100       |
 | stopLossRatio         | stop loss ratio. must be used together with targetProfitRatio or targetProfit | false     | Decimal   | 1-100        |
 
 **Response Content**:
