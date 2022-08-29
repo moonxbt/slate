@@ -2428,11 +2428,11 @@ ResultObject:
 
 
 
-### create Orders
+### cancel Orders
 
 API Key Permission：Write
 
-create orders
+cancel orders
 
 **Request Path**: ` Post /api/endpoint`
 
@@ -2440,29 +2440,19 @@ create orders
 
 ```json
 {
-      "id": 5,
-      "method": "cfd:place",
-      "jsonrpc": "2.0",
-      "version": "2.0",
-      "params": {
-            "order": {
-                  "symbol": "btcusdt",
-                  "leverage": 1,
-                  "amount": "2",
-                  "direction": 0,
-                  "type": 0
-            }
-      }
+  "id": 5,
+  "method": "cfd:cancel",
+  "jsonrpc": "2.0",
+  "version": "2.0",
+  "params": {
+    "code": "9e3144faf99f4e938cbf27284622523e"
+  }
 }
 ```
 
 | Parameter    | Description                           | Mandatory | Data Type | Value Range |
 | ------------ |---------------------------------------|-----------|-----------|------------|
-| symbol    | Trading symbol (wildcard inacceptable) | true     | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
-| leverage   | leverage                               | true     | integer   | 1-125                                                       |
-| amount        | The amount to cost to buy other token  | true     | Decimal   |                  Decimal                                           |
-| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                      |
-| type          | CFD Order Type                         | true     | integer   | 0 or 1                                                      |
+| code         | order code                            | true      | string   | order code |
 
 **Response Content**:
 
@@ -2472,14 +2462,11 @@ create orders
       "id": 5,
       "result": {
             "message": "Success",
-            "time": "2022-07-06 17:39:23",
+            "time": "2022-07-06 17:36:56",
             "code": 0,
             "tid": null,
             "data": {
-                  "code": 0,
-                  "walletName": "contract_usdt",
-                  "walletType": "USDT",
-                  "orderCode": "01f0a248c8954430a25bad70176561ef"
+                  "code": 0
             }
       }
 }
@@ -2498,9 +2485,6 @@ ResultObject:
 | message                     | result message               | String    |
 | code                          | code 0 success other failure | integer    |
 | time                  | Response time                | String   |
-| walletName                     | wallet name                  | String   |
-| walletType                    | wallet type                  | String    |
-| orderCode                   | order code                   | String    |
 
 
 
