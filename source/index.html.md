@@ -5452,7 +5452,7 @@ Send ping to check  the service whether available
 
 
 
-### Check Service
+#### Check Service
 
 API Key Permission：Read
 
@@ -5503,7 +5503,7 @@ Send ping to check  the service whether available
 | type    | service type PONG          | String    |
 | gap     | abs(server ts - client ts) | Long      |
 
-### Detailed Market
+#### Detailed Market
 
 API Key Permission：Read
 
@@ -5665,7 +5665,7 @@ Get detailed market trading info about the trading symbol
 
 
 
-###  Contracts Order List
+####  Contracts Order List
 
 API Key Permission：Read
 
@@ -5755,7 +5755,7 @@ Get contracts trading pair info about price, volume, symbol name.
 | displayOrder  | display order     | Integer |
 
 
-### Ticker
+#### Ticker
 
 API Key Permission：Read
 
@@ -5831,7 +5831,7 @@ Format Explanation:
 
 
 
-### All Ticker
+#### All Ticker
 
 API Key Permission：Read
 
@@ -5899,7 +5899,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 | sequenceId | sequence id                              | string         |
 | ts         | time stamp ms                            | string         |
 
-### Order Book
+#### Order Book
 
 API Key Permission：Read
 
@@ -5983,7 +5983,7 @@ Get the order book
 | Sell orders | The buy order book:  [ price, amount, total ] | Array< String> |
 | sequenceId  | sequence id                              | String         |
 
-### Bars
+#### Bars
 
 API Key Permission：Read
 
@@ -6056,7 +6056,7 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 [timestamp, open, high, low, close, amount]
 
-### Ticks
+#### Ticks
 
 API Key Permission：Read
 
