@@ -2428,7 +2428,7 @@ ResultObject:
 
 
 
-### cancel Orders
+### Cancel Orders
 
 API Key Permission：Write
 
@@ -2488,7 +2488,7 @@ ResultObject:
 
 
 
-### create Orders
+### Create Orders
 
 API Key Permission：Write
 
@@ -2564,7 +2564,7 @@ ResultObject:
 
 
 
-### settle Orders
+### Settle Orders
 
 API Key Permission：Write
 
@@ -2624,7 +2624,7 @@ ResultObject:
 
 
 
-### append Orders
+### Append Orders
 
 API Key Permission：Write
 
@@ -2688,7 +2688,7 @@ ResultObject:
 
 
 
-### change over night status
+### Change Over Night Status
 
 API Key Permission：Write
 
@@ -2750,7 +2750,7 @@ ResultObject:
 
 
 
-### change target profit and stop loss
+### Change Target Profit And Stop Loss
 
 API Key Permission：Write
 
@@ -2825,7 +2825,7 @@ ResultObject:
 
 
 
-### get closed orders
+### Get Closed Orders
 
 **Meta**
 
@@ -2938,7 +2938,7 @@ Get closed orders.
 
 
 
-### get open orders
+### Get Open Orders
 
 **Meta**
 
@@ -3069,7 +3069,7 @@ Get open orders.
 
 
 
-### limited or market orders
+### Limited Or Market Orders
 
 **Meta**
 
@@ -3208,7 +3208,7 @@ To get the Limited or Market orders
 
 
 
-### SL or TP orders
+### SL Or TP Orders
 
 **Meta**
 
@@ -3345,7 +3345,7 @@ To Get the SL or TP orders
 
 
 
-### aggregated order position
+### Aggregated Order Position
 
 **Meta**
 
@@ -3540,7 +3540,7 @@ Interface used to get aggregated order position
 
 
 
-### orders info by symbol
+### Orders Info By Symbol
 
 **Meta**
 
@@ -3673,7 +3673,7 @@ Get orders by symbol
 
 
 
-### order info by order id
+### Order Info By Order Id
 
 **Meta**
 
@@ -3771,7 +3771,7 @@ Get order by id.
 
 
 
-### get open order
+### Get Open Order
 
 **Meta**
 
@@ -3870,7 +3870,7 @@ Get open order by clientOrderId.
 
 
 
-### order info by clientOrderId
+### Order Info By ClientOrderId
 
 **Meta**
 
@@ -3970,7 +3970,7 @@ Get order by clientOrderId.
 
 
 
-### position clearings
+### Position Clearings
 
 **Meta**
 
@@ -4070,7 +4070,7 @@ Get position clearings by range.
 
 
 
-### all positions.
+### All Positions.
 
 **Meta**
 
@@ -4208,7 +4208,7 @@ get all positions.
 
 
 
-### order trading entries
+### Order Trading Entries
 
 **Meta**
 
@@ -4281,7 +4281,7 @@ Get order trading entries
 
 
 
-### order info 
+### Order Info 
 
 **Meta**
 
@@ -4354,7 +4354,7 @@ Get order info by client order id
 
 
 
-### cancel order
+### Cancel Order
 
 **Meta**
 
@@ -4411,7 +4411,7 @@ cancel order
 | result       | result                 | String    |
 | setOrExpired | Whether set or expired | Boolean   |
 
-### query fee
+### Query Fee
 
 **Meta**
 
@@ -4472,7 +4472,7 @@ Query user's fee rate at this time.
 
 
 
-###  change leverage
+###  Change Leverage
 
 API Key Permission：Write
 
@@ -4523,7 +4523,7 @@ Change leverage for specific symbol. Margin will be adjusted if there is open po
 | msg    | response message | String             |
 
 
-###  change margin
+###  Change Margin
 
 API Key Permission：Write
 
@@ -4575,7 +4575,7 @@ Change margin of open position.
 
 
 
-###  Change risk level
+###  Change Risk Level
 
 API Key Permission：Write
 
@@ -4627,7 +4627,7 @@ Change risk level for symbol.
 
 
 
-### check service
+### Check Service
 
 API Key Permission：Read
 
@@ -4678,7 +4678,7 @@ Send ping to check  the service whether available
 | type    | service type PONG          | String    |
 | gap     | abs(server ts - client ts) | Long      |
 
-### detailed market
+### Detailed Market
 
 API Key Permission：Read
 
@@ -4840,7 +4840,7 @@ Get detailed market trading info about the trading symbol
 
 
 
-###  contracts order list
+###  Contracts Order List
 
 API Key Permission：Read
 
@@ -5006,7 +5006,7 @@ Format Explanation:
 
 
 
-### all ticker
+### All Ticker
 
 API Key Permission：Read
 
@@ -5074,7 +5074,7 @@ The summary of the K-line info, and the frequency is less than 10op/s
 | sequenceId | sequence id                              | string         |
 | ts         | time stamp ms                            | string         |
 
-### order book
+### Order Book
 
 API Key Permission：Read
 
@@ -5158,7 +5158,7 @@ Get the order book
 | Sell orders | The buy order book:  [ price, amount, total ] | Array< String> |
 | sequenceId  | sequence id                              | String         |
 
-### bars
+### Bars
 
 API Key Permission：Read
 
