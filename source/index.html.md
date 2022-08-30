@@ -4627,671 +4627,8 @@ Change risk level for symbol.
 
 
 
-### Check Service
 
-API Key Permission：Read
 
-Send ping to check  the service whether available
-
-**Request Path**: `POST /api/endpoint`
-
-**Request Body**:
-
-```json
-{
-    "id": 31,
-    "method": "contractsKline:ping",
-    "jsonrpc": "2.0",
-    "params": {
-        "ts": 1653537731930
-    }
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| id      | The result id         | Integer   |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | string    |
-| ts      | now time stamp ms     | Long      |
-
-**Response Body**:
-
-```json
-{
-    "result": {
-        "gap": 293585010,
-        "type": "PONG",
-        "ts": 1653831316940
-    },
-    "id": 31,
-    "jsonrpc": "2.0"
-}
-```
-
-| Field   | Description                | Data Type |
-| ------- | -------------------------- | --------- |
-| result  | Return result              | Struct    |
-| id      | The result id              | Number    |
-| jsonrpc | The json-rpc  version      | String    |
-| ts      | server time stamp ms       | Long      |
-| type    | service type PONG          | String    |
-| gap     | abs(server ts - client ts) | Long      |
-
-### Detailed Market
-
-API Key Permission：Read
-
-Get detailed market trading info about the trading symbol
-
-**Request Body**:
-
-```json
-{
-    "id":22,
-    "method":"contractsKline:meta",
-    "jsonrpc":"2.0",
-    "params":{}
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| Id      | Request id            | Number    |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | String    |
-
-
-**Response Body**:
-
-```json
-{
-    "result":{
-        "contractsSymbols":[
-            {
-                "id":100105,
-                "name":"BTC_USDT",
-                "endTime":4083840000000,
-                "openTime":1648818928000,
-                "type":"PERPETUAL",
-                "marginCurrency":"BTC",
-                "inverse":false,
-                "liquidateBy":"MARKET_PRICE",
-                "multiplier":0.001,
-                "minimumPriceIncrement":0.001,
-                "priceStep":1,
-                "priceScale":3,
-                "quoteScale":2,
-                "maximumQuantityPerOrder":10000,
-                "riskLimit": {
-                  "id":1,
-                  "initialMarginRate":0.01,
-                  "maintenanceMarginRateStep":0.005,
-                  "maxLeverage":10,
-                  "riskLimitBase":10,
-                  "riskLimitStep":1,
-                  "maxRiskLimitSteps":10,
-                  "createdAt":1652266654968
-                },
-                "settlementFeeRate":0.001,
-                "displayOrder":false,
-                "hidden":false,
-                "zone":"MAIN"
-            }
-        ],
-        "contractsCurrencies":[
-            "BTC",
-            "ETH",
-            "USDT"
-        ],
-        "currencies":[
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"BNB",
-                "displayOrder":0,
-                "derivative":false,
-                "id":115,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            },
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"USDT",
-                "displayOrder":3,
-                "derivative":false,
-                "id":105,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            }
-        ]
-    },
-    "id":22,
-    "jsonrpc":"2.0"
-}
-```
-
-| Field   | Description           | Data Type    |
-| ------- | --------------------- | ------------ |
-| id      | Request id            | Integer      |
-| result  | request func          | ResultObject |
-| jsonrpc | The json-rpc  version | String       |
-
-**ResultObject**:
-
-| Field           | Description           | Data Type             |
-| --------------- | --------------------- | --------------------- |
-| contractsSymbols    | contracts symbols info    | Array < contractsSymbols> |
-| contractsCurrencies | contracts currencies info | Array < String>       |
-| currencies      | currencies info       | Array< Currencies>    |
-
-**contractsSymbols**:
-
-| Field                 | Description                       | Data Type  |
-| --------------------- |-----------------------------------|------------|
-| id                    | symbol id                         | Long       |
-| name                  | symbol name                       | String     |
-| endTime               | end time company：ms               | Long       |
-| openTime              | open time company：ms              | Long       |
-| type    | contracts type                    | String     |
-| marginCurrency    | margin symbol                     | String     |
-| inverse    | is Reverse contract               | Boolean    |
-| liquidateBy    | forced Liquidation type           | String     |
-| multiplier    | contract multiplier               | BigDecimal |
-| minimumPriceIncrement    | minimum price increment           | BigDecimal |
-| priceStep    | price step                        | Integer    |
-| priceScale    | price scale                       | Integer    |
-| quantityScale    | quantity scale                    | Integer    |
-| maximumQuantityPerOrder    | maximum quantity per order        | Integer    |
-| riskLimit    | risk limit                        | Object     |
-| settlementFeeRate    | settlement fee rate               | BigDecimal |
-| hidden                | true: disable, false: un disable  | Boolean    |
-| displayOrder          | sort field index                  | Integer    |
-| zone                  | What regions are allowed to trade | String     |
-
-**riskLimit**:
-
-| Field                 | Description                                                                                                                                     | Data Type  |
-| --------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| id                    | risk id                                                                                                                                         | Long       |
-| initialMarginRate                    | initial margin rate                                                                                                                             | BigDecimal       |
-| maintenanceMarginRateStep                    | maintenance margin rate                                                                                                                         | BigDecimal       |
-| maxLeverage                    | Maximum leverage                                                                                                                                | Integer       |
-| riskLimitBase                    | Base risk limit, the number of contracts under which the first leg of the initial maintenance margin/maintenance margin is calculated           | Long       |
-| riskLimitStep                    | Incremental risk limit.  The maintenance margin rate will be automatically increased N times for every N increments beyond the basic risk limit | Long       |
-| maxRiskLimitSteps                    | The maximum number of times to increase the risk limit                                                                                          | Integer       |
-| createdAt                    | create time                                                                                                                                     | Long       |
-
-**Currencies**:
-
-| Field            | Description                      | Data Type |
-| ---------------- | -------------------------------- | --------- |
-| id               | currency id                      | Long      |
-| name             | currency name                    | String    |
-| hidden           | true: disable, false: un disable | Boolean   |
-| depositOpenTime  | deposit open time                | Long      |
-| displayOrder     | sort field index                 | Integer   |
-| iconUrl          | icon url                         | String    |
-| withdrawOpenTime | withdraw open time               | Long      |
-| displayScale     | Display accuracy                 | Long      |
-
-
-
-###  Contracts Order List
-
-API Key Permission：Read
-
-Get contracts trading pair info about price, volume, symbol name.
-
-**Request Body**:
-
-```json
-{
-    "id": 23,
-    "method": "contractsKline:contractsList",
-    "jsonrpc": "2.0",
-    "params": {
-    }
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| Id      | Request id            | Integer   |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | String    |
-
-
-**Response Body**:
-
-```json
-{
-    "result":[
-        {
-            "volume":"0",
-            "symbolId":100105,
-            "price":23124.1,
-            "name":"BTC_USDT",
-            "type":"PERPETUAL",
-            "marginCurrency":"BTC",
-            "leverage":10,
-            "changes":-13.23,
-            "quantity":3,
-            "multiplier":0.001,
-            "priceScale":3,
-            "quantityScale":3,
-            "displayOrder":1
-        },
-        {
-            "volume":"0",
-            "symbolId":101105,
-            "price":1552.20,
-            "name":"ETH_USDT",
-            "type":"PERPETUAL",
-            "marginCurrency":"BTC",
-            "leverage":10,
-            "changes":-1.23,
-            "quantity":2,
-            "multiplier":0.01,
-            "priceScale":2,
-            "quantityScale":2,
-            "displayOrder":1
-        }
-    ],
-    "id":23,
-    "jsonrpc":"2.0"
-}
-```
-
-| Field   | Description           | Data Type            |
-| ------- | --------------------- | -------------------- |
-| result  | Return result         | Array< ResultObject> |
-| id      | The result id         | Integer              |
-| jsonrpc | The json-rpc  version | String               |
-
-**ResultObject**:
-
-| Field    | Description       | Data Type  |
-| -------- |-------------------| ---------- |
-| symbolId   | symbol id         | Long     |
-| name     | symbol name       | String     |
-| type     | contracts type    | String     |
-| marginCurrency     | settlement symbol | String     |
-| leverage     | leverage          | Integer     |
-| price    | price             | BigDecimal     |
-| changes  | 24h up and down   | BigDecimal |
-| quantity     | quantity          | Long     |
-| multiplier     | multiplier        | BigDecimal     |
-| priceScale   | price scale       | Integer     |
-| quantityScale  | quantity scale    | Integer |
-| displayOrder  | display order     | Integer |
-
-
-### Ticker
-
-API Key Permission：Read
-
-Get kline info around recent 24h on the fixed symbol
-
-**Request Body**:
-
-```json
-{
-    "id":24,
-    "method":"contractsKline:ticker",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"ETH_USDT"
-    }
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| Id      | Request id            | Integer   |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | String    |
-| symbol  | The request symbol    | String    |
-
-**Response Body**:
-
-
-
-```json
-{
-    "result":{
-        "symbol":"ETH_USDT",
-        "data":[
-          1594973040000,		//timestamp
-          9100.8,				//open
-          9109.4,				//high
-          9099.7,				//low
-          9109.4,				//close
-          0.2004,				//amount
-          2.1					//volume
-        ],
-        "type":"TICKER",
-        "sequenceId":"729912",
-        "ts":"1652090424479"
-    },
-    "id":24,
-    "jsonrpc":"2.0"
-}
-```
-
-| Field   | Description           | Data Type            |
-| ------- | --------------------- | -------------------- |
-| result  | Return result         | Array< ResultObject> |
-| id      | The result id         | Integer              |
-| jsonrpc | The json-rpc  version | string               |
-
-**ResultObject**:
-
-| Field      | Description                              | Data Type      |
-| ---------- | ---------------------------------------- | -------------- |
-| symbol     | symbol name                              | String         |
-| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
-| type       | type                                     | string         |
-| sequenceId | sequence id                              | string         |
-| ts         | time stamp ms                            | string         |
-
-Format Explanation:
-
-```json
-[1594973040000,9100.8,9109.4,9099.7,9109.4,0.2004] --- [timestamp, open, high, low, close, amount,volume]
-```
-
-
-
-### All Ticker
-
-API Key Permission：Read
-
-The summary of the K-line info, and the frequency is less than 10op/s
-
-**Request Body**:
-
-```json
-{
-    "id":25,
-    "method":"contractsKline:allTicker",
-    "jsonrpc":"2.0",
-    "params":{
-
-    }
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| Id      | Request id            | Integer   |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | String    |
-
-
-**Response Body**:
-
-```json
-{
-    "result":[
-        {
-            "symbol":"BTC_USDT",
-        	"data":[
-        	  1594973040000,		//timestamp
-        	  9100.8,				//open
-        	  9109.4,				//high
-        	  9099.7,				//low
-        	  9109.4,				//close
-        	  0.2004,				//amount
-        	  2.1					//volume
-        	],
-            "type":"TICKER",
-            "sequenceId":"920557",
-            "ts":"1652163323227"
-        }
-    ],
-    "id":25,
-    "jsonrpc":"2.0"
-}
-```
-
-| Field   | Description           | Data Type            |
-| ------- | --------------------- | -------------------- |
-| result  | Return result         | Array< ResultObject> |
-| id      | The result id         | Integer              |
-| jsonrpc | The json-rpc  version | string               |
-
-**ResultObject**:
-
-| Field      | Description                              | Data Type      |
-| ---------- | ---------------------------------------- | -------------- |
-| symbol     | symbol name                              | String         |
-| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
-| type       | type                                     | string         |
-| sequenceId | sequence id                              | string         |
-| ts         | time stamp ms                            | string         |
-
-### Order Book
-
-API Key Permission：Read
-
-Get the order book
-
-**Request Body**:
-
-```json
-{
-    "id":26,
-    "method":"contractsKline:orderBook",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT"
-    }
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| Id      | Request id            | Integer   |
-| Method  | request func          | String    |
-| jsonrpc | The json-rpc  version | String    |
-| symbol  | symbol name           | String    |
-
-
-**Response Body**:
-
-```json
-{
-    "result":{
-        "price":19908.76,
-        "sellOrders":[
-            [
-                19909.45,
-                0.00017,
-                0.00017
-            ],
-            [
-                19914.62,
-                0.18917,
-                0.18934
-            ]
-        ],
-        "buyOrders":[
-            [
-                19895.44,
-                0.06636,
-                0.06636
-            ],
-            [
-                19894.23,
-                0.23152,
-                0.29788000000000003
-            ],
-            [
-                19892.77,
-                0.1756,
-                0.47348
-            ]
-        ],
-        "sequenceId":"28109890"
-    },
-    "id":26,
-    "jsonrpc":"2.0"
-}
-```
-
-| Field   | Description           | Data Type |
-| ------- | --------------------- | --------- |
-| result  | Return result         | Struct    |
-| id      | The result id         | number    |
-| jsonrpc | The json-rpc  version | string    |
-
-**Result**:
-
-| Field       | Description                              | Data Type      |
-| ----------- | ---------------------------------------- | -------------- |
-| price       | The newest price                         | BigDecimal     |
-| Buy orders  | The buy order book: [ price, amount, total ] | Array< String> |
-| Sell orders | The buy order book:  [ price, amount, total ] | Array< String> |
-| sequenceId  | sequence id                              | String         |
-
-### Bars
-
-API Key Permission：Read
-
-Get the newest bar info about the fixed trading pair, the interface has no difference between contracts and CFD
-
-**Request Body**:
-
-```json
-{
-    "id":27,
-    "method":"contractsKline:bars",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "type":"MIN15",
-        "start":0,
-        "end":0,
-        "limit":5
-    }
-}
-```
-
-| Field   | Description                              | Data Type |
-| ------- | ---------------------------------------- | --------- |
-| id      | The result id                            | Integer   |
-| Method  | request func                             | String    |
-| jsonrpc | The json-rpc  version                    | string    |
-| symbol  | name of the symbol                       | String    |
-| type    | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
-| start   | start timestamp ms eg: 0                 | Long      |
-| end     | end timestamp ms eg: 0                   | Long      |
-| limit   | The bar amount                           | Long      |
-
-**Response Body**:
-
-```json
-{
-    "result":[
-        
-        [
-            1652089500000,	//timestamp
-            36476.46,		//open
-            36476.46,		//high
-            36476.42,		//low
-            36476.42,		//close
-            0.00002			//amount
-        ],
-        [
-            1652091300000,
-            36667.42,
-            36667.42,
-            36667.42,
-            36667.42,
-            0.00002
-        ]
-
-    ],
-    "id":27,
-    "jsonrpc":"2.0"
-}
-```
-
-| Field   | Description           | Data Type               |
-| ------- | --------------------- | ----------------------- |
-| result  | Return result         | Array< Array < String>> |
-| id      | The result id         | Integer                 |
-| jsonrpc | The json-rpc  version | string                  |
-
-**Abort result**:
-
-[timestamp, open, high, low, close, amount]
-
-### Ticks
-
-API Key Permission：Read
-
-Get the recent ticks info
-
-**Request Body**:
-
-```json
-{
-    "id":28,
-    "method":"contractsKline:ticks",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "limit":1,
-        "sequenceId":0
-    }
-}
-```
-
-| Field      | Description                       | Data Type |
-| ---------- | --------------------------------- | --------- |
-| id         | The result id                     | Integer   |
-| Method     | request func                      | String    |
-| jsonrpc    | The json-rpc  version             | string    |
-| symbol     | name of the symbol                | String    |
-| limit      | The bar amount 1-500，default: 200 | Long      |
-| sequenceId | sequence id eg: 0                 | Long      |
-
-
-**Response Body**:
-
-```json
-{
-    "result":[
-        {
-            "data":[
-                1651195258029,
-                0,
-                39885.68,
-                0.00032,
-                0
-            ],
-            "sequenceId":3169352
-        }
-    ],
-    "id":28,
-    "jsonrpc":"2.0"
-}
-```
-
-| Field   | Description           | Data Type      |
-| ------- | --------------------- | -------------- |
-| result  | Return result         | Array< String> |
-| id      | The result id         | Integer        |
-| jsonrpc | The json-rpc  version | String         |
-
-**Abort data**:
-
-[timestamp, dir, price, amount, flag]
 # WebSocket Api
 
 **WebSocket Path**: wss://v2api.moonxbt.com/ws/endpoint
@@ -6109,9 +5446,677 @@ Send ping to check  the service whether available
 | gap     | abs(server ts - client ts) | Long      |
 
 
+## USDT Perpetual contracts
+
+###  K-Line contracts streams
 
 
 
+### Check Service
+
+API Key Permission：Read
+
+Send ping to check  the service whether available
+
+**Request Path**: `POST /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+    "id": 31,
+    "method": "contractsKline:ping",
+    "jsonrpc": "2.0",
+    "params": {
+        "ts": 1653537731930
+    }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| id      | The result id         | Integer   |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | string    |
+| ts      | now time stamp ms     | Long      |
+
+**Response Body**:
+
+```json
+{
+    "result": {
+        "gap": 293585010,
+        "type": "PONG",
+        "ts": 1653831316940
+    },
+    "id": 31,
+    "jsonrpc": "2.0"
+}
+```
+
+| Field   | Description                | Data Type |
+| ------- | -------------------------- | --------- |
+| result  | Return result              | Struct    |
+| id      | The result id              | Number    |
+| jsonrpc | The json-rpc  version      | String    |
+| ts      | server time stamp ms       | Long      |
+| type    | service type PONG          | String    |
+| gap     | abs(server ts - client ts) | Long      |
+
+### Detailed Market
+
+API Key Permission：Read
+
+Get detailed market trading info about the trading symbol
+
+**Request Body**:
+
+```json
+{
+    "id":22,
+    "method":"contractsKline:meta",
+    "jsonrpc":"2.0",
+    "params":{}
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Number    |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
+**Response Body**:
+
+```json
+{
+    "result":{
+        "contractsSymbols":[
+            {
+                "id":100105,
+                "name":"BTC_USDT",
+                "endTime":4083840000000,
+                "openTime":1648818928000,
+                "type":"PERPETUAL",
+                "marginCurrency":"BTC",
+                "inverse":false,
+                "liquidateBy":"MARKET_PRICE",
+                "multiplier":0.001,
+                "minimumPriceIncrement":0.001,
+                "priceStep":1,
+                "priceScale":3,
+                "quoteScale":2,
+                "maximumQuantityPerOrder":10000,
+                "riskLimit": {
+                  "id":1,
+                  "initialMarginRate":0.01,
+                  "maintenanceMarginRateStep":0.005,
+                  "maxLeverage":10,
+                  "riskLimitBase":10,
+                  "riskLimitStep":1,
+                  "maxRiskLimitSteps":10,
+                  "createdAt":1652266654968
+                },
+                "settlementFeeRate":0.001,
+                "displayOrder":false,
+                "hidden":false,
+                "zone":"MAIN"
+            }
+        ],
+        "contractsCurrencies":[
+            "BTC",
+            "ETH",
+            "USDT"
+        ],
+        "currencies":[
+            {
+                "hidden":false,
+                "depositOpenTime":0,
+                "name":"BNB",
+                "displayOrder":0,
+                "derivative":false,
+                "id":115,
+                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
+                "withdrawOpenTime":0,
+                "displayScale":8
+            },
+            {
+                "hidden":false,
+                "depositOpenTime":0,
+                "name":"USDT",
+                "displayOrder":3,
+                "derivative":false,
+                "id":105,
+                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
+                "withdrawOpenTime":0,
+                "displayScale":8
+            }
+        ]
+    },
+    "id":22,
+    "jsonrpc":"2.0"
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| id      | Request id            | Integer      |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String       |
+
+**ResultObject**:
+
+| Field           | Description           | Data Type             |
+| --------------- | --------------------- | --------------------- |
+| contractsSymbols    | contracts symbols info    | Array < contractsSymbols> |
+| contractsCurrencies | contracts currencies info | Array < String>       |
+| currencies      | currencies info       | Array< Currencies>    |
+
+**contractsSymbols**:
+
+| Field                 | Description                       | Data Type  |
+| --------------------- |-----------------------------------|------------|
+| id                    | symbol id                         | Long       |
+| name                  | symbol name                       | String     |
+| endTime               | end time company：ms               | Long       |
+| openTime              | open time company：ms              | Long       |
+| type    | contracts type                    | String     |
+| marginCurrency    | margin symbol                     | String     |
+| inverse    | is Reverse contract               | Boolean    |
+| liquidateBy    | forced Liquidation type           | String     |
+| multiplier    | contract multiplier               | BigDecimal |
+| minimumPriceIncrement    | minimum price increment           | BigDecimal |
+| priceStep    | price step                        | Integer    |
+| priceScale    | price scale                       | Integer    |
+| quantityScale    | quantity scale                    | Integer    |
+| maximumQuantityPerOrder    | maximum quantity per order        | Integer    |
+| riskLimit    | risk limit                        | Object     |
+| settlementFeeRate    | settlement fee rate               | BigDecimal |
+| hidden                | true: disable, false: un disable  | Boolean    |
+| displayOrder          | sort field index                  | Integer    |
+| zone                  | What regions are allowed to trade | String     |
+
+**riskLimit**:
+
+| Field                 | Description                                                                                                                                     | Data Type  |
+| --------------------- |-------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| id                    | risk id                                                                                                                                         | Long       |
+| initialMarginRate                    | initial margin rate                                                                                                                             | BigDecimal       |
+| maintenanceMarginRateStep                    | maintenance margin rate                                                                                                                         | BigDecimal       |
+| maxLeverage                    | Maximum leverage                                                                                                                                | Integer       |
+| riskLimitBase                    | Base risk limit, the number of contracts under which the first leg of the initial maintenance margin/maintenance margin is calculated           | Long       |
+| riskLimitStep                    | Incremental risk limit.  The maintenance margin rate will be automatically increased N times for every N increments beyond the basic risk limit | Long       |
+| maxRiskLimitSteps                    | The maximum number of times to increase the risk limit                                                                                          | Integer       |
+| createdAt                    | create time                                                                                                                                     | Long       |
+
+**Currencies**:
+
+| Field            | Description                      | Data Type |
+| ---------------- | -------------------------------- | --------- |
+| id               | currency id                      | Long      |
+| name             | currency name                    | String    |
+| hidden           | true: disable, false: un disable | Boolean   |
+| depositOpenTime  | deposit open time                | Long      |
+| displayOrder     | sort field index                 | Integer   |
+| iconUrl          | icon url                         | String    |
+| withdrawOpenTime | withdraw open time               | Long      |
+| displayScale     | Display accuracy                 | Long      |
+
+
+
+###  Contracts Order List
+
+API Key Permission：Read
+
+Get contracts trading pair info about price, volume, symbol name.
+
+**Request Body**:
+
+```json
+{
+    "id": 23,
+    "method": "contractsKline:contractsList",
+    "jsonrpc": "2.0",
+    "params": {
+    }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Integer   |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
+**Response Body**:
+
+```json
+{
+    "result":[
+        {
+            "volume":"0",
+            "symbolId":100105,
+            "price":23124.1,
+            "name":"BTC_USDT",
+            "type":"PERPETUAL",
+            "marginCurrency":"BTC",
+            "leverage":10,
+            "changes":-13.23,
+            "quantity":3,
+            "multiplier":0.001,
+            "priceScale":3,
+            "quantityScale":3,
+            "displayOrder":1
+        },
+        {
+            "volume":"0",
+            "symbolId":101105,
+            "price":1552.20,
+            "name":"ETH_USDT",
+            "type":"PERPETUAL",
+            "marginCurrency":"BTC",
+            "leverage":10,
+            "changes":-1.23,
+            "quantity":2,
+            "multiplier":0.01,
+            "priceScale":2,
+            "quantityScale":2,
+            "displayOrder":1
+        }
+    ],
+    "id":23,
+    "jsonrpc":"2.0"
+}
+```
+
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | String               |
+
+**ResultObject**:
+
+| Field    | Description       | Data Type  |
+| -------- |-------------------| ---------- |
+| symbolId   | symbol id         | Long     |
+| name     | symbol name       | String     |
+| type     | contracts type    | String     |
+| marginCurrency     | settlement symbol | String     |
+| leverage     | leverage          | Integer     |
+| price    | price             | BigDecimal     |
+| changes  | 24h up and down   | BigDecimal |
+| quantity     | quantity          | Long     |
+| multiplier     | multiplier        | BigDecimal     |
+| priceScale   | price scale       | Integer     |
+| quantityScale  | quantity scale    | Integer |
+| displayOrder  | display order     | Integer |
+
+
+### Ticker
+
+API Key Permission：Read
+
+Get kline info around recent 24h on the fixed symbol
+
+**Request Body**:
+
+```json
+{
+    "id":24,
+    "method":"contractsKline:ticker",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"ETH_USDT"
+    }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Integer   |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| symbol  | The request symbol    | String    |
+
+**Response Body**:
+
+
+
+```json
+{
+    "result":{
+        "symbol":"ETH_USDT",
+        "data":[
+          1594973040000,		//timestamp
+          9100.8,				//open
+          9109.4,				//high
+          9099.7,				//low
+          9109.4,				//close
+          0.2004,				//amount
+          2.1					//volume
+        ],
+        "type":"TICKER",
+        "sequenceId":"729912",
+        "ts":"1652090424479"
+    },
+    "id":24,
+    "jsonrpc":"2.0"
+}
+```
+
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | string               |
+
+**ResultObject**:
+
+| Field      | Description                              | Data Type      |
+| ---------- | ---------------------------------------- | -------------- |
+| symbol     | symbol name                              | String         |
+| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
+| type       | type                                     | string         |
+| sequenceId | sequence id                              | string         |
+| ts         | time stamp ms                            | string         |
+
+Format Explanation:
+
+```json
+[1594973040000,9100.8,9109.4,9099.7,9109.4,0.2004] --- [timestamp, open, high, low, close, amount,volume]
+```
+
+
+
+### All Ticker
+
+API Key Permission：Read
+
+The summary of the K-line info, and the frequency is less than 10op/s
+
+**Request Body**:
+
+```json
+{
+    "id":25,
+    "method":"contractsKline:allTicker",
+    "jsonrpc":"2.0",
+    "params":{
+
+    }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Integer   |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+
+
+**Response Body**:
+
+```json
+{
+    "result":[
+        {
+            "symbol":"BTC_USDT",
+        	"data":[
+        	  1594973040000,		//timestamp
+        	  9100.8,				//open
+        	  9109.4,				//high
+        	  9099.7,				//low
+        	  9109.4,				//close
+        	  0.2004,				//amount
+        	  2.1					//volume
+        	],
+            "type":"TICKER",
+            "sequenceId":"920557",
+            "ts":"1652163323227"
+        }
+    ],
+    "id":25,
+    "jsonrpc":"2.0"
+}
+```
+
+| Field   | Description           | Data Type            |
+| ------- | --------------------- | -------------------- |
+| result  | Return result         | Array< ResultObject> |
+| id      | The result id         | Integer              |
+| jsonrpc | The json-rpc  version | string               |
+
+**ResultObject**:
+
+| Field      | Description                              | Data Type      |
+| ---------- | ---------------------------------------- | -------------- |
+| symbol     | symbol name                              | String         |
+| data       | [ timestamp, open, high, low, close, amount, change ] | Array< String> |
+| type       | type                                     | string         |
+| sequenceId | sequence id                              | string         |
+| ts         | time stamp ms                            | string         |
+
+### Order Book
+
+API Key Permission：Read
+
+Get the order book
+
+**Request Body**:
+
+```json
+{
+    "id":26,
+    "method":"contractsKline:orderBook",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT"
+    }
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| Id      | Request id            | Integer   |
+| Method  | request func          | String    |
+| jsonrpc | The json-rpc  version | String    |
+| symbol  | symbol name           | String    |
+
+
+**Response Body**:
+
+```json
+{
+    "result":{
+        "price":19908.76,
+        "sellOrders":[
+            [
+                19909.45,
+                0.00017,
+                0.00017
+            ],
+            [
+                19914.62,
+                0.18917,
+                0.18934
+            ]
+        ],
+        "buyOrders":[
+            [
+                19895.44,
+                0.06636,
+                0.06636
+            ],
+            [
+                19894.23,
+                0.23152,
+                0.29788000000000003
+            ],
+            [
+                19892.77,
+                0.1756,
+                0.47348
+            ]
+        ],
+        "sequenceId":"28109890"
+    },
+    "id":26,
+    "jsonrpc":"2.0"
+}
+```
+
+| Field   | Description           | Data Type |
+| ------- | --------------------- | --------- |
+| result  | Return result         | Struct    |
+| id      | The result id         | number    |
+| jsonrpc | The json-rpc  version | string    |
+
+**Result**:
+
+| Field       | Description                              | Data Type      |
+| ----------- | ---------------------------------------- | -------------- |
+| price       | The newest price                         | BigDecimal     |
+| Buy orders  | The buy order book: [ price, amount, total ] | Array< String> |
+| Sell orders | The buy order book:  [ price, amount, total ] | Array< String> |
+| sequenceId  | sequence id                              | String         |
+
+### Bars
+
+API Key Permission：Read
+
+Get the newest bar info about the fixed trading pair, the interface has no difference between contracts and CFD
+
+**Request Body**:
+
+```json
+{
+    "id":27,
+    "method":"contractsKline:bars",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "type":"MIN15",
+        "start":0,
+        "end":0,
+        "limit":5
+    }
+}
+```
+
+| Field   | Description                              | Data Type |
+| ------- | ---------------------------------------- | --------- |
+| id      | The result id                            | Integer   |
+| Method  | request func                             | String    |
+| jsonrpc | The json-rpc  version                    | string    |
+| symbol  | name of the symbol                       | String    |
+| type    | `MIN`、`MIN5`、`MIN15`、`MIN30`、`HOUR`、`HOUR4`、`DAY`、`WEEK`、`MONTH` | Enum      |
+| start   | start timestamp ms eg: 0                 | Long      |
+| end     | end timestamp ms eg: 0                   | Long      |
+| limit   | The bar amount                           | Long      |
+
+**Response Body**:
+
+```json
+{
+    "result":[
+        
+        [
+            1652089500000,	//timestamp
+            36476.46,		//open
+            36476.46,		//high
+            36476.42,		//low
+            36476.42,		//close
+            0.00002			//amount
+        ],
+        [
+            1652091300000,
+            36667.42,
+            36667.42,
+            36667.42,
+            36667.42,
+            0.00002
+        ]
+
+    ],
+    "id":27,
+    "jsonrpc":"2.0"
+}
+```
+
+| Field   | Description           | Data Type               |
+| ------- | --------------------- | ----------------------- |
+| result  | Return result         | Array< Array < String>> |
+| id      | The result id         | Integer                 |
+| jsonrpc | The json-rpc  version | string                  |
+
+**Abort result**:
+
+[timestamp, open, high, low, close, amount]
+
+### Ticks
+
+API Key Permission：Read
+
+Get the recent ticks info
+
+**Request Body**:
+
+```json
+{
+    "id":28,
+    "method":"contractsKline:ticks",
+    "jsonrpc":"2.0",
+    "params":{
+        "symbol":"BTC_USDT",
+        "limit":1,
+        "sequenceId":0
+    }
+}
+```
+
+| Field      | Description                       | Data Type |
+| ---------- | --------------------------------- | --------- |
+| id         | The result id                     | Integer   |
+| Method     | request func                      | String    |
+| jsonrpc    | The json-rpc  version             | string    |
+| symbol     | name of the symbol                | String    |
+| limit      | The bar amount 1-500，default: 200 | Long      |
+| sequenceId | sequence id eg: 0                 | Long      |
+
+
+**Response Body**:
+
+```json
+{
+    "result":[
+        {
+            "data":[
+                1651195258029,
+                0,
+                39885.68,
+                0.00032,
+                0
+            ],
+            "sequenceId":3169352
+        }
+    ],
+    "id":28,
+    "jsonrpc":"2.0"
+}
+```
+
+| Field   | Description           | Data Type      |
+| ------- | --------------------- | -------------- |
+| result  | Return result         | Array< String> |
+| id      | The result id         | Integer        |
+| jsonrpc | The json-rpc  version | String         |
+
+**Abort data**:
+
+[timestamp, dir, price, amount, flag]
 
 
 
