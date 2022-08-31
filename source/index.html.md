@@ -2846,7 +2846,7 @@ Get closed orders.
     "range":"",
     "symbol":"",
     "offsetId":0,
-    "limit":0
+    "limit":1
   }
 }
 ```
