@@ -3789,17 +3789,17 @@ Get open order by clientOrderId.
   "method": "contracts:orderGetOpenByClientOrderId",
   "jsonrpc": "2.0",
   "params": {
-    "encryptOrderId":"12035832208"
+    "clientOrderId":"12035832208"
   }
 }
 ```
 
 | Field          | Description           | Data Type |
-| -------------- | --------------------- | --------- |
+| -------------- |-----------------------| --------- |
 | Id             | Request id            | Number    |
 | Method         | request func          | String    |
 | jsonrpc        | The json-rpc  version | String    |
-| encryptOrderId | order id              | String    |
+| clientOrderId | client order id       | String    |
 
 
 **Response Body**:
@@ -3888,17 +3888,17 @@ Get order by clientOrderId.
   "method": "contracts:orderGetByClientOrderId",
   "jsonrpc": "2.0",
   "params": {
-    "encryptOrderId":"12035832208"
+    "clientOrderId":"12035832208"
   }
 }
 ```
 
 | Field          | Description           | Data Type |
-| -------------- | --------------------- | --------- |
+| -------------- |-----------------------| --------- |
 | Id             | Request id            | Number    |
 | Method         | request func          | String    |
 | jsonrpc        | The json-rpc  version | String    |
-| encryptOrderId | order id              | String    |
+| clientOrderId | client order id       | String    |
 
 
 **Response Body**:
@@ -4369,10 +4369,10 @@ cancel order
 ```json
 {
   "id": 5,
-  "method": "contracts:orderGetMatchDetailsByClientOrderId",
+  "method": "contracts:orderCancel",
   "jsonrpc": "2.0",
   "params": {
-    "clientOrderId":"12035832208"
+    "encryptOrderId":"12035832208"
   }
 }
 ```
@@ -4382,34 +4382,29 @@ cancel order
 | Id            | Request id            | Number    |
 | Method        | request func          | String    |
 | jsonrpc       | The json-rpc  version | String    |
-| clientOrderId | Client order id       | String    |
+| encryptOrderId | order id       | String    |
 
 
 **Response Body**:
 
 ```json
 {
-  "result": {
-    "result": null,
-    "setOrExpired": false
+  "result":{
+    "code":0
   },
   "id": 5,
   "jsonrpc": "2.0"
 }
 ```
 
-| Field   | Description           | Data Type          |
-| ------- | --------------------- | ------------------ |
-| id      | Request id            | Integer            |
-| result  | request func          | List<ResultObject> |
-| jsonrpc | The json-rpc  version | String             |
+| Field   | Description           | Data Type         |
+| ------- | --------------------- | ----------------- |
+| id      | Request id            | Integer           |
+| result  | request func          | ResultObject |
+| jsonrpc | The json-rpc  version | String            |
+| code    | code 0 success other failure | Integer            |
 
-**ResultObject**:
 
-| Field        | Description            | Data Type |
-| ------------ | ---------------------- | --------- |
-| result       | result                 | String    |
-| setOrExpired | Whether set or expired | Boolean   |
 
 ### Query Fee
 
