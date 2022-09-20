@@ -2386,7 +2386,7 @@ create entry orders
 | leverage   | leverage                               | true     | integer   | 1-125                                                       |
 | amount        | The amount to cost to buy other token  | true     | Decimal   |                  Decimal                                           |
 | direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                      |
-| type          | CFD Order Type                         | true     | integer   | 0 or 1                                                      |
+| type          | Whether to hold the position overnight                         | true     | integer   | 0:order does not stay overnight, 1:order overnight                                                      |
 
 **Response Content**:
 
@@ -2516,13 +2516,13 @@ create orders
 }
 ```
 
-| Parameter    | Description                           | Mandatory | Data Type | Value Range |
-| ------------ |---------------------------------------|-----------|-----------|------------|
+| Parameter    | Description                           | Mandatory | Data Type | Value Range                                                    |
+| ------------ |---------------------------------------|-----------|-----------|----------------------------------------------------------------|
 | symbol    | Trading symbol (wildcard inacceptable) | true     | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
-| leverage   | leverage                               | true     | integer   | 1-125                                                       |
-| amount        | The amount to cost to buy other token  | true     | Decimal   |                  Decimal                                           |
-| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                      |
-| type          | CFD Order Type                         | true     | integer   | 0 or 1                                                      |
+| leverage   | leverage                               | true     | integer   | 1-125                                                          |
+| amount        | The amount to cost to buy other token  | true     | Decimal   | Decimal                                                        |
+| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                  |
+| type          | Whether to hold the position overnight                         | true     | integer   | 0:order does not stay overnight, 1:order overnight             |
 
 **Response Content**:
 
