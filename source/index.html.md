@@ -69,9 +69,9 @@ A valid request consists of below parts:
 
 The signature may be different if the request text is different, therefore the request should be normalized and URL encoded before signing. Below we have an example to show how to organize them，currently the first line should be GET, and each line has to be splitted by '\n':
 
-GET
-v2api.moonxbt.com
-/api/endpoint
+GET <br/>
+v2api.moonxbt.com <br />
+/api/endpoint <br />
 AccessKey=97fde68b-4ca9-4d45-ab09-86821e87080c&SignatureMethod=HmacSHA256&SignatureVersion=1&Timestamp=2022-07-09T07%3A30%3A00
 
 **Http Request Body**:
