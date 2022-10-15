@@ -1942,7 +1942,7 @@ This endpoint returns a list of historical orders owned by this API user.
 | appendCharge                  | Fee to append                            | integer    |
 | extraData                     | Order extra data                         | integer    |
 | walletType                    | “contract_usdt”，“Gold”                   | String     |
-| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
+| orderStatus                   | '': pending, 	0: holdinig, 	2: cancel by user, 	3: cancel by system, 	4: cancel by system admin, 	10: settle by leader, 	11: settle by PnL, 	12: settle by not allow pass night, 	13: settle by user, 	14: settle by pass night fee insufficent, 	15: settle by system | number     |
 | memo                          | Less than 64kb                           | String     |
 | type                          | CFD Order Type                           | integer    |
 | point                         | Number point                             | String     |
@@ -2128,7 +2128,7 @@ This endpoint returns a list of holding orders owned by this API user.
 | appendCharge                  | Fee to append                            | integer    |
 | extraData                     | Order extra data                         | integer    |
 | walletType                    | “contract_usdt”，“Gold”                   | String     |
-| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
+| orderStatus                   | '': pending, 	0: holdinig, 	2: cancel by user, 	3: cancel by system, 	4: cancel by system admin, 	10: settle by leader, 	11: settle by PnL, 	12: settle by not allow pass night, 	13: settle by user, 	14: settle by pass night fee insufficent, 	15: settle by system | number     |
 | memo                          | Less than 64kb                           | String     |
 | type                          | CFD Order Type                           | integer    |
 | point                         | Number point                             | String     |
@@ -2313,7 +2313,7 @@ ResultObject:
 | appendCharge                  | Fee to append                            | integer    |
 | extraData                     | Order extra data                         | integer    |
 | walletType                    | “contract_usdt”，“Gold”                   | String     |
-| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
+| orderStatus                   | '': pending, 	0: holdinig, 	2: cancel by user, 	3: cancel by system, 	4: cancel by system admin, 	10: settle by leader, 	11: settle by PnL, 	12: settle by not allow pass night, 	13: settle by user, 	14: settle by pass night fee insufficent, 	15: settle by system | number     |
 | memo                          | Less than 64kb                           | String     |
 | type                          | CFD Order Type                           | integer    |
 | point                         | Number point                             | String     |
@@ -2351,7 +2351,7 @@ ResultObject:
 
 ###  Get Orders
 
-API Key Permission：Write
+API Key Permission：read
 
 Get order details
 
@@ -2447,7 +2447,7 @@ ResultObject:
 | appendCharge                  | Fee to append                            | integer    |
 | extraData                     | Order extra data                         | integer    |
 | walletType                    | “contract_usdt”，“Gold”                   | String     |
-| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
+| orderStatus                   | '': pending, 	0: holdinig, 	2: cancel by user, 	3: cancel by system, 	4: cancel by system admin, 	10: settle by leader, 	11: settle by PnL, 	12: settle by not allow pass night, 	13: settle by user, 	14: settle by pass night fee insufficent, 	15: settle by system | number     |
 | memo                          | Less than 64kb                           | String     |
 | type                          | CFD Order Type                           | integer    |
 | point                         | Number point                             | String     |
