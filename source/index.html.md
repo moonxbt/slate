@@ -2349,12 +2349,145 @@ ResultObject:
 
 
 
-
-### Entry Orders
+###  Get Orders
 
 API Key Permission：Write
 
-create entry orders
+Get order details
+
+**Request Path**: ` Post /api/endpoint`
+
+**Request Body**:
+
+```json
+{
+      "id": 5,
+      "method": "cfd:get",
+      "jsonrpc": "2.0",
+      "version": "2.0",
+      "params": {
+            "tradeVO": {
+              "code": "d5c5358530a94e60b28fe515afa25901"
+            }
+      }
+}
+```
+
+| Parameter    | Description | Mandatory | Data Type | Value Range                                                 |
+| ------------ |-------------|-----------|-----------|-------------------------------------------------------------|
+| code         | order code  | true      | String    | -                                                           |
+
+**Response Content**:
+
+```json
+{
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+            "message": "Success",
+            "time": "2022-07-06 17:28:18",
+            "code": 0,
+            "tid": null,
+            "data": {
+                  "orderType": 0,
+                  "code": "8241670ea9d64ec7916a2f2535943711",
+                  "appendCharge": 0,
+                  "extraData": null,
+                  "walletType": "USDT",
+                  "orderStatus": 0,
+                  "memo": null,
+                  "type": 1,
+                  "point": null,
+                  "settlement": 31788.49230451,
+                  "holding": true,
+                  "orderTime": 1653997696203,
+                  "interest": 0,
+                  "currency": "btcusdt",
+                  "profit": 0,
+                  "direction": 0,
+                  "pendingTime": null,
+                  "deviceType": null,
+                  "normal": true,
+                  "amount": 5E+2,
+                  "charge": 75,
+                  "simulated": 0,
+                  "passNightFee": 112.5,
+                  "currentPrice": null,
+                  "positions": 2.359344,
+                  "lever": 1.5E+2,
+                  "commissionType": 0,
+                  "superior": "moonxbt",
+                  "money": null,
+                  "nextDeductingOverNightFeeTime": 1654074600000,
+                  "walletName": "contract_usdt",
+                  "stopLoss": 31597.76135151,
+                  "recycleExperienceGold": null,
+                  "overtime": null,
+                  "strikePrice": 31788.49230451,
+                  "settleCharge": 0,
+                  "targetProfit": 32848.10871451,
+                  "account": "10023780"
+            }
+      }
+}
+```
+
+| Field   | Description           | Data Type    |
+| ------- | --------------------- | ------------ |
+| result  | Return result         | ResultObject |
+| id      | The result id         | Integer      |
+| jsonrpc | The json-rpc  version | String       |
+
+ResultObject:
+
+| Field                         | Description                              | Data Type  |
+| ----------------------------- | ---------------------------------------- | ---------- |
+| orderType                     | 0:ordinary order, 1: following order 2: followed order | integer    |
+| code                          | Order id                                 | String     |
+| appendCharge                  | Fee to append                            | integer    |
+| extraData                     | Order extra data                         | integer    |
+| walletType                    | “contract_usdt”，“Gold”                   | String     |
+| orderStatus                   | 1:finish 0:doing 2manually cancel  3.system cancel | number     |
+| memo                          | Less than 64kb                           | String     |
+| type                          | CFD Order Type                           | integer    |
+| point                         | Number point                             | String     |
+| settlement                    | Settle price                             | BigDecimal |
+| holding                       | Judge the order whether is in position state | Boolean    |
+| orderTime                     | Create order time                        | datetime   |
+| interest                      | The total swap fee, to pass the midnight | BigDecimal |
+| currency                      | Token name: btc,eth                      | String     |
+| profit                        | the order profit                         | BigDecimal |
+| direction                     | 0: Buy 1:Sell                            | integer    |
+| pendingTime                   | Create pending order time                | datetime   |
+| deviceType                    | “iOS”,"Android","Web"                    | string     |
+| normal                        | true: ordinary order, false: pending order | string     |
+| amount                        | The amount to cost to buy other token    | BigDecimal |
+| charge                        | Trading fee                              | BigDecimal |
+| simulated                     | 0:not simulated, 1:simulated             | number     |
+| passNightFee                  | The swap fee, to pass this midnight (per day) | BigDecimal |
+| currentPrice                  | Current price                            | BigDecimal |
+| positions                     | The position for the repsent             | BigDecimal |
+| lever                         | level number: for example 100            | BigDecimal |
+| commissionType                | 0:not feedback the commission,1:feedback the commission by  Point | number     |
+| superior                      | Superior account, the present linked to the superior account. | String     |
+| money                         | the usdt amount to create order          | BigDecimal |
+| nextDeductingOverNightFeeTime | time to charge the night fee             | Datetime   |
+| walletName                    | “USDT”                                   | String     |
+| stopLoss                      | Stop loss                                | BigDecimal |
+| recycleExperienceGold         | Recycle the experience money             | BigDecimal |
+| overtime                      | The order closing time                   | Datetime   |
+| strikePrice                   | Strike price                             | BigDecimal |
+| settleCharge                  | The charge fee to close the order        | BigDecimal |
+| targetProfit                  | The taken profit                         | BigDecimal |
+| account                       | Registered account                       | String     |
+
+
+
+### Pending Order
+
+API Key Permission：Write
+
+create pending orders
 
 **Request Path**: ` Post /api/endpoint`
 
