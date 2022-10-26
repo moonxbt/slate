@@ -77,11 +77,11 @@ AccessKey=97fde68b-4ca9-4d45-ab09-86821e87080c&SignatureMethod=HmacSHA256&Signat
 **Http Request Body**:
 
 ```json
-{ 
-    "id": 3, 
-    "method": "spotsKline:meta", 
-    "jsonrpc": "2.0", 
-    "params": { } 
+{
+  "id": 3,
+  "method": "spotsKline:meta",
+  "jsonrpc": "2.0",
+  "params": { }
 }
 ```
 
@@ -108,10 +108,10 @@ Get detailed market trading info about the trading symbol
 
 ```json
 {
-    "id":1,
-    "method":"spotsKline:meta",
-    "jsonrpc":"2.0",
-    "params":{}
+  "id":1,
+  "method":"spotsKline:meta",
+  "jsonrpc":"2.0",
+  "params":{}
 }
 ```
 
@@ -129,62 +129,62 @@ Get detailed market trading info about the trading symbol
 
 ```json
 {
-    "result":{
-        "spotsSymbols":[
-            {
-                "supportMarginTrade":true,
-                "hidden":false,
-                "displayOrder":0,
-                "derivative":false,
-                "baseMinimumIncrement":0.00001,
-                "quoteScale":2,
-                "orderBookAccuracy":"0,0.1,0.01",
-                "alwaysChargeQuote":true,
-                "baseScale":5,
-                "zone":"MAIN",
-                "quoteMinimumIncrement":0.01,
-                "name":"BTC_USDT",
-                "baseMaximumQuantity":10000,
-                "baseMinimumQuantity":0.00001,
-                "id":100105,
-                "endTime":4083840000000,
-                "openTime":1648818928000,
-                "baseName":"BTC",
-                "quoteName":"USDT"
-            }
-        ],
-        "spotsCurrencies":[
-            "BTC", //currency name
-            "ETH",
-            "USDT"
-        ],
-        "currencies":[
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"BNB",
-                "displayOrder":0,
-                "derivative":false,
-                "id":115,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            },
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"USDT",
-                "displayOrder":3,
-                "derivative":false,
-                "id":105,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            }
-        ]
-    },
-    "id":1,
-    "jsonrpc":"2.0"
+  "result":{
+    "spotsSymbols":[
+      {
+        "supportMarginTrade":true,
+        "hidden":false,
+        "displayOrder":0,
+        "derivative":false,
+        "baseMinimumIncrement":0.00001,
+        "quoteScale":2,
+        "orderBookAccuracy":"0,0.1,0.01",
+        "alwaysChargeQuote":true,
+        "baseScale":5,
+        "zone":"MAIN",
+        "quoteMinimumIncrement":0.01,
+        "name":"BTC_USDT",
+        "baseMaximumQuantity":10000,
+        "baseMinimumQuantity":0.00001,
+        "id":100105,
+        "endTime":4083840000000,
+        "openTime":1648818928000,
+        "baseName":"BTC",
+        "quoteName":"USDT"
+      }
+    ],
+    "spotsCurrencies":[
+      "BTC", //currency name
+      "ETH",
+      "USDT"
+    ],
+    "currencies":[
+      {
+        "hidden":false,
+        "depositOpenTime":0,
+        "name":"BNB",
+        "displayOrder":0,
+        "derivative":false,
+        "id":115,
+        "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
+        "withdrawOpenTime":0,
+        "displayScale":8
+      },
+      {
+        "hidden":false,
+        "depositOpenTime":0,
+        "name":"USDT",
+        "displayOrder":3,
+        "derivative":false,
+        "id":105,
+        "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
+        "withdrawOpenTime":0,
+        "displayScale":8
+      }
+    ]
+  },
+  "id":1,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -253,10 +253,10 @@ Get spots trading pair info about price, volume, symbol name.
 
 ```json
 {
-    "id": 2,
-    "method": "spotsKline:spotsList",
-    "jsonrpc": "2.0",
-    "params": {}
+  "id": 2,
+  "method": "spotsKline:spotsList",
+  "jsonrpc": "2.0",
+  "params": {}
 }
 ```
 
@@ -272,24 +272,24 @@ Get spots trading pair info about price, volume, symbol name.
 
 ```json
 {
-    "result":[
-        {
-            "volume":"0",
-            "symbolId":100105,
-            "price":0,
-            "name":"BTC_USDT",
-            "changes":0
-        },
-        {
-            "volume":"0",
-            "symbolId":101105,
-            "price":0,
-            "name":"ETH_USDT",
-            "changes":0
-        }
-    ],
-    "id":2,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "volume":"0",
+      "symbolId":100105,
+      "price":0,
+      "name":"BTC_USDT",
+      "changes":0
+    },
+    {
+      "volume":"0",
+      "symbolId":101105,
+      "price":0,
+      "name":"ETH_USDT",
+      "changes":0
+    }
+  ],
+  "id":2,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -323,12 +323,12 @@ Get kline info around recent 24h on the fixed symbol
 
 ```json
 {
-    "id":3,
-    "method":"spotsKline:ticker",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"ETH_USDT"
-    }
+  "id":3,
+  "method":"spotsKline:ticker",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"ETH_USDT"
+  }
 }
 ```
 
@@ -345,23 +345,23 @@ Get kline info around recent 24h on the fixed symbol
 
 ```json
 {
-    "result":{
-        "symbol":"ETH_USDT",
-        "data":[
-                1596445560000,
-                376.9,
-                388.3,
-                354.5,
-                382.9,
-                2196.89,
-                67.2
-        ],
-        "type":"TICKER",
-        "sequenceId":"729912",
-        "ts":"1652090424479"
-    },
-    "id":3,
-    "jsonrpc":"2.0"
+  "result":{
+    "symbol":"ETH_USDT",
+    "data":[
+      1596445560000,
+      376.9,
+      388.3,
+      354.5,
+      382.9,
+      2196.89,
+      67.2
+    ],
+    "type":"TICKER",
+    "sequenceId":"729912",
+    "ts":"1652090424479"
+  },
+  "id":3,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -393,10 +393,10 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 ```json
 {
-    "id": 4,
-    "method": "spotsKline:allTicker",
-    "jsonrpc": "2.0",
-    "params": {}
+  "id": 4,
+  "method": "spotsKline:allTicker",
+  "jsonrpc": "2.0",
+  "params": {}
 }
 ```
 
@@ -410,25 +410,25 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 ```json
 {
-    "result":[
-        {
-            "symbol":"BTC_USDT",
-            "data":[
-                1657608060000,
-                20430.42,
-                20704.04,
-                19797.62,
-                19906.53,
-                22.1553,
-                -0.025642644644603
-            ],
-            "type":"TICKER",
-            "sequenceId":"28113983",
-            "ts":"1657608114573"
-        }
-    ],
-    "id":3,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "symbol":"BTC_USDT",
+      "data":[
+        1657608060000,
+        20430.42,
+        20704.04,
+        19797.62,
+        19906.53,
+        22.1553,
+        -0.025642644644603
+      ],
+      "type":"TICKER",
+      "sequenceId":"28113983",
+      "ts":"1657608114573"
+    }
+  ],
+  "id":3,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -462,12 +462,12 @@ Get the order book
 
 ```json
 {
-    "id": 5,
-    "method": "spotsKline:orderBook",
-    "jsonrpc": "2.0",
-    "params": {
-        "symbol": "BTC_USDT",
-    }
+  "id": 5,
+  "method": "spotsKline:orderBook",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol": "BTC_USDT",
+  }
 }
 ```
 
@@ -482,41 +482,41 @@ Get the order book
 
 ```json
 {
-    "result":{
-        "price":19908.76,
-        "sellOrders":[
-            [
-                19909.45,
-                0.00017,
-                0.00017
-            ],
-            [
-                19914.62,
-                0.18917,
-                0.18934
-            ]
-        ],
-        "buyOrders":[
-            [
-                19895.44,
-                0.06636,
-                0.06636
-            ],
-            [
-                19894.23,
-                0.23152,
-                0.29788000000000003
-            ],
-            [
-                19892.77,
-                0.1756,
-                0.47348
-            ]
-        ],
-        "sequenceId":"28109890"
-    },
-    "id":5,
-    "jsonrpc":"2.0"
+  "result":{
+    "price":19908.76,
+    "sellOrders":[
+      [
+        19909.45,
+        0.00017,
+        0.00017
+      ],
+      [
+        19914.62,
+        0.18917,
+        0.18934
+      ]
+    ],
+    "buyOrders":[
+      [
+        19895.44,
+        0.06636,
+        0.06636
+      ],
+      [
+        19894.23,
+        0.23152,
+        0.29788000000000003
+      ],
+      [
+        19892.77,
+        0.1756,
+        0.47348
+      ]
+    ],
+    "sequenceId":"28109890"
+  },
+  "id":5,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -547,16 +547,16 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 ```json
 {
-    "id":6,
-    "method":"spotsKline:bars",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "type":"MIN15",
-        "start":0,
-        "end":0,
-        "limit":5
-    }
+  "id":6,
+  "method":"spotsKline:bars",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "type":"MIN15",
+    "start":0,
+    "end":0,
+    "limit":5
+  }
 }
 ```
 
@@ -575,34 +575,34 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 ```json
 {
-    "result":[
-        [
-            1657599300000,              //timestamp
-            19969.28,                   //open
-            20023.86,                   //high
-            19923.3,                    //low
-            20001.42,                   //close
-            0.35231                     //amount
-        ],
-        [
-            1657600200000,
-            20001.45,
-            20036.98,
-            19895.45,
-            20011.13,
-            0.40759
-        ],
-        [
-            1657607400000,
-            19888.96,
-            19924.63,
-            19881.84,
-            19906.43,
-            0.1317
-        ]
+  "result":[
+    [
+      1657599300000,              //timestamp
+      19969.28,                   //open
+      20023.86,                   //high
+      19923.3,                    //low
+      20001.42,                   //close
+      0.35231                     //amount
     ],
-    "id":6,
-    "jsonrpc":"2.0"
+    [
+      1657600200000,
+      20001.45,
+      20036.98,
+      19895.45,
+      20011.13,
+      0.40759
+    ],
+    [
+      1657607400000,
+      19888.96,
+      19924.63,
+      19881.84,
+      19906.43,
+      0.1317
+    ]
+  ],
+  "id":6,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -629,14 +629,14 @@ Get the recent ticks info
 
 ```json
 {
-    "id": 7,
-    "method": "spotsKline:ticks",
-    "jsonrpc": "2.0",
-    "params": {
-        "symbol": "BTC_USDT",
-        "limit": 1,
-        "sequenceId": 0
-    }
+  "id": 7,
+  "method": "spotsKline:ticks",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol": "BTC_USDT",
+    "limit": 1,
+    "sequenceId": 0
+  }
 }
 ```
 
@@ -655,20 +655,20 @@ Get the recent ticks info
 
 ```json
 {
-    "result":[
-        {
-            "data":[
-                1657608814025,  //timestamp
-                1,              //direction 1=buy, 0=sell
-                19865.38,       //price
-                0.00015,        //amount
-                0               //flag 0=ordinary transaction
-            ],
-            "sequenceId":28131450
-        }
-    ],
-    "id":7,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "data":[
+        1657608814025,  //timestamp
+        1,              //direction 1=buy, 0=sell
+        19865.38,       //price
+        0.00015,        //amount
+        0               //flag 0=ordinary transaction
+      ],
+      "sequenceId":28131450
+    }
+  ],
+  "id":7,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -694,13 +694,13 @@ API Key Permission：Read
 
 ```json
 {
-    "id": 8,
-    "method": "spotsKline:orderChanges",
-    "jsonrpc": "2.0",
-    "params": {
-        "symbol": "BTC_USDT",
-        "updateAt": 1653537731930
-    }
+  "id": 8,
+  "method": "spotsKline:orderChanges",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol": "BTC_USDT",
+    "updateAt": 1653537731930
+  }
 }
 ```
 
@@ -717,33 +717,33 @@ API Key Permission：Read
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":8,
-    "result":[
-        {
-            "id":281465252207,
-            "sequenceId":28146525,
-            "userId":10589459,
-            "symbolId":100105,
-            "type":"LIMIT",
-            "status":"FULLY_FILLED",
-            "direction":"SHORT",
-            "fillPrice":19842.33,
-            "price":19842.33,
-            "quantity":0.00046,
-            "unfilledQuantity":0,
-            "makerFeeRate":0.001,
-            "takerFeeRate":0.001,
-            "fee":0.0091274718,
-            "triggerDirection":"LONG",
-            "triggerOn":0,
-            "trailingBasePrice":0,
-            "trailingDistance":0,
-            "clientOrderId":"2022071215c26165c601b011ed8edc",
-            "createAt":1657609421074,
-            "updateAt":1657609421074
-        }
-    ]
+  "jsonrpc":"2.0",
+  "id":8,
+  "result":[
+    {
+      "id":281465252207,
+      "sequenceId":28146525,
+      "userId":10589459,
+      "symbolId":100105,
+      "type":"LIMIT",
+      "status":"FULLY_FILLED",
+      "direction":"SHORT",
+      "fillPrice":19842.33,
+      "price":19842.33,
+      "quantity":0.00046,
+      "unfilledQuantity":0,
+      "makerFeeRate":0.001,
+      "takerFeeRate":0.001,
+      "fee":0.0091274718,
+      "triggerDirection":"LONG",
+      "triggerOn":0,
+      "trailingBasePrice":0,
+      "trailingDistance":0,
+      "clientOrderId":"2022071215c26165c601b011ed8edc",
+      "createAt":1657609421074,
+      "updateAt":1657609421074
+    }
+  ]
 }
 ```
 
@@ -791,13 +791,13 @@ API Key Permission：Read
 
 ```json
 {
-    "id": 9,
-    "method": "spotsKline:orderMatches",
-    "jsonrpc": "2.0",
-    "params": {
-        "symbol": "BTC_USDT",
-        "updateAt": 1653537731930
-    }
+  "id": 9,
+  "method": "spotsKline:orderMatches",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol": "BTC_USDT",
+    "updateAt": 1653537731930
+  }
 }
 ```
 
@@ -815,22 +815,22 @@ API Key Permission：Read
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":9,
-    "result":[
-        {
-            "id":112058272207,
-            "sequenceId":11205827,
-            "userId":10589459,
-            "symbolId":100105,
-            "orderId":"112057922207",
-            "direction":"LONG",
-            "price":19145.25,
-            "quantity":0.00008,
-            "fee":0.00153162,
-            "createAt":1656605021615
-        }
-    ]
+  "jsonrpc":"2.0",
+  "id":9,
+  "result":[
+    {
+      "id":112058272207,
+      "sequenceId":11205827,
+      "userId":10589459,
+      "symbolId":100105,
+      "orderId":"112057922207",
+      "direction":"LONG",
+      "price":19145.25,
+      "quantity":0.00008,
+      "fee":0.00153162,
+      "createAt":1656605021615
+    }
+  ]
 }
 ```
 
@@ -869,23 +869,23 @@ Open one order
 
 ```json
 {
-    "id":11,
-    "method":"spots:createOrder",
-    "jsonrpc":"2.0",
-    "params":{
-        "order":{
-            "direction":"LONG",
-            "type":"LIMIT",
-            "source":"WEB",
-            "symbol":"BTC_USDT",
-            "quantity":0.01,
-            "postOnly":false,
-            "hidden":false,
-            "price":22538,
-            "fillOrKill":false,
-            "immediateOrCancel":false
-        }
+  "id":11,
+  "method":"spots:createOrder",
+  "jsonrpc":"2.0",
+  "params":{
+    "order":{
+      "direction":"LONG",
+      "type":"LIMIT",
+      "source":"WEB",
+      "symbol":"BTC_USDT",
+      "quantity":0.01,
+      "postOnly":false,
+      "hidden":false,
+      "price":22538,
+      "fillOrKill":false,
+      "immediateOrCancel":false
     }
+  }
 }
 ```
 
@@ -909,32 +909,32 @@ Open one order
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":11,
-    "result":{
-        "symbol":"BTC_USDT",
-        "triggerOn":0,
-        "quantity":0.01,
-        "makerFeeRate":0.001,
-        "trailingDistance":0,
-        "fee":0,
-        "clientOrderId":null,
-        "marginTrade":false,
-        "trailingBasePrice":0,
-        "type":"LIMIT",
-        "fillPrice":0,
-        "triggerDirection":"LONG",
-        "features":0,
-        "createdAt":1657246741388,
-        "trailing":false,
-        "unfilledQuantity":0.01,
-        "price":22538,
-        "takerFeeRate":0.001,
-        "id":"223193832207",
-        "status":"PENDING",
-        "direction":"SHORT",
-        "updatedAt":1657246741388
-    }
+  "jsonrpc":"2.0",
+  "id":11,
+  "result":{
+    "symbol":"BTC_USDT",
+    "triggerOn":0,
+    "quantity":0.01,
+    "makerFeeRate":0.001,
+    "trailingDistance":0,
+    "fee":0,
+    "clientOrderId":null,
+    "marginTrade":false,
+    "trailingBasePrice":0,
+    "type":"LIMIT",
+    "fillPrice":0,
+    "triggerDirection":"LONG",
+    "features":0,
+    "createdAt":1657246741388,
+    "trailing":false,
+    "unfilledQuantity":0.01,
+    "price":22538,
+    "takerFeeRate":0.001,
+    "id":"223193832207",
+    "status":"PENDING",
+    "direction":"SHORT",
+    "updatedAt":1657246741388
+  }
 }
 ```
 
@@ -984,15 +984,15 @@ Batch to cancel orders
 
 ```json
 {
-    "id":12,
-    "method":"spots:batchCancel",
-    "jsonrpc":"2.0",
-    "params":{
-        "orderIds":[
-            283132203,
-            283142203
-        ]
-    }
+  "id":12,
+  "method":"spots:batchCancel",
+  "jsonrpc":"2.0",
+  "params":{
+    "orderIds":[
+      283132203,
+      283142203
+    ]
+  }
 }
 ```
 
@@ -1007,11 +1007,11 @@ Batch to cancel orders
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":12,
-    "result":{
-        "code":0
-    }
+  "jsonrpc":"2.0",
+  "id":12,
+  "result":{
+    "code":0
+  }
 }
 ```
 | Field   | Description                  | Data Type            |
@@ -1033,12 +1033,12 @@ Get the open state orders
 
 ```json
 {
-    "id": 13,
-    "method": "spots:open",
-    "jsonrpc": "2.0",
-    "params": {
-        "marginTrade": false
-    }
+  "id": 13,
+  "method": "spots:open",
+  "jsonrpc": "2.0",
+  "params": {
+    "marginTrade": false
+  }
 }
 ```
 
@@ -1053,57 +1053,57 @@ Get the open state orders
 
 ```json
 {
-    "result":{
-        "account":{
-            "BTC":{
-                "usdtPrice":19938.53,
-                "available":500000000,
-                "frozen":0,
-                "debt":0
-            },
-            "ETH":{
-                "usdtPrice":1074.83,
-                "available":500000000,
-                "frozen":0,
-                "debt":0
-            },
-            "USDT":{
-                "usdtPrice":0,
-                "available":499984985,
-                "frozen":15015,
-                "debt":0
-            }
-        },
-        "order":[
-            {
-                "symbol":"BTC_USDT",
-                "quantity":0.01,
-                "triggerOn":0,
-                "makerFeeRate":0.001,
-                "trailingDistance":0,
-                "clientOrderId":null,
-                "fee":0,
-                "marginTrade":false,
-                "chargeQuote":true,
-                "trailingBasePrice":0,
-                "type":"LIMIT",
-                "fillPrice":0,
-                "triggerDirection":"LONG",
-                "features":0,
-                "createdAt":1657611089461,
-                "trailing":false,
-                "unfilledQuantity":0.01,
-                "price":15000,
-                "takerFeeRate":0.001,
-                "id":"281893222207",
-                "status":"PENDING",
-                "direction":"LONG",
-                "updatedAt":1657611089461
-            }
-        ]
+  "result":{
+    "account":{
+      "BTC":{
+        "usdtPrice":19938.53,
+        "available":500000000,
+        "frozen":0,
+        "debt":0
+      },
+      "ETH":{
+        "usdtPrice":1074.83,
+        "available":500000000,
+        "frozen":0,
+        "debt":0
+      },
+      "USDT":{
+        "usdtPrice":0,
+        "available":499984985,
+        "frozen":15015,
+        "debt":0
+      }
     },
-    "id":13,
-    "jsonrpc":"2.0"
+    "order":[
+      {
+        "symbol":"BTC_USDT",
+        "quantity":0.01,
+        "triggerOn":0,
+        "makerFeeRate":0.001,
+        "trailingDistance":0,
+        "clientOrderId":null,
+        "fee":0,
+        "marginTrade":false,
+        "chargeQuote":true,
+        "trailingBasePrice":0,
+        "type":"LIMIT",
+        "fillPrice":0,
+        "triggerDirection":"LONG",
+        "features":0,
+        "createdAt":1657611089461,
+        "trailing":false,
+        "unfilledQuantity":0.01,
+        "price":15000,
+        "takerFeeRate":0.001,
+        "id":"281893222207",
+        "status":"PENDING",
+        "direction":"LONG",
+        "updatedAt":1657611089461
+      }
+    ]
+  },
+  "id":13,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -1171,13 +1171,13 @@ Get the tradable symbols
 
 ```json
 {
-    "id": 14,
-    "method": "spots:open",
-    "jsonrpc": "2.0",
-    "params": {
-        "marginTrade": false,
-        "symbolName": "BTC_USDT"
-    }
+  "id": 14,
+  "method": "spots:open",
+  "jsonrpc": "2.0",
+  "params": {
+    "marginTrade": false,
+    "symbolName": "BTC_USDT"
+  }
 }
 ```
 
@@ -1193,124 +1193,124 @@ Get the tradable symbols
 
 ```json
 {
-    "result": {
-        "account": {
-            "BTC": {
-                "usdtPrice": null,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "MATIC": {
-                "usdtPrice": 0,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "BNB": {
-                "usdtPrice": 0,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "XRP": {
-                "usdtPrice": 0,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "ETH": {
-                "usdtPrice": null,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "DOGE": {
-                "usdtPrice": 0,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "USDT": {
-                "usdtPrice": 0,
-                "available": 999199.2,
-                "frozen": 800.8,
-                "debt": 0
-            },
-            "USDC": {
-                "usdtPrice": 0,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "TRX": {
-                "usdtPrice": 0,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            },
-            "LUNA": {
-                "usdtPrice": 0,
-                "available": 1E+6,
-                "frozen": 0,
-                "debt": 0
-            }
-        },
-        "order": [
-            {
-                "symbol": "BTC_USDT",
-                "quantity": 0.01,
-                "triggerOn": 0,
-                "makerFeeRate": 0.001,
-                "trailingDistance": 0,
-                "clientOrderId": "319884411512426496",
-                "fee": 0,
-                "marginTrade": false,
-                "chargeQuote": true,
-                "trailingBasePrice": 0,
-                "type": "LIMIT",
-                "fillPrice": 0.0,
-                "triggerDirection": "LONG",
-                "features": 0,
-                "createdAt": 1654074386869,
-                "trailing": false,
-                "unfilledQuantity": 0.01,
-                "price": 4E+4,
-                "takerFeeRate": 0.002,
-                "id": "9870812206",
-                "status": "PENDING",
-                "direction": "LONG",
-                "updatedAt": 1654074386869
-            },
-            {
-                "symbol": "BTC_USDT",
-                "quantity": 0.01,
-                "triggerOn": 0,
-                "makerFeeRate": 0.001,
-                "trailingDistance": 0,
-                "clientOrderId": "319866698551398400",
-                "fee": 0,
-                "marginTrade": false,
-                "chargeQuote": true,
-                "trailingBasePrice": 0,
-                "type": "LIMIT",
-                "fillPrice": 0.0,
-                "triggerDirection": "LONG",
-                "features": 0,
-                "createdAt": 1654070163770,
-                "trailing": false,
-                "unfilledQuantity": 0.01,
-                "price": 4E+4,
-                "takerFeeRate": 0.002,
-                "id": "9412312206",
-                "status": "PENDING",
-                "direction": "LONG",
-                "updatedAt": 1654070163770
-            }
-        ]
+  "result": {
+    "account": {
+      "BTC": {
+        "usdtPrice": null,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "MATIC": {
+        "usdtPrice": 0,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "BNB": {
+        "usdtPrice": 0,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "XRP": {
+        "usdtPrice": 0,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "ETH": {
+        "usdtPrice": null,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "DOGE": {
+        "usdtPrice": 0,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "USDT": {
+        "usdtPrice": 0,
+        "available": 999199.2,
+        "frozen": 800.8,
+        "debt": 0
+      },
+      "USDC": {
+        "usdtPrice": 0,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "TRX": {
+        "usdtPrice": 0,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      },
+      "LUNA": {
+        "usdtPrice": 0,
+        "available": 1E+6,
+        "frozen": 0,
+        "debt": 0
+      }
     },
-    "id": 14,
-    "jsonrpc": "2.0"
+    "order": [
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 0.01,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": "319884411512426496",
+        "fee": 0,
+        "marginTrade": false,
+        "chargeQuote": true,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 0.0,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1654074386869,
+        "trailing": false,
+        "unfilledQuantity": 0.01,
+        "price": 4E+4,
+        "takerFeeRate": 0.002,
+        "id": "9870812206",
+        "status": "PENDING",
+        "direction": "LONG",
+        "updatedAt": 1654074386869
+      },
+      {
+        "symbol": "BTC_USDT",
+        "quantity": 0.01,
+        "triggerOn": 0,
+        "makerFeeRate": 0.001,
+        "trailingDistance": 0,
+        "clientOrderId": "319866698551398400",
+        "fee": 0,
+        "marginTrade": false,
+        "chargeQuote": true,
+        "trailingBasePrice": 0,
+        "type": "LIMIT",
+        "fillPrice": 0.0,
+        "triggerDirection": "LONG",
+        "features": 0,
+        "createdAt": 1654070163770,
+        "trailing": false,
+        "unfilledQuantity": 0.01,
+        "price": 4E+4,
+        "takerFeeRate": 0.002,
+        "id": "9412312206",
+        "status": "PENDING",
+        "direction": "LONG",
+        "updatedAt": 1654070163770
+      }
+    ]
+  },
+  "id": 14,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -1377,10 +1377,10 @@ Get account info
 
 ```json
 {
-    "id": 15,
-    "method": "spots:accounts",
-    "jsonrpc": "2.0",
-    "params": {}
+  "id": 15,
+  "method": "spots:accounts",
+  "jsonrpc": "2.0",
+  "params": {}
 }
 ```
 
@@ -1394,70 +1394,70 @@ Get account info
 
 ```json
 {
-    "result": {
-        "BTC": {
-            "usdtPrice": null,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "MATIC": {
-            "usdtPrice": 0,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "BNB": {
-            "usdtPrice": 0,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "XRP": {
-            "usdtPrice": 0,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "ETH": {
-            "usdtPrice": null,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "DOGE": {
-            "usdtPrice": 0,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "USDT": {
-            "usdtPrice": 0,
-            "available": 999199.2,
-            "frozen": 800.8,
-            "debt": 0
-        },
-        "USDC": {
-            "usdtPrice": 0,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "TRX": {
-            "usdtPrice": 0,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        },
-        "LUNA": {
-            "usdtPrice": 0,
-            "available": 1E+6,
-            "frozen": 0,
-            "debt": 0
-        }
+  "result": {
+    "BTC": {
+      "usdtPrice": null,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
     },
-    "id": 15,
-    "jsonrpc": "2.0"
+    "MATIC": {
+      "usdtPrice": 0,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    },
+    "BNB": {
+      "usdtPrice": 0,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    },
+    "XRP": {
+      "usdtPrice": 0,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    },
+    "ETH": {
+      "usdtPrice": null,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    },
+    "DOGE": {
+      "usdtPrice": 0,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    },
+    "USDT": {
+      "usdtPrice": 0,
+      "available": 999199.2,
+      "frozen": 800.8,
+      "debt": 0
+    },
+    "USDC": {
+      "usdtPrice": 0,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    },
+    "TRX": {
+      "usdtPrice": 0,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    },
+    "LUNA": {
+      "usdtPrice": 0,
+      "available": 1E+6,
+      "frozen": 0,
+      "debt": 0
+    }
+  },
+  "id": 15,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -1486,15 +1486,15 @@ API Key Permission：Read
 
 ```json
 {
-    "id": 16,
-    "method": "spots:closed",
-    "jsonrpc": "2.0",
-    "params": {
-        "range": "",
-        "symbolName": "",
-        "offsetId": 0,
-        "limit": 100
-    }
+  "id": 16,
+  "method": "spots:closed",
+  "jsonrpc": "2.0",
+  "params": {
+    "range": "",
+    "symbolName": "",
+    "offsetId": 0,
+    "limit": 100
+  }
 }
 ```
 
@@ -1512,40 +1512,40 @@ API Key Permission：Read
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":16,
-    "result":{
-        "range":"202207",
-        "hasMore":true,
-        "nextOffsetId":"125559832207",
-        "results":[
-            {
-                "id":"125564892207",
-                "clientOrderId":null,
-                "features":0,
-                "price":0.0000006722,
-                "fee":0.0238631,
-                "fillPrice":0.0000006722,
-                "marginTrade":false,
-                "chargeQuote":true,
-                "quantity":20000000,
-                "unfilledQuantity":0,
-                "makerFeeRate":0.001,
-                "takerFeeRate":0.002,
-                "type":"LIMIT",
-                "status":"FULLY_FILLED",
-                "direction":"SHORT",
-                "triggerDirection":"LONG",
-                "triggerOn":0,
-                "trailingBasePrice":0,
-                "trailingDistance":0,
-                "createdAt":1656669215978,
-                "updatedAt":1656669772039,
-                "symbol":"CTHAI_USDT",
-                "trailing":false
-            }
-        ]
-    }
+  "jsonrpc":"2.0",
+  "id":16,
+  "result":{
+    "range":"202207",
+    "hasMore":true,
+    "nextOffsetId":"125559832207",
+    "results":[
+      {
+        "id":"125564892207",
+        "clientOrderId":null,
+        "features":0,
+        "price":0.0000006722,
+        "fee":0.0238631,
+        "fillPrice":0.0000006722,
+        "marginTrade":false,
+        "chargeQuote":true,
+        "quantity":20000000,
+        "unfilledQuantity":0,
+        "makerFeeRate":0.001,
+        "takerFeeRate":0.002,
+        "type":"LIMIT",
+        "status":"FULLY_FILLED",
+        "direction":"SHORT",
+        "triggerDirection":"LONG",
+        "triggerOn":0,
+        "trailingBasePrice":0,
+        "trailingDistance":0,
+        "createdAt":1656669215978,
+        "updatedAt":1656669772039,
+        "symbol":"CTHAI_USDT",
+        "trailing":false
+      }
+    ]
+  }
 }
 ```
 
@@ -1595,12 +1595,12 @@ Get the order by order id
 
 ```json
 {
-    "id": 17,
-    "method": "spots:getOrder",
-    "jsonrpc": "2.0",
-    "params": {
-        "orderId": 9870812206
-    }
+  "id": 17,
+  "method": "spots:getOrder",
+  "jsonrpc": "2.0",
+  "params": {
+    "orderId": 9870812206
+  }
 }
 ```
 
@@ -1615,33 +1615,33 @@ Get the order by order id
 
 ```json
 {
-    "result": {
-        "symbol": "BTC_USDT",
-        "quantity": 0.01,
-        "triggerOn": 0,
-        "makerFeeRate": 0.001,
-        "trailingDistance": 0,
-        "clientOrderId": "9870812206",
-        "fee": 0,
-        "marginTrade": false,
-        "chargeQuote": true,
-        "trailingBasePrice": 0,
-        "type": "LIMIT",
-        "fillPrice": 0.0,
-        "triggerDirection": "LONG",
-        "features": 0,
-        "createdAt": 1654074386869,
-        "trailing": false,
-        "unfilledQuantity": 0.01,
-        "price": 4E+4,
-        "takerFeeRate": 0.002,
-        "id": "9870812206",
-        "status": "PENDING",
-        "direction": "LONG",
-        "updatedAt": 1654074386869
-    },
-    "id": 17,
-    "jsonrpc": "2.0"
+  "result": {
+    "symbol": "BTC_USDT",
+    "quantity": 0.01,
+    "triggerOn": 0,
+    "makerFeeRate": 0.001,
+    "trailingDistance": 0,
+    "clientOrderId": "9870812206",
+    "fee": 0,
+    "marginTrade": false,
+    "chargeQuote": true,
+    "trailingBasePrice": 0,
+    "type": "LIMIT",
+    "fillPrice": 0.0,
+    "triggerDirection": "LONG",
+    "features": 0,
+    "createdAt": 1654074386869,
+    "trailing": false,
+    "unfilledQuantity": 0.01,
+    "price": 4E+4,
+    "takerFeeRate": 0.002,
+    "id": "9870812206",
+    "status": "PENDING",
+    "direction": "LONG",
+    "updatedAt": 1654074386869
+  },
+  "id": 17,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -1717,14 +1717,14 @@ This endpoint returns a list of K-lines history data for all public users.
 
 ```json
 {
-    "id": 18,
-    "method": "cfdKline:history",
-    "jsonrpc": "2.0",
-    "params":{
-        "symbol": "btcusdt",
-        "kType": 1,
-        "size": 1
-    }
+  "id": 18,
+  "method": "cfdKline:history",
+  "jsonrpc": "2.0",
+  "params":{
+    "symbol": "btcusdt",
+    "kType": 1,
+    "size": 1
+  }
 }
 ```
 
@@ -1738,25 +1738,25 @@ This endpoint returns a list of K-lines history data for all public users.
 
 ```json
 {
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "volume": 1.84740664,
-                "amount": 16307.12321434,
-                "high": 31861.83,
-                "low": 31435.82941177,
-                "time": 1653955200,
-                "close": 31728.01882353,
-                "open": 31734.24235294
-            }
-        ],
-        "time": "2022-05-31 19:05:30",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 18,
-    "jsonrpc": "2.0"
+  "result": {
+    "code": 0,
+    "data": [
+      {
+        "volume": 1.84740664,
+        "amount": 16307.12321434,
+        "high": 31861.83,
+        "low": 31435.82941177,
+        "time": 1653955200,
+        "close": 31728.01882353,
+        "open": 31734.24235294
+      }
+    ],
+    "time": "2022-05-31 19:05:30",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 18,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -1804,20 +1804,20 @@ This endpoint returns a list of historical orders owned by this API user.
 
 ```json
 {
-    "id": 19,
-    "method": "cfd:historyList",
-    "jsonrpc": "2.0",
-    "params": {
-        "tradeVO": {
-            "code": "",
-            "direction": "",
-            "deviceType": "",
-            "currencyName": "",
-            "begin": "2020-04-20 18:28:41",
-            "end": "2022-05-20 18:28:41"
+  "id": 19,
+  "method": "cfd:historyList",
+  "jsonrpc": "2.0",
+  "params": {
+    "tradeVO": {
+      "code": "",
+      "direction": "",
+      "deviceType": "",
+      "currencyName": "",
+      "begin": "2020-04-20 18:28:41",
+      "end": "2022-05-20 18:28:41"
 
-        }
     }
+  }
 }
 ```
 
@@ -1834,96 +1834,96 @@ This endpoint returns a list of historical orders owned by this API user.
 
 ```json
 {
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "orderType": 0,
-                "code": "8241670ea9d64ec7916a2f2535943711",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31788.49230451,
-                "holding": true,
-                "orderTime": 1653997696203,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 75,
-                "simulated": 0,
-                "passNightFee": 112.5,
-                "currentPrice": null,
-                "positions": 2.359344,
-                "lever": 1.5E+2,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 31597.76135151,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31788.49230451,
-                "settleCharge": 0,
-                "targetProfit": 32848.10871451,
-                "account": "10023780"
-            },
-            {
-                "orderType": 0,
-                "code": "661b4b14d28641fcbb060ad4db266f23",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31792.56705565,
-                "holding": true,
-                "orderTime": 1653997685192,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 1E+1,
-                "simulated": 0,
-                "passNightFee": 15,
-                "currentPrice": null,
-                "positions": 0.314538,
-                "lever": 2E+1,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 30361.90153865,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31792.56705565,
-                "settleCharge": 0,
-                "targetProfit": 39740.70881865,
-                "account": "10023780"
-            }
-        ],
-        "time": "2022-05-31 19:55:28",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 19,
-    "jsonrpc": "2.0"
+  "result": {
+    "code": 0,
+    "data": [
+      {
+        "orderType": 0,
+        "code": "8241670ea9d64ec7916a2f2535943711",
+        "appendCharge": 0,
+        "extraData": null,
+        "walletType": "USDT",
+        "orderStatus": 0,
+        "memo": null,
+        "type": 1,
+        "point": null,
+        "settlement": 31788.49230451,
+        "holding": true,
+        "orderTime": 1653997696203,
+        "interest": 0,
+        "currency": "btcusdt",
+        "profit": 0,
+        "direction": 0,
+        "pendingTime": null,
+        "deviceType": null,
+        "normal": true,
+        "amount": 5E+2,
+        "charge": 75,
+        "simulated": 0,
+        "passNightFee": 112.5,
+        "currentPrice": null,
+        "positions": 2.359344,
+        "lever": 1.5E+2,
+        "commissionType": 0,
+        "superior": "moonxbt",
+        "money": null,
+        "nextDeductingOverNightFeeTime": 1654074600000,
+        "walletName": "contract_usdt",
+        "stopLoss": 31597.76135151,
+        "recycleExperienceGold": null,
+        "overtime": null,
+        "strikePrice": 31788.49230451,
+        "settleCharge": 0,
+        "targetProfit": 32848.10871451,
+        "account": "10023780"
+      },
+      {
+        "orderType": 0,
+        "code": "661b4b14d28641fcbb060ad4db266f23",
+        "appendCharge": 0,
+        "extraData": null,
+        "walletType": "USDT",
+        "orderStatus": 0,
+        "memo": null,
+        "type": 1,
+        "point": null,
+        "settlement": 31792.56705565,
+        "holding": true,
+        "orderTime": 1653997685192,
+        "interest": 0,
+        "currency": "btcusdt",
+        "profit": 0,
+        "direction": 0,
+        "pendingTime": null,
+        "deviceType": null,
+        "normal": true,
+        "amount": 5E+2,
+        "charge": 1E+1,
+        "simulated": 0,
+        "passNightFee": 15,
+        "currentPrice": null,
+        "positions": 0.314538,
+        "lever": 2E+1,
+        "commissionType": 0,
+        "superior": "moonxbt",
+        "money": null,
+        "nextDeductingOverNightFeeTime": 1654074600000,
+        "walletName": "contract_usdt",
+        "stopLoss": 30361.90153865,
+        "recycleExperienceGold": null,
+        "overtime": null,
+        "strikePrice": 31792.56705565,
+        "settleCharge": 0,
+        "targetProfit": 39740.70881865,
+        "account": "10023780"
+      }
+    ],
+    "time": "2022-05-31 19:55:28",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 19,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -1990,19 +1990,19 @@ This endpoint returns a list of holding orders owned by this API user.
 
 ```json
 {
-    "id": 20,
-    "method": "cfd:holdingList",
-    "jsonrpc": "2.0",
-    "params": {
-        "tradeVO": {
-            "code": "",
-            "direction": "",
-            "deviceType": "",
-            "currencyName": "",
-            "begin": "2020-04-20 18:28:41",
-            "end": "2022-06-20 18:28:41"
-        }
+  "id": 20,
+  "method": "cfd:holdingList",
+  "jsonrpc": "2.0",
+  "params": {
+    "tradeVO": {
+      "code": "",
+      "direction": "",
+      "deviceType": "",
+      "currencyName": "",
+      "begin": "2020-04-20 18:28:41",
+      "end": "2022-06-20 18:28:41"
     }
+  }
 }
 ```
 
@@ -2020,96 +2020,96 @@ This endpoint returns a list of holding orders owned by this API user.
 
 ```json
 {
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "orderType": 0,
-                "code": "8241670ea9d64ec7916a2f2535943711",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31788.49230451,
-                "holding": true,
-                "orderTime": 1653997696203,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 75,
-                "simulated": 0,
-                "passNightFee": 112.5,
-                "currentPrice": null,
-                "positions": 2.359344,
-                "lever": 1.5E+2,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 31597.76135151,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31788.49230451,
-                "settleCharge": 0,
-                "targetProfit": 32848.10871451,
-                "account": "10023780"
-            },
-            {
-                "orderType": 0,
-                "code": "661b4b14d28641fcbb060ad4db266f23",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31792.56705565,
-                "holding": true,
-                "orderTime": 1653997685192,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 1E+1,
-                "simulated": 0,
-                "passNightFee": 15,
-                "currentPrice": null,
-                "positions": 0.314538,
-                "lever": 2E+1,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 30361.90153865,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31792.56705565,
-                "settleCharge": 0,
-                "targetProfit": 39740.70881865,
-                "account": "10023780"
-            }
-        ],
-        "time": "2022-05-31 19:55:28",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 20,
-    "jsonrpc": "2.0"
+  "result": {
+    "code": 0,
+    "data": [
+      {
+        "orderType": 0,
+        "code": "8241670ea9d64ec7916a2f2535943711",
+        "appendCharge": 0,
+        "extraData": null,
+        "walletType": "USDT",
+        "orderStatus": 0,
+        "memo": null,
+        "type": 1,
+        "point": null,
+        "settlement": 31788.49230451,
+        "holding": true,
+        "orderTime": 1653997696203,
+        "interest": 0,
+        "currency": "btcusdt",
+        "profit": 0,
+        "direction": 0,
+        "pendingTime": null,
+        "deviceType": null,
+        "normal": true,
+        "amount": 5E+2,
+        "charge": 75,
+        "simulated": 0,
+        "passNightFee": 112.5,
+        "currentPrice": null,
+        "positions": 2.359344,
+        "lever": 1.5E+2,
+        "commissionType": 0,
+        "superior": "moonxbt",
+        "money": null,
+        "nextDeductingOverNightFeeTime": 1654074600000,
+        "walletName": "contract_usdt",
+        "stopLoss": 31597.76135151,
+        "recycleExperienceGold": null,
+        "overtime": null,
+        "strikePrice": 31788.49230451,
+        "settleCharge": 0,
+        "targetProfit": 32848.10871451,
+        "account": "10023780"
+      },
+      {
+        "orderType": 0,
+        "code": "661b4b14d28641fcbb060ad4db266f23",
+        "appendCharge": 0,
+        "extraData": null,
+        "walletType": "USDT",
+        "orderStatus": 0,
+        "memo": null,
+        "type": 1,
+        "point": null,
+        "settlement": 31792.56705565,
+        "holding": true,
+        "orderTime": 1653997685192,
+        "interest": 0,
+        "currency": "btcusdt",
+        "profit": 0,
+        "direction": 0,
+        "pendingTime": null,
+        "deviceType": null,
+        "normal": true,
+        "amount": 5E+2,
+        "charge": 1E+1,
+        "simulated": 0,
+        "passNightFee": 15,
+        "currentPrice": null,
+        "positions": 0.314538,
+        "lever": 2E+1,
+        "commissionType": 0,
+        "superior": "moonxbt",
+        "money": null,
+        "nextDeductingOverNightFeeTime": 1654074600000,
+        "walletName": "contract_usdt",
+        "stopLoss": 30361.90153865,
+        "recycleExperienceGold": null,
+        "overtime": null,
+        "strikePrice": 31792.56705565,
+        "settleCharge": 0,
+        "targetProfit": 39740.70881865,
+        "account": "10023780"
+      }
+    ],
+    "time": "2022-05-31 19:55:28",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 20,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -2176,19 +2176,19 @@ This endpoint returns a list of pending orders owned by this API user.
 
 ```json
 {
-    "id": 21,
-    "method": "cfd:pendingList",
-    "jsonrpc": "2.0",
-    "params": {
-        "tradeVO": {
-            "code": "",
-            "direction": "",
-            "deviceType": "",
-            "currencyName": "",
-            "begin": "2020-04-20 18:28:41",
-            "end": "2022-05-20 18:28:41"
-        }
+  "id": 21,
+  "method": "cfd:pendingList",
+  "jsonrpc": "2.0",
+  "params": {
+    "tradeVO": {
+      "code": "",
+      "direction": "",
+      "deviceType": "",
+      "currencyName": "",
+      "begin": "2020-04-20 18:28:41",
+      "end": "2022-05-20 18:28:41"
     }
+  }
 }
 ```
 
@@ -2205,96 +2205,96 @@ This endpoint returns a list of pending orders owned by this API user.
 
 ```json
 {
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "orderType": 0,
-                "code": "8241670ea9d64ec7916a2f2535943711",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31788.49230451,
-                "holding": true,
-                "orderTime": 1653997696203,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 75,
-                "simulated": 0,
-                "passNightFee": 112.5,
-                "currentPrice": null,
-                "positions": 2.359344,
-                "lever": 1.5E+2,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 31597.76135151,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31788.49230451,
-                "settleCharge": 0,
-                "targetProfit": 32848.10871451,
-                "account": "10023780"
-            },
-            {
-                "orderType": 0,
-                "code": "661b4b14d28641fcbb060ad4db266f23",
-                "appendCharge": 0,
-                "extraData": null,
-                "walletType": "USDT",
-                "orderStatus": 0,
-                "memo": null,
-                "type": 1,
-                "point": null,
-                "settlement": 31792.56705565,
-                "holding": true,
-                "orderTime": 1653997685192,
-                "interest": 0,
-                "currency": "btcusdt",
-                "profit": 0,
-                "direction": 0,
-                "pendingTime": null,
-                "deviceType": null,
-                "normal": true,
-                "amount": 5E+2,
-                "charge": 1E+1,
-                "simulated": 0,
-                "passNightFee": 15,
-                "currentPrice": null,
-                "positions": 0.314538,
-                "lever": 2E+1,
-                "commissionType": 0,
-                "superior": "moonxbt",
-                "money": null,
-                "nextDeductingOverNightFeeTime": 1654074600000,
-                "walletName": "contract_usdt",
-                "stopLoss": 30361.90153865,
-                "recycleExperienceGold": null,
-                "overtime": null,
-                "strikePrice": 31792.56705565,
-                "settleCharge": 0,
-                "targetProfit": 39740.70881865,
-                "account": "10023780"
-            }
-        ],
-        "time": "2022-05-31 19:55:28",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 21,
-    "jsonrpc": "2.0"
+  "result": {
+    "code": 0,
+    "data": [
+      {
+        "orderType": 0,
+        "code": "8241670ea9d64ec7916a2f2535943711",
+        "appendCharge": 0,
+        "extraData": null,
+        "walletType": "USDT",
+        "orderStatus": 0,
+        "memo": null,
+        "type": 1,
+        "point": null,
+        "settlement": 31788.49230451,
+        "holding": true,
+        "orderTime": 1653997696203,
+        "interest": 0,
+        "currency": "btcusdt",
+        "profit": 0,
+        "direction": 0,
+        "pendingTime": null,
+        "deviceType": null,
+        "normal": true,
+        "amount": 5E+2,
+        "charge": 75,
+        "simulated": 0,
+        "passNightFee": 112.5,
+        "currentPrice": null,
+        "positions": 2.359344,
+        "lever": 1.5E+2,
+        "commissionType": 0,
+        "superior": "moonxbt",
+        "money": null,
+        "nextDeductingOverNightFeeTime": 1654074600000,
+        "walletName": "contract_usdt",
+        "stopLoss": 31597.76135151,
+        "recycleExperienceGold": null,
+        "overtime": null,
+        "strikePrice": 31788.49230451,
+        "settleCharge": 0,
+        "targetProfit": 32848.10871451,
+        "account": "10023780"
+      },
+      {
+        "orderType": 0,
+        "code": "661b4b14d28641fcbb060ad4db266f23",
+        "appendCharge": 0,
+        "extraData": null,
+        "walletType": "USDT",
+        "orderStatus": 0,
+        "memo": null,
+        "type": 1,
+        "point": null,
+        "settlement": 31792.56705565,
+        "holding": true,
+        "orderTime": 1653997685192,
+        "interest": 0,
+        "currency": "btcusdt",
+        "profit": 0,
+        "direction": 0,
+        "pendingTime": null,
+        "deviceType": null,
+        "normal": true,
+        "amount": 5E+2,
+        "charge": 1E+1,
+        "simulated": 0,
+        "passNightFee": 15,
+        "currentPrice": null,
+        "positions": 0.314538,
+        "lever": 2E+1,
+        "commissionType": 0,
+        "superior": "moonxbt",
+        "money": null,
+        "nextDeductingOverNightFeeTime": 1654074600000,
+        "walletName": "contract_usdt",
+        "stopLoss": 30361.90153865,
+        "recycleExperienceGold": null,
+        "overtime": null,
+        "strikePrice": 31792.56705565,
+        "settleCharge": 0,
+        "targetProfit": 39740.70881865,
+        "account": "10023780"
+      }
+    ],
+    "time": "2022-05-31 19:55:28",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 21,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -2361,15 +2361,15 @@ Get order details
 
 ```json
 {
-      "id": 5,
-      "method": "cfd:get",
-      "jsonrpc": "2.0",
-      "version": "2.0",
-      "params": {
-            "tradeVO": {
-              "code": "d5c5358530a94e60b28fe515afa25901"
-            }
-      }
+  "id": 5,
+  "method": "cfd:get",
+  "jsonrpc": "2.0",
+  "version": "2.0",
+  "params": {
+    "tradeVO": {
+      "code": "d5c5358530a94e60b28fe515afa25901"
+    }
+  }
 }
 ```
 
@@ -2381,54 +2381,54 @@ Get order details
 
 ```json
 {
-      "jsonrpc": "2.0",
-      "id": 5,
-      "result": {
-            "message": "Success",
-            "time": "2022-07-06 17:28:18",
-            "code": 0,
-            "tid": null,
-            "data": {
-                  "orderType": 0,
-                  "code": "8241670ea9d64ec7916a2f2535943711",
-                  "appendCharge": 0,
-                  "extraData": null,
-                  "walletType": "USDT",
-                  "orderStatus": 0,
-                  "memo": null,
-                  "type": 1,
-                  "point": null,
-                  "settlement": 31788.49230451,
-                  "holding": true,
-                  "orderTime": 1653997696203,
-                  "interest": 0,
-                  "currency": "btcusdt",
-                  "profit": 0,
-                  "direction": 0,
-                  "pendingTime": null,
-                  "deviceType": null,
-                  "normal": true,
-                  "amount": 5E+2,
-                  "charge": 75,
-                  "simulated": 0,
-                  "passNightFee": 112.5,
-                  "currentPrice": null,
-                  "positions": 2.359344,
-                  "lever": 1.5E+2,
-                  "commissionType": 0,
-                  "superior": "moonxbt",
-                  "money": null,
-                  "nextDeductingOverNightFeeTime": 1654074600000,
-                  "walletName": "contract_usdt",
-                  "stopLoss": 31597.76135151,
-                  "recycleExperienceGold": null,
-                  "overtime": null,
-                  "strikePrice": 31788.49230451,
-                  "settleCharge": 0,
-                  "targetProfit": 32848.10871451,
-                  "account": "10023780"
-            }
-      }
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "message": "Success",
+    "time": "2022-07-06 17:28:18",
+    "code": 0,
+    "tid": null,
+    "data": {
+      "orderType": 0,
+      "code": "8241670ea9d64ec7916a2f2535943711",
+      "appendCharge": 0,
+      "extraData": null,
+      "walletType": "USDT",
+      "orderStatus": 0,
+      "memo": null,
+      "type": 1,
+      "point": null,
+      "settlement": 31788.49230451,
+      "holding": true,
+      "orderTime": 1653997696203,
+      "interest": 0,
+      "currency": "btcusdt",
+      "profit": 0,
+      "direction": 0,
+      "pendingTime": null,
+      "deviceType": null,
+      "normal": true,
+      "amount": 5E+2,
+      "charge": 75,
+      "simulated": 0,
+      "passNightFee": 112.5,
+      "currentPrice": null,
+      "positions": 2.359344,
+      "lever": 1.5E+2,
+      "commissionType": 0,
+      "superior": "moonxbt",
+      "money": null,
+      "nextDeductingOverNightFeeTime": 1654074600000,
+      "walletName": "contract_usdt",
+      "stopLoss": 31597.76135151,
+      "recycleExperienceGold": null,
+      "overtime": null,
+      "strikePrice": 31788.49230451,
+      "settleCharge": 0,
+      "targetProfit": 32848.10871451,
+      "account": "10023780"
+    }
+  }
 }
 ```
 
@@ -2495,31 +2495,33 @@ create pending orders
 
 ```json
 {
-      "id": 5,
-      "method": "cfd:pend",
-      "jsonrpc": "2.0",
-      "version": "2.0",
-      "params": {
-            "order": {
-                  "pendingPrice": 20000,
-                  "symbol": "btcusdt",
-                  "leverage": 1,
-                  "amount": "2",
-                  "direction": 0,
-                  "type": 0
-            }
-      }
+  "id": 5,
+  "method": "cfd:pend",
+  "jsonrpc": "2.0",
+  "version": "2.0",
+  "params": {
+    "order": {
+      "code": "9e3144faf99f4e938cbf27284622523e",
+      "pendingPrice": 20000,
+      "symbol": "btcusdt",
+      "leverage": 1,
+      "amount": "2",
+      "direction": 0,
+      "type": 0
+    }
+  }
 }
 ```
 
-| Parameter    | Description                            | Mandatory | Data Type | Value Range                                                 |
-| ------------ |----------------------------------------|-----------|-----------|-------------------------------------------------------------|
-| pendingPrice         | pending price                          | true      | Decimal   | -                                                           |
-| symbol    | Trading symbol (wildcard inacceptable) | true     | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
-| leverage   | leverage                               | true     | integer   | 1-125                                                       |
-| amount        | The amount to cost to buy other token  | true     | Decimal   |                  Decimal                                           |
-| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                      |
-| type          | Whether to hold the position overnight                         | true     | integer   | 0:order does not stay overnight, 1:order overnight                                                      |
+| Parameter    | Description                 | Mandatory | Data Type | Value Range                                                 |
+|--------------|-----------------------------|-----------|-----------|-------------------------------------------------------------|
+| code         | Allows to pass in a custom code parameter (optional) | false     | String    | the format must conform to ulid. and the timeframe is now +- 3s within the request                                                          |
+| pendingPrice | pending price               | true      | Decimal   | -                                                           |
+| symbol       | Trading symbol (wildcard inacceptable) | true      | string    | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
+| leverage     | leverage                    | true      | integer   | 1-125                                                       |
+| amount       | The amount to cost to buy other token | true      | Decimal   |                  Decimal                                           |
+| direction    | order direction             | true      | integer   | 0: Buy 1:Sell                                                      |
+| type         | Whether to hold the position overnight | true      | integer   | 0:order does not stay overnight, 1:order overnight                                                      |
 
 **Response Content**:
 
@@ -2639,6 +2641,7 @@ create orders
       "version": "2.0",
       "params": {
             "order": {
+                  "code": "01f0a248c8954430a25bad70176561ef",
                   "symbol": "btcusdt",
                   "leverage": 1,
                   "amount": "2",
@@ -2649,32 +2652,33 @@ create orders
 }
 ```
 
-| Parameter    | Description                           | Mandatory | Data Type | Value Range                                                    |
-| ------------ |---------------------------------------|-----------|-----------|----------------------------------------------------------------|
-| symbol    | Trading symbol (wildcard inacceptable) | true     | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
-| leverage   | leverage                               | true     | integer   | 1-125                                                          |
-| amount        | The amount to cost to buy other token  | true     | Decimal   | Decimal                                                        |
-| direction          | order direction                        | true      | integer   | 0: Buy 1:Sell                                                  |
-| type          | Whether to hold the position overnight                         | true     | integer   | 0:order does not stay overnight, 1:order overnight             |
+| Parameter | Description                           | Mandatory | Data Type | Value Range                                                  |
+|-----------|---------------------------------------|-----------|-----------|--------------------------------------------------------------|
+| code      | Allows to pass in a custom code parameter (optional) | false     | string        | the format must conform to ulid. and the timeframe is now +- 3s within the request                                                             |
+| symbol    | Trading symbol (wildcard inacceptable) | true      | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
+| leverage  | leverage                               | true      | integer   | 1-125                                                        |
+| amount    | The amount to cost to buy other token  | true      | Decimal   | Decimal                                                      |
+| direction | order direction                        | true      | integer   | 0: Buy 1:Sell                                                |
+| type      | Whether to hold the position overnight                       | true      | integer   | 0:order does not stay overnight, 1:order overnight           |
 
 **Response Content**:
 
 ```json
 {
-      "jsonrpc": "2.0",
-      "id": 5,
-      "result": {
-            "message": "Success",
-            "time": "2022-07-06 17:39:23",
-            "code": 0,
-            "tid": null,
-            "data": {
-                  "code": 0,
-                  "walletName": "contract_usdt",
-                  "walletType": "USDT",
-                  "orderCode": "01f0a248c8954430a25bad70176561ef"
-            }
-      }
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "message": "Success",
+    "time": "2022-07-06 17:39:23",
+    "code": 0,
+    "tid": null,
+    "data": {
+      "code": 0,
+      "walletName": "contract_usdt",
+      "walletType": "USDT",
+      "orderCode": "01f0a248c8954430a25bad70176561ef"
+    }
+  }
 }
 ```
 
@@ -2709,13 +2713,13 @@ settle orders
 
 ```json
 {
-      "id": 5,
-      "method": "cfd:settle",
-      "jsonrpc": "2.0",
-      "version": "2.0",
-      "params": {
-            "code": "01f0a248c8954430a25bad70176561ef"
-      }
+  "id": 5,
+  "method": "cfd:settle",
+  "jsonrpc": "2.0",
+  "version": "2.0",
+  "params": {
+    "code": "01f0a248c8954430a25bad70176561ef"
+  }
 }
 ```
 
@@ -2727,17 +2731,17 @@ settle orders
 
 ```json
 {
-      "jsonrpc": "2.0",
-      "id": 5,
-      "result": {
-            "message": "Success",
-            "time": "2022-07-06 17:41:32",
-            "code": 0,
-            "tid": null,
-            "data": {
-                  "code": 0
-            }
-      }
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "message": "Success",
+    "time": "2022-07-06 17:41:32",
+    "code": 0,
+    "tid": null,
+    "data": {
+      "code": 0
+    }
+  }
 }
 ```
 
@@ -2769,14 +2773,14 @@ append orders
 
 ```json
 {
-      "id": 5,
-      "method": "cfd:append",
-      "jsonrpc": "2.0",
-      "version": "2.0",
-      "params": {
-            "code": "facea80b612a4ca6a1c7c0df5c0375be",
-            "appendAmount": 5
-      }
+  "id": 5,
+  "method": "cfd:append",
+  "jsonrpc": "2.0",
+  "version": "2.0",
+  "params": {
+    "code": "facea80b612a4ca6a1c7c0df5c0375be",
+    "appendAmount": 5
+  }
 }
 ```
 
@@ -2789,18 +2793,18 @@ append orders
 
 ```json
 {
-      "jsonrpc": "2.0",
-      "id": 5,
-      "result": {
-            "message": "Success",
-            "time": "2022-07-06 19:20:58",
-            "code": 0,
-            "tid": null,
-            "data": {
-                  "code": 0,
-                  "appendMarginLog": "{\"account\":\"10119864\",\"appendCharge\":0,\"appendCount\":1,\"appendMargin\":5,\"appendTime\":1657106448875,\"code\":\"facea80b612a4ca6a1c7c0df5c0375be\",\"currency\":\"btcusdt\",\"deviceType\":\"OpenAPI\",\"direction\":0,\"lever\":2.857142,\"stopLoss\":13739.039731,\"strikePrice\":20056.992305,\"targetProfit\":55156.728837,\"walletName\":\"contract_usdt\",\"walletType\":\"USDT\"}"
-            }
-      }
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "message": "Success",
+    "time": "2022-07-06 19:20:58",
+    "code": 0,
+    "tid": null,
+    "data": {
+      "code": 0,
+      "appendMarginLog": "{\"account\":\"10119864\",\"appendCharge\":0,\"appendCount\":1,\"appendMargin\":5,\"appendTime\":1657106448875,\"code\":\"facea80b612a4ca6a1c7c0df5c0375be\",\"currency\":\"btcusdt\",\"deviceType\":\"OpenAPI\",\"direction\":0,\"lever\":2.857142,\"stopLoss\":13739.039731,\"strikePrice\":20056.992305,\"targetProfit\":55156.728837,\"walletName\":\"contract_usdt\",\"walletType\":\"USDT\"}"
+    }
+  }
 }
 ```
 
@@ -2833,14 +2837,14 @@ change over night status
 
 ```json
 {
-      "id": 5,
-      "method": "cfd:changeOverNightType",
-      "jsonrpc": "2.0",
-      "version": "2.0",
-      "params": {
-            "code": "3428656c824f43b985f003ee83660c5d",
-            "type": 0
-      }
+  "id": 5,
+  "method": "cfd:changeOverNightType",
+  "jsonrpc": "2.0",
+  "version": "2.0",
+  "params": {
+    "code": "3428656c824f43b985f003ee83660c5d",
+    "type": 0
+  }
 }
 ```
 
@@ -2853,17 +2857,17 @@ change over night status
 
 ```json
 {
-      "jsonrpc": "2.0",
-      "id": 5,
-      "result": {
-            "message": "Success",
-            "time": "2022-07-06 17:44:07",
-            "code": 0,
-            "tid": null,
-            "data": {
-                  "code": 0
-            }
-      }
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "message": "Success",
+    "time": "2022-07-06 17:44:07",
+    "code": 0,
+    "tid": null,
+    "data": {
+      "code": 0
+    }
+  }
 }
 ```
 
@@ -2895,20 +2899,20 @@ change target profit and stop loss
 
 ```json
 {
-      "id": 5,
-      "method": "cfd:changeTargetProfitAndStopLoss",
-      "jsonrpc": "2.0",
-      "version": "2.0",
-      "params": {
-            "profitAndStopLoss": {
-                  "code": "3428656c824f43b985f003ee83660c5d",
-                  "targetProfit": 24000,
-                  "stopLoss": 19000,
-                  "targetProfitRatio": 20,
-                  "stopLossRatio": 20
-                      
-            }
-      }
+  "id": 5,
+  "method": "cfd:changeTargetProfitAndStopLoss",
+  "jsonrpc": "2.0",
+  "version": "2.0",
+  "params": {
+    "profitAndStopLoss": {
+      "code": "3428656c824f43b985f003ee83660c5d",
+      "targetProfit": 24000,
+      "stopLoss": 19000,
+      "targetProfitRatio": 20,
+      "stopLossRatio": 20
+
+    }
+  }
 }
 ```
 
@@ -2924,17 +2928,17 @@ change target profit and stop loss
 
 ```json
 {
-      "jsonrpc": "2.0",
-      "id": 5,
-      "result": {
-            "message": "Success",
-            "time": "2022-07-06 17:53:48",
-            "code": 0,
-            "tid": null,
-            "data": {
-                  "code": 0
-            }
-      }
+  "jsonrpc": "2.0",
+  "id": 5,
+  "result": {
+    "message": "Success",
+    "time": "2022-07-06 17:53:48",
+    "code": 0,
+    "tid": null,
+    "data": {
+      "code": 0
+    }
+  }
 }
 ```
 
@@ -4612,13 +4616,13 @@ Change leverage for specific symbol. Margin will be adjusted if there is open po
 
 ```json
 {
-    "id":12,
-    "method":"contracts:positionSetLeverage",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "leverage":1
-    }
+  "id":12,
+  "method":"contracts:positionSetLeverage",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "leverage":1
+  }
 }
 ```
 
@@ -4634,12 +4638,12 @@ Change leverage for specific symbol. Margin will be adjusted if there is open po
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":12,
-    "result":{
-        "code":0,
-        "msg":"success"
-    }
+  "jsonrpc":"2.0",
+  "id":12,
+  "result":{
+    "code":0,
+    "msg":"success"
+  }
 }
 ```
 | Field   | Description                  | Data Type           |
@@ -4663,13 +4667,13 @@ Change margin of open position.
 
 ```json
 {
-    "id":12,
-    "method":"contracts:positionChangeMargin",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "margin":0.1
-    }
+  "id":12,
+  "method":"contracts:positionChangeMargin",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "margin":0.1
+  }
 }
 ```
 
@@ -4685,12 +4689,12 @@ Change margin of open position.
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":12,
-    "result":{
-      "code":0,
-      "msg":"success"
-    }
+  "jsonrpc":"2.0",
+  "id":12,
+  "result":{
+    "code":0,
+    "msg":"success"
+  }
 }
 ```
 | Field   | Description                  | Data Type           |
@@ -4715,13 +4719,13 @@ Change risk level for symbol.
 
 ```json
 {
-    "id":12,
-    "method":"contracts:positionSetRiskLevel",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "riskLevel":5
-    }
+  "id":12,
+  "method":"contracts:positionSetRiskLevel",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "riskLevel":5
+  }
 }
 ```
 
@@ -4737,12 +4741,12 @@ Change risk level for symbol.
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":12,
-    "result":{
-        "code":0,
-        "msg":"success"
-    }
+  "jsonrpc":"2.0",
+  "id":12,
+  "result":{
+    "code":0,
+    "msg":"success"
+  }
 }
 ```
 | Field   | Description                  | Data Type           |
@@ -4787,10 +4791,10 @@ Get detailed market trading info about the trading symbol
 
 ```json
 {
-    "id":22,
-    "method":"spotsKline:meta",
-    "jsonrpc":"2.0",
-    "params":{}
+  "id":22,
+  "method":"spotsKline:meta",
+  "jsonrpc":"2.0",
+  "params":{}
 }
 ```
 
@@ -4808,62 +4812,62 @@ Get detailed market trading info about the trading symbol
 
 ```json
 {
-    "result":{
-        "spotsSymbols":[
-            {
-                "supportMarginTrade":true,
-                "hidden":false,
-                "displayOrder":0,
-                "derivative":false,
-                "baseMinimumIncrement":0.00001,
-                "quoteScale":2,
-                "orderBookAccuracy":"0,0.1,0.01",
-                "alwaysChargeQuote":true,
-                "baseScale":5,
-                "zone":"MAIN",
-                "quoteMinimumIncrement":0.01,
-                "name":"BTC_USDT",
-                "baseMaximumQuantity":10000,
-                "baseMinimumQuantity":0.00001,
-                "id":100105,
-                "endTime":4083840000000,
-                "openTime":1648818928000,
-                "baseName":"BTC",
-                "quoteName":"USDT"
-            }
-        ],
-        "spotsCurrencies":[
-            "BTC",
-            "ETH",
-            "USDT"
-        ],
-        "currencies":[
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"BNB",
-                "displayOrder":0,
-                "derivative":false,
-                "id":115,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            },
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"USDT",
-                "displayOrder":3,
-                "derivative":false,
-                "id":105,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            }
-        ]
-    },
-    "id":22,
-    "jsonrpc":"2.0"
+  "result":{
+    "spotsSymbols":[
+      {
+        "supportMarginTrade":true,
+        "hidden":false,
+        "displayOrder":0,
+        "derivative":false,
+        "baseMinimumIncrement":0.00001,
+        "quoteScale":2,
+        "orderBookAccuracy":"0,0.1,0.01",
+        "alwaysChargeQuote":true,
+        "baseScale":5,
+        "zone":"MAIN",
+        "quoteMinimumIncrement":0.01,
+        "name":"BTC_USDT",
+        "baseMaximumQuantity":10000,
+        "baseMinimumQuantity":0.00001,
+        "id":100105,
+        "endTime":4083840000000,
+        "openTime":1648818928000,
+        "baseName":"BTC",
+        "quoteName":"USDT"
+      }
+    ],
+    "spotsCurrencies":[
+      "BTC",
+      "ETH",
+      "USDT"
+    ],
+    "currencies":[
+      {
+        "hidden":false,
+        "depositOpenTime":0,
+        "name":"BNB",
+        "displayOrder":0,
+        "derivative":false,
+        "id":115,
+        "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
+        "withdrawOpenTime":0,
+        "displayScale":8
+      },
+      {
+        "hidden":false,
+        "depositOpenTime":0,
+        "name":"USDT",
+        "displayOrder":3,
+        "derivative":false,
+        "id":105,
+        "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
+        "withdrawOpenTime":0,
+        "displayScale":8
+      }
+    ]
+  },
+  "id":22,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -4930,11 +4934,11 @@ Get spots trading pair info about price, volume, symbol name.
 
 ```json
 {
-    "id": 23,
-    "method": "spotsKline:spotsList",
-    "jsonrpc": "2.0",
-    "params": {
-    }
+  "id": 23,
+  "method": "spotsKline:spotsList",
+  "jsonrpc": "2.0",
+  "params": {
+  }
 }
 ```
 
@@ -4950,24 +4954,24 @@ Get spots trading pair info about price, volume, symbol name.
 
 ```json
 {
-    "result":[
-        {
-            "volume":"0",
-            "symbolId":100105,
-            "price":0,
-            "name":"BTC_USDT",
-            "changes":0
-        },
-        {
-            "volume":"0",
-            "symbolId":101105,
-            "price":0,
-            "name":"ETH_USDT",
-            "changes":0
-        }
-    ],
-    "id":23,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "volume":"0",
+      "symbolId":100105,
+      "price":0,
+      "name":"BTC_USDT",
+      "changes":0
+    },
+    {
+      "volume":"0",
+      "symbolId":101105,
+      "price":0,
+      "name":"ETH_USDT",
+      "changes":0
+    }
+  ],
+  "id":23,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -4998,12 +5002,12 @@ Get kline info around recent 24h on the fixed symbol
 
 ```json
 {
-    "id":24,
-    "method":"spotsKline:ticker",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"ETH_USDT"
-    }
+  "id":24,
+  "method":"spotsKline:ticker",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"ETH_USDT"
+  }
 }
 ```
 
@@ -5020,23 +5024,23 @@ Get kline info around recent 24h on the fixed symbol
 
 ```json
 {
-    "result":{
-        "symbol":"ETH_USDT",
-        "data":[
-          1594973040000,		//timestamp
-          9100.8,				//open
-          9109.4,				//high
-          9099.7,				//low
-          9109.4,				//close
-          0.2004,				//amount
-          2.1					//volume
-        ],
-        "type":"TICKER",
-        "sequenceId":"729912",
-        "ts":"1652090424479"
-    },
-    "id":24,
-    "jsonrpc":"2.0"
+  "result":{
+    "symbol":"ETH_USDT",
+    "data":[
+      1594973040000,		//timestamp
+      9100.8,				//open
+      9109.4,				//high
+      9099.7,				//low
+      9109.4,				//close
+      0.2004,				//amount
+      2.1					//volume
+    ],
+    "type":"TICKER",
+    "sequenceId":"729912",
+    "ts":"1652090424479"
+  },
+  "id":24,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5074,12 +5078,12 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 ```json
 {
-    "id":25,
-    "method":"spotsKline:allTicker",
-    "jsonrpc":"2.0",
-    "params":{
+  "id":25,
+  "method":"spotsKline:allTicker",
+  "jsonrpc":"2.0",
+  "params":{
 
-    }
+  }
 }
 ```
 
@@ -5094,25 +5098,25 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 ```json
 {
-    "result":[
-        {
-            "symbol":"BTC_USDT",
-        	"data":[
-        	  1594973040000,		//timestamp
-        	  9100.8,				//open
-        	  9109.4,				//high
-        	  9099.7,				//low
-        	  9109.4,				//close
-        	  0.2004,				//amount
-        	  2.1					//volume
-        	],
-            "type":"TICKER",
-            "sequenceId":"920557",
-            "ts":"1652163323227"
-        }
-    ],
-    "id":25,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "symbol":"BTC_USDT",
+      "data":[
+        1594973040000,		//timestamp
+        9100.8,				//open
+        9109.4,				//high
+        9099.7,				//low
+        9109.4,				//close
+        0.2004,				//amount
+        2.1					//volume
+      ],
+      "type":"TICKER",
+      "sequenceId":"920557",
+      "ts":"1652163323227"
+    }
+  ],
+  "id":25,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5142,12 +5146,12 @@ Get the order book
 
 ```json
 {
-    "id":26,
-    "method":"spotsKline:orderBook",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT"
-    }
+  "id":26,
+  "method":"spotsKline:orderBook",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT"
+  }
 }
 ```
 
@@ -5163,41 +5167,41 @@ Get the order book
 
 ```json
 {
-    "result":{
-        "price":19908.76,
-        "sellOrders":[
-            [
-                19909.45,
-                0.00017,
-                0.00017
-            ],
-            [
-                19914.62,
-                0.18917,
-                0.18934
-            ]
-        ],
-        "buyOrders":[
-            [
-                19895.44,
-                0.06636,
-                0.06636
-            ],
-            [
-                19894.23,
-                0.23152,
-                0.29788000000000003
-            ],
-            [
-                19892.77,
-                0.1756,
-                0.47348
-            ]
-        ],
-        "sequenceId":"28109890"
-    },
-    "id":26,
-    "jsonrpc":"2.0"
+  "result":{
+    "price":19908.76,
+    "sellOrders":[
+      [
+        19909.45,
+        0.00017,
+        0.00017
+      ],
+      [
+        19914.62,
+        0.18917,
+        0.18934
+      ]
+    ],
+    "buyOrders":[
+      [
+        19895.44,
+        0.06636,
+        0.06636
+      ],
+      [
+        19894.23,
+        0.23152,
+        0.29788000000000003
+      ],
+      [
+        19892.77,
+        0.1756,
+        0.47348
+      ]
+    ],
+    "sequenceId":"28109890"
+  },
+  "id":26,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5226,16 +5230,16 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 ```json
 {
-    "id":27,
-    "method":"spotsKline:bars",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "type":"MIN15",
-        "start":0,
-        "end":0,
-        "limit":5
-    }
+  "id":27,
+  "method":"spotsKline:bars",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "type":"MIN15",
+    "start":0,
+    "end":0,
+    "limit":5
+  }
 }
 ```
 
@@ -5254,28 +5258,28 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 ```json
 {
-    "result":[
-        
-        [
-            1652089500000,	//timestamp
-            36476.46,		//open
-            36476.46,		//high
-            36476.42,		//low
-            36476.42,		//close
-            0.00002			//amount
-        ],
-        [
-            1652091300000,
-            36667.42,
-            36667.42,
-            36667.42,
-            36667.42,
-            0.00002
-        ]
+  "result":[
 
+    [
+      1652089500000,	//timestamp
+      36476.46,		//open
+      36476.46,		//high
+      36476.42,		//low
+      36476.42,		//close
+      0.00002			//amount
     ],
-    "id":27,
-    "jsonrpc":"2.0"
+    [
+      1652091300000,
+      36667.42,
+      36667.42,
+      36667.42,
+      36667.42,
+      0.00002
+    ]
+
+  ],
+  "id":27,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5299,14 +5303,14 @@ Get the recent ticks info
 
 ```json
 {
-    "id":28,
-    "method":"spotsKline:ticks",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "limit":1,
-        "sequenceId":0
-    }
+  "id":28,
+  "method":"spotsKline:ticks",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "limit":1,
+    "sequenceId":0
+  }
 }
 ```
 
@@ -5324,20 +5328,20 @@ Get the recent ticks info
 
 ```json
 {
-    "result":[
-        {
-            "data":[
-                1651195258029,
-                0,
-                39885.68,
-                0.00032,
-                0
-            ],
-            "sequenceId":3169352
-        }
-    ],
-    "id":28,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "data":[
+        1651195258029,
+        0,
+        39885.68,
+        0.00032,
+        0
+      ],
+      "sequenceId":3169352
+    }
+  ],
+  "id":28,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5359,13 +5363,13 @@ API Key Permission：Read
 
 ```json
 {
-    "id":29,
-    "method":"spotsKline:orderChanges",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "updateAt":1653537731930
-    }
+  "id":29,
+  "method":"spotsKline:orderChanges",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "updateAt":1653537731930
+  }
 }
 ```
 
@@ -5383,33 +5387,33 @@ API Key Permission：Read
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":29,
-    "result":[
-        {
-            "id":281465252207,
-            "sequenceId":28146525,
-            "userId":10589459,
-            "symbolId":100105,
-            "type":"LIMIT",
-            "status":"FULLY_FILLED",
-            "direction":"SHORT",
-            "fillPrice":19842.33,
-            "price":19842.33,
-            "quantity":0.00046,
-            "unfilledQuantity":0,
-            "makerFeeRate":0.001,
-            "takerFeeRate":0.001,
-            "fee":0.0091274718,
-            "triggerDirection":"LONG",
-            "triggerOn":0,
-            "trailingBasePrice":0,
-            "trailingDistance":0,
-            "clientOrderId":"2022071215c26165c601b011ed8edc",
-            "createAt":1657609421074,
-            "updateAt":1657609421074
-        }
-    ]
+  "jsonrpc":"2.0",
+  "id":29,
+  "result":[
+    {
+      "id":281465252207,
+      "sequenceId":28146525,
+      "userId":10589459,
+      "symbolId":100105,
+      "type":"LIMIT",
+      "status":"FULLY_FILLED",
+      "direction":"SHORT",
+      "fillPrice":19842.33,
+      "price":19842.33,
+      "quantity":0.00046,
+      "unfilledQuantity":0,
+      "makerFeeRate":0.001,
+      "takerFeeRate":0.001,
+      "fee":0.0091274718,
+      "triggerDirection":"LONG",
+      "triggerOn":0,
+      "trailingBasePrice":0,
+      "trailingDistance":0,
+      "clientOrderId":"2022071215c26165c601b011ed8edc",
+      "createAt":1657609421074,
+      "updateAt":1657609421074
+    }
+  ]
 }
 ```
 
@@ -5457,13 +5461,13 @@ API Key Permission：Read
 
 ```json
 {
-    "id": 30,
-    "method": "spotsKline:orderMatches",
-    "jsonrpc": "2.0",
-    "params": {
-        "symbol": "BTC_USDT",
-        "updateAt": 1653537731930
-    }
+  "id": 30,
+  "method": "spotsKline:orderMatches",
+  "jsonrpc": "2.0",
+  "params": {
+    "symbol": "BTC_USDT",
+    "updateAt": 1653537731930
+  }
 }
 ```
 
@@ -5481,22 +5485,22 @@ API Key Permission：Read
 
 ```json
 {
-    "jsonrpc":"2.0",
-    "id":30,
-    "result":[
-        {
-            "id":112058272207,
-            "sequenceId":11205827,
-            "userId":10589459,
-            "symbolId":100105,
-            "orderId":"112057922207",
-            "direction":"LONG",
-            "price":19145.25,
-            "quantity":0.00008,
-            "fee":0.00153162,
-            "createAt":1656605021615
-        }
-    ]
+  "jsonrpc":"2.0",
+  "id":30,
+  "result":[
+    {
+      "id":112058272207,
+      "sequenceId":11205827,
+      "userId":10589459,
+      "symbolId":100105,
+      "orderId":"112057922207",
+      "direction":"LONG",
+      "price":19145.25,
+      "quantity":0.00008,
+      "fee":0.00153162,
+      "createAt":1656605021615
+    }
+  ]
 }
 ```
 
@@ -5534,12 +5538,12 @@ Send ping to check  the service whether available
 
 ```json
 {
-    "id": 31,
-    "method": "spotsKline:ping",
-    "jsonrpc": "2.0",
-    "params": {
-        "ts": 1653537731930
-    }
+  "id": 31,
+  "method": "spotsKline:ping",
+  "jsonrpc": "2.0",
+  "params": {
+    "ts": 1653537731930
+  }
 }
 ```
 
@@ -5554,13 +5558,13 @@ Send ping to check  the service whether available
 
 ```json
 {
-    "result": {
-        "gap": 293585010,
-        "type": "PONG",
-        "ts": 1653831316940
-    },
-    "id": 31,
-    "jsonrpc": "2.0"
+  "result": {
+    "gap": 293585010,
+    "type": "PONG",
+    "ts": 1653831316940
+  },
+  "id": 31,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -5592,12 +5596,12 @@ Send ping to check  the service whether available
 
 ```json
 {
-    "id": 31,
-    "method": "contractsKline:ping",
-    "jsonrpc": "2.0",
-    "params": {
-        "ts": 1653537731930
-    }
+  "id": 31,
+  "method": "contractsKline:ping",
+  "jsonrpc": "2.0",
+  "params": {
+    "ts": 1653537731930
+  }
 }
 ```
 
@@ -5612,13 +5616,13 @@ Send ping to check  the service whether available
 
 ```json
 {
-    "result": {
-        "gap": 293585010,
-        "type": "PONG",
-        "ts": 1653831316940
-    },
-    "id": 31,
-    "jsonrpc": "2.0"
+  "result": {
+    "gap": 293585010,
+    "type": "PONG",
+    "ts": 1653831316940
+  },
+  "id": 31,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -5641,10 +5645,10 @@ Get detailed market trading info about the trading symbol
 
 ```json
 {
-    "id":22,
-    "method":"contractsKline:meta",
-    "jsonrpc":"2.0",
-    "params":{}
+  "id":22,
+  "method":"contractsKline:meta",
+  "jsonrpc":"2.0",
+  "params":{}
 }
 ```
 
@@ -5659,71 +5663,71 @@ Get detailed market trading info about the trading symbol
 
 ```json
 {
-    "result":{
-        "contractsSymbols":[
-            {
-                "id":100105,
-                "name":"BTC_USDT",
-                "endTime":4083840000000,
-                "openTime":1648818928000,
-                "type":"PERPETUAL",
-                "marginCurrency":"BTC",
-                "inverse":false,
-                "liquidateBy":"MARKET_PRICE",
-                "multiplier":0.001,
-                "minimumPriceIncrement":0.001,
-                "priceStep":1,
-                "priceScale":3,
-                "quoteScale":2,
-                "maximumQuantityPerOrder":10000,
-                "riskLimit": {
-                  "id":1,
-                  "initialMarginRate":0.01,
-                  "maintenanceMarginRateStep":0.005,
-                  "maxLeverage":10,
-                  "riskLimitBase":10,
-                  "riskLimitStep":1,
-                  "maxRiskLimitSteps":10,
-                  "createdAt":1652266654968
-                },
-                "settlementFeeRate":0.001,
-                "displayOrder":false,
-                "hidden":false,
-                "zone":"MAIN"
-            }
-        ],
-        "contractsCurrencies":[
-            "BTC",
-            "ETH",
-            "USDT"
-        ],
-        "currencies":[
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"BNB",
-                "displayOrder":0,
-                "derivative":false,
-                "id":115,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            },
-            {
-                "hidden":false,
-                "depositOpenTime":0,
-                "name":"USDT",
-                "displayOrder":3,
-                "derivative":false,
-                "id":105,
-                "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
-                "withdrawOpenTime":0,
-                "displayScale":8
-            }
-        ]
-    },
-    "id":22,
-    "jsonrpc":"2.0"
+  "result":{
+    "contractsSymbols":[
+      {
+        "id":100105,
+        "name":"BTC_USDT",
+        "endTime":4083840000000,
+        "openTime":1648818928000,
+        "type":"PERPETUAL",
+        "marginCurrency":"BTC",
+        "inverse":false,
+        "liquidateBy":"MARKET_PRICE",
+        "multiplier":0.001,
+        "minimumPriceIncrement":0.001,
+        "priceStep":1,
+        "priceScale":3,
+        "quoteScale":2,
+        "maximumQuantityPerOrder":10000,
+        "riskLimit": {
+          "id":1,
+          "initialMarginRate":0.01,
+          "maintenanceMarginRateStep":0.005,
+          "maxLeverage":10,
+          "riskLimitBase":10,
+          "riskLimitStep":1,
+          "maxRiskLimitSteps":10,
+          "createdAt":1652266654968
+        },
+        "settlementFeeRate":0.001,
+        "displayOrder":false,
+        "hidden":false,
+        "zone":"MAIN"
+      }
+    ],
+    "contractsCurrencies":[
+      "BTC",
+      "ETH",
+      "USDT"
+    ],
+    "currencies":[
+      {
+        "hidden":false,
+        "depositOpenTime":0,
+        "name":"BNB",
+        "displayOrder":0,
+        "derivative":false,
+        "id":115,
+        "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/admin/299924555940761600.png",
+        "withdrawOpenTime":0,
+        "displayScale":8
+      },
+      {
+        "hidden":false,
+        "depositOpenTime":0,
+        "name":"USDT",
+        "displayOrder":3,
+        "derivative":false,
+        "id":105,
+        "iconUrl":"https://moole-verify-img-bucket-dev.s3.ap-southeast-1.amazonaws.com/operation/upload/jinhaiyun/295202182851203072.png",
+        "withdrawOpenTime":0,
+        "displayScale":8
+      }
+    ]
+  },
+  "id":22,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5803,11 +5807,11 @@ Get contracts trading pair info about price, volume, symbol name.
 
 ```json
 {
-    "id": 23,
-    "method": "contractsKline:contractsList",
-    "jsonrpc": "2.0",
-    "params": {
-    }
+  "id": 23,
+  "method": "contractsKline:contractsList",
+  "jsonrpc": "2.0",
+  "params": {
+  }
 }
 ```
 
@@ -5822,40 +5826,40 @@ Get contracts trading pair info about price, volume, symbol name.
 
 ```json
 {
-    "result":[
-        {
-            "volume":"0",
-            "symbolId":100105,
-            "price":23124.1,
-            "name":"BTC_USDT",
-            "type":"PERPETUAL",
-            "marginCurrency":"BTC",
-            "leverage":10,
-            "changes":-13.23,
-            "quantity":3,
-            "multiplier":0.001,
-            "priceScale":3,
-            "quantityScale":3,
-            "displayOrder":1
-        },
-        {
-            "volume":"0",
-            "symbolId":101105,
-            "price":1552.20,
-            "name":"ETH_USDT",
-            "type":"PERPETUAL",
-            "marginCurrency":"BTC",
-            "leverage":10,
-            "changes":-1.23,
-            "quantity":2,
-            "multiplier":0.01,
-            "priceScale":2,
-            "quantityScale":2,
-            "displayOrder":1
-        }
-    ],
-    "id":23,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "volume":"0",
+      "symbolId":100105,
+      "price":23124.1,
+      "name":"BTC_USDT",
+      "type":"PERPETUAL",
+      "marginCurrency":"BTC",
+      "leverage":10,
+      "changes":-13.23,
+      "quantity":3,
+      "multiplier":0.001,
+      "priceScale":3,
+      "quantityScale":3,
+      "displayOrder":1
+    },
+    {
+      "volume":"0",
+      "symbolId":101105,
+      "price":1552.20,
+      "name":"ETH_USDT",
+      "type":"PERPETUAL",
+      "marginCurrency":"BTC",
+      "leverage":10,
+      "changes":-1.23,
+      "quantity":2,
+      "multiplier":0.01,
+      "priceScale":2,
+      "quantityScale":2,
+      "displayOrder":1
+    }
+  ],
+  "id":23,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5893,12 +5897,12 @@ Get kline info around recent 24h on the fixed symbol
 
 ```json
 {
-    "id":24,
-    "method":"contractsKline:ticker",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"ETH_USDT"
-    }
+  "id":24,
+  "method":"contractsKline:ticker",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"ETH_USDT"
+  }
 }
 ```
 
@@ -5915,23 +5919,23 @@ Get kline info around recent 24h on the fixed symbol
 
 ```json
 {
-    "result":{
-        "symbol":"ETH_USDT",
-        "data":[
-          1594973040000,		//timestamp
-          9100.8,				//open
-          9109.4,				//high
-          9099.7,				//low
-          9109.4,				//close
-          0.2004,				//amount
-          2.1					//volume
-        ],
-        "type":"TICKER",
-        "sequenceId":"729912",
-        "ts":"1652090424479"
-    },
-    "id":24,
-    "jsonrpc":"2.0"
+  "result":{
+    "symbol":"ETH_USDT",
+    "data":[
+      1594973040000,		//timestamp
+      9100.8,				//open
+      9109.4,				//high
+      9099.7,				//low
+      9109.4,				//close
+      0.2004,				//amount
+      2.1					//volume
+    ],
+    "type":"TICKER",
+    "sequenceId":"729912",
+    "ts":"1652090424479"
+  },
+  "id":24,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -5969,12 +5973,12 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 ```json
 {
-    "id":25,
-    "method":"contractsKline:allTicker",
-    "jsonrpc":"2.0",
-    "params":{
+  "id":25,
+  "method":"contractsKline:allTicker",
+  "jsonrpc":"2.0",
+  "params":{
 
-    }
+  }
 }
 ```
 
@@ -5989,25 +5993,25 @@ The summary of the K-line info, and the frequency is less than 10op/s
 
 ```json
 {
-    "result":[
-        {
-            "symbol":"BTC_USDT",
-        	"data":[
-        	  1594973040000,		//timestamp
-        	  9100.8,				//open
-        	  9109.4,				//high
-        	  9099.7,				//low
-        	  9109.4,				//close
-        	  0.2004,				//amount
-        	  2.1					//volume
-        	],
-            "type":"TICKER",
-            "sequenceId":"920557",
-            "ts":"1652163323227"
-        }
-    ],
-    "id":25,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "symbol":"BTC_USDT",
+      "data":[
+        1594973040000,		//timestamp
+        9100.8,				//open
+        9109.4,				//high
+        9099.7,				//low
+        9109.4,				//close
+        0.2004,				//amount
+        2.1					//volume
+      ],
+      "type":"TICKER",
+      "sequenceId":"920557",
+      "ts":"1652163323227"
+    }
+  ],
+  "id":25,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -6037,12 +6041,12 @@ Get the order book
 
 ```json
 {
-    "id":26,
-    "method":"contractsKline:orderBook",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT"
-    }
+  "id":26,
+  "method":"contractsKline:orderBook",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT"
+  }
 }
 ```
 
@@ -6058,41 +6062,41 @@ Get the order book
 
 ```json
 {
-    "result":{
-        "price":19908.76,
-        "sellOrders":[
-            [
-                19909.45,
-                0.00017,
-                0.00017
-            ],
-            [
-                19914.62,
-                0.18917,
-                0.18934
-            ]
-        ],
-        "buyOrders":[
-            [
-                19895.44,
-                0.06636,
-                0.06636
-            ],
-            [
-                19894.23,
-                0.23152,
-                0.29788000000000003
-            ],
-            [
-                19892.77,
-                0.1756,
-                0.47348
-            ]
-        ],
-        "sequenceId":"28109890"
-    },
-    "id":26,
-    "jsonrpc":"2.0"
+  "result":{
+    "price":19908.76,
+    "sellOrders":[
+      [
+        19909.45,
+        0.00017,
+        0.00017
+      ],
+      [
+        19914.62,
+        0.18917,
+        0.18934
+      ]
+    ],
+    "buyOrders":[
+      [
+        19895.44,
+        0.06636,
+        0.06636
+      ],
+      [
+        19894.23,
+        0.23152,
+        0.29788000000000003
+      ],
+      [
+        19892.77,
+        0.1756,
+        0.47348
+      ]
+    ],
+    "sequenceId":"28109890"
+  },
+  "id":26,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -6121,16 +6125,16 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 ```json
 {
-    "id":27,
-    "method":"contractsKline:bars",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "type":"MIN15",
-        "start":0,
-        "end":0,
-        "limit":5
-    }
+  "id":27,
+  "method":"contractsKline:bars",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "type":"MIN15",
+    "start":0,
+    "end":0,
+    "limit":5
+  }
 }
 ```
 
@@ -6149,28 +6153,28 @@ Get the newest bar info about the fixed trading pair, the interface has no diffe
 
 ```json
 {
-    "result":[
-        
-        [
-            1652089500000,	//timestamp
-            36476.46,		//open
-            36476.46,		//high
-            36476.42,		//low
-            36476.42,		//close
-            0.00002			//amount
-        ],
-        [
-            1652091300000,
-            36667.42,
-            36667.42,
-            36667.42,
-            36667.42,
-            0.00002
-        ]
+  "result":[
 
+    [
+      1652089500000,	//timestamp
+      36476.46,		//open
+      36476.46,		//high
+      36476.42,		//low
+      36476.42,		//close
+      0.00002			//amount
     ],
-    "id":27,
-    "jsonrpc":"2.0"
+    [
+      1652091300000,
+      36667.42,
+      36667.42,
+      36667.42,
+      36667.42,
+      0.00002
+    ]
+
+  ],
+  "id":27,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -6194,14 +6198,14 @@ Get the recent ticks info
 
 ```json
 {
-    "id":28,
-    "method":"contractsKline:ticks",
-    "jsonrpc":"2.0",
-    "params":{
-        "symbol":"BTC_USDT",
-        "limit":1,
-        "sequenceId":0
-    }
+  "id":28,
+  "method":"contractsKline:ticks",
+  "jsonrpc":"2.0",
+  "params":{
+    "symbol":"BTC_USDT",
+    "limit":1,
+    "sequenceId":0
+  }
 }
 ```
 
@@ -6219,20 +6223,20 @@ Get the recent ticks info
 
 ```json
 {
-    "result":[
-        {
-            "data":[
-                1651195258029,
-                0,
-                39885.68,
-                0.00032,
-                0
-            ],
-            "sequenceId":3169352
-        }
-    ],
-    "id":28,
-    "jsonrpc":"2.0"
+  "result":[
+    {
+      "data":[
+        1651195258029,
+        0,
+        39885.68,
+        0.00032,
+        0
+      ],
+      "sequenceId":3169352
+    }
+  ],
+  "id":28,
+  "jsonrpc":"2.0"
 }
 ```
 
@@ -6264,14 +6268,14 @@ This endpoint returns a list of K-lines history data for all public users.
 
 ```json
 {
-    "id": 32,
-    "method": "cfdKline:history",
-    "jsonrpc": "2.0",
-    "params":{
-        "symbol": "btcusdt",
-        "kType": 1,
-        "size": 1
-    }
+  "id": 32,
+  "method": "cfdKline:history",
+  "jsonrpc": "2.0",
+  "params":{
+    "symbol": "btcusdt",
+    "kType": 1,
+    "size": 1
+  }
 }
 ```
 
@@ -6285,25 +6289,25 @@ This endpoint returns a list of K-lines history data for all public users.
 
 ```json
 {
-    "result": {
-        "code": 0,
-        "data": [
-            {
-                "volume": 1.84740664,
-                "amount": 16307.12321434,
-                "high": 31861.83,
-                "low": 31435.82941177,
-                "time": 1653955200,
-                "close": 31728.01882353,
-                "open": 31734.24235294
-            }
-        ],
-        "time": "2022-05-31 19:05:30",
-        "message": "Success",
-        "tid": null
-    },
-    "id": 32,
-    "jsonrpc": "2.0"
+  "result": {
+    "code": 0,
+    "data": [
+      {
+        "volume": 1.84740664,
+        "amount": 16307.12321434,
+        "high": 31861.83,
+        "low": 31435.82941177,
+        "time": 1653955200,
+        "close": 31728.01882353,
+        "open": 31734.24235294
+      }
+    ],
+    "time": "2022-05-31 19:05:30",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 32,
+  "jsonrpc": "2.0"
 }
 ```
 
