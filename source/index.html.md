@@ -2366,9 +2366,7 @@ Get order details
   "jsonrpc": "2.0",
   "version": "2.0",
   "params": {
-    "tradeVO": {
-      "code": "d5c5358530a94e60b28fe515afa25901"
-    }
+    "code": "d5c5358530a94e60b28fe515afa25901"
   }
 }
 ```
@@ -2501,7 +2499,7 @@ create pending orders
   "version": "2.0",
   "params": {
     "order": {
-      "code": "9e3144faf99f4e938cbf27284622523e",
+      "code": "01EX8Y21KBJTFK0JV5J20QPQNR",
       "pendingPrice": 20000,
       "symbol": "btcusdt",
       "leverage": 1,
@@ -2513,15 +2511,15 @@ create pending orders
 }
 ```
 
-| Parameter    | Description                 | Mandatory | Data Type | Value Range                                                 |
-|--------------|-----------------------------|-----------|-----------|-------------------------------------------------------------|
-| code         | Allows to pass in a custom code parameter (optional) | false     | String    | the format must conform to ulid. and the timeframe is now +- 3s within the request                                                          |
-| pendingPrice | pending price               | true      | Decimal   | -                                                           |
-| symbol       | Trading symbol (wildcard inacceptable) | true      | string    | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
-| leverage     | leverage                    | true      | integer   | 1-125                                                       |
-| amount       | The amount to cost to buy other token | true      | Decimal   |                  Decimal                                           |
-| direction    | order direction             | true      | integer   | 0: Buy 1:Sell                                                      |
-| type         | Whether to hold the position overnight | true      | integer   | 0:order does not stay overnight, 1:order overnight                                                      |
+| Parameter    | Description                 | Mandatory | Data Type | Value Range                                                             |
+|--------------|-----------------------------|-----------|-----------|-------------------------------------------------------------------------|
+| code         | Custom code arguments (optional)| false     | String    | **The code parameter format should according to the ULID. And the time range must be within plus or minus 3s** |
+| pendingPrice | pending price               | true      | Decimal   | -                                                                       |
+| symbol       | Trading symbol (wildcard inacceptable) | true      | string    | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd          |
+| leverage     | leverage                    | true      | integer   | 1-125                                                                   |
+| amount       | The amount to cost to buy other token | true      | Decimal   | Decimal                                                                 |
+| direction    | order direction             | true      | integer   | 0: Buy 1:Sell                                                           |
+| type         | Whether to hold the position overnight | true      | integer   | 0:order does not stay overnight, 1:order overnight                      |
 
 **Response Content**:
 
@@ -2538,7 +2536,7 @@ create pending orders
                   "code": 0,
                   "walletName": "contract_usdt",
                   "walletType": "USDT",
-                  "orderCode": "9e3144faf99f4e938cbf27284622523e"
+                  "orderCode": "01EX8Y21KBJTFK0JV5J20QPQNR"
             }
       }
 }
@@ -2593,17 +2591,15 @@ cancel orders
 
 ```json
 {
-      "jsonrpc": "2.0",
-      "id": 5,
-      "result": {
-            "message": "Success",
-            "time": "2022-07-06 17:36:56",
-            "code": 0,
-            "tid": null,
-            "data": {
-                  "code": 0
-            }
-      }
+  "result": {
+    "code": 0,
+    "data": "01GG9JMWPA5T9XSVSREJSD1HB8",
+    "time": "2022-10-26 15:21:02",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 1,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -2641,7 +2637,7 @@ create orders
       "version": "2.0",
       "params": {
             "order": {
-                  "code": "01f0a248c8954430a25bad70176561ef",
+                  "code": "01EX8Y21KBJTFK0JV5J20QPQNR",
                   "symbol": "btcusdt",
                   "leverage": 1,
                   "amount": "2",
@@ -2652,14 +2648,14 @@ create orders
 }
 ```
 
-| Parameter | Description                           | Mandatory | Data Type | Value Range                                                  |
-|-----------|---------------------------------------|-----------|-----------|--------------------------------------------------------------|
-| code      | Allows to pass in a custom code parameter (optional) | false     | string        | the format must conform to ulid. and the timeframe is now +- 3s within the request                                                             |
-| symbol    | Trading symbol (wildcard inacceptable) | true      | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd |
-| leverage  | leverage                               | true      | integer   | 1-125                                                        |
-| amount    | The amount to cost to buy other token  | true      | Decimal   | Decimal                                                      |
-| direction | order direction                        | true      | integer   | 0: Buy 1:Sell                                                |
-| type      | Whether to hold the position overnight                       | true      | integer   | 0:order does not stay overnight, 1:order overnight           |
+| Parameter | Description                           | Mandatory | Data Type | Value Range                                                                            |
+|-----------|---------------------------------------|-----------|-----------|----------------------------------------------------------------------------------------|
+| code      | Custom code arguments (optional) | false     | string        | **The code parameter format should according to the ULID. And the time range must be within plus or minus 3s** |
+| symbol    | Trading symbol (wildcard inacceptable) | true      | string        | btcusd, ltcusd, xrpusd, eosusd, trxusd, adausd, bchusd, etcusd                         |
+| leverage  | leverage                               | true      | integer   | 1-125                                                                                  |
+| amount    | The amount to cost to buy other token  | true      | Decimal   | Decimal                                                                                |
+| direction | order direction                        | true      | integer   | 0: Buy 1:Sell                                                                          |
+| type      | Whether to hold the position overnight                       | true      | integer   | 0:order does not stay overnight, 1:order overnight                                     |
 
 **Response Content**:
 
@@ -2676,7 +2672,7 @@ create orders
       "code": 0,
       "walletName": "contract_usdt",
       "walletType": "USDT",
-      "orderCode": "01f0a248c8954430a25bad70176561ef"
+      "orderCode": "01EX8Y21KBJTFK0JV5J20QPQNR"
     }
   }
 }
@@ -2731,17 +2727,15 @@ settle orders
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 5,
   "result": {
-    "message": "Success",
-    "time": "2022-07-06 17:41:32",
     "code": 0,
-    "tid": null,
-    "data": {
-      "code": 0
-    }
-  }
+    "data": "01GG9JMWPA5T9XSVSREJSD1HB8",
+    "time": "2022-10-26 15:21:02",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 1,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -2793,18 +2787,31 @@ append orders
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 5,
   "result": {
-    "message": "Success",
-    "time": "2022-07-06 19:20:58",
     "code": 0,
-    "tid": null,
     "data": {
-      "code": 0,
-      "appendMarginLog": "{\"account\":\"10119864\",\"appendCharge\":0,\"appendCount\":1,\"appendMargin\":5,\"appendTime\":1657106448875,\"code\":\"facea80b612a4ca6a1c7c0df5c0375be\",\"currency\":\"btcusdt\",\"deviceType\":\"OpenAPI\",\"direction\":0,\"lever\":2.857142,\"stopLoss\":13739.039731,\"strikePrice\":20056.992305,\"targetProfit\":55156.728837,\"walletName\":\"contract_usdt\",\"walletType\":\"USDT\"}"
-    }
-  }
+      "deviceType": "OpenAPI",
+      "code": "42d43a76c3b845e7b6014f60a11bc60c",
+      "appendCharge": 0,
+      "walletType": "USDT",
+      "appendMargin": 5,
+      "lever": 1.142857,
+      "appendCount": 1,
+      "walletName": "contract_usdt",
+      "stopLoss": 4319.180863,
+      "currency": "btcusdt",
+      "appendTime": 1666770351753,
+      "account": "10025940",
+      "strikePrice": 20325.557,
+      "targetProfit": 109249.868875,
+      "direction": 0
+    },
+    "time": "2022-10-26 15:45:55",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 5,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -2857,17 +2864,15 @@ change over night status
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 5,
   "result": {
-    "message": "Success",
-    "time": "2022-07-06 17:44:07",
     "code": 0,
-    "tid": null,
-    "data": {
-      "code": 0
-    }
-  }
+    "data": "01GG9JMWPA5T9XSVSREJSD1HB8",
+    "time": "2022-10-26 15:21:02",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 1,
+  "jsonrpc": "2.0"
 }
 ```
 
@@ -2928,17 +2933,15 @@ change target profit and stop loss
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 5,
   "result": {
-    "message": "Success",
-    "time": "2022-07-06 17:53:48",
     "code": 0,
-    "tid": null,
-    "data": {
-      "code": 0
-    }
-  }
+    "data": "01GG9JMWPA5T9XSVSREJSD1HB8",
+    "time": "2022-10-26 15:21:02",
+    "message": "Success",
+    "tid": null
+  },
+  "id": 1,
+  "jsonrpc": "2.0"
 }
 ```
 
